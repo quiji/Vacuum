@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/dummies/bkg_tiles.png" type="Texture" id=1]
+
+[node name="space_bkg_tiles" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sprite2" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sprite3" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sprite4" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 48, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sprite5" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sprite6" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 80, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sprite7" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 96, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sprite8" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 112, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sprite9" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 128, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sprite10" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 144, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+

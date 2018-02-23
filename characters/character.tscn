@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://characters/character.gd" type="Script" id=1]
+[ext_resource path="res://characters/teo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tools/GroundRaycaster.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/dummies/demo.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 8.06226
+
+[node name="character" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 3
+collision_mask = 3
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
+
+[node name="teo" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 0, -14 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="collision" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
+
+[node name="ground_raycast" parent="." index="2" instance=ExtResource( 3 )]
+
+a = Vector2( -6, 3 )
+b = Vector2( 6, 3 )
+
+[node name="demo" type="Sprite" parent="." index="3"]
+
+visible = false
+position = Vector2( 2, -19 )
+texture = ExtResource( 4 )
+
+

@@ -1,0 +1,184 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://classes/WaterPlatform.gd" type="Script" id=1]
+[ext_resource path="res://tools/Circle.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+render_priority = 0
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 180.0
+
+[sub_resource type="Shader" id=3]
+
+code = "shader_type canvas_item;
+
+uniform float radius = 120.0;
+
+
+void vertex() {
+	UV = VERTEX / (radius * 2.0);
+}
+
+
+void fragment() {
+
+
+	vec2 uv = SCREEN_UV;
+	vec2 local_uv = UV;
+	// Waves
+
+	vec4 c = textureLod(SCREEN_TEXTURE,uv,0.0);
+	float vect_len = length(local_uv);
+	float dist = vect_len / 40.0;
+	if (dist < 0.011) {
+		c.r += dist * 10.0;
+		c.g += dist * 10.0;
+		c.b += dist * 15.0;
+		c.a = 0.6;
+	}
+	else {
+		c.r += dist * 10.0;
+		c.g += dist * 10.0;
+		c.b += dist * 15.0;
+		c.a = 0.9;
+	}
+	
+	COLOR=c;
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id=9]
+
+render_priority = 0
+shader = SubResource( 3 )
+shader_param/radius = null
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Shader" id=8]
+
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float delta = 0.0;
+uniform float radius = 120.0;
+
+
+uniform float frequency=30;
+uniform float depth = 0.005;
+
+uniform float size_x=0.001;
+uniform float size_y=0.001;
+uniform float pixelized_step=0.0018;
+
+void vertex() {
+	UV = VERTEX / (radius * 2.0);
+}
+
+
+void fragment() {
+
+
+	vec2 uv = SCREEN_UV;
+	vec2 local_uv = UV;
+	
+
+
+	// Waves
+	uv.x = clamp(uv.x+sin(local_uv.y*frequency+delta)*depth,0,1);
+	
+	// Pixelated distortion
+	float pixelate_mod = abs(cos(local_uv.x*frequency+delta)*pixelized_step);
+	uv-=mod(uv,vec2(size_x+pixelate_mod,size_y+pixelate_mod));
+
+	//vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb;
+
+	vec4 c = textureLod(SCREEN_TEXTURE,uv,0.0);
+
+	
+	COLOR=c;
+	
+}
+
+"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ShaderMaterial" id=10]
+
+render_priority = 0
+shader = SubResource( 8 )
+shader_param/delta = -1.49999e+06
+shader_param/radius = null
+shader_param/frequency = 30.0
+shader_param/depth = 0.004
+shader_param/size_x = 0.001
+shader_param/size_y = 0.001
+shader_param/pixelized_step = 0.001
+_sections_unfolded = [ "Resource", "shader_param" ]
+
+[node name="water_platform" type="Area2D"]
+
+material = SubResource( 1 )
+input_pickable = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = -1.0
+angular_damp = -1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Pickable" ]
+radius = 150.0
+
+[node name="collision" type="CollisionShape2D" parent="." index="0"]
+
+visible = false
+shape = SubResource( 2 )
+
+[node name="bkg" parent="." index="1" instance=ExtResource( 2 )]
+
+_sections_unfolded = [ "Material" ]
+radius = 150.0
+base_color = Color( 0.10553, 0.427153, 0.710938, 0 )
+border_size = 2.0
+
+[node name="buffer" type="BackBufferCopy" parent="." index="2"]
+
+copy_mode = 2
+rect = Rect2( -120, -120, 240, 240 )
+
+[node name="color_shader" parent="." index="3" instance=ExtResource( 2 )]
+
+material = SubResource( 9 )
+_sections_unfolded = [ "Material" ]
+radius = 150.0
+
+[node name="second_buffer" type="BackBufferCopy" parent="." index="4"]
+
+copy_mode = 2
+rect = Rect2( -100, -100, 200, 200 )
+
+[node name="water_shader" parent="." index="5" instance=ExtResource( 2 )]
+
+material = SubResource( 10 )
+_sections_unfolded = [ "Material" ]
+radius = 153.0
+
+[node name="tween" type="Tween" parent="." index="6"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+
