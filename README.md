@@ -1,2 +1,3 @@
 # Vacuum
-Personal game project.
+Personal project.
+
