@@ -167,7 +167,8 @@ Possible dungeons:
 http://sol.gfxile.net/interpolation/
 https://www.youtube.com/watch?v=mr5xkf6zSzk
 
-
+> Camera Math:
+https://www.youtube.com/watch?v=tu-Qe66AvtY
 
 > Plugins:
 
