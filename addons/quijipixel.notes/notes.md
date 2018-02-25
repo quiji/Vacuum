@@ -163,6 +163,10 @@ Possible dungeons:
 - Asteroid river: Asteroids!!
 
 
+> Interpolation stuff:
+http://sol.gfxile.net/interpolation/
+
+
 > Plugins:
 
 The animation plugin could be an importer. We can create an animation file (json file with different extension) and save the animation as tres file. Then allow the editor to load into an animation player??
