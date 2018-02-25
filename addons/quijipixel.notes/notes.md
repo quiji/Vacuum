@@ -170,6 +170,9 @@ https://www.youtube.com/watch?v=mr5xkf6zSzk
 > Camera Math:
 https://www.youtube.com/watch?v=tu-Qe66AvtY
 
+> Math:
+essentialmath.com
+
 > Plugins:
 
 The animation plugin could be an importer. We can create an animation file (json file with different extension) and save the animation as tres file. Then allow the editor to load into an animation player??
