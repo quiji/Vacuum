@@ -4351,7 +4351,8 @@
     "task.191",
     "task.192",
     "task.193",
-    "task.194"
+    "task.194",
+    "task.196"
   ],
   "pending": {
     "task.113": {
@@ -4675,6 +4676,20 @@
       },
       "task": "Move inversion checking logic. Attempt to liberate child character from the burden of control inversion, and provide API to let character decide if it wants inversion or not",
       "type": "Refactor"
+    },
+    "task.196": {
+      "task": "Implement Generator plugin with the 2D Sprite Animation code.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 2,
+        "day": 28,
+        "weekday": 3,
+        "dst": true,
+        "hour": 14,
+        "minute": 32,
+        "second": 33
+      }
     }
   }
 }
