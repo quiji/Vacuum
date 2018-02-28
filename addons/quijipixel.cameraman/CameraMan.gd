@@ -31,11 +31,11 @@ func _ready():
 	#camera.drag_margin_h_enabled = false
 	#camera.drag_margin_v_enabled = false
 	
-	camera.smoothing_enabled = true
-	camera.drag_margin_top = 0.4
-	camera.drag_margin_bottom = 0
-	camera.drag_margin_right = 0.2
-	camera.drag_margin_left = 0.2
+	#camera.smoothing_enabled = true
+	#camera.drag_margin_top = 0.4
+	#camera.drag_margin_bottom = 0
+	#camera.drag_margin_right = 0.2
+	#camera.drag_margin_left = 0.2
 	
 	add_child(camera)
 	Glb.set_current_camera_man(self)

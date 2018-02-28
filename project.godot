@@ -12,7 +12,7 @@ config_version=3
 
 debug_mode=true
 start_date="9 Jan 2018"
-patch=17
+patch=18
 minor=70
 major=0
 
