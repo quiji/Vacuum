@@ -4,7 +4,13 @@
       "name": "Test",
       "spritesheet": "res://assets/sprites/player.png",
       "sprite_width": 42,
-      "sprite_height": 50
+      "sprite_height": 50,
+      "animations": {
+        "test": {
+        },
+        "Gato": {
+        }
+      }
     },
     "SpriteAnim2D.26": {
       "name": "Other",
