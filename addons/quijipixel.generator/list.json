@@ -1,8 +1,15 @@
 {
   "generators": {
     "SpriteAnim2D.0": {
-      "name": "Test"
+      "name": "Test",
+      "spritesheet": "res://assets/sprites/player.png",
+      "sprite_width": 42,
+      "sprite_height": 50
+    },
+    "SpriteAnim2D.26": {
+      "name": "Other",
+      "spritesheet": "res://assets/sprites/player.png"
     }
   },
-  "last_id": 26
+  "last_id": 27
 }

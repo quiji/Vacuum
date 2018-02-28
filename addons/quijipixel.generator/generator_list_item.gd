@@ -6,7 +6,7 @@ signal remove_item
 
 var _id = ""
 
-func set_data(item_id, item_name, edit=false):
+func set_data(item_id, item_name):
 	var col = ""
 
 	var type_name = ''
@@ -37,7 +37,11 @@ func disappear():
 	get_node("tween").interpolate_property(get_node("checkbox"), "custom_colors/font_color", col, col_end, 0.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	get_node("tween").start()
 
+func is_checked():
+	return $checkbox.pressed
 
+func toggle_item():
+	$checkbox.pressed = not $checkbox.pressed
 
 func _on_edit_button_pressed():
 	emit_signal("edit_item", self, _id)

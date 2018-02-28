@@ -64,6 +64,7 @@ align = 1
 
 [node name="generators" type="MarginContainer" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -158,7 +159,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="run_all_button" type="Button" parent="footer/button_list" index="0"]
+[node name="run_marked_button" type="Button" parent="footer/button_list" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -177,13 +178,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Run All Generators"
+text = "Run Marked"
 flat = false
 align = 1
 
-[node name="run_selected_button" type="Button" parent="footer/button_list" index="1"]
+[node name="mark_all_button" type="Button" parent="footer/button_list" index="1"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -202,32 +202,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Run Selected Generator"
-flat = false
-align = 1
-
-[node name="edit_selected_button" type="Button" parent="footer/button_list" index="2"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 24.0
-margin_right = 620.0
-margin_bottom = 44.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Edit Selected Generator"
+text = "Mark All"
 flat = false
 align = 1
 
@@ -426,6 +401,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 83.0
 margin_bottom = 58.0
+rect_min_size = Vector2( 200, 70 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -440,9 +416,9 @@ _sections_unfolded = [ "Dialog" ]
 
 [connection signal="pressed" from="header/add_generator_button" to="." method="_on_add_generator_button_pressed"]
 
-[connection signal="pressed" from="footer/button_list/run_selected_button" to="." method="_on_run_selected_button_pressed"]
+[connection signal="pressed" from="footer/button_list/run_marked_button" to="." method="_on_run_marked_button_pressed"]
 
-[connection signal="pressed" from="footer/button_list/edit_selected_button" to="." method="_on_edit_selected_button_pressed"]
+[connection signal="pressed" from="footer/button_list/mark_all_button" to="." method="_on_mark_all_button_pressed"]
 
 [connection signal="pressed" from="create_dialog/create_button" to="." method="_on_create_button_pressed"]
 

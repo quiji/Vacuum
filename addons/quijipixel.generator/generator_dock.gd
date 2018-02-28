@@ -70,25 +70,17 @@ func save_list_to_file():
 
 func update_list(id=null):
 	if id != null:
-		add_item(id, list.generators[id].name, true)
+		add_item(id, list.generators[id].name)
+		_on_edit_item(null, id)
 	else:
 		clear_items()
 		
 		for key in list.generators:
 			add_item(key, list.generators[key].name)
 
-
-func _on_run_selected_button_pressed():
-	pass
-
-
-func _on_edit_selected_button_pressed():
-
-	pass
-
-func add_item(item_id, item_name, edit=false):
+func add_item(item_id, item_name):
 	var checkbox = preload("res://addons/quijipixel.generator/generator_list_item.tscn").instance()
-	checkbox.set_data(item_id, item_name, edit)
+	checkbox.set_data(item_id, item_name)
 
 	checkbox.connect("edit_item", self, "_on_edit_item")
 	checkbox.connect("remove_item", self, "_on_remove_item")
@@ -100,7 +92,14 @@ func clear_items():
 	    child.queue_free()
 
 func _on_edit_item(obj, id):
-	pass
+	var type = id.split(".")[0]
+	match type:
+		"SpriteAnim2D":
+			var editor = load("res://addons/quijipixel.generator/editors/spriteanim2d_editor.tscn").instance()
+			add_child(editor)
+
+			editor.popup_centered()
+			editor.edit_generator(id)
 
 var _removing_obj = null
 var _removing_id = null
@@ -116,3 +115,19 @@ func _on_accept_remove_dialog_confirmed():
 		list.generators.erase(_removing_id)
 		save_list_to_file()
 		_removing_obj = null
+
+
+func _on_mark_all_button_pressed():
+	for child in $generators/scroll_container/list_container.get_children():
+	    child.toggle_item()
+
+
+func _on_run_marked_button_pressed():
+
+	for child in $generators/scroll_container/list_container.get_children():
+		if child.is_checked():
+			run_generator(child._id)
+
+func run_generator(id):
+	pass
+

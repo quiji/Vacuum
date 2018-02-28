@@ -37,7 +37,7 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "quijipixel.cameraman", "quijipixel.center_of_mass", "quijipixel.console", "quijipixel.notes", "quijipixel.todo" )
+enabled=PoolStringArray( "quijipixel.cameraman", "quijipixel.center_of_mass", "quijipixel.console", "quijipixel.generator", "quijipixel.notes", "quijipixel.todo" )
 
 [gdnative]
 
