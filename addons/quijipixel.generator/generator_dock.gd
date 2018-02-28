@@ -102,8 +102,17 @@ func clear_items():
 func _on_edit_item(obj, id):
 	pass
 
+var _removing_obj = null
+var _removing_id = null
 func _on_remove_item(obj, id):
-	obj.disappear()
-	list.generators.erase(id)
-	save_list_to_file()
+	$accept_remove_dialog.dialog_text = "Are you sure you want to remove '" + list.generators[id].name + "'?"
+	$accept_remove_dialog.popup_centered()
+	_removing_obj = obj
+	_removing_id = id
 
+func _on_accept_remove_dialog_confirmed():
+	if _removing_obj != null:
+		_removing_obj.disappear()
+		list.generators.erase(_removing_id)
+		save_list_to_file()
+		_removing_obj = null

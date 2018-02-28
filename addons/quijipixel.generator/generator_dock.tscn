@@ -417,6 +417,27 @@ caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
 
+[node name="accept_remove_dialog" type="ConfirmationDialog" parent="." index="4"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 83.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Alert!"
+resizable = false
+dialog_hide_on_ok = true
+_sections_unfolded = [ "Dialog" ]
+
 [connection signal="pressed" from="header/add_generator_button" to="." method="_on_add_generator_button_pressed"]
 
 [connection signal="pressed" from="footer/button_list/run_selected_button" to="." method="_on_run_selected_button_pressed"]
@@ -426,5 +447,7 @@ caret_position = 0
 [connection signal="pressed" from="create_dialog/create_button" to="." method="_on_create_button_pressed"]
 
 [connection signal="pressed" from="create_dialog/cancel_button" to="." method="_on_cancel_button_pressed"]
+
+[connection signal="confirmed" from="accept_remove_dialog" to="." method="_on_accept_remove_dialog_confirmed"]
 
 

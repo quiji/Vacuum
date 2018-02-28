@@ -2,12 +2,6 @@
   "generators": {
     "SpriteAnim2D.0": {
       "name": "Test"
-    },
-    "SpriteAnim2D.2": {
-      "name": "Increasing tests"
-    },
-    "SpriteAnim2D.25": {
-      "name": "Other1!!"
     }
   },
   "last_id": 26
