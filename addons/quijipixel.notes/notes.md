@@ -25,9 +25,9 @@ https://www.youtube.com/watch?v=o6rpEjyoOHw
 Check all this design stuff from Hollow Knight!
 http://mossbag69.blogspot.com/2018/02/hollow-knight-cut-content.html
 
-> Design
+> Some Camera stuff:
 
-Systemic design!! : https://www.youtube.com/watch?v=SnpAAX9CkIc
+https://www.youtube.com/watch?v=pdvCO97jOQk
 
 > Music Notes
 
@@ -132,6 +132,11 @@ Must be a tutorial. Make it feel like the character knows what she/he is doing. 
 
 The player starts at the interior of the ship, and moves out. Letting them feel the controls.
 
+Systemic design!! : https://www.youtube.com/watch?v=SnpAAX9CkIc
+
+Celeste's level design!: https://www.youtube.com/watch?v=4RlpMhBKNr0&t=1019s
+
+
 > Dungeons??
 Maybe there are big abandoned ships who serve as "zelda dungeons" (not with the template stuff, just the idea).
 They could be places where the gravity engine cannot be used. This makes it possible to create "dungeons" a la Zelda style, 
@@ -172,6 +177,11 @@ https://www.youtube.com/watch?v=tu-Qe66AvtY
 
 > Math:
 essentialmath.com
+
+> Sound Design:
+
+Sound stuff:
+https://www.youtube.com/watch?v=Vjm--AqG04Y
 
 > Plugins:
 
