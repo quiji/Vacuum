@@ -1,1 +1,4680 @@
-{"comp_order":["task.0","task.1","task.2","task.10","task.12","task.3","task.9","task.14","task.15","task.13","task.16","task.5","task.4","task.18","task.20","task.22","task.21","task.11","task.19","task.29","task.25","task.27","task.35","task.32","task.31","task.36","task.37","task.38","task.34","task.39","task.33","task.30","task.41","task.40","task.42","task.23","task.7","task.43","task.45","task.6","task.50","task.54","task.57","task.56","task.58","task.24","task.26","task.60","task.52","task.62","task.17","task.65","task.64","task.49","task.66","task.67","task.47","task.69","task.48","task.71","task.73","task.74","task.76","task.72","task.46","task.77","task.79","task.78","task.81","task.80","task.82","task.83","task.86","task.8","task.88","task.89","task.95","task.96","task.94","task.98","task.97","task.90","task.100","task.99","task.101","task.93","task.92","task.91","task.70","task.103","task.84","task.63","task.28","task.105","task.106","task.104","task.107","task.108","task.109","task.102","task.112","task.111","task.110","task.117","task.115","task.116","task.118","task.119","task.123","task.122","task.121","task.87","task.126","task.129","task.130","task.128","task.131","task.127","task.120","task.137","task.140","task.138","task.141","task.143","task.142","task.145","task.144","task.139","task.132","task.148","task.149","task.150","task.151","task.61","task.156","task.157","task.146","task.59","task.160","task.153","task.159","task.162","task.44","task.124","task.163","task.170","task.171","task.172","task.168","task.174","task.167","task.175","task.133","task.173","task.169","task.180","task.179","task.178","task.165","task.125","task.164","task.154","task.182","task.183","task.185","task.181","task.166","task.158","task.184","task.188","task.187","task.147","task.191"],"completed":{"task.0":{"completion_date":{"day":12,"dst":true,"hour":21,"minute":19,"month":1,"second":22,"weekday":5,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":15,"month":1,"second":26,"weekday":5,"year":2018},"task":"Implement gravity_shapes node for platforms","type":"Task"},"task.1":{"completion_date":{"day":12,"dst":true,"hour":21,"minute":19,"month":1,"second":38,"weekday":5,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":15,"month":1,"second":37,"weekday":5,"year":2018},"task":"Rect Platform","type":"Feature"},"task.10":{"completion_date":{"day":13,"dst":true,"hour":12,"minute":15,"month":1,"second":3,"weekday":6,"year":2018},"creation_date":{"day":13,"dst":true,"hour":9,"minute":29,"month":1,"second":51,"weekday":6,"year":2018},"task":"Sometimes on the circle platform its impossible to jump. Has to do with \"loosing ground\" for a second because of the shape.","type":"Bug"},"task.100":{"completion_date":{"day":29,"dst":true,"hour":18,"minute":23,"month":1,"second":8,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":17,"minute":58,"month":1,"second":11,"weekday":1,"year":2018},"task":"Raycasting against different gravity_center might block the gravity change as movement is prevented and body don't trigger collision","type":"Bug"},"task.101":{"completion_date":{"day":29,"dst":true,"hour":19,"minute":55,"month":1,"second":20,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":18,"minute":24,"month":1,"second":34,"weekday":1,"year":2018},"task":"Movement using the new ground raycasting is not smooth along the lines","type":"Bug"},"task.102":{"completion_date":{"day":30,"dst":true,"hour":18,"minute":32,"month":1,"second":59,"weekday":2,"year":2018},"creation_date":{"day":29,"dst":true,"hour":19,"minute":56,"month":1,"second":35,"weekday":1,"year":2018},"task":"When character collides with new gravity center with 90 degrees, sometimes changing gravity center fails.","type":"Bug"},"task.103":{"completion_date":{"day":29,"dst":true,"hour":20,"minute":12,"month":1,"second":32,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":20,"minute":4,"month":1,"second":39,"weekday":1,"year":2018},"task":"Clean character and Character code.","type":"Task"},"task.104":{"completion_date":{"day":29,"dst":true,"hour":21,"minute":4,"month":1,"second":54,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":20,"minute":57,"month":1,"second":48,"weekday":1,"year":2018},"task":"ToDo: keep track of changes into minor, minor, patch version control","type":"Feature"},"task.105":{"completion_date":{"day":29,"dst":true,"hour":21,"minute":4,"month":1,"second":29,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":21,"minute":4,"month":1,"second":16,"weekday":1,"year":2018},"task":"Test bug","type":"Bug"},"task.106":{"completion_date":{"day":29,"dst":true,"hour":21,"minute":4,"month":1,"second":30,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":21,"minute":4,"month":1,"second":26,"weekday":1,"year":2018},"task":"Test feature","type":"Feature"},"task.107":{"completion_date":{"day":29,"dst":true,"hour":21,"minute":7,"month":1,"second":16,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":21,"minute":7,"month":1,"second":13,"weekday":1,"year":2018},"task":"test","type":"Task"},"task.108":{"completion_date":{"day":29,"dst":true,"hour":21,"minute":13,"month":1,"second":9,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":21,"minute":10,"month":1,"second":27,"weekday":1,"year":2018},"task":"test","type":"Task"},"task.109":{"completion_date":{"day":29,"dst":true,"hour":21,"minute":13,"month":1,"second":29,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":21,"minute":13,"month":1,"second":27,"weekday":1,"year":2018},"task":"test","type":"Bug"},"task.11":{"completion_date":{"day":14,"dst":true,"hour":20,"minute":48,"month":1,"second":3,"weekday":0,"year":2018},"creation_date":{"day":13,"dst":true,"hour":11,"minute":23,"month":1,"second":21,"weekday":6,"year":2018},"task":"When character is standing on triangle vertex the ground raycast fails and character cannot jump","type":"Bug"},"task.110":{"completion_date":{"day":30,"dst":true,"hour":19,"minute":30,"month":1,"second":48,"weekday":2,"year":2018},"creation_date":{"day":30,"dst":true,"hour":18,"minute":40,"month":1,"second":49,"weekday":2,"year":2018},"task":"Make platform react to players smash jump. Test for gameplay stuff.","type":"Feature"},"task.111":{"completion_date":{"day":30,"dst":true,"hour":19,"minute":5,"month":1,"second":27,"weekday":2,"year":2018},"creation_date":{"day":30,"dst":true,"hour":18,"minute":41,"month":1,"second":23,"weekday":2,"year":2018},"task":"Transform all kinematicbody platforms into rigid","type":"Task"},"task.112":{"completion_date":{"day":30,"dst":true,"hour":19,"minute":5,"month":1,"second":22,"weekday":2,"year":2018},"creation_date":{"day":30,"dst":true,"hour":18,"minute":44,"month":1,"second":52,"weekday":2,"year":2018},"task":"Move KB constants to Glb.","type":"Refactor"},"task.115":{"completion_date":{"day":31,"dst":true,"hour":17,"minute":26,"month":1,"second":48,"weekday":3,"year":2018},"creation_date":{"day":30,"dst":true,"hour":20,"minute":31,"month":1,"second":28,"weekday":2,"year":2018},"task":"Modify character to change movement patterns when in water platform.","type":"Feature"},"task.116":{"completion_date":{"day":31,"dst":true,"hour":17,"minute":26,"month":1,"second":57,"weekday":3,"year":2018},"creation_date":{"day":30,"dst":true,"hour":20,"minute":31,"month":1,"second":50,"weekday":2,"year":2018},"task":"Change characters ground_gravity schemes when working with water platforms.","type":"Feature"},"task.117":{"completion_date":{"day":31,"dst":true,"hour":17,"minute":26,"month":1,"second":38,"weekday":3,"year":2018},"creation_date":{"day":30,"dst":true,"hour":20,"minute":32,"month":1,"second":14,"weekday":2,"year":2018},"task":"Consider using Area2D for water platforms.","type":"Remainder"},"task.118":{"completion_date":{"day":31,"dst":true,"hour":17,"minute":27,"month":1,"second":3,"weekday":3,"year":2018},"creation_date":{"day":31,"dst":true,"hour":15,"minute":24,"month":1,"second":43,"weekday":3,"year":2018},"task":"Change Body logic, try using an external node to add body funcionality","type":"Refactor"},"task.119":{"completion_date":{"day":31,"dst":true,"hour":17,"minute":27,"month":1,"second":6,"weekday":3,"year":2018},"creation_date":{"day":31,"dst":true,"hour":15,"minute":30,"month":1,"second":51,"weekday":3,"year":2018},"task":"Create singleton for global vector/math logic.","type":"Refactor"},"task.12":{"completion_date":{"day":13,"dst":true,"hour":13,"minute":42,"month":1,"second":11,"weekday":6,"year":2018},"creation_date":{"day":13,"dst":true,"hour":13,"minute":26,"month":1,"second":47,"weekday":6,"year":2018},"task":"Move gravity shape code from inherited Platform into base class for multishapes usage.","type":"Task"},"task.120":{"completion_date":{"day":1,"dst":true,"hour":22,"minute":3,"month":2,"second":17,"weekday":4,"year":2018},"creation_date":{"day":31,"dst":true,"hour":16,"minute":58,"month":1,"second":9,"weekday":3,"year":2018},"task":"Implement open space node and add logic to Character to find given node.","type":"Task"},"task.121":{"completion_date":{"day":31,"dst":true,"hour":18,"minute":33,"month":1,"second":5,"weekday":3,"year":2018},"creation_date":{"day":31,"dst":true,"hour":17,"minute":28,"month":1,"second":0,"weekday":3,"year":2018},"task":"Implement open space state: Allowing for water and gravity changes ","type":"Feature"},"task.122":{"completion_date":{"day":31,"dst":true,"hour":18,"minute":32,"month":1,"second":57,"weekday":3,"year":2018},"creation_date":{"day":31,"dst":true,"hour":17,"minute":28,"month":1,"second":24,"weekday":3,"year":2018},"task":"Implement water exit for character into open space or into gravity.","type":"Task"},"task.123":{"completion_date":{"day":31,"dst":true,"hour":17,"minute":42,"month":1,"second":46,"weekday":3,"year":2018},"creation_date":{"day":31,"dst":true,"hour":17,"minute":32,"month":1,"second":15,"weekday":3,"year":2018},"task":"Change movement for water controls (using up, down, left and right)","type":"Task"},"task.124":{"completion_date":{"day":7,"dst":true,"hour":11,"minute":48,"month":2,"second":18,"weekday":3,"year":2018},"creation_date":{"day":31,"dst":true,"hour":17,"minute":43,"month":1,"second":51,"weekday":3,"year":2018},"task":"Add sensivlity to swim button (just like jump)","type":"Feature"},"task.125":{"completion_date":{"day":11,"dst":true,"hour":4,"minute":8,"month":2,"second":28,"weekday":0,"year":2018},"creation_date":{"day":31,"dst":true,"hour":17,"minute":52,"month":1,"second":42,"weekday":3,"year":2018},"task":"When changin direction on water, if the _normal.dot(_target_normal) is -1 then rotation is too slow.","type":"Bug"},"task.126":{"completion_date":{"day":31,"dst":true,"hour":19,"minute":17,"month":1,"second":10,"weekday":3,"year":2018},"creation_date":{"day":31,"dst":true,"hour":18,"minute":35,"month":1,"second":50,"weekday":3,"year":2018},"task":"Add movement to water platform's surface. React to collisions","type":"Feature"},"task.127":{"completion_date":{"day":1,"dst":true,"hour":21,"minute":49,"month":2,"second":31,"weekday":4,"year":2018},"creation_date":{"day":31,"dst":true,"hour":18,"minute":43,"month":1,"second":42,"weekday":3,"year":2018},"task":"Add movement to water platform's surface. React to character leaving by jump.","type":"Feature"},"task.128":{"completion_date":{"day":1,"dst":true,"hour":21,"minute":8,"month":2,"second":21,"weekday":4,"year":2018},"creation_date":{"day":31,"dst":true,"hour":19,"minute":18,"month":1,"second":23,"weekday":3,"year":2018},"task":"Change surface logic for water platforms. Look out the two closest points and move the ones around it.","type":"Refactor"},"task.129":{"completion_date":{"day":1,"dst":true,"hour":19,"minute":30,"month":2,"second":24,"weekday":4,"year":2018},"creation_date":{"day":31,"dst":true,"hour":19,"minute":22,"month":1,"second":38,"weekday":3,"year":2018},"task":"Create polygon from circle instead of defining collision shape in the water_platforms. Add radius value.","type":"Refactor"},"task.13":{"completion_date":{"day":13,"dst":true,"hour":17,"minute":30,"month":1,"second":56,"weekday":6,"year":2018},"creation_date":{"day":13,"dst":true,"hour":15,"minute":26,"month":1,"second":4,"weekday":6,"year":2018},"task":"Test platforms using normals with the base_gravity_direction versus gravity","type":"Task"},"task.130":{"completion_date":{"day":1,"dst":true,"hour":21,"minute":8,"month":2,"second":8,"weekday":4,"year":2018},"creation_date":{"day":1,"dst":true,"hour":19,"minute":32,"month":2,"second":6,"weekday":4,"year":2018},"task":"Change wave logic for water platforms. Look for closest entry point and reorganice movement for the other points.","type":"Refactor"},"task.131":{"completion_date":{"day":1,"dst":true,"hour":21,"minute":15,"month":2,"second":17,"weekday":4,"year":2018},"creation_date":{"day":1,"dst":true,"hour":21,"minute":8,"month":2,"second":57,"weekday":4,"year":2018},"task":"Add some velocity pull towards center when character enters water to avoid weird out of water bug.","type":"Bug"},"task.132":{"completion_date":{"day":4,"dst":true,"hour":0,"minute":6,"month":2,"second":37,"weekday":0,"year":2018},"creation_date":{"day":1,"dst":true,"hour":21,"minute":50,"month":2,"second":27,"weekday":4,"year":2018},"task":"When water surface on water platform passes boundaries of shape, polygon collision stops working and area fails. Add movement limits within the shape for the surface movement.","type":"Bug"},"task.133":{"completion_date":{"day":10,"dst":true,"hour":11,"minute":6,"month":2,"second":48,"weekday":6,"year":2018},"creation_date":{"day":1,"dst":true,"hour":21,"minute":51,"month":2,"second":0,"weekday":4,"year":2018},"task":"add movement to surface when character is close to the boundaries.","type":"Feature"},"task.137":{"completion_date":{"day":2,"dst":true,"hour":18,"minute":42,"month":2,"second":35,"weekday":5,"year":2018},"creation_date":{"day":2,"dst":true,"hour":17,"minute":44,"month":2,"second":11,"weekday":5,"year":2018},"task":"Add modificator to surface velocity on water platforms.","type":"Feature"},"task.138":{"completion_date":{"day":3,"dst":true,"hour":7,"minute":8,"month":2,"second":47,"weekday":6,"year":2018},"creation_date":{"day":2,"dst":true,"hour":17,"minute":45,"month":2,"second":4,"weekday":5,"year":2018},"task":"Change movement logic, make collision area follow the wave pattern instead and just change the wave strength when character alters form","type":"Task"},"task.139":{"completion_date":{"day":3,"dst":true,"hour":21,"minute":48,"month":2,"second":10,"weekday":6,"year":2018},"creation_date":{"day":2,"dst":true,"hour":18,"minute":43,"month":2,"second":38,"weekday":5,"year":2018},"task":"Improve surface motion in water platforms when braking surface.","type":"Task"},"task.14":{"completion_date":{"day":13,"dst":true,"hour":16,"minute":20,"month":1,"second":49,"weekday":6,"year":2018},"creation_date":{"day":13,"dst":true,"hour":16,"minute":11,"month":1,"second":59,"weekday":6,"year":2018},"task":"Eliminate Platform subclasses and make all platform a \"multishape\". Let the shapes define the kind of platform","type":"Task"},"task.140":{"completion_date":{"day":3,"dst":true,"hour":7,"minute":8,"month":2,"second":30,"weekday":6,"year":2018},"creation_date":{"day":3,"dst":true,"hour":7,"minute":8,"month":2,"second":27,"weekday":6,"year":2018},"task":"Create automated circle for water platforms.","type":"Refactor"},"task.141":{"completion_date":{"day":3,"dst":true,"hour":7,"minute":19,"month":2,"second":57,"weekday":6,"year":2018},"creation_date":{"day":3,"dst":true,"hour":7,"minute":10,"month":2,"second":35,"weekday":6,"year":2018},"task":"Cleanup: eliminate old movement logic from water platform","type":"Task"},"task.142":{"completion_date":{"day":3,"dst":true,"hour":11,"minute":46,"month":2,"second":43,"weekday":6,"year":2018},"creation_date":{"day":3,"dst":true,"hour":7,"minute":19,"month":2,"second":41,"weekday":6,"year":2018},"task":"Change line2d node logic to own draw method on water surface on water platform","type":"Refactor"},"task.143":{"completion_date":{"day":3,"dst":true,"hour":7,"minute":52,"month":2,"second":40,"weekday":6,"year":2018},"creation_date":{"day":3,"dst":true,"hour":7,"minute":32,"month":2,"second":19,"weekday":6,"year":2018},"task":"Add secret function to draw platform shapes if they don't have sprite. (For testing purposes)","type":"Task"},"task.144":{"completion_date":{"day":3,"dst":true,"hour":21,"minute":48,"month":2,"second":3,"weekday":6,"year":2018},"creation_date":{"day":3,"dst":true,"hour":11,"minute":47,"month":2,"second":20,"weekday":6,"year":2018},"task":"Improve surface lines on water platforms, add roundness.","type":"Task"},"task.145":{"completion_date":{"day":3,"dst":true,"hour":21,"minute":47,"month":2,"second":59,"weekday":6,"year":2018},"creation_date":{"day":3,"dst":true,"hour":20,"minute":36,"month":2,"second":35,"weekday":6,"year":2018},"task":"Try to create surface effect with shaders","type":"Task"},"task.146":{"completion_date":{"day":5,"dst":true,"hour":13,"minute":52,"month":2,"second":36,"weekday":1,"year":2018},"creation_date":{"day":3,"dst":true,"hour":21,"minute":48,"month":2,"second":56,"weekday":6,"year":2018},"task":"Improve Water platform shader. Allow wave animation when entering or exiting from specific positions at different speeds.","type":"Task"},"task.147":{"completion_date":{"day":23,"dst":true,"hour":16,"minute":55,"month":2,"second":36,"weekday":5,"year":2018},"creation_date":{"day":3,"dst":true,"hour":21,"minute":49,"month":2,"second":39,"weekday":6,"year":2018},"task":"Two or more water platform cannot coexist on the same screen. It looks like a Godot limitation. Research and find a way to make them coexist.","type":"Bug"},"task.148":{"completion_date":{"day":4,"dst":true,"hour":14,"minute":12,"month":2,"second":20,"weekday":0,"year":2018},"creation_date":{"day":3,"dst":true,"hour":22,"minute":13,"month":2,"second":45,"weekday":6,"year":2018},"task":"When character moves outside of water platform, waves accelerate with movement. It seems that shader is using globla screen coordinates and not local to node.","type":"Bug"},"task.149":{"completion_date":{"day":4,"dst":true,"hour":17,"minute":3,"month":2,"second":46,"weekday":0,"year":2018},"creation_date":{"day":4,"dst":true,"hour":16,"minute":50,"month":2,"second":37,"weekday":0,"year":2018},"task":"Add test animation's to character.","type":"Task"},"task.15":{"completion_date":{"day":13,"dst":true,"hour":17,"minute":25,"month":1,"second":3,"weekday":6,"year":2018},"creation_date":{"day":13,"dst":true,"hour":16,"minute":21,"month":1,"second":30,"weekday":6,"year":2018},"task":"Let the platform calculate its gravity chapes center axis instead of using the ones in the nodes. (Its easier)","type":"Task"},"task.150":{"completion_date":{"day":4,"dst":true,"hour":18,"minute":48,"month":2,"second":33,"weekday":0,"year":2018},"creation_date":{"day":4,"dst":true,"hour":18,"minute":2,"month":2,"second":30,"weekday":0,"year":2018},"task":"Test sprite softeners.","type":"Task"},"task.151":{"completion_date":{"day":4,"dst":true,"hour":18,"minute":58,"month":2,"second":39,"weekday":0,"year":2018},"creation_date":{"day":4,"dst":true,"hour":18,"minute":58,"month":2,"second":32,"weekday":0,"year":2018},"task":"Snap character target normals to 12 directional vector grid to get better looking sprite rotations. It made the game smoother","type":"Task"},"task.153":{"completion_date":{"day":7,"dst":true,"hour":11,"minute":27,"month":2,"second":53,"weekday":3,"year":2018},"creation_date":{"day":4,"dst":true,"hour":23,"minute":41,"month":2,"second":11,"weekday":0,"year":2018},"task":"Try to make camera man rotate to platforms normal. See if it works","type":"Task"},"task.154":{"completion_date":{"day":13,"dst":true,"hour":16,"minute":36,"month":2,"second":38,"weekday":2,"year":2018},"creation_date":{"day":4,"dst":true,"hour":23,"minute":41,"month":2,"second":36,"weekday":0,"year":2018},"task":"Fix that anoying bug of gravity center shifting, when the character bounces too much. ","type":"Bug"},"task.156":{"completion_date":{"day":5,"dst":true,"hour":12,"minute":0,"month":2,"second":25,"weekday":1,"year":2018},"creation_date":{"day":5,"dst":true,"hour":10,"minute":20,"month":2,"second":12,"weekday":1,"year":2018},"task":"Character design","type":"Task"},"task.157":{"completion_date":{"day":5,"dst":true,"hour":13,"minute":44,"month":2,"second":43,"weekday":1,"year":2018},"creation_date":{"day":5,"dst":true,"hour":13,"minute":23,"month":2,"second":26,"weekday":1,"year":2018},"task":"Try to use one shader in the water platform instead of two.","type":"Refactor"},"task.158":{"completion_date":{"day":13,"dst":true,"hour":17,"minute":59,"month":2,"second":57,"weekday":2,"year":2018},"creation_date":{"day":5,"dst":true,"hour":14,"minute":5,"month":2,"second":6,"weekday":1,"year":2018},"task":"Implement variable radius for water platforms. Implement radius adjustments opn runtime (maybe add growth/shrink animation?)","type":"Task"},"task.159":{"completion_date":{"day":7,"dst":true,"hour":11,"minute":40,"month":2,"second":30,"weekday":3,"year":2018},"creation_date":{"day":7,"dst":true,"hour":10,"minute":58,"month":2,"second":56,"weekday":3,"year":2018},"task":"Change water platform resistance constant to stop the characters movement upon entering. Also modify the swimming constants to compensate and to make a better swimming experience.","type":"Task"},"task.16":{"completion_date":{"day":13,"dst":true,"hour":17,"minute":31,"month":1,"second":28,"weekday":6,"year":2018},"creation_date":{"day":13,"dst":true,"hour":17,"minute":31,"month":1,"second":21,"weekday":6,"year":2018},"task":"Make character keep roll when swapping gravity center by collision","type":"Task"},"task.160":{"completion_date":{"day":7,"dst":true,"hour":11,"minute":27,"month":2,"second":48,"weekday":3,"year":2018},"creation_date":{"day":7,"dst":true,"hour":11,"minute":10,"month":2,"second":43,"weekday":3,"year":2018},"task":"Add normal shift signals to Character class.","type":"Refactor"},"task.162":{"completion_date":{"day":7,"dst":true,"hour":11,"minute":41,"month":2,"second":16,"weekday":3,"year":2018},"creation_date":{"day":7,"dst":true,"hour":11,"minute":31,"month":2,"second":0,"weekday":3,"year":2018},"task":"Add rotating modes to CameraMan (Follow in Poly4 or always on normal Vector2(0, -1))","type":"Feature"},"task.163":{"completion_date":{"day":7,"dst":true,"hour":14,"minute":50,"month":2,"second":16,"weekday":3,"year":2018},"creation_date":{"day":7,"dst":true,"hour":11,"minute":41,"month":2,"second":11,"weekday":3,"year":2018},"task":"Provide the floor normal for the rotation mechanic off the camera instead of the characters target_normal.","type":"Task"},"task.164":{"completion_date":{"day":11,"dst":true,"hour":15,"minute":1,"month":2,"second":28,"weekday":0,"year":2018},"creation_date":{"day":7,"dst":true,"hour":11,"minute":41,"month":2,"second":41,"weekday":3,"year":2018},"task":"Test new gravity constants. Fine tune them.","type":"Task"},"task.165":{"completion_date":{"day":10,"dst":true,"hour":21,"minute":36,"month":2,"second":16,"weekday":6,"year":2018},"creation_date":{"day":7,"dst":true,"hour":11,"minute":48,"month":2,"second":49,"weekday":3,"year":2018},"task":"Test and improve new water resistance and swim constants. Fine tune the shit out of them.","type":"Task"},"task.166":{"completion_date":{"day":13,"dst":true,"hour":17,"minute":35,"month":2,"second":45,"weekday":2,"year":2018},"creation_date":{"day":7,"dst":true,"hour":14,"minute":50,"month":2,"second":32,"weekday":3,"year":2018},"task":"Fine tune CameraMan rotations","type":"Task"},"task.167":{"completion_date":{"day":10,"dst":true,"hour":0,"minute":48,"month":2,"second":37,"weekday":6,"year":2018},"creation_date":{"day":7,"dst":true,"hour":14,"minute":51,"month":2,"second":6,"weekday":3,"year":2018},"task":"Inverse keyboard fails when activated by running and keeping direction on head gravity change.","type":"Task"},"task.168":{"completion_date":{"day":9,"dst":true,"hour":12,"minute":21,"month":2,"second":16,"weekday":5,"year":2018},"creation_date":{"day":8,"dst":true,"hour":21,"minute":37,"month":2,"second":57,"weekday":4,"year":2018},"task":"When camera is rotated, controls in water platform are messed up.","type":"Task"},"task.169":{"completion_date":{"day":10,"dst":true,"hour":12,"minute":32,"month":2,"second":41,"weekday":6,"year":2018},"creation_date":{"day":9,"dst":true,"hour":3,"minute":15,"month":2,"second":27,"weekday":5,"year":2018},"task":"Make the CameraMan node to use as default position the feet of the actor on the bottom of the screen (like in Hollow Knight)","type":"Task"},"task.17":{"completion_date":{"day":19,"dst":true,"hour":12,"minute":14,"month":1,"second":58,"weekday":5,"year":2018},"creation_date":{"day":13,"dst":true,"hour":17,"minute":31,"month":1,"second":49,"weekday":6,"year":2018},"task":"Make character keep roll movement when chaging gravity center by collision.","type":"Task"},"task.170":{"completion_date":{"day":9,"dst":true,"hour":11,"minute":18,"month":2,"second":24,"weekday":5,"year":2018},"creation_date":{"day":9,"dst":true,"hour":4,"minute":13,"month":2,"second":6,"weekday":5,"year":2018},"task":"Character's signals are not working.","type":"Bug"},"task.171":{"completion_date":{"day":9,"dst":true,"hour":11,"minute":18,"month":2,"second":29,"weekday":5,"year":2018},"creation_date":{"day":9,"dst":true,"hour":11,"minute":15,"month":2,"second":41,"weekday":5,"year":2018},"task":"Add signal checker to Glb.","type":"Task"},"task.172":{"completion_date":{"day":9,"dst":true,"hour":12,"minute":16,"month":2,"second":47,"weekday":5,"year":2018},"creation_date":{"day":9,"dst":true,"hour":12,"minute":8,"month":2,"second":20,"weekday":5,"year":2018},"task":"Implement global access and management of current cameras in order for nodes to access the (one and only) CameraMan","type":"Task"},"task.173":{"completion_date":{"day":10,"dst":true,"hour":11,"minute":45,"month":2,"second":58,"weekday":6,"year":2018},"creation_date":{"day":9,"dst":true,"hour":12,"minute":22,"month":2,"second":5,"weekday":5,"year":2018},"task":"Make Water platforms pull character when he entered and is too far from the center (to avoid half body outside of bubble)","type":"Task"},"task.174":{"completion_date":{"day":9,"dst":true,"hour":12,"minute":37,"month":2,"second":10,"weekday":5,"year":2018},"creation_date":{"day":9,"dst":true,"hour":12,"minute":22,"month":2,"second":55,"weekday":5,"year":2018},"task":"Implement optional rotations for camera. Attempt to haver two play modes: Inverting controls or rotatin camera.","type":"Task"},"task.175":{"completion_date":{"day":10,"dst":true,"hour":11,"minute":5,"month":2,"second":22,"weekday":6,"year":2018},"creation_date":{"day":10,"dst":true,"hour":1,"minute":48,"month":2,"second":28,"weekday":6,"year":2018},"task":"Control inversion is messing up when on Rotation mode.","type":"Bug"},"task.178":{"completion_date":{"day":10,"dst":true,"hour":21,"minute":36,"month":2,"second":6,"weekday":6,"year":2018},"creation_date":{"day":10,"dst":true,"hour":11,"minute":47,"month":2,"second":22,"weekday":6,"year":2018},"task":"Add acceleration/desacceleration to water mechanics on character to make movement smoother.","type":"Task"},"task.179":{"completion_date":{"day":10,"dst":true,"hour":13,"minute":9,"month":2,"second":57,"weekday":6,"year":2018},"creation_date":{"day":10,"dst":true,"hour":12,"minute":32,"month":2,"second":58,"weekday":6,"year":2018},"task":"Finetune margins of Camera2D in CameraMan","type":"Task"},"task.18":{"completion_date":{"day":13,"dst":true,"hour":19,"minute":38,"month":1,"second":11,"weekday":6,"year":2018},"creation_date":{"day":13,"dst":true,"hour":17,"minute":39,"month":1,"second":3,"weekday":6,"year":2018},"task":"Test rotated platforms gravity centers","type":"Remainder"},"task.180":{"completion_date":{"day":10,"dst":true,"hour":12,"minute":33,"month":2,"second":13,"weekday":6,"year":2018},"creation_date":{"day":10,"dst":true,"hour":12,"minute":33,"month":2,"second":10,"weekday":6,"year":2018},"task":"Add playable mode to character class.","type":"Feature"},"task.181":{"completion_date":{"day":13,"dst":true,"hour":17,"minute":28,"month":2,"second":0,"weekday":2,"year":2018},"creation_date":{"day":12,"dst":true,"hour":18,"minute":58,"month":2,"second":13,"weekday":1,"year":2018},"task":"Test margins for CameraMan.","type":"Task"},"task.182":{"completion_date":{"day":13,"dst":true,"hour":16,"minute":42,"month":2,"second":2,"weekday":2,"year":2018},"creation_date":{"day":13,"dst":true,"hour":16,"minute":41,"month":2,"second":57,"weekday":2,"year":2018},"task":"Reduce repetitive code for ground reach checks on Character.","type":"Refactor"},"task.183":{"completion_date":{"day":13,"dst":true,"hour":16,"minute":49,"month":2,"second":57,"weekday":2,"year":2018},"creation_date":{"day":13,"dst":true,"hour":16,"minute":47,"month":2,"second":13,"weekday":2,"year":2018},"task":"Debugger shows error \"Condition 'p_aabb.position.y>1e15 or p_aabb.position.y < -1e15' is true.\"","type":"Refactor"},"task.184":{"completion_date":{"day":13,"dst":true,"hour":18,"minute":0,"month":2,"second":16,"weekday":2,"year":2018},"creation_date":{"day":13,"dst":true,"hour":16,"minute":49,"month":2,"second":54,"weekday":2,"year":2018},"task":"Debugger shows error \"Condition p_aabb.position.y>1e15 or p_aabb.position.y < -1e15' is true.\"","type":"Bug"},"task.185":{"completion_date":{"day":13,"dst":true,"hour":16,"minute":55,"month":2,"second":10,"weekday":2,"year":2018},"creation_date":{"day":13,"dst":true,"hour":16,"minute":53,"month":2,"second":41,"weekday":2,"year":2018},"task":"When Character finds a gravity center from open space collision, the normal rotation is not visually correct.","type":"Bug"},"task.187":{"completion_date":{"day":13,"dst":true,"hour":18,"minute":4,"month":2,"second":36,"weekday":2,"year":2018},"creation_date":{"day":13,"dst":true,"hour":17,"minute":50,"month":2,"second":6,"weekday":2,"year":2018},"task":"When on water center don't let change to gravity center, only when coming from space or another gravity center.","type":"Task"},"task.188":{"completion_date":{"day":13,"dst":true,"hour":18,"minute":0,"month":2,"second":20,"weekday":2,"year":2018},"creation_date":{"day":13,"dst":true,"hour":17,"minute":51,"month":2,"second":11,"weekday":2,"year":2018},"task":"when water platform grows, the color dosn't expand.","type":"Bug"},"task.19":{"completion_date":{"day":14,"dst":true,"hour":20,"minute":48,"month":1,"second":51,"weekday":0,"year":2018},"creation_date":{"day":13,"dst":true,"hour":17,"minute":54,"month":1,"second":33,"weekday":6,"year":2018},"task":"Improve collision method move_and_slider on tight slopes, it doesn't feel right","type":"Task"},"task.191":{"completion_date":{"day":28,"dst":true,"hour":11,"minute":49,"month":2,"second":55,"weekday":3,"year":2018},"creation_date":{"day":23,"dst":true,"hour":16,"minute":48,"month":2,"second":34,"weekday":5,"year":2018},"task":"CameraMan flickers when character moves fast.","type":"Bug"},"task.2":{"completion_date":{"day":13,"dst":true,"hour":11,"minute":45,"month":1,"second":28,"weekday":6,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":15,"month":1,"second":42,"weekday":5,"year":2018},"task":"Triangle Platform","type":"Feature"},"task.20":{"completion_date":{"day":13,"dst":true,"hour":21,"minute":18,"month":1,"second":19,"weekday":6,"year":2018},"creation_date":{"day":13,"dst":true,"hour":19,"minute":36,"month":1,"second":42,"weekday":6,"year":2018},"task":"Clossiness measure doesn't work well on polygon platforms, find a better way to soften the corners","type":"Bug"},"task.21":{"completion_date":{"day":14,"dst":true,"hour":20,"minute":47,"month":1,"second":44,"weekday":0,"year":2018},"creation_date":{"day":13,"dst":true,"hour":21,"minute":18,"month":1,"second":47,"weekday":6,"year":2018},"task":"Corners in polygon platform can be improved, they don't feel right yet.","type":"Task"},"task.22":{"completion_date":{"day":14,"dst":true,"hour":11,"minute":6,"month":1,"second":34,"weekday":0,"year":2018},"creation_date":{"day":13,"dst":true,"hour":21,"minute":20,"month":1,"second":56,"weekday":6,"year":2018},"task":"Check corners of square, those ones feel perfect. Polygon must get there.","type":"Remainder"},"task.23":{"completion_date":{"day":16,"dst":true,"hour":23,"minute":12,"month":1,"second":30,"weekday":2,"year":2018},"creation_date":{"day":14,"dst":true,"hour":11,"minute":7,"month":1,"second":7,"weekday":0,"year":2018},"task":"Implement different edge softener for polygon platform where corners are convex and concave.","type":"Task"},"task.24":{"completion_date":{"day":18,"dst":true,"hour":19,"minute":49,"month":1,"second":30,"weekday":4,"year":2018},"creation_date":{"day":14,"dst":true,"hour":20,"minute":48,"month":1,"second":26,"weekday":0,"year":2018},"task":"When character jumps and collides, it gets stuck and wont jump","type":"Bug"},"task.25":{"completion_date":{"day":15,"dst":true,"hour":22,"minute":46,"month":1,"second":32,"weekday":1,"year":2018},"creation_date":{"day":15,"dst":true,"hour":8,"minute":15,"month":1,"second":5,"weekday":1,"year":2018},"task":"Experiment with sprite rotation.","type":"Task"},"task.26":{"completion_date":{"day":18,"dst":true,"hour":19,"minute":49,"month":1,"second":41,"weekday":4,"year":2018},"creation_date":{"day":15,"dst":true,"hour":8,"minute":15,"month":1,"second":30,"weekday":1,"year":2018},"task":"Test and debug how move_and_slope works","type":"Task"},"task.27":{"completion_date":{"day":15,"dst":true,"hour":23,"minute":19,"month":1,"second":19,"weekday":1,"year":2018},"creation_date":{"day":15,"dst":true,"hour":8,"minute":16,"month":1,"second":20,"weekday":1,"year":2018},"task":"Move all platform gravity logic to a personal \"gravity_shape\" node to handle gravity related stuff. Let the platform handle physics.","type":"Refactor"},"task.28":{"completion_date":{"day":29,"dst":true,"hour":20,"minute":56,"month":1,"second":36,"weekday":1,"year":2018},"creation_date":{"day":15,"dst":true,"hour":8,"minute":17,"month":1,"second":54,"weekday":1,"year":2018},"task":"To-do addon: Add file:line mark to todo from currently open and selected line. Implement button in todo list to access that file.","type":"Feature"},"task.29":{"completion_date":{"day":15,"dst":true,"hour":11,"minute":14,"month":1,"second":42,"weekday":1,"year":2018},"creation_date":{"day":15,"dst":true,"hour":8,"minute":18,"month":1,"second":54,"weekday":1,"year":2018},"task":"Notes addon doesn't work anymor. Fixit by experimenting with godots main_screen plugins. Find a better way to handle that plugin (looks kinda ugly in the main screen with so many tabs)","type":"Bug"},"task.3":{"completion_date":{"day":13,"dst":true,"hour":15,"minute":24,"month":1,"second":46,"weekday":6,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":15,"month":1,"second":47,"weekday":5,"year":2018},"task":"Multi Platform","type":"Feature"},"task.30":{"completion_date":{"day":16,"dst":true,"hour":22,"minute":44,"month":1,"second":58,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":8,"minute":39,"month":1,"second":46,"weekday":2,"year":2018},"task":"Add precalculations to gravity_center shape metadata to make the gravity calcs faster.","type":"Refactor"},"task.31":{"completion_date":{"day":16,"dst":true,"hour":16,"minute":42,"month":1,"second":33,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":10,"minute":41,"month":1,"second":28,"weekday":2,"year":2018},"task":"Eliminate circular shape from gravity_center and leave it as default (if no polygon is defined). ","type":"Refactor"},"task.32":{"completion_date":{"day":16,"dst":true,"hour":16,"minute":42,"month":1,"second":1,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":10,"minute":52,"month":1,"second":58,"weekday":2,"year":2018},"task":"Change focus point on gravity_center, instead of rotating everything to the global system, rotate the character to the local system.","type":"Refactor"},"task.33":{"completion_date":{"day":16,"dst":true,"hour":22,"minute":44,"month":1,"second":52,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":10,"minute":58,"month":1,"second":54,"weekday":2,"year":2018},"task":"When using multiple gravity centers (center Node2D on gravity_center) the normal calculation gets messed up because it assumes vertex are related to node center and not real center.","type":"Bug"},"task.34":{"completion_date":{"day":16,"dst":true,"hour":17,"minute":53,"month":1,"second":29,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":11,"minute":59,"month":1,"second":40,"weekday":2,"year":2018},"task":"Transform gravity_center into centers_of_mass","type":"Refactor"},"task.35":{"completion_date":{"day":16,"dst":true,"hour":16,"minute":41,"month":1,"second":44,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":13,"minute":16,"month":1,"second":31,"weekday":2,"year":2018},"task":"Analize transform efficiency for Platform instead of manualy translating and rotating. Try to use the transform matrix","type":"Task"},"task.36":{"completion_date":{"day":16,"dst":true,"hour":16,"minute":43,"month":1,"second":14,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":16,"minute":43,"month":1,"second":11,"weekday":2,"year":2018},"task":"Get the normal vertex from the collision nodes of the owner of the centers_of_mass","type":"Refactor"},"task.37":{"completion_date":{"day":16,"dst":true,"hour":17,"minute":6,"month":1,"second":14,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":16,"minute":46,"month":1,"second":59,"weekday":2,"year":2018},"task":"move square functionality to centers_of_mass","type":"Refactor"},"task.38":{"completion_date":{"day":16,"dst":true,"hour":17,"minute":32,"month":1,"second":17,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":16,"minute":47,"month":1,"second":14,"weekday":2,"year":2018},"task":"move rectangle functionality to centers_of_mass","type":"Refactor"},"task.39":{"completion_date":{"day":16,"dst":true,"hour":22,"minute":44,"month":1,"second":36,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":16,"minute":47,"month":1,"second":28,"weekday":2,"year":2018},"task":"Move polygon funcitonality to center_of_mas","type":"Refactor"},"task.4":{"completion_date":{"day":13,"dst":true,"hour":19,"minute":35,"month":1,"second":57,"weekday":6,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":15,"month":1,"second":53,"weekday":5,"year":2018},"task":"Polygon Platform?","type":"Feature"},"task.40":{"completion_date":{"day":16,"dst":true,"hour":23,"minute":10,"month":1,"second":7,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":17,"minute":54,"month":1,"second":52,"weekday":2,"year":2018},"task":"Remember to change the vertex according to the current gravity center on the centers_of_mass when calculating gravity on polygons (and check that on rectangles too? what about squares? was caos!!!)","type":"Remainder"},"task.41":{"completion_date":{"day":16,"dst":true,"hour":23,"minute":9,"month":1,"second":55,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":21,"minute":49,"month":1,"second":44,"weekday":2,"year":2018},"task":"In centers_of_mass if gravity and normal are going to be the same (just inverted) then invert the normal after rotating (too avoid rotating twice)","type":"Remainder"},"task.42":{"completion_date":{"day":16,"dst":true,"hour":23,"minute":12,"month":1,"second":22,"weekday":2,"year":2018},"creation_date":{"day":16,"dst":true,"hour":23,"minute":12,"month":1,"second":19,"weekday":2,"year":2018},"task":"Make smooth transition between centers of mass defined in the polygon.","type":"Task"},"task.43":{"completion_date":{"day":17,"dst":true,"hour":1,"minute":14,"month":1,"second":56,"weekday":3,"year":2018},"creation_date":{"day":17,"dst":true,"hour":0,"minute":20,"month":1,"second":44,"weekday":3,"year":2018},"task":"Create a 2 phase jump (faster ascend and slower descend)","type":"Feature"},"task.44":{"completion_date":{"day":7,"dst":true,"hour":11,"minute":42,"month":2,"second":22,"weekday":3,"year":2018},"creation_date":{"day":17,"dst":true,"hour":1,"minute":25,"month":1,"second":46,"weekday":3,"year":2018},"task":"Organice new tasks and set some priorities.","type":"Remainder"},"task.45":{"completion_date":{"day":17,"dst":true,"hour":10,"minute":28,"month":1,"second":52,"weekday":3,"year":2018},"creation_date":{"day":17,"dst":true,"hour":9,"minute":27,"month":1,"second":37,"weekday":3,"year":2018},"task":"Turn centers_of_mass into plugin node. Why? becuse why not!","type":"Refactor"},"task.46":{"completion_date":{"day":22,"dst":true,"hour":20,"minute":59,"month":1,"second":9,"weekday":1,"year":2018},"creation_date":{"day":17,"dst":true,"hour":9,"minute":28,"month":1,"second":8,"weekday":3,"year":2018},"task":"Create smahjump adjusting gravity for a sec. Add momentum to target.","type":"Feature"},"task.47":{"completion_date":{"day":20,"dst":true,"hour":19,"minute":54,"month":1,"second":9,"weekday":6,"year":2018},"creation_date":{"day":17,"dst":true,"hour":9,"minute":28,"month":1,"second":33,"weekday":3,"year":2018},"task":"Create cameraman that follows player. Implement as plugin","type":"Feature"},"task.48":{"completion_date":{"day":20,"dst":true,"hour":20,"minute":38,"month":1,"second":20,"weekday":6,"year":2018},"creation_date":{"day":17,"dst":true,"hour":12,"minute":42,"month":1,"second":6,"weekday":3,"year":2018},"task":"When character runs along tight corners where character \"microfalls\", he cannot jump. Maybe add a counter for jumping?","type":"Bug"},"task.49":{"completion_date":{"day":19,"dst":true,"hour":16,"minute":26,"month":1,"second":49,"weekday":5,"year":2018},"creation_date":{"day":17,"dst":true,"hour":13,"minute":26,"month":1,"second":49,"weekday":3,"year":2018},"task":"Consider getting slope_stop_min_velocity from the gravity_center platform. Maybe platforms can have different behaviours. Must experiment with this.","type":"Remainder"},"task.5":{"completion_date":{"day":13,"dst":true,"hour":17,"minute":54,"month":1,"second":6,"weekday":6,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":16,"month":1,"second":2,"weekday":5,"year":2018},"task":"Test different shape platforms with polygon collision shapes for terrain","type":"Task"},"task.50":{"completion_date":{"day":17,"dst":true,"hour":19,"minute":30,"month":1,"second":27,"weekday":3,"year":2018},"creation_date":{"day":17,"dst":true,"hour":13,"minute":29,"month":1,"second":22,"weekday":3,"year":2018},"task":"Clean some unordered variables in Character class, as well as create set_velocity methods. Also, clean che characters instance input method, create accesors to clean this stuff.","type":"Refactor"},"task.52":{"completion_date":{"day":18,"dst":true,"hour":20,"minute":18,"month":1,"second":18,"weekday":4,"year":2018},"creation_date":{"day":17,"dst":true,"hour":19,"minute":4,"month":1,"second":16,"weekday":3,"year":2018},"task":"Sometimes when the character changes gravity center afeter colliding with the head (usually when its a corner righ in the middle of the skull) the character bounces back A LOT","type":"Bug"},"task.54":{"completion_date":{"day":18,"dst":true,"hour":15,"minute":29,"month":1,"second":45,"weekday":4,"year":2018},"creation_date":{"day":18,"dst":true,"hour":11,"minute":59,"month":1,"second":53,"weekday":4,"year":2018},"task":"Create console for rapid testing","type":"Feature"},"task.56":{"completion_date":{"day":18,"dst":true,"hour":16,"minute":34,"month":1,"second":56,"weekday":4,"year":2018},"creation_date":{"day":18,"dst":true,"hour":15,"minute":32,"month":1,"second":22,"weekday":4,"year":2018},"task":"Move log logic form HUD to new console and implement logging into console (make console check for changes in the variables)","type":"Refactor"},"task.57":{"completion_date":{"day":18,"dst":true,"hour":16,"minute":34,"month":1,"second":48,"weekday":4,"year":2018},"creation_date":{"day":18,"dst":true,"hour":16,"minute":6,"month":1,"second":39,"weekday":4,"year":2018},"task":"Remove all old Glb.logreasdjkfh and start using Console.l","type":"Remainder"},"task.58":{"completion_date":{"day":18,"dst":true,"hour":18,"minute":43,"month":1,"second":13,"weekday":4,"year":2018},"creation_date":{"day":18,"dst":true,"hour":18,"minute":25,"month":1,"second":9,"weekday":4,"year":2018},"task":"When jumping, character stays with the heaviest gravity, hindering move_and_slide","type":"Bug"},"task.59":{"completion_date":{"day":7,"dst":true,"hour":10,"minute":57,"month":2,"second":40,"weekday":3,"year":2018},"creation_date":{"day":18,"dst":true,"hour":18,"minute":48,"month":1,"second":7,"weekday":4,"year":2018},"task":"Get better gravity constants","type":"Task"},"task.6":{"completion_date":{"day":17,"dst":true,"hour":13,"minute":28,"month":1,"second":21,"weekday":3,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":16,"month":1,"second":9,"weekday":5,"year":2018},"task":"Organice character's code","type":"Task"},"task.60":{"completion_date":{"day":18,"dst":true,"hour":20,"minute":2,"month":1,"second":52,"weekday":4,"year":2018},"creation_date":{"day":18,"dst":true,"hour":19,"minute":59,"month":1,"second":10,"weekday":4,"year":2018},"task":"Add message in console when running . commands that set properties","type":"Task"},"task.61":{"completion_date":{"day":4,"dst":true,"hour":23,"minute":42,"month":2,"second":15,"weekday":0,"year":2018},"creation_date":{"day":19,"dst":true,"hour":8,"minute":22,"month":1,"second":7,"weekday":5,"year":2018},"task":"Work on first sprite designs.","type":"Task"},"task.62":{"completion_date":{"day":19,"dst":true,"hour":10,"minute":46,"month":1,"second":26,"weekday":5,"year":2018},"creation_date":{"day":19,"dst":true,"hour":8,"minute":22,"month":1,"second":17,"weekday":5,"year":2018},"task":"Work on first musical sketches","type":"Task"},"task.63":{"completion_date":{"day":29,"dst":true,"hour":20,"minute":35,"month":1,"second":54,"weekday":1,"year":2018},"creation_date":{"day":19,"dst":true,"hour":8,"minute":24,"month":1,"second":39,"weekday":5,"year":2018},"task":"Add line wrap to Notes plugin.","type":"Feature"},"task.64":{"completion_date":{"day":19,"dst":true,"hour":13,"minute":26,"month":1,"second":41,"weekday":5,"year":2018},"creation_date":{"day":19,"dst":true,"hour":12,"minute":15,"month":1,"second":38,"weekday":5,"year":2018},"task":"If directional buttons are released mid-air before the character collisions into a different gravity center and rolls, directions are all messed up","type":"Bug"},"task.65":{"completion_date":{"day":19,"dst":true,"hour":12,"minute":56,"month":1,"second":49,"weekday":5,"year":2018},"creation_date":{"day":19,"dst":true,"hour":12,"minute":17,"month":1,"second":45,"weekday":5,"year":2018},"task":"Character gets stuck while rolling, moves around in weird manner and changes direction. Annoying.","type":"Bug"},"task.66":{"completion_date":{"day":20,"dst":true,"hour":18,"minute":47,"month":1,"second":58,"weekday":6,"year":2018},"creation_date":{"day":19,"dst":true,"hour":13,"minute":27,"month":1,"second":35,"weekday":5,"year":2018},"task":"When character changes gravity center by collision and movement gets inverted, after rolling is finished the character's movement it's uninverted even before button is released","type":"Bug"},"task.67":{"completion_date":{"day":20,"dst":true,"hour":18,"minute":48,"month":1,"second":2,"weekday":6,"year":2018},"creation_date":{"day":20,"dst":true,"hour":18,"minute":22,"month":1,"second":40,"weekday":6,"year":2018},"task":"Add count feature to the log in the console.","type":"Feature"},"task.69":{"completion_date":{"day":20,"dst":true,"hour":20,"minute":21,"month":1,"second":58,"weekday":6,"year":2018},"creation_date":{"day":20,"dst":true,"hour":19,"minute":55,"month":1,"second":14,"weekday":6,"year":2018},"task":"CameraMan's rotation its all messy because the normals get updated in weird cases (like non central axis, but rather circular in the platforms edges). Normla target tends to be weird position.","type":"Bug"},"task.7":{"completion_date":{"day":17,"dst":true,"hour":0,"minute":20,"month":1,"second":8,"weekday":3,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":16,"month":1,"second":16,"weekday":5,"year":2018},"task":"Responsive jump","type":"Feature"},"task.70":{"completion_date":{"day":29,"dst":true,"hour":20,"minute":0,"month":1,"second":42,"weekday":1,"year":2018},"creation_date":{"day":20,"dst":true,"hour":20,"minute":22,"month":1,"second":45,"weekday":6,"year":2018},"task":"CameraMan doesn't adjust smoothly yet, keep experimenting until we get a nice rotating camera. Or decide to not rotate at all.","type":"Bug"},"task.71":{"completion_date":{"day":21,"dst":true,"hour":11,"minute":8,"month":1,"second":53,"weekday":0,"year":2018},"creation_date":{"day":21,"dst":true,"hour":9,"minute":59,"month":1,"second":26,"weekday":0,"year":2018},"task":"Shifting gravity center by head hit sometimes makes the wrong control turn and player rotation. (Check collision from circle to polygon)","type":"Bug"},"task.72":{"completion_date":{"day":22,"dst":true,"hour":20,"minute":33,"month":1,"second":6,"weekday":1,"year":2018},"creation_date":{"day":21,"dst":true,"hour":11,"minute":9,"month":1,"second":54,"weekday":0,"year":2018},"task":"Normal rotation shift algorithm when changing gravity center doesn't reflect the players objectives. A better approach thann is_on_ceiling must be deviced.","type":"Bug"},"task.73":{"completion_date":{"day":21,"dst":true,"hour":13,"minute":1,"month":1,"second":16,"weekday":0,"year":2018},"creation_date":{"day":21,"dst":true,"hour":12,"minute":56,"month":1,"second":18,"weekday":0,"year":2018},"task":"Transform Platform type to gravity_platform and create small platforms that don't modify gravity center (to serve platform sections in game, otherwise, there won't be traditional platforming)","type":"Refactor"},"task.74":{"completion_date":{"day":22,"dst":true,"hour":16,"minute":49,"month":1,"second":24,"weekday":1,"year":2018},"creation_date":{"day":22,"dst":true,"hour":16,"minute":29,"month":1,"second":30,"weekday":1,"year":2018},"task":"add type recognition method to avoid extra type parameter","type":"Feature"},"task.76":{"completion_date":{"day":22,"dst":true,"hour":19,"minute":37,"month":1,"second":56,"weekday":1,"year":2018},"creation_date":{"day":22,"dst":true,"hour":19,"minute":37,"month":1,"second":53,"weekday":1,"year":2018},"task":"Sometimes when changing gravity center and movement has to be inverted the movement is right but the rotation not.","type":"Bug"},"task.77":{"completion_date":{"day":22,"dst":true,"hour":22,"minute":22,"month":1,"second":10,"weekday":1,"year":2018},"creation_date":{"day":22,"dst":true,"hour":21,"minute":3,"month":1,"second":37,"weekday":1,"year":2018},"task":"Add Vector2(x, y) RegExp for Console. (It will facilitate testing the movement of platforms)","type":"Feature"},"task.78":{"completion_date":{"day":23,"dst":true,"hour":0,"minute":0,"month":1,"second":56,"weekday":2,"year":2018},"creation_date":{"day":22,"dst":true,"hour":23,"minute":37,"month":1,"second":51,"weekday":1,"year":2018},"task":"Calculate the average center of mass of the CenterOfMass node for torque calculations.","type":"Task"},"task.79":{"completion_date":{"day":22,"dst":true,"hour":23,"minute":49,"month":1,"second":39,"weekday":1,"year":2018},"creation_date":{"day":22,"dst":true,"hour":23,"minute":48,"month":1,"second":48,"weekday":1,"year":2018},"task":"normal adjust when changing gravity center fails when dot of normals is -1","type":"Bug"},"task.8":{"completion_date":{"day":27,"dst":true,"hour":18,"minute":59,"month":1,"second":25,"weekday":6,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":16,"month":1,"second":22,"weekday":5,"year":2018},"task":"Rigid physics for kinematic platforms","type":"Feature"},"task.80":{"completion_date":{"day":26,"dst":true,"hour":16,"minute":11,"month":1,"second":37,"weekday":5,"year":2018},"creation_date":{"day":23,"dst":true,"hour":1,"minute":26,"month":1,"second":25,"weekday":2,"year":2018},"task":"When player is in moving platform, the movement is rough and feels bad. ","type":"Bug"},"task.81":{"completion_date":{"day":26,"dst":true,"hour":16,"minute":11,"month":1,"second":32,"weekday":5,"year":2018},"creation_date":{"day":26,"dst":true,"hour":16,"minute":11,"month":1,"second":29,"weekday":5,"year":2018},"task":"CameraMan jitters screen when character moves below camera stop velocity","type":"Bug"},"task.82":{"completion_date":{"day":26,"dst":true,"hour":18,"minute":3,"month":1,"second":41,"weekday":5,"year":2018},"creation_date":{"day":26,"dst":true,"hour":16,"minute":13,"month":1,"second":37,"weekday":5,"year":2018},"task":"When character moves on a platform and keeps the inverted value, then releases and jumps to shift gravity center, the direction is all messed up","type":"Bug"},"task.83":{"completion_date":{"day":27,"dst":true,"hour":17,"minute":46,"month":1,"second":1,"weekday":6,"year":2018},"creation_date":{"day":26,"dst":true,"hour":16,"minute":22,"month":1,"second":40,"weekday":5,"year":2018},"task":"When platform rotates, the character in that platform doesn't move accordingly.","type":"Bug"},"task.84":{"completion_date":{"day":29,"dst":true,"hour":20,"minute":27,"month":1,"second":56,"weekday":1,"year":2018},"creation_date":{"day":26,"dst":true,"hour":16,"minute":23,"month":1,"second":52,"weekday":5,"year":2018},"task":"Improve CameraMan movement to actor, make the movement interpolated and shift accelerations accordingly.","type":"Task"},"task.86":{"completion_date":{"day":27,"dst":true,"hour":17,"minute":56,"month":1,"second":42,"weekday":6,"year":2018},"creation_date":{"day":26,"dst":true,"hour":18,"minute":56,"month":1,"second":17,"weekday":5,"year":2018},"task":"Platform linear movement is not smooth on character","type":"Bug"},"task.87":{"completion_date":{"day":31,"dst":true,"hour":18,"minute":33,"month":1,"second":58,"weekday":3,"year":2018},"creation_date":{"day":27,"dst":true,"hour":17,"minute":48,"month":1,"second":36,"weekday":6,"year":2018},"task":"Circular water platforms! Character can swim through them and \"jump\" out on the limits.","type":"Feature"},"task.88":{"completion_date":{"day":27,"dst":true,"hour":18,"minute":59,"month":1,"second":46,"weekday":6,"year":2018},"creation_date":{"day":27,"dst":true,"hour":17,"minute":57,"month":1,"second":26,"weekday":6,"year":2018},"task":"Platform angular and linear velocities work for platforms with small values, for big values, it just don't behaves :(","type":"Bug"},"task.89":{"completion_date":{"day":27,"dst":true,"hour":18,"minute":59,"month":1,"second":47,"weekday":6,"year":2018},"creation_date":{"day":27,"dst":true,"hour":18,"minute":10,"month":1,"second":30,"weekday":6,"year":2018},"task":"While rotating platforms don't activate collision code because they aren't using move_and_collide and stuff.","type":"Bug"},"task.9":{"completion_date":{"day":13,"dst":true,"hour":16,"minute":11,"month":1,"second":10,"weekday":6,"year":2018},"creation_date":{"day":12,"dst":true,"hour":21,"minute":34,"month":1,"second":35,"weekday":5,"year":2018},"task":"Implement API on Platform base class to handle different types of shape nodes (Shape2D and Pollygons)","type":"Task"},"task.90":{"completion_date":{"day":29,"dst":true,"hour":17,"minute":39,"month":1,"second":11,"weekday":1,"year":2018},"creation_date":{"day":27,"dst":true,"hour":18,"minute":13,"month":1,"second":34,"weekday":6,"year":2018},"task":"Try using rigidbody with center_of_mass logic to create gravity platforms.","type":"Task"},"task.91":{"completion_date":{"day":29,"dst":true,"hour":19,"minute":59,"month":1,"second":39,"weekday":1,"year":2018},"creation_date":{"day":27,"dst":true,"hour":18,"minute":35,"month":1,"second":18,"weekday":6,"year":2018},"task":"Try working game logic without platform collision. Evaluate if techniques works in the game","type":"Task"},"task.92":{"completion_date":{"day":29,"dst":true,"hour":19,"minute":58,"month":1,"second":48,"weekday":1,"year":2018},"creation_date":{"day":27,"dst":true,"hour":19,"minute":19,"month":1,"second":12,"weekday":6,"year":2018},"task":"Try implementing own \"move_and_slide\" using raycast and forcing character on collision boundaries.","type":"Remainder"},"task.93":{"completion_date":{"day":29,"dst":true,"hour":19,"minute":58,"month":1,"second":33,"weekday":1,"year":2018},"creation_date":{"day":27,"dst":true,"hour":19,"minute":23,"month":1,"second":41,"weekday":6,"year":2018},"task":"Attempt to use raycasting instead of segment to gather collision point. Attempt to keep raycasting aligned to target normal instead of rolling with character. (see if works)","type":"Remainder"},"task.94":{"completion_date":{"day":28,"dst":true,"hour":20,"minute":20,"month":1,"second":21,"weekday":0,"year":2018},"creation_date":{"day":27,"dst":true,"hour":19,"minute":34,"month":1,"second":46,"weekday":6,"year":2018},"task":"Attempt to use get_rest_info to solve the raycasting riddle. With the point returned we can calculate the new position.","type":"Remainder"},"task.95":{"completion_date":{"day":28,"dst":true,"hour":14,"minute":22,"month":1,"second":16,"weekday":0,"year":2018},"creation_date":{"day":28,"dst":true,"hour":14,"minute":17,"month":1,"second":41,"weekday":0,"year":2018},"task":"Add segment shape instead of 2 points in character","type":"Refactor"},"task.96":{"completion_date":{"day":28,"dst":true,"hour":20,"minute":19,"month":1,"second":57,"weekday":0,"year":2018},"creation_date":{"day":28,"dst":true,"hour":19,"minute":40,"month":1,"second":39,"weekday":0,"year":2018},"task":"Raycasting fails when checking collision upwards. Thats why the parent object couldn't move in that direction (because it collided)","type":"Bug"},"task.97":{"completion_date":{"day":29,"dst":true,"hour":17,"minute":13,"month":1,"second":5,"weekday":1,"year":2018},"creation_date":{"day":28,"dst":true,"hour":20,"minute":23,"month":1,"second":4,"weekday":0,"year":2018},"task":"Automate the process of defining the ground_cast segment query. As of now, 2 similar lines are created using 2 points and are 1 pixel appart from each other.","type":"Refactor"},"task.98":{"completion_date":{"day":29,"dst":true,"hour":17,"minute":13,"month":1,"second":4,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":13,"minute":42,"month":1,"second":2,"weekday":1,"year":2018},"task":"Create scene node in charge of handling the ground's raycasting.","type":"Refactor"},"task.99":{"completion_date":{"day":29,"dst":true,"hour":18,"minute":24,"month":1,"second":9,"weekday":1,"year":2018},"creation_date":{"day":29,"dst":true,"hour":17,"minute":39,"month":1,"second":56,"weekday":1,"year":2018},"task":"Raycasting movement fails sometimes. Test different collision scenarios (player can enter inside platform shape.)","type":"Bug"}},"pend_order":["task.51","task.53","task.55","task.68","task.75","task.85","task.113","task.114","task.134","task.135","task.136","task.152","task.155","task.161","task.176","task.177","task.186","task.189","task.190","task.192","task.193","task.194","task.195"],"pending":{"task.113":{"creation_date":{"day":30,"dst":true,"hour":19,"minute":32,"month":1,"second":47,"weekday":2,"year":2018},"task":"When rigid platform is moving and player collides with new gravity center platform, because player is a child node of the platform, the new gravity center registers the collision as rigid and starts moving.","type":"Bug"},"task.114":{"creation_date":{"day":30,"dst":true,"hour":19,"minute":54,"month":1,"second":16,"weekday":2,"year":2018},"task":"Small platforms don't work anymore, moving logic is failing as depends on raycasting and not in collisions. Or has to do with _gravity_center checking to avoid previous bug.","type":"Bug"},"task.134":{"creation_date":{"day":1,"dst":true,"hour":21,"minute":56,"month":2,"second":1,"weekday":4,"year":2018},"task":"Add interaction between normal moving platforms and water platforms. What happens if they collide? avoid character/water/gravity collisions because they are a mess.","type":"Feature"},"task.135":{"creation_date":{"day":2,"dst":true,"hour":17,"minute":40,"month":2,"second":2,"weekday":5,"year":2018},"task":"Make water ball platform fussionate and grow in size.","type":"Feature"},"task.136":{"creation_date":{"day":2,"dst":true,"hour":17,"minute":40,"month":2,"second":35,"weekday":5,"year":2018},"task":"Make water balls collide with platforms and move away, also make code to avoid water entering rigid platform collision areas.","type":"Feature"},"task.152":{"creation_date":{"day":4,"dst":true,"hour":20,"minute":20,"month":2,"second":39,"weekday":0,"year":2018},"task":"There is a movement bug on concave collisions. Steps reproduce: Go to polygon platform and walk up a concave slope.","type":"Bug"},"task.155":{"creation_date":{"day":4,"dst":true,"hour":23,"minute":42,"month":2,"second":9,"weekday":0,"year":2018},"task":"Sometimes the character rolles 2 times (usually when there are too many normal changes before the character reaches the normal destination).","type":"Bug"},"task.161":{"creation_date":{"day":7,"dst":true,"hour":11,"minute":28,"month":2,"second":10,"weekday":3,"year":2018},"task":"Keep testing new camera rotation functionality.","type":"Remainder"},"task.176":{"creation_date":{"day":10,"dst":true,"hour":11,"minute":5,"month":2,"second":48,"weekday":6,"year":2018},"task":"Implement a functional invert mode for character.","type":"Feature"},"task.177":{"creation_date":{"day":10,"dst":true,"hour":11,"minute":46,"month":2,"second":26,"weekday":6,"year":2018},"task":"Help player outside of bubble to prevent player stuck half outside of bubble.","type":"Task"},"task.186":{"creation_date":{"day":13,"dst":true,"hour":17,"minute":7,"month":2,"second":40,"weekday":2,"year":2018},"task":"Change camera rotations depending on the platform.","type":"Feature"},"task.189":{"creation_date":{"day":16,"dst":true,"hour":3,"minute":1,"month":2,"second":15,"weekday":5,"year":2018},"task":"When jumping the camera follows up but stays up instead of going back to previous position.","type":"Bug"},"task.190":{"creation_date":{"day":23,"dst":true,"hour":13,"minute":37,"month":2,"second":47,"weekday":5,"year":2018},"task":"Let the platform decide where in the scene tree the character is going to be. As of now the Character class does this (only for water platforms, in position 0). This is because some of the platforms may have sprite layers and the character is needed to be in certain tree position.","type":"Refactor"},"task.192":{"creation_date":{"day":23,"dst":true,"hour":16,"minute":56,"month":2,"second":16,"weekday":5,"year":2018},"task":"When there are more than 1 water platform, the shader is buggy for the platforms instead of the first one instanced by the scene tree.","type":"Bug"},"task.193":{"creation_date":{"day":23,"dst":true,"hour":16,"minute":56,"month":2,"second":43,"weekday":5,"year":2018},"task":"2 water_platforms cannot coexist, when the player reaches the intersection point the platform becomes crazy.","type":"Bug"},"task.194":{"creation_date":{"day":25,"dst":true,"hour":18,"minute":27,"month":2,"second":19,"weekday":0,"year":2018},"task":"Remove pow usage (as it is as costly as sqrt)!!!!!!!!","type":"Task"},"task.195":{"creation_date":{"day":28,"dst":true,"hour":11,"minute":51,"month":2,"second":27,"weekday":3,"year":2018},"task":"Create plugin to import animations.","type":"Task"},"task.51":{"creation_date":{"day":17,"dst":true,"hour":13,"minute":42,"month":1,"second":1,"weekday":3,"year":2018},"task":"Create to state machine APIs, one for everyday actions for Character, and one for specific actions in character.","type":"Refactor"},"task.53":{"creation_date":{"day":17,"dst":true,"hour":19,"minute":33,"month":1,"second":56,"weekday":3,"year":2018},"task":"Implement a way to handle character's stats that is cleaner and easier to work with. (Maybe something to be able to change in runtime with an in-game console for easy testing???)","type":"Refactor"},"task.55":{"creation_date":{"day":18,"dst":true,"hour":13,"minute":32,"month":1,"second":28,"weekday":4,"year":2018},"task":"In Console addon, to the $ command, add a way to search node by input of node paths: node_name/node_x","type":"Feature"},"task.68":{"creation_date":{"day":20,"dst":true,"hour":18,"minute":49,"month":1,"second":14,"weekday":6,"year":2018},"task":"Find a better control AI to make movement more natural.","type":"Task"},"task.75":{"creation_date":{"day":22,"dst":true,"hour":16,"minute":50,"month":1,"second":9,"weekday":1,"year":2018},"task":"Clean Console, order and refactor methods and improve regexp implementation. Use it also for variable assignation.","type":"Task"},"task.85":{"creation_date":{"day":26,"dst":true,"hour":18,"minute":4,"month":1,"second":43,"weekday":5,"year":2018},"task":"Move inversion checking logic. Attempt to liberate child character from the burden of control inversion, and provide API to let character decide if it wants inversion or not","type":"Refactor"}}}
+{
+  "comp_order": [
+    "task.0",
+    "task.1",
+    "task.2",
+    "task.10",
+    "task.12",
+    "task.3",
+    "task.9",
+    "task.14",
+    "task.15",
+    "task.13",
+    "task.16",
+    "task.5",
+    "task.4",
+    "task.18",
+    "task.20",
+    "task.22",
+    "task.21",
+    "task.11",
+    "task.19",
+    "task.29",
+    "task.25",
+    "task.27",
+    "task.35",
+    "task.32",
+    "task.31",
+    "task.36",
+    "task.37",
+    "task.38",
+    "task.34",
+    "task.39",
+    "task.33",
+    "task.30",
+    "task.41",
+    "task.40",
+    "task.42",
+    "task.23",
+    "task.7",
+    "task.43",
+    "task.45",
+    "task.6",
+    "task.50",
+    "task.54",
+    "task.57",
+    "task.56",
+    "task.58",
+    "task.24",
+    "task.26",
+    "task.60",
+    "task.52",
+    "task.62",
+    "task.17",
+    "task.65",
+    "task.64",
+    "task.49",
+    "task.66",
+    "task.67",
+    "task.47",
+    "task.69",
+    "task.48",
+    "task.71",
+    "task.73",
+    "task.74",
+    "task.76",
+    "task.72",
+    "task.46",
+    "task.77",
+    "task.79",
+    "task.78",
+    "task.81",
+    "task.80",
+    "task.82",
+    "task.83",
+    "task.86",
+    "task.8",
+    "task.88",
+    "task.89",
+    "task.95",
+    "task.96",
+    "task.94",
+    "task.98",
+    "task.97",
+    "task.90",
+    "task.100",
+    "task.99",
+    "task.101",
+    "task.93",
+    "task.92",
+    "task.91",
+    "task.70",
+    "task.103",
+    "task.84",
+    "task.63",
+    "task.28",
+    "task.105",
+    "task.106",
+    "task.104",
+    "task.107",
+    "task.108",
+    "task.109",
+    "task.102",
+    "task.112",
+    "task.111",
+    "task.110",
+    "task.117",
+    "task.115",
+    "task.116",
+    "task.118",
+    "task.119",
+    "task.123",
+    "task.122",
+    "task.121",
+    "task.87",
+    "task.126",
+    "task.129",
+    "task.130",
+    "task.128",
+    "task.131",
+    "task.127",
+    "task.120",
+    "task.137",
+    "task.140",
+    "task.138",
+    "task.141",
+    "task.143",
+    "task.142",
+    "task.145",
+    "task.144",
+    "task.139",
+    "task.132",
+    "task.148",
+    "task.149",
+    "task.150",
+    "task.151",
+    "task.61",
+    "task.156",
+    "task.157",
+    "task.146",
+    "task.59",
+    "task.160",
+    "task.153",
+    "task.159",
+    "task.162",
+    "task.44",
+    "task.124",
+    "task.163",
+    "task.170",
+    "task.171",
+    "task.172",
+    "task.168",
+    "task.174",
+    "task.167",
+    "task.175",
+    "task.133",
+    "task.173",
+    "task.169",
+    "task.180",
+    "task.179",
+    "task.178",
+    "task.165",
+    "task.125",
+    "task.164",
+    "task.154",
+    "task.182",
+    "task.183",
+    "task.185",
+    "task.181",
+    "task.166",
+    "task.158",
+    "task.184",
+    "task.188",
+    "task.187",
+    "task.147",
+    "task.195"
+  ],
+  "completed": {
+    "task.0": {
+      "completion_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 19,
+        "month": 1,
+        "second": 22,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 15,
+        "month": 1,
+        "second": 26,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Implement gravity_shapes node for platforms",
+      "type": "Task"
+    },
+    "task.1": {
+      "completion_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 19,
+        "month": 1,
+        "second": 38,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 15,
+        "month": 1,
+        "second": 37,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Rect Platform",
+      "type": "Feature"
+    },
+    "task.10": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 12,
+        "minute": 15,
+        "month": 1,
+        "second": 3,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 9,
+        "minute": 29,
+        "month": 1,
+        "second": 51,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Sometimes on the circle platform its impossible to jump. Has to do with \"loosing ground\" for a second because of the shape.",
+      "type": "Bug"
+    },
+    "task.100": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 18,
+        "minute": 23,
+        "month": 1,
+        "second": 8,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 17,
+        "minute": 58,
+        "month": 1,
+        "second": 11,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Raycasting against different gravity_center might block the gravity change as movement is prevented and body don't trigger collision",
+      "type": "Bug"
+    },
+    "task.101": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 19,
+        "minute": 55,
+        "month": 1,
+        "second": 20,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 18,
+        "minute": 24,
+        "month": 1,
+        "second": 34,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Movement using the new ground raycasting is not smooth along the lines",
+      "type": "Bug"
+    },
+    "task.102": {
+      "completion_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 18,
+        "minute": 32,
+        "month": 1,
+        "second": 59,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 19,
+        "minute": 56,
+        "month": 1,
+        "second": 35,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "When character collides with new gravity center with 90 degrees, sometimes changing gravity center fails.",
+      "type": "Bug"
+    },
+    "task.103": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 20,
+        "minute": 12,
+        "month": 1,
+        "second": 32,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 20,
+        "minute": 4,
+        "month": 1,
+        "second": 39,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Clean character and Character code.",
+      "type": "Task"
+    },
+    "task.104": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 4,
+        "month": 1,
+        "second": 54,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 20,
+        "minute": 57,
+        "month": 1,
+        "second": 48,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "ToDo: keep track of changes into minor, minor, patch version control",
+      "type": "Feature"
+    },
+    "task.105": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 4,
+        "month": 1,
+        "second": 29,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 4,
+        "month": 1,
+        "second": 16,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Test bug",
+      "type": "Bug"
+    },
+    "task.106": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 4,
+        "month": 1,
+        "second": 30,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 4,
+        "month": 1,
+        "second": 26,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Test feature",
+      "type": "Feature"
+    },
+    "task.107": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 7,
+        "month": 1,
+        "second": 16,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 7,
+        "month": 1,
+        "second": 13,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "test",
+      "type": "Task"
+    },
+    "task.108": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 13,
+        "month": 1,
+        "second": 9,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 10,
+        "month": 1,
+        "second": 27,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "test",
+      "type": "Task"
+    },
+    "task.109": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 13,
+        "month": 1,
+        "second": 29,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 21,
+        "minute": 13,
+        "month": 1,
+        "second": 27,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "test",
+      "type": "Bug"
+    },
+    "task.11": {
+      "completion_date": {
+        "day": 14,
+        "dst": true,
+        "hour": 20,
+        "minute": 48,
+        "month": 1,
+        "second": 3,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 11,
+        "minute": 23,
+        "month": 1,
+        "second": 21,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "When character is standing on triangle vertex the ground raycast fails and character cannot jump",
+      "type": "Bug"
+    },
+    "task.110": {
+      "completion_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 19,
+        "minute": 30,
+        "month": 1,
+        "second": 48,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 18,
+        "minute": 40,
+        "month": 1,
+        "second": 49,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Make platform react to players smash jump. Test for gameplay stuff.",
+      "type": "Feature"
+    },
+    "task.111": {
+      "completion_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 19,
+        "minute": 5,
+        "month": 1,
+        "second": 27,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 18,
+        "minute": 41,
+        "month": 1,
+        "second": 23,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Transform all kinematicbody platforms into rigid",
+      "type": "Task"
+    },
+    "task.112": {
+      "completion_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 19,
+        "minute": 5,
+        "month": 1,
+        "second": 22,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 18,
+        "minute": 44,
+        "month": 1,
+        "second": 52,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Move KB constants to Glb.",
+      "type": "Refactor"
+    },
+    "task.115": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 26,
+        "month": 1,
+        "second": 48,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 20,
+        "minute": 31,
+        "month": 1,
+        "second": 28,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Modify character to change movement patterns when in water platform.",
+      "type": "Feature"
+    },
+    "task.116": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 26,
+        "month": 1,
+        "second": 57,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 20,
+        "minute": 31,
+        "month": 1,
+        "second": 50,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Change characters ground_gravity schemes when working with water platforms.",
+      "type": "Feature"
+    },
+    "task.117": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 26,
+        "month": 1,
+        "second": 38,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 20,
+        "minute": 32,
+        "month": 1,
+        "second": 14,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Consider using Area2D for water platforms.",
+      "type": "Remainder"
+    },
+    "task.118": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 27,
+        "month": 1,
+        "second": 3,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 15,
+        "minute": 24,
+        "month": 1,
+        "second": 43,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Change Body logic, try using an external node to add body funcionality",
+      "type": "Refactor"
+    },
+    "task.119": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 27,
+        "month": 1,
+        "second": 6,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 15,
+        "minute": 30,
+        "month": 1,
+        "second": 51,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Create singleton for global vector/math logic.",
+      "type": "Refactor"
+    },
+    "task.12": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 13,
+        "minute": 42,
+        "month": 1,
+        "second": 11,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 13,
+        "minute": 26,
+        "month": 1,
+        "second": 47,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Move gravity shape code from inherited Platform into base class for multishapes usage.",
+      "type": "Task"
+    },
+    "task.120": {
+      "completion_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 22,
+        "minute": 3,
+        "month": 2,
+        "second": 17,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 16,
+        "minute": 58,
+        "month": 1,
+        "second": 9,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Implement open space node and add logic to Character to find given node.",
+      "type": "Task"
+    },
+    "task.121": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 18,
+        "minute": 33,
+        "month": 1,
+        "second": 5,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 28,
+        "month": 1,
+        "second": 0,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Implement open space state: Allowing for water and gravity changes ",
+      "type": "Feature"
+    },
+    "task.122": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 18,
+        "minute": 32,
+        "month": 1,
+        "second": 57,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 28,
+        "month": 1,
+        "second": 24,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Implement water exit for character into open space or into gravity.",
+      "type": "Task"
+    },
+    "task.123": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 42,
+        "month": 1,
+        "second": 46,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 32,
+        "month": 1,
+        "second": 15,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Change movement for water controls (using up, down, left and right)",
+      "type": "Task"
+    },
+    "task.124": {
+      "completion_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 48,
+        "month": 2,
+        "second": 18,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 43,
+        "month": 1,
+        "second": 51,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Add sensivlity to swim button (just like jump)",
+      "type": "Feature"
+    },
+    "task.125": {
+      "completion_date": {
+        "day": 11,
+        "dst": true,
+        "hour": 4,
+        "minute": 8,
+        "month": 2,
+        "second": 28,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 17,
+        "minute": 52,
+        "month": 1,
+        "second": 42,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "When changin direction on water, if the _normal.dot(_target_normal) is -1 then rotation is too slow.",
+      "type": "Bug"
+    },
+    "task.126": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 19,
+        "minute": 17,
+        "month": 1,
+        "second": 10,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 18,
+        "minute": 35,
+        "month": 1,
+        "second": 50,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Add movement to water platform's surface. React to collisions",
+      "type": "Feature"
+    },
+    "task.127": {
+      "completion_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 21,
+        "minute": 49,
+        "month": 2,
+        "second": 31,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 18,
+        "minute": 43,
+        "month": 1,
+        "second": 42,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Add movement to water platform's surface. React to character leaving by jump.",
+      "type": "Feature"
+    },
+    "task.128": {
+      "completion_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 21,
+        "minute": 8,
+        "month": 2,
+        "second": 21,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 19,
+        "minute": 18,
+        "month": 1,
+        "second": 23,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Change surface logic for water platforms. Look out the two closest points and move the ones around it.",
+      "type": "Refactor"
+    },
+    "task.129": {
+      "completion_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 19,
+        "minute": 30,
+        "month": 2,
+        "second": 24,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 19,
+        "minute": 22,
+        "month": 1,
+        "second": 38,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Create polygon from circle instead of defining collision shape in the water_platforms. Add radius value.",
+      "type": "Refactor"
+    },
+    "task.13": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 30,
+        "month": 1,
+        "second": 56,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 15,
+        "minute": 26,
+        "month": 1,
+        "second": 4,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Test platforms using normals with the base_gravity_direction versus gravity",
+      "type": "Task"
+    },
+    "task.130": {
+      "completion_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 21,
+        "minute": 8,
+        "month": 2,
+        "second": 8,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 19,
+        "minute": 32,
+        "month": 2,
+        "second": 6,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "Change wave logic for water platforms. Look for closest entry point and reorganice movement for the other points.",
+      "type": "Refactor"
+    },
+    "task.131": {
+      "completion_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 21,
+        "minute": 15,
+        "month": 2,
+        "second": 17,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 21,
+        "minute": 8,
+        "month": 2,
+        "second": 57,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "Add some velocity pull towards center when character enters water to avoid weird out of water bug.",
+      "type": "Bug"
+    },
+    "task.132": {
+      "completion_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 0,
+        "minute": 6,
+        "month": 2,
+        "second": 37,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 21,
+        "minute": 50,
+        "month": 2,
+        "second": 27,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "When water surface on water platform passes boundaries of shape, polygon collision stops working and area fails. Add movement limits within the shape for the surface movement.",
+      "type": "Bug"
+    },
+    "task.133": {
+      "completion_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 11,
+        "minute": 6,
+        "month": 2,
+        "second": 48,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 21,
+        "minute": 51,
+        "month": 2,
+        "second": 0,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "add movement to surface when character is close to the boundaries.",
+      "type": "Feature"
+    },
+    "task.137": {
+      "completion_date": {
+        "day": 2,
+        "dst": true,
+        "hour": 18,
+        "minute": 42,
+        "month": 2,
+        "second": 35,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 2,
+        "dst": true,
+        "hour": 17,
+        "minute": 44,
+        "month": 2,
+        "second": 11,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Add modificator to surface velocity on water platforms.",
+      "type": "Feature"
+    },
+    "task.138": {
+      "completion_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 7,
+        "minute": 8,
+        "month": 2,
+        "second": 47,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 2,
+        "dst": true,
+        "hour": 17,
+        "minute": 45,
+        "month": 2,
+        "second": 4,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Change movement logic, make collision area follow the wave pattern instead and just change the wave strength when character alters form",
+      "type": "Task"
+    },
+    "task.139": {
+      "completion_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 21,
+        "minute": 48,
+        "month": 2,
+        "second": 10,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 2,
+        "dst": true,
+        "hour": 18,
+        "minute": 43,
+        "month": 2,
+        "second": 38,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Improve surface motion in water platforms when braking surface.",
+      "type": "Task"
+    },
+    "task.14": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 20,
+        "month": 1,
+        "second": 49,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 11,
+        "month": 1,
+        "second": 59,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Eliminate Platform subclasses and make all platform a \"multishape\". Let the shapes define the kind of platform",
+      "type": "Task"
+    },
+    "task.140": {
+      "completion_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 7,
+        "minute": 8,
+        "month": 2,
+        "second": 30,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 7,
+        "minute": 8,
+        "month": 2,
+        "second": 27,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Create automated circle for water platforms.",
+      "type": "Refactor"
+    },
+    "task.141": {
+      "completion_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 7,
+        "minute": 19,
+        "month": 2,
+        "second": 57,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 7,
+        "minute": 10,
+        "month": 2,
+        "second": 35,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Cleanup: eliminate old movement logic from water platform",
+      "type": "Task"
+    },
+    "task.142": {
+      "completion_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 11,
+        "minute": 46,
+        "month": 2,
+        "second": 43,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 7,
+        "minute": 19,
+        "month": 2,
+        "second": 41,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Change line2d node logic to own draw method on water surface on water platform",
+      "type": "Refactor"
+    },
+    "task.143": {
+      "completion_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 7,
+        "minute": 52,
+        "month": 2,
+        "second": 40,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 7,
+        "minute": 32,
+        "month": 2,
+        "second": 19,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Add secret function to draw platform shapes if they don't have sprite. (For testing purposes)",
+      "type": "Task"
+    },
+    "task.144": {
+      "completion_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 21,
+        "minute": 48,
+        "month": 2,
+        "second": 3,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 11,
+        "minute": 47,
+        "month": 2,
+        "second": 20,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Improve surface lines on water platforms, add roundness.",
+      "type": "Task"
+    },
+    "task.145": {
+      "completion_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 21,
+        "minute": 47,
+        "month": 2,
+        "second": 59,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 20,
+        "minute": 36,
+        "month": 2,
+        "second": 35,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Try to create surface effect with shaders",
+      "type": "Task"
+    },
+    "task.146": {
+      "completion_date": {
+        "day": 5,
+        "dst": true,
+        "hour": 13,
+        "minute": 52,
+        "month": 2,
+        "second": 36,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 21,
+        "minute": 48,
+        "month": 2,
+        "second": 56,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Improve Water platform shader. Allow wave animation when entering or exiting from specific positions at different speeds.",
+      "type": "Task"
+    },
+    "task.147": {
+      "completion_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 16,
+        "minute": 55,
+        "month": 2,
+        "second": 36,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 21,
+        "minute": 49,
+        "month": 2,
+        "second": 39,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Two or more water platform cannot coexist on the same screen. It looks like a Godot limitation. Research and find a way to make them coexist.",
+      "type": "Bug"
+    },
+    "task.148": {
+      "completion_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 14,
+        "minute": 12,
+        "month": 2,
+        "second": 20,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 3,
+        "dst": true,
+        "hour": 22,
+        "minute": 13,
+        "month": 2,
+        "second": 45,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "When character moves outside of water platform, waves accelerate with movement. It seems that shader is using globla screen coordinates and not local to node.",
+      "type": "Bug"
+    },
+    "task.149": {
+      "completion_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 17,
+        "minute": 3,
+        "month": 2,
+        "second": 46,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 16,
+        "minute": 50,
+        "month": 2,
+        "second": 37,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Add test animation's to character.",
+      "type": "Task"
+    },
+    "task.15": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 25,
+        "month": 1,
+        "second": 3,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 21,
+        "month": 1,
+        "second": 30,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Let the platform calculate its gravity chapes center axis instead of using the ones in the nodes. (Its easier)",
+      "type": "Task"
+    },
+    "task.150": {
+      "completion_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 18,
+        "minute": 48,
+        "month": 2,
+        "second": 33,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 18,
+        "minute": 2,
+        "month": 2,
+        "second": 30,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Test sprite softeners.",
+      "type": "Task"
+    },
+    "task.151": {
+      "completion_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 18,
+        "minute": 58,
+        "month": 2,
+        "second": 39,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 18,
+        "minute": 58,
+        "month": 2,
+        "second": 32,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Snap character target normals to 12 directional vector grid to get better looking sprite rotations. It made the game smoother",
+      "type": "Task"
+    },
+    "task.153": {
+      "completion_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 27,
+        "month": 2,
+        "second": 53,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 41,
+        "month": 2,
+        "second": 11,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Try to make camera man rotate to platforms normal. See if it works",
+      "type": "Task"
+    },
+    "task.154": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 36,
+        "month": 2,
+        "second": 38,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 41,
+        "month": 2,
+        "second": 36,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Fix that anoying bug of gravity center shifting, when the character bounces too much. ",
+      "type": "Bug"
+    },
+    "task.156": {
+      "completion_date": {
+        "day": 5,
+        "dst": true,
+        "hour": 12,
+        "minute": 0,
+        "month": 2,
+        "second": 25,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 20,
+        "month": 2,
+        "second": 12,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Character design",
+      "type": "Task"
+    },
+    "task.157": {
+      "completion_date": {
+        "day": 5,
+        "dst": true,
+        "hour": 13,
+        "minute": 44,
+        "month": 2,
+        "second": 43,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 5,
+        "dst": true,
+        "hour": 13,
+        "minute": 23,
+        "month": 2,
+        "second": 26,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Try to use one shader in the water platform instead of two.",
+      "type": "Refactor"
+    },
+    "task.158": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 59,
+        "month": 2,
+        "second": 57,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 5,
+        "dst": true,
+        "hour": 14,
+        "minute": 5,
+        "month": 2,
+        "second": 6,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Implement variable radius for water platforms. Implement radius adjustments opn runtime (maybe add growth/shrink animation?)",
+      "type": "Task"
+    },
+    "task.159": {
+      "completion_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 40,
+        "month": 2,
+        "second": 30,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 10,
+        "minute": 58,
+        "month": 2,
+        "second": 56,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Change water platform resistance constant to stop the characters movement upon entering. Also modify the swimming constants to compensate and to make a better swimming experience.",
+      "type": "Task"
+    },
+    "task.16": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 31,
+        "month": 1,
+        "second": 28,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 31,
+        "month": 1,
+        "second": 21,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Make character keep roll when swapping gravity center by collision",
+      "type": "Task"
+    },
+    "task.160": {
+      "completion_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 27,
+        "month": 2,
+        "second": 48,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 10,
+        "month": 2,
+        "second": 43,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Add normal shift signals to Character class.",
+      "type": "Refactor"
+    },
+    "task.162": {
+      "completion_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 41,
+        "month": 2,
+        "second": 16,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 31,
+        "month": 2,
+        "second": 0,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Add rotating modes to CameraMan (Follow in Poly4 or always on normal Vector2(0, -1))",
+      "type": "Feature"
+    },
+    "task.163": {
+      "completion_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 14,
+        "minute": 50,
+        "month": 2,
+        "second": 16,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 41,
+        "month": 2,
+        "second": 11,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Provide the floor normal for the rotation mechanic off the camera instead of the characters target_normal.",
+      "type": "Task"
+    },
+    "task.164": {
+      "completion_date": {
+        "day": 11,
+        "dst": true,
+        "hour": 15,
+        "minute": 1,
+        "month": 2,
+        "second": 28,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 41,
+        "month": 2,
+        "second": 41,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Test new gravity constants. Fine tune them.",
+      "type": "Task"
+    },
+    "task.165": {
+      "completion_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 21,
+        "minute": 36,
+        "month": 2,
+        "second": 16,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 48,
+        "month": 2,
+        "second": 49,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Test and improve new water resistance and swim constants. Fine tune the shit out of them.",
+      "type": "Task"
+    },
+    "task.166": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 35,
+        "month": 2,
+        "second": 45,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 14,
+        "minute": 50,
+        "month": 2,
+        "second": 32,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Fine tune CameraMan rotations",
+      "type": "Task"
+    },
+    "task.167": {
+      "completion_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 0,
+        "minute": 48,
+        "month": 2,
+        "second": 37,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 14,
+        "minute": 51,
+        "month": 2,
+        "second": 6,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Inverse keyboard fails when activated by running and keeping direction on head gravity change.",
+      "type": "Task"
+    },
+    "task.168": {
+      "completion_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 12,
+        "minute": 21,
+        "month": 2,
+        "second": 16,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 8,
+        "dst": true,
+        "hour": 21,
+        "minute": 37,
+        "month": 2,
+        "second": 57,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "When camera is rotated, controls in water platform are messed up.",
+      "type": "Task"
+    },
+    "task.169": {
+      "completion_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 12,
+        "minute": 32,
+        "month": 2,
+        "second": 41,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 3,
+        "minute": 15,
+        "month": 2,
+        "second": 27,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Make the CameraMan node to use as default position the feet of the actor on the bottom of the screen (like in Hollow Knight)",
+      "type": "Task"
+    },
+    "task.17": {
+      "completion_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 12,
+        "minute": 14,
+        "month": 1,
+        "second": 58,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 31,
+        "month": 1,
+        "second": 49,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Make character keep roll movement when chaging gravity center by collision.",
+      "type": "Task"
+    },
+    "task.170": {
+      "completion_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 11,
+        "minute": 18,
+        "month": 2,
+        "second": 24,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 4,
+        "minute": 13,
+        "month": 2,
+        "second": 6,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Character's signals are not working.",
+      "type": "Bug"
+    },
+    "task.171": {
+      "completion_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 11,
+        "minute": 18,
+        "month": 2,
+        "second": 29,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 11,
+        "minute": 15,
+        "month": 2,
+        "second": 41,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Add signal checker to Glb.",
+      "type": "Task"
+    },
+    "task.172": {
+      "completion_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 12,
+        "minute": 16,
+        "month": 2,
+        "second": 47,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 12,
+        "minute": 8,
+        "month": 2,
+        "second": 20,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Implement global access and management of current cameras in order for nodes to access the (one and only) CameraMan",
+      "type": "Task"
+    },
+    "task.173": {
+      "completion_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 11,
+        "minute": 45,
+        "month": 2,
+        "second": 58,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 12,
+        "minute": 22,
+        "month": 2,
+        "second": 5,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Make Water platforms pull character when he entered and is too far from the center (to avoid half body outside of bubble)",
+      "type": "Task"
+    },
+    "task.174": {
+      "completion_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 12,
+        "minute": 37,
+        "month": 2,
+        "second": 10,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 9,
+        "dst": true,
+        "hour": 12,
+        "minute": 22,
+        "month": 2,
+        "second": 55,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Implement optional rotations for camera. Attempt to haver two play modes: Inverting controls or rotatin camera.",
+      "type": "Task"
+    },
+    "task.175": {
+      "completion_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 11,
+        "minute": 5,
+        "month": 2,
+        "second": 22,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 1,
+        "minute": 48,
+        "month": 2,
+        "second": 28,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Control inversion is messing up when on Rotation mode.",
+      "type": "Bug"
+    },
+    "task.178": {
+      "completion_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 21,
+        "minute": 36,
+        "month": 2,
+        "second": 6,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 11,
+        "minute": 47,
+        "month": 2,
+        "second": 22,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Add acceleration/desacceleration to water mechanics on character to make movement smoother.",
+      "type": "Task"
+    },
+    "task.179": {
+      "completion_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 13,
+        "minute": 9,
+        "month": 2,
+        "second": 57,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 12,
+        "minute": 32,
+        "month": 2,
+        "second": 58,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Finetune margins of Camera2D in CameraMan",
+      "type": "Task"
+    },
+    "task.18": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 19,
+        "minute": 38,
+        "month": 1,
+        "second": 11,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 39,
+        "month": 1,
+        "second": 3,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Test rotated platforms gravity centers",
+      "type": "Remainder"
+    },
+    "task.180": {
+      "completion_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 12,
+        "minute": 33,
+        "month": 2,
+        "second": 13,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 12,
+        "minute": 33,
+        "month": 2,
+        "second": 10,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Add playable mode to character class.",
+      "type": "Feature"
+    },
+    "task.181": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 28,
+        "month": 2,
+        "second": 0,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 18,
+        "minute": 58,
+        "month": 2,
+        "second": 13,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Test margins for CameraMan.",
+      "type": "Task"
+    },
+    "task.182": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 42,
+        "month": 2,
+        "second": 2,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 41,
+        "month": 2,
+        "second": 57,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Reduce repetitive code for ground reach checks on Character.",
+      "type": "Refactor"
+    },
+    "task.183": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 49,
+        "month": 2,
+        "second": 57,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 47,
+        "month": 2,
+        "second": 13,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Debugger shows error \"Condition 'p_aabb.position.y>1e15 or p_aabb.position.y < -1e15' is true.\"",
+      "type": "Refactor"
+    },
+    "task.184": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 18,
+        "minute": 0,
+        "month": 2,
+        "second": 16,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 49,
+        "month": 2,
+        "second": 54,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Debugger shows error \"Condition p_aabb.position.y>1e15 or p_aabb.position.y < -1e15' is true.\"",
+      "type": "Bug"
+    },
+    "task.185": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 55,
+        "month": 2,
+        "second": 10,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 53,
+        "month": 2,
+        "second": 41,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "When Character finds a gravity center from open space collision, the normal rotation is not visually correct.",
+      "type": "Bug"
+    },
+    "task.187": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 18,
+        "minute": 4,
+        "month": 2,
+        "second": 36,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 50,
+        "month": 2,
+        "second": 6,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "When on water center don't let change to gravity center, only when coming from space or another gravity center.",
+      "type": "Task"
+    },
+    "task.188": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 18,
+        "minute": 0,
+        "month": 2,
+        "second": 20,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 51,
+        "month": 2,
+        "second": 11,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "when water platform grows, the color dosn't expand.",
+      "type": "Bug"
+    },
+    "task.19": {
+      "completion_date": {
+        "day": 14,
+        "dst": true,
+        "hour": 20,
+        "minute": 48,
+        "month": 1,
+        "second": 51,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 54,
+        "month": 1,
+        "second": 33,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Improve collision method move_and_slider on tight slopes, it doesn't feel right",
+      "type": "Task"
+    },
+    "task.2": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 11,
+        "minute": 45,
+        "month": 1,
+        "second": 28,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 15,
+        "month": 1,
+        "second": 42,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Triangle Platform",
+      "type": "Feature"
+    },
+    "task.20": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 21,
+        "minute": 18,
+        "month": 1,
+        "second": 19,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 19,
+        "minute": 36,
+        "month": 1,
+        "second": 42,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Clossiness measure doesn't work well on polygon platforms, find a better way to soften the corners",
+      "type": "Bug"
+    },
+    "task.21": {
+      "completion_date": {
+        "day": 14,
+        "dst": true,
+        "hour": 20,
+        "minute": 47,
+        "month": 1,
+        "second": 44,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 21,
+        "minute": 18,
+        "month": 1,
+        "second": 47,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Corners in polygon platform can be improved, they don't feel right yet.",
+      "type": "Task"
+    },
+    "task.22": {
+      "completion_date": {
+        "day": 14,
+        "dst": true,
+        "hour": 11,
+        "minute": 6,
+        "month": 1,
+        "second": 34,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 21,
+        "minute": 20,
+        "month": 1,
+        "second": 56,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Check corners of square, those ones feel perfect. Polygon must get there.",
+      "type": "Remainder"
+    },
+    "task.23": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 23,
+        "minute": 12,
+        "month": 1,
+        "second": 30,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 14,
+        "dst": true,
+        "hour": 11,
+        "minute": 7,
+        "month": 1,
+        "second": 7,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Implement different edge softener for polygon platform where corners are convex and concave.",
+      "type": "Task"
+    },
+    "task.24": {
+      "completion_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 19,
+        "minute": 49,
+        "month": 1,
+        "second": 30,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 14,
+        "dst": true,
+        "hour": 20,
+        "minute": 48,
+        "month": 1,
+        "second": 26,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "When character jumps and collides, it gets stuck and wont jump",
+      "type": "Bug"
+    },
+    "task.25": {
+      "completion_date": {
+        "day": 15,
+        "dst": true,
+        "hour": 22,
+        "minute": 46,
+        "month": 1,
+        "second": 32,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 15,
+        "dst": true,
+        "hour": 8,
+        "minute": 15,
+        "month": 1,
+        "second": 5,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Experiment with sprite rotation.",
+      "type": "Task"
+    },
+    "task.26": {
+      "completion_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 19,
+        "minute": 49,
+        "month": 1,
+        "second": 41,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 15,
+        "dst": true,
+        "hour": 8,
+        "minute": 15,
+        "month": 1,
+        "second": 30,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Test and debug how move_and_slope works",
+      "type": "Task"
+    },
+    "task.27": {
+      "completion_date": {
+        "day": 15,
+        "dst": true,
+        "hour": 23,
+        "minute": 19,
+        "month": 1,
+        "second": 19,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 15,
+        "dst": true,
+        "hour": 8,
+        "minute": 16,
+        "month": 1,
+        "second": 20,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Move all platform gravity logic to a personal \"gravity_shape\" node to handle gravity related stuff. Let the platform handle physics.",
+      "type": "Refactor"
+    },
+    "task.28": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 20,
+        "minute": 56,
+        "month": 1,
+        "second": 36,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 15,
+        "dst": true,
+        "hour": 8,
+        "minute": 17,
+        "month": 1,
+        "second": 54,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "To-do addon: Add file:line mark to todo from currently open and selected line. Implement button in todo list to access that file.",
+      "type": "Feature"
+    },
+    "task.29": {
+      "completion_date": {
+        "day": 15,
+        "dst": true,
+        "hour": 11,
+        "minute": 14,
+        "month": 1,
+        "second": 42,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 15,
+        "dst": true,
+        "hour": 8,
+        "minute": 18,
+        "month": 1,
+        "second": 54,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Notes addon doesn't work anymor. Fixit by experimenting with godots main_screen plugins. Find a better way to handle that plugin (looks kinda ugly in the main screen with so many tabs)",
+      "type": "Bug"
+    },
+    "task.3": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 15,
+        "minute": 24,
+        "month": 1,
+        "second": 46,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 15,
+        "month": 1,
+        "second": 47,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Multi Platform",
+      "type": "Feature"
+    },
+    "task.30": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 22,
+        "minute": 44,
+        "month": 1,
+        "second": 58,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 8,
+        "minute": 39,
+        "month": 1,
+        "second": 46,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Add precalculations to gravity_center shape metadata to make the gravity calcs faster.",
+      "type": "Refactor"
+    },
+    "task.31": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 16,
+        "minute": 42,
+        "month": 1,
+        "second": 33,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 10,
+        "minute": 41,
+        "month": 1,
+        "second": 28,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Eliminate circular shape from gravity_center and leave it as default (if no polygon is defined). ",
+      "type": "Refactor"
+    },
+    "task.32": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 16,
+        "minute": 42,
+        "month": 1,
+        "second": 1,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 10,
+        "minute": 52,
+        "month": 1,
+        "second": 58,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Change focus point on gravity_center, instead of rotating everything to the global system, rotate the character to the local system.",
+      "type": "Refactor"
+    },
+    "task.33": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 22,
+        "minute": 44,
+        "month": 1,
+        "second": 52,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 10,
+        "minute": 58,
+        "month": 1,
+        "second": 54,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "When using multiple gravity centers (center Node2D on gravity_center) the normal calculation gets messed up because it assumes vertex are related to node center and not real center.",
+      "type": "Bug"
+    },
+    "task.34": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 17,
+        "minute": 53,
+        "month": 1,
+        "second": 29,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 11,
+        "minute": 59,
+        "month": 1,
+        "second": 40,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Transform gravity_center into centers_of_mass",
+      "type": "Refactor"
+    },
+    "task.35": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 16,
+        "minute": 41,
+        "month": 1,
+        "second": 44,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 13,
+        "minute": 16,
+        "month": 1,
+        "second": 31,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Analize transform efficiency for Platform instead of manualy translating and rotating. Try to use the transform matrix",
+      "type": "Task"
+    },
+    "task.36": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 16,
+        "minute": 43,
+        "month": 1,
+        "second": 14,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 16,
+        "minute": 43,
+        "month": 1,
+        "second": 11,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Get the normal vertex from the collision nodes of the owner of the centers_of_mass",
+      "type": "Refactor"
+    },
+    "task.37": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 17,
+        "minute": 6,
+        "month": 1,
+        "second": 14,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 16,
+        "minute": 46,
+        "month": 1,
+        "second": 59,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "move square functionality to centers_of_mass",
+      "type": "Refactor"
+    },
+    "task.38": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 17,
+        "minute": 32,
+        "month": 1,
+        "second": 17,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 16,
+        "minute": 47,
+        "month": 1,
+        "second": 14,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "move rectangle functionality to centers_of_mass",
+      "type": "Refactor"
+    },
+    "task.39": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 22,
+        "minute": 44,
+        "month": 1,
+        "second": 36,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 16,
+        "minute": 47,
+        "month": 1,
+        "second": 28,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Move polygon funcitonality to center_of_mas",
+      "type": "Refactor"
+    },
+    "task.4": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 19,
+        "minute": 35,
+        "month": 1,
+        "second": 57,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 15,
+        "month": 1,
+        "second": 53,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Polygon Platform?",
+      "type": "Feature"
+    },
+    "task.40": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 23,
+        "minute": 10,
+        "month": 1,
+        "second": 7,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 17,
+        "minute": 54,
+        "month": 1,
+        "second": 52,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Remember to change the vertex according to the current gravity center on the centers_of_mass when calculating gravity on polygons (and check that on rectangles too? what about squares? was caos!!!)",
+      "type": "Remainder"
+    },
+    "task.41": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 23,
+        "minute": 9,
+        "month": 1,
+        "second": 55,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 21,
+        "minute": 49,
+        "month": 1,
+        "second": 44,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "In centers_of_mass if gravity and normal are going to be the same (just inverted) then invert the normal after rotating (too avoid rotating twice)",
+      "type": "Remainder"
+    },
+    "task.42": {
+      "completion_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 23,
+        "minute": 12,
+        "month": 1,
+        "second": 22,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 23,
+        "minute": 12,
+        "month": 1,
+        "second": 19,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Make smooth transition between centers of mass defined in the polygon.",
+      "type": "Task"
+    },
+    "task.43": {
+      "completion_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 1,
+        "minute": 14,
+        "month": 1,
+        "second": 56,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 0,
+        "minute": 20,
+        "month": 1,
+        "second": 44,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Create a 2 phase jump (faster ascend and slower descend)",
+      "type": "Feature"
+    },
+    "task.44": {
+      "completion_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 42,
+        "month": 2,
+        "second": 22,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 1,
+        "minute": 25,
+        "month": 1,
+        "second": 46,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Organice new tasks and set some priorities.",
+      "type": "Remainder"
+    },
+    "task.45": {
+      "completion_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 10,
+        "minute": 28,
+        "month": 1,
+        "second": 52,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 9,
+        "minute": 27,
+        "month": 1,
+        "second": 37,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Turn centers_of_mass into plugin node. Why? becuse why not!",
+      "type": "Refactor"
+    },
+    "task.46": {
+      "completion_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 20,
+        "minute": 59,
+        "month": 1,
+        "second": 9,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 9,
+        "minute": 28,
+        "month": 1,
+        "second": 8,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Create smahjump adjusting gravity for a sec. Add momentum to target.",
+      "type": "Feature"
+    },
+    "task.47": {
+      "completion_date": {
+        "day": 20,
+        "dst": true,
+        "hour": 19,
+        "minute": 54,
+        "month": 1,
+        "second": 9,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 9,
+        "minute": 28,
+        "month": 1,
+        "second": 33,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Create cameraman that follows player. Implement as plugin",
+      "type": "Feature"
+    },
+    "task.48": {
+      "completion_date": {
+        "day": 20,
+        "dst": true,
+        "hour": 20,
+        "minute": 38,
+        "month": 1,
+        "second": 20,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 12,
+        "minute": 42,
+        "month": 1,
+        "second": 6,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "When character runs along tight corners where character \"microfalls\", he cannot jump. Maybe add a counter for jumping?",
+      "type": "Bug"
+    },
+    "task.49": {
+      "completion_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 16,
+        "minute": 26,
+        "month": 1,
+        "second": 49,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 13,
+        "minute": 26,
+        "month": 1,
+        "second": 49,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Consider getting slope_stop_min_velocity from the gravity_center platform. Maybe platforms can have different behaviours. Must experiment with this.",
+      "type": "Remainder"
+    },
+    "task.5": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 54,
+        "month": 1,
+        "second": 6,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 16,
+        "month": 1,
+        "second": 2,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Test different shape platforms with polygon collision shapes for terrain",
+      "type": "Task"
+    },
+    "task.50": {
+      "completion_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 19,
+        "minute": 30,
+        "month": 1,
+        "second": 27,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 13,
+        "minute": 29,
+        "month": 1,
+        "second": 22,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Clean some unordered variables in Character class, as well as create set_velocity methods. Also, clean che characters instance input method, create accesors to clean this stuff.",
+      "type": "Refactor"
+    },
+    "task.52": {
+      "completion_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 20,
+        "minute": 18,
+        "month": 1,
+        "second": 18,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 19,
+        "minute": 4,
+        "month": 1,
+        "second": 16,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Sometimes when the character changes gravity center afeter colliding with the head (usually when its a corner righ in the middle of the skull) the character bounces back A LOT",
+      "type": "Bug"
+    },
+    "task.54": {
+      "completion_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 15,
+        "minute": 29,
+        "month": 1,
+        "second": 45,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 11,
+        "minute": 59,
+        "month": 1,
+        "second": 53,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "Create console for rapid testing",
+      "type": "Feature"
+    },
+    "task.56": {
+      "completion_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 16,
+        "minute": 34,
+        "month": 1,
+        "second": 56,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 15,
+        "minute": 32,
+        "month": 1,
+        "second": 22,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "Move log logic form HUD to new console and implement logging into console (make console check for changes in the variables)",
+      "type": "Refactor"
+    },
+    "task.57": {
+      "completion_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 16,
+        "minute": 34,
+        "month": 1,
+        "second": 48,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 16,
+        "minute": 6,
+        "month": 1,
+        "second": 39,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "Remove all old Glb.logreasdjkfh and start using Console.l",
+      "type": "Remainder"
+    },
+    "task.58": {
+      "completion_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 18,
+        "minute": 43,
+        "month": 1,
+        "second": 13,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 18,
+        "minute": 25,
+        "month": 1,
+        "second": 9,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "When jumping, character stays with the heaviest gravity, hindering move_and_slide",
+      "type": "Bug"
+    },
+    "task.59": {
+      "completion_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 10,
+        "minute": 57,
+        "month": 2,
+        "second": 40,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 18,
+        "minute": 48,
+        "month": 1,
+        "second": 7,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "Get better gravity constants",
+      "type": "Task"
+    },
+    "task.6": {
+      "completion_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 13,
+        "minute": 28,
+        "month": 1,
+        "second": 21,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 16,
+        "month": 1,
+        "second": 9,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Organice character's code",
+      "type": "Task"
+    },
+    "task.60": {
+      "completion_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 20,
+        "minute": 2,
+        "month": 1,
+        "second": 52,
+        "weekday": 4,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 19,
+        "minute": 59,
+        "month": 1,
+        "second": 10,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "Add message in console when running . commands that set properties",
+      "type": "Task"
+    },
+    "task.61": {
+      "completion_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 42,
+        "month": 2,
+        "second": 15,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 8,
+        "minute": 22,
+        "month": 1,
+        "second": 7,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Work on first sprite designs.",
+      "type": "Task"
+    },
+    "task.62": {
+      "completion_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 10,
+        "minute": 46,
+        "month": 1,
+        "second": 26,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 8,
+        "minute": 22,
+        "month": 1,
+        "second": 17,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Work on first musical sketches",
+      "type": "Task"
+    },
+    "task.63": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 20,
+        "minute": 35,
+        "month": 1,
+        "second": 54,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 8,
+        "minute": 24,
+        "month": 1,
+        "second": 39,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Add line wrap to Notes plugin.",
+      "type": "Feature"
+    },
+    "task.64": {
+      "completion_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 13,
+        "minute": 26,
+        "month": 1,
+        "second": 41,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 12,
+        "minute": 15,
+        "month": 1,
+        "second": 38,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "If directional buttons are released mid-air before the character collisions into a different gravity center and rolls, directions are all messed up",
+      "type": "Bug"
+    },
+    "task.65": {
+      "completion_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 12,
+        "minute": 56,
+        "month": 1,
+        "second": 49,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 12,
+        "minute": 17,
+        "month": 1,
+        "second": 45,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Character gets stuck while rolling, moves around in weird manner and changes direction. Annoying.",
+      "type": "Bug"
+    },
+    "task.66": {
+      "completion_date": {
+        "day": 20,
+        "dst": true,
+        "hour": 18,
+        "minute": 47,
+        "month": 1,
+        "second": 58,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 19,
+        "dst": true,
+        "hour": 13,
+        "minute": 27,
+        "month": 1,
+        "second": 35,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "When character changes gravity center by collision and movement gets inverted, after rolling is finished the character's movement it's uninverted even before button is released",
+      "type": "Bug"
+    },
+    "task.67": {
+      "completion_date": {
+        "day": 20,
+        "dst": true,
+        "hour": 18,
+        "minute": 48,
+        "month": 1,
+        "second": 2,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 20,
+        "dst": true,
+        "hour": 18,
+        "minute": 22,
+        "month": 1,
+        "second": 40,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Add count feature to the log in the console.",
+      "type": "Feature"
+    },
+    "task.69": {
+      "completion_date": {
+        "day": 20,
+        "dst": true,
+        "hour": 20,
+        "minute": 21,
+        "month": 1,
+        "second": 58,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 20,
+        "dst": true,
+        "hour": 19,
+        "minute": 55,
+        "month": 1,
+        "second": 14,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "CameraMan's rotation its all messy because the normals get updated in weird cases (like non central axis, but rather circular in the platforms edges). Normla target tends to be weird position.",
+      "type": "Bug"
+    },
+    "task.7": {
+      "completion_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 0,
+        "minute": 20,
+        "month": 1,
+        "second": 8,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 16,
+        "month": 1,
+        "second": 16,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Responsive jump",
+      "type": "Feature"
+    },
+    "task.70": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 20,
+        "minute": 0,
+        "month": 1,
+        "second": 42,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 20,
+        "dst": true,
+        "hour": 20,
+        "minute": 22,
+        "month": 1,
+        "second": 45,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "CameraMan doesn't adjust smoothly yet, keep experimenting until we get a nice rotating camera. Or decide to not rotate at all.",
+      "type": "Bug"
+    },
+    "task.71": {
+      "completion_date": {
+        "day": 21,
+        "dst": true,
+        "hour": 11,
+        "minute": 8,
+        "month": 1,
+        "second": 53,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 21,
+        "dst": true,
+        "hour": 9,
+        "minute": 59,
+        "month": 1,
+        "second": 26,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Shifting gravity center by head hit sometimes makes the wrong control turn and player rotation. (Check collision from circle to polygon)",
+      "type": "Bug"
+    },
+    "task.72": {
+      "completion_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 20,
+        "minute": 33,
+        "month": 1,
+        "second": 6,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 21,
+        "dst": true,
+        "hour": 11,
+        "minute": 9,
+        "month": 1,
+        "second": 54,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Normal rotation shift algorithm when changing gravity center doesn't reflect the players objectives. A better approach thann is_on_ceiling must be deviced.",
+      "type": "Bug"
+    },
+    "task.73": {
+      "completion_date": {
+        "day": 21,
+        "dst": true,
+        "hour": 13,
+        "minute": 1,
+        "month": 1,
+        "second": 16,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 21,
+        "dst": true,
+        "hour": 12,
+        "minute": 56,
+        "month": 1,
+        "second": 18,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Transform Platform type to gravity_platform and create small platforms that don't modify gravity center (to serve platform sections in game, otherwise, there won't be traditional platforming)",
+      "type": "Refactor"
+    },
+    "task.74": {
+      "completion_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 16,
+        "minute": 49,
+        "month": 1,
+        "second": 24,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 16,
+        "minute": 29,
+        "month": 1,
+        "second": 30,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "add type recognition method to avoid extra type parameter",
+      "type": "Feature"
+    },
+    "task.76": {
+      "completion_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 19,
+        "minute": 37,
+        "month": 1,
+        "second": 56,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 19,
+        "minute": 37,
+        "month": 1,
+        "second": 53,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Sometimes when changing gravity center and movement has to be inverted the movement is right but the rotation not.",
+      "type": "Bug"
+    },
+    "task.77": {
+      "completion_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 22,
+        "minute": 22,
+        "month": 1,
+        "second": 10,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 21,
+        "minute": 3,
+        "month": 1,
+        "second": 37,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Add Vector2(x, y) RegExp for Console. (It will facilitate testing the movement of platforms)",
+      "type": "Feature"
+    },
+    "task.78": {
+      "completion_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 0,
+        "minute": 0,
+        "month": 1,
+        "second": 56,
+        "weekday": 2,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 23,
+        "minute": 37,
+        "month": 1,
+        "second": 51,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Calculate the average center of mass of the CenterOfMass node for torque calculations.",
+      "type": "Task"
+    },
+    "task.79": {
+      "completion_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 23,
+        "minute": 49,
+        "month": 1,
+        "second": 39,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 23,
+        "minute": 48,
+        "month": 1,
+        "second": 48,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "normal adjust when changing gravity center fails when dot of normals is -1",
+      "type": "Bug"
+    },
+    "task.8": {
+      "completion_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 18,
+        "minute": 59,
+        "month": 1,
+        "second": 25,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 16,
+        "month": 1,
+        "second": 22,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Rigid physics for kinematic platforms",
+      "type": "Feature"
+    },
+    "task.80": {
+      "completion_date": {
+        "day": 26,
+        "dst": true,
+        "hour": 16,
+        "minute": 11,
+        "month": 1,
+        "second": 37,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 1,
+        "minute": 26,
+        "month": 1,
+        "second": 25,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "When player is in moving platform, the movement is rough and feels bad. ",
+      "type": "Bug"
+    },
+    "task.81": {
+      "completion_date": {
+        "day": 26,
+        "dst": true,
+        "hour": 16,
+        "minute": 11,
+        "month": 1,
+        "second": 32,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 26,
+        "dst": true,
+        "hour": 16,
+        "minute": 11,
+        "month": 1,
+        "second": 29,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "CameraMan jitters screen when character moves below camera stop velocity",
+      "type": "Bug"
+    },
+    "task.82": {
+      "completion_date": {
+        "day": 26,
+        "dst": true,
+        "hour": 18,
+        "minute": 3,
+        "month": 1,
+        "second": 41,
+        "weekday": 5,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 26,
+        "dst": true,
+        "hour": 16,
+        "minute": 13,
+        "month": 1,
+        "second": 37,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "When character moves on a platform and keeps the inverted value, then releases and jumps to shift gravity center, the direction is all messed up",
+      "type": "Bug"
+    },
+    "task.83": {
+      "completion_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 17,
+        "minute": 46,
+        "month": 1,
+        "second": 1,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 26,
+        "dst": true,
+        "hour": 16,
+        "minute": 22,
+        "month": 1,
+        "second": 40,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "When platform rotates, the character in that platform doesn't move accordingly.",
+      "type": "Bug"
+    },
+    "task.84": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 20,
+        "minute": 27,
+        "month": 1,
+        "second": 56,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 26,
+        "dst": true,
+        "hour": 16,
+        "minute": 23,
+        "month": 1,
+        "second": 52,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Improve CameraMan movement to actor, make the movement interpolated and shift accelerations accordingly.",
+      "type": "Task"
+    },
+    "task.86": {
+      "completion_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 17,
+        "minute": 56,
+        "month": 1,
+        "second": 42,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 26,
+        "dst": true,
+        "hour": 18,
+        "minute": 56,
+        "month": 1,
+        "second": 17,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Platform linear movement is not smooth on character",
+      "type": "Bug"
+    },
+    "task.87": {
+      "completion_date": {
+        "day": 31,
+        "dst": true,
+        "hour": 18,
+        "minute": 33,
+        "month": 1,
+        "second": 58,
+        "weekday": 3,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 17,
+        "minute": 48,
+        "month": 1,
+        "second": 36,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Circular water platforms! Character can swim through them and \"jump\" out on the limits.",
+      "type": "Feature"
+    },
+    "task.88": {
+      "completion_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 18,
+        "minute": 59,
+        "month": 1,
+        "second": 46,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 17,
+        "minute": 57,
+        "month": 1,
+        "second": 26,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Platform angular and linear velocities work for platforms with small values, for big values, it just don't behaves :(",
+      "type": "Bug"
+    },
+    "task.89": {
+      "completion_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 18,
+        "minute": 59,
+        "month": 1,
+        "second": 47,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 18,
+        "minute": 10,
+        "month": 1,
+        "second": 30,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "While rotating platforms don't activate collision code because they aren't using move_and_collide and stuff.",
+      "type": "Bug"
+    },
+    "task.9": {
+      "completion_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 16,
+        "minute": 11,
+        "month": 1,
+        "second": 10,
+        "weekday": 6,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 12,
+        "dst": true,
+        "hour": 21,
+        "minute": 34,
+        "month": 1,
+        "second": 35,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Implement API on Platform base class to handle different types of shape nodes (Shape2D and Pollygons)",
+      "type": "Task"
+    },
+    "task.90": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 17,
+        "minute": 39,
+        "month": 1,
+        "second": 11,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 18,
+        "minute": 13,
+        "month": 1,
+        "second": 34,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Try using rigidbody with center_of_mass logic to create gravity platforms.",
+      "type": "Task"
+    },
+    "task.91": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 19,
+        "minute": 59,
+        "month": 1,
+        "second": 39,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 18,
+        "minute": 35,
+        "month": 1,
+        "second": 18,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Try working game logic without platform collision. Evaluate if techniques works in the game",
+      "type": "Task"
+    },
+    "task.92": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 19,
+        "minute": 58,
+        "month": 1,
+        "second": 48,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 19,
+        "minute": 19,
+        "month": 1,
+        "second": 12,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Try implementing own \"move_and_slide\" using raycast and forcing character on collision boundaries.",
+      "type": "Remainder"
+    },
+    "task.93": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 19,
+        "minute": 58,
+        "month": 1,
+        "second": 33,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 19,
+        "minute": 23,
+        "month": 1,
+        "second": 41,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Attempt to use raycasting instead of segment to gather collision point. Attempt to keep raycasting aligned to target normal instead of rolling with character. (see if works)",
+      "type": "Remainder"
+    },
+    "task.94": {
+      "completion_date": {
+        "day": 28,
+        "dst": true,
+        "hour": 20,
+        "minute": 20,
+        "month": 1,
+        "second": 21,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 27,
+        "dst": true,
+        "hour": 19,
+        "minute": 34,
+        "month": 1,
+        "second": 46,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Attempt to use get_rest_info to solve the raycasting riddle. With the point returned we can calculate the new position.",
+      "type": "Remainder"
+    },
+    "task.95": {
+      "completion_date": {
+        "day": 28,
+        "dst": true,
+        "hour": 14,
+        "minute": 22,
+        "month": 1,
+        "second": 16,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 28,
+        "dst": true,
+        "hour": 14,
+        "minute": 17,
+        "month": 1,
+        "second": 41,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Add segment shape instead of 2 points in character",
+      "type": "Refactor"
+    },
+    "task.96": {
+      "completion_date": {
+        "day": 28,
+        "dst": true,
+        "hour": 20,
+        "minute": 19,
+        "month": 1,
+        "second": 57,
+        "weekday": 0,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 28,
+        "dst": true,
+        "hour": 19,
+        "minute": 40,
+        "month": 1,
+        "second": 39,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Raycasting fails when checking collision upwards. Thats why the parent object couldn't move in that direction (because it collided)",
+      "type": "Bug"
+    },
+    "task.97": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 17,
+        "minute": 13,
+        "month": 1,
+        "second": 5,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 28,
+        "dst": true,
+        "hour": 20,
+        "minute": 23,
+        "month": 1,
+        "second": 4,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Automate the process of defining the ground_cast segment query. As of now, 2 similar lines are created using 2 points and are 1 pixel appart from each other.",
+      "type": "Refactor"
+    },
+    "task.98": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 17,
+        "minute": 13,
+        "month": 1,
+        "second": 4,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 13,
+        "minute": 42,
+        "month": 1,
+        "second": 2,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Create scene node in charge of handling the ground's raycasting.",
+      "type": "Refactor"
+    },
+    "task.99": {
+      "completion_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 18,
+        "minute": 24,
+        "month": 1,
+        "second": 9,
+        "weekday": 1,
+        "year": 2018
+      },
+      "creation_date": {
+        "day": 29,
+        "dst": true,
+        "hour": 17,
+        "minute": 39,
+        "month": 1,
+        "second": 56,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Raycasting movement fails sometimes. Test different collision scenarios (player can enter inside platform shape.)",
+      "type": "Bug"
+    },
+    "task.195": {
+      "task": "Implement json library.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 2,
+        "day": 28,
+        "weekday": 3,
+        "dst": true,
+        "hour": 14,
+        "minute": 23,
+        "second": 30
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 2,
+        "day": 28,
+        "weekday": 3,
+        "dst": true,
+        "hour": 14,
+        "minute": 23,
+        "second": 52
+      }
+    }
+  },
+  "pend_order": [
+    "task.51",
+    "task.53",
+    "task.55",
+    "task.68",
+    "task.75",
+    "task.85",
+    "task.113",
+    "task.114",
+    "task.134",
+    "task.135",
+    "task.136",
+    "task.152",
+    "task.155",
+    "task.161",
+    "task.176",
+    "task.177",
+    "task.186",
+    "task.189",
+    "task.190",
+    "task.191",
+    "task.192",
+    "task.193",
+    "task.194"
+  ],
+  "pending": {
+    "task.113": {
+      "creation_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 19,
+        "minute": 32,
+        "month": 1,
+        "second": 47,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "When rigid platform is moving and player collides with new gravity center platform, because player is a child node of the platform, the new gravity center registers the collision as rigid and starts moving.",
+      "type": "Bug"
+    },
+    "task.114": {
+      "creation_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 19,
+        "minute": 54,
+        "month": 1,
+        "second": 16,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Small platforms don't work anymore, moving logic is failing as depends on raycasting and not in collisions. Or has to do with _gravity_center checking to avoid previous bug.",
+      "type": "Bug"
+    },
+    "task.134": {
+      "creation_date": {
+        "day": 1,
+        "dst": true,
+        "hour": 21,
+        "minute": 56,
+        "month": 2,
+        "second": 1,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "Add interaction between normal moving platforms and water platforms. What happens if they collide? avoid character/water/gravity collisions because they are a mess.",
+      "type": "Feature"
+    },
+    "task.135": {
+      "creation_date": {
+        "day": 2,
+        "dst": true,
+        "hour": 17,
+        "minute": 40,
+        "month": 2,
+        "second": 2,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Make water ball platform fussionate and grow in size.",
+      "type": "Feature"
+    },
+    "task.136": {
+      "creation_date": {
+        "day": 2,
+        "dst": true,
+        "hour": 17,
+        "minute": 40,
+        "month": 2,
+        "second": 35,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Make water balls collide with platforms and move away, also make code to avoid water entering rigid platform collision areas.",
+      "type": "Feature"
+    },
+    "task.152": {
+      "creation_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 20,
+        "minute": 20,
+        "month": 2,
+        "second": 39,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "There is a movement bug on concave collisions. Steps reproduce: Go to polygon platform and walk up a concave slope.",
+      "type": "Bug"
+    },
+    "task.155": {
+      "creation_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 42,
+        "month": 2,
+        "second": 9,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Sometimes the character rolles 2 times (usually when there are too many normal changes before the character reaches the normal destination).",
+      "type": "Bug"
+    },
+    "task.161": {
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 28,
+        "month": 2,
+        "second": 10,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Keep testing new camera rotation functionality.",
+      "type": "Remainder"
+    },
+    "task.176": {
+      "creation_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 11,
+        "minute": 5,
+        "month": 2,
+        "second": 48,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Implement a functional invert mode for character.",
+      "type": "Feature"
+    },
+    "task.177": {
+      "creation_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 11,
+        "minute": 46,
+        "month": 2,
+        "second": 26,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Help player outside of bubble to prevent player stuck half outside of bubble.",
+      "type": "Task"
+    },
+    "task.186": {
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 7,
+        "month": 2,
+        "second": 40,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Change camera rotations depending on the platform.",
+      "type": "Feature"
+    },
+    "task.189": {
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 3,
+        "minute": 1,
+        "month": 2,
+        "second": 15,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "When jumping the camera follows up but stays up instead of going back to previous position.",
+      "type": "Bug"
+    },
+    "task.190": {
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 13,
+        "minute": 37,
+        "month": 2,
+        "second": 47,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Let the platform decide where in the scene tree the character is going to be. As of now the Character class does this (only for water platforms, in position 0). This is because some of the platforms may have sprite layers and the character is needed to be in certain tree position.",
+      "type": "Refactor"
+    },
+    "task.191": {
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 16,
+        "minute": 48,
+        "month": 2,
+        "second": 34,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "CameraMan flickers when character moves fast.",
+      "type": "Bug"
+    },
+    "task.192": {
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 16,
+        "minute": 56,
+        "month": 2,
+        "second": 16,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "When there are more than 1 water platform, the shader is buggy for the platforms instead of the first one instanced by the scene tree.",
+      "type": "Bug"
+    },
+    "task.193": {
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 16,
+        "minute": 56,
+        "month": 2,
+        "second": 43,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "2 water_platforms cannot coexist, when the player reaches the intersection point the platform becomes crazy.",
+      "type": "Bug"
+    },
+    "task.194": {
+      "creation_date": {
+        "day": 25,
+        "dst": true,
+        "hour": 18,
+        "minute": 27,
+        "month": 2,
+        "second": 19,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Remove pow usage (as it is as costly as sqrt)!!!!!!!!",
+      "type": "Task"
+    },
+    "task.51": {
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 13,
+        "minute": 42,
+        "month": 1,
+        "second": 1,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Create to state machine APIs, one for everyday actions for Character, and one for specific actions in character.",
+      "type": "Refactor"
+    },
+    "task.53": {
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 19,
+        "minute": 33,
+        "month": 1,
+        "second": 56,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Implement a way to handle character's stats that is cleaner and easier to work with. (Maybe something to be able to change in runtime with an in-game console for easy testing???)",
+      "type": "Refactor"
+    },
+    "task.55": {
+      "creation_date": {
+        "day": 18,
+        "dst": true,
+        "hour": 13,
+        "minute": 32,
+        "month": 1,
+        "second": 28,
+        "weekday": 4,
+        "year": 2018
+      },
+      "task": "In Console addon, to the $ command, add a way to search node by input of node paths: node_name/node_x",
+      "type": "Feature"
+    },
+    "task.68": {
+      "creation_date": {
+        "day": 20,
+        "dst": true,
+        "hour": 18,
+        "minute": 49,
+        "month": 1,
+        "second": 14,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Find a better control AI to make movement more natural.",
+      "type": "Task"
+    },
+    "task.75": {
+      "creation_date": {
+        "day": 22,
+        "dst": true,
+        "hour": 16,
+        "minute": 50,
+        "month": 1,
+        "second": 9,
+        "weekday": 1,
+        "year": 2018
+      },
+      "task": "Clean Console, order and refactor methods and improve regexp implementation. Use it also for variable assignation.",
+      "type": "Task"
+    },
+    "task.85": {
+      "creation_date": {
+        "day": 26,
+        "dst": true,
+        "hour": 18,
+        "minute": 4,
+        "month": 1,
+        "second": 43,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Move inversion checking logic. Attempt to liberate child character from the burden of control inversion, and provide API to let character decide if it wants inversion or not",
+      "type": "Refactor"
+    }
+  }
+}

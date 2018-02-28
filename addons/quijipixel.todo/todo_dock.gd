@@ -4,15 +4,18 @@ extends Panel
 const PENDING = "pending"
 const COMPLETED = "completed"
 
+var JsonBeautifier = load("res://addons/quijipixel.todo/lib/json.gd")
 var _save_file = ''
 var _list = {completed = {}, pending = {}, comp_order = [], pend_order = []}
 
 var _list_node = null
 
 var _editor_interface = null
+var json_b = null
 
 func configure_components():
 	_list_node = get_node("margins/scroll_container/list_container")
+	json_b = JsonBeautifier.new()
 
 func add_item(item, item_name):
 	var checkbox = preload("res://addons/quijipixel.todo/list_item.tscn").instance()
@@ -83,7 +86,7 @@ func _on_add_button_pressed():
 	
 	var file = File.new()
 	file.open(_save_file, File.WRITE)
-	file.store_line(to_json(_list))
+	file.store_line(json_b.str_to_json(_list))
 	file.close()
 	update_name()
 
@@ -125,7 +128,7 @@ func completed_task(id):
 
 	var file = File.new()
 	file.open(_save_file, File.WRITE)
-	file.store_line(to_json(_list))
+	file.store_line(json_b.str_to_json(_list))
 	file.close()
 	update_name()
 
@@ -140,7 +143,7 @@ func uncompleted_task(id):
 
 	var file = File.new()
 	file.open(_save_file, File.WRITE)
-	file.store_line(to_json(_list))
+	file.store_line(json_b.str_to_json(_list))
 	file.close()
 	update_name()
 

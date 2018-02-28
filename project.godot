@@ -12,8 +12,8 @@ config_version=3
 
 debug_mode=true
 start_date="9 Jan 2018"
-patch=18
-minor=70
+patch=19
+minor=72
 major=0
 
 [application]
