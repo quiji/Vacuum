@@ -1,9 +1,28 @@
 tool
 extends Panel
 
+const LIST_FILE = "res://addons/quijipixel.generator/list.json"
+
+var JsonLib = load("res://addons/quijipixel.generator/lib/json.gd")
+
+var list = {}
+var json_b = null
+
 func _ready():
 	set_name("Generator")
+
+func configure_components():
+	json_b = JsonLib.new()
 	
+	var file = File.new()
+	if not file.file_exists(LIST_FILE):
+		file.open(LIST_FILE, File.WRITE)
+		file.store_line(json_b.str_to_json(list))
+		file.close()
+	else:
+		file.open(LIST_FILE, File.READ)
+		list = parse_json(file.get_as_text())
+		file.close()
 
 
 func _on_add_generator_button_pressed():
