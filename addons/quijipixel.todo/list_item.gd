@@ -62,4 +62,3 @@ func _on_checkbox_toggled( pressed ):
 		get_node("tween").interpolate_property(get_node("checkbox"), "custom_colors/font_color_hover", col, col_end, 0.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 		get_node("tween").interpolate_property(get_node("checkbox"), "custom_colors/font_color", col, col_end, 0.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	get_node("tween").start()
-
