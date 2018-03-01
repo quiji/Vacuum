@@ -178,7 +178,8 @@
     "task.197",
     "task.201",
     "task.202",
-    "task.203"
+    "task.203",
+    "task.198"
   ],
   "completed": {
     "task.0": {
@@ -4476,6 +4477,30 @@
         "minute": 0,
         "second": 22
       }
+    },
+    "task.198": {
+      "task": "Implement generator console and spriteanimation2d generator code.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 5,
+        "minute": 43,
+        "second": 37
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 16,
+        "minute": 36,
+        "second": 16
+      }
     }
   },
   "pend_order": [
@@ -4502,7 +4527,6 @@
     "task.192",
     "task.193",
     "task.194",
-    "task.198",
     "task.200"
   ],
   "pending": {
@@ -4827,20 +4851,6 @@
       },
       "task": "Move inversion checking logic. Attempt to liberate child character from the burden of control inversion, and provide API to let character decide if it wants inversion or not",
       "type": "Refactor"
-    },
-    "task.198": {
-      "task": "Implement generator console and spriteanimation2d generator code.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 5,
-        "minute": 43,
-        "second": 37
-      }
     },
     "task.200": {
       "task": "Remove string comparisons!! (costly and fella will find me!)",

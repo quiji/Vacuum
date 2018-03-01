@@ -69,11 +69,58 @@ func generate_animation(gen):
 		anim_player.owner = scene_node
 		anim_player.name = "anim_player"
 		
-		"""
 		
-		HERE COMES THE ANIMATION GEN PART!!!
-		
-		"""
+		sprite.texture = load(gen.spritesheet)
+		var spritesheet_size = sprite.texture.get_size()
+		sprite.vframes = int(spritesheet_size.y / int(gen.sprite_height))
+		sprite.hframes = int(spritesheet_size.x / int(gen.sprite_width))
+
+
+		for anim_name in gen.animations:
+			append_line("Creating animation ")
+			append_line(anim_name, BLUE)
+			print_line("...")
+
+			var anim = Animation.new()
+			anim_player.add_animation(anim_name, anim)
+	
+			var track_idx = anim.add_track(Animation.TYPE_VALUE)
+			var track_method_idx = anim.add_track(Animation.TYPE_METHOD)
+			
+			anim.track_set_path(track_idx, 'sprite:frame')
+			anim.track_set_path(track_method_idx, '.')
+
+			# step in seconds for 60 fps
+			anim.step = 1.0/60.0
+			
+			anim.loop = gen.animations[anim_name].loop
+
+			var delta = 0.0
+			var i = 0
+			while i < gen.animations[anim_name].frames.size():
+				if gen.animations[anim_name].frames[i].id - 1 >= 0:
+					
+					anim.track_insert_key(track_idx, delta, gen.animations[anim_name].frames[i].id - 1, Animation.UPDATE_CONTINUOUS)
+					
+					if gen.animations[anim_name].frames[i].react != 0:
+						anim.track_insert_key(track_method_idx, delta, {method = "react", args = [int(gen.animations[anim_name].frames[i].react)] })
+
+					delta += gen.animations[anim_name].frames[i].time / 1000.0
+
+				i += 1
+
+			i -= 1
+			while i > 0 and gen.animations[anim_name].ping_pong:
+				i -= 1
+				if gen.animations[anim_name].frames[i].id - 1 >= 0:
+					anim.track_insert_key(track_idx, delta, gen.animations[anim_name].frames[i].id - 1, Animation.UPDATE_CONTINUOUS)
+					
+					if gen.animations[anim_name].frames[i].react != 0:
+						anim.track_insert_key(track_method_idx, delta, {method = "react", args = [int(gen.animations[anim_name].frames[i].react)] })
+
+					delta += gen.animations[anim_name].frames[i].time / 1000.0
+			anim.length = delta
+
 		
 		
 		if gen.has("attached_script"):
@@ -89,13 +136,13 @@ func generate_animation(gen):
 		append_line("Saving scene to ")
 		print_line(target_filename, BLUE)
 		
-		"""
+
 		if ResourceSaver.save(target_filename, packed_scene) != OK:
 			print_line("Couldn't save generated file, generation failed.", RED)
 		else:
 			print_line("Scene generated succesfully!!", GREEN)
-			print_line("Remember to restart Godot editor to see changes.")
-"""
+	
+	br()
 
 	ok_button.disabled = false
 

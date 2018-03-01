@@ -343,12 +343,9 @@ func create_preview_animation(key):
 		var track_idx = anim_obj.add_track(Animation.TYPE_VALUE)
 
 		var track_method_idx = anim_obj.add_track(Animation.TYPE_VALUE)
-		#var track_method_idx = anim_obj.add_track(Animation.TYPE_METHOD)
 		
 		anim_obj.track_set_path(track_idx, 'panel/margins/container/sprite_preview/sprite:frame')
-
 		anim_obj.track_set_path(track_method_idx, 'panel/margins/container/func_label:text')
-		#anim_obj.track_set_path(track_method_idx, '.')
 		
 		anim_obj.step = 0.016
 		
@@ -374,17 +371,6 @@ func create_preview_animation(key):
 						react_call = "react(SwimStroke)"
 					anim_obj.track_insert_key(track_method_idx, delta, react_call, Animation.UPDATE_CONTINUOUS)
 
-				"""
-				func_label
-				if gen.animations[key].frames[i].method != '':
-					var method_name = gen.animations[key].frames[i].method + '('
-					if gen.animations[key].frames[i].param != '':
-						method_name += gen.animations[key].frames[i].param
-					method_name += ')'
-					anim_obj.track_insert_key(track_method_idx, delta, {method = "anim_method_preview_test", args = [method_name]})
-				"""
-
-
 				delta += gen.animations[key].frames[i].time / 1000.0
 			i += 1
 		
@@ -404,14 +390,6 @@ func create_preview_animation(key):
 						react_call = "react(SwimStroke)"
 					anim_obj.track_insert_key(track_method_idx, delta, react_call, Animation.UPDATE_CONTINUOUS)
 
-				"""
-				if gen.animations[key].frames[i].method != '':
-					var method_name = gen.animations[key].frames[i].method + '('
-					if gen.animations[key].frames[i].param != '':
-						method_name += gen.animations[key].frames[i].param
-					method_name += ')'
-					anim_obj.track_insert_key(track_method_idx, delta, {method = "anim_method_preview_test", args = [method_name]})
-				"""
 				delta += gen.animations[key].frames[i].time / 1000.0
 		
 		anim_obj.length = delta
