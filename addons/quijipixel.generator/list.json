@@ -95,9 +95,496 @@
           ],
           "ping_pong": false,
           "loop": false
+        },
+        "IdleLong": {
+          "loop": false,
+          "ping_pong": true,
+          "frames": [
+            {
+              "id": 13,
+              "time": 25,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 14,
+              "time": 25,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 15,
+              "time": 25,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 16,
+              "time": 25,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 17,
+              "time": 25,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 18,
+              "time": 26,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 19,
+              "time": 27,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 20,
+              "time": 28,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 21,
+              "time": 29,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 22,
+              "time": 120,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 23,
+              "time": 120,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 24,
+              "time": 120,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 25,
+              "time": 120,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 22,
+              "time": 120,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 23,
+              "time": 120,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 24,
+              "time": 120,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 25,
+              "time": 120,
+              "react": 0,
+              "param": ""
+            }
+          ]
+        },
+        "Run": {
+          "loop": true,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 26,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 27,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 28,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 29,
+              "time": 60,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 30,
+              "time": 70,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 31,
+              "time": 90,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 32,
+              "time": 40,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 33,
+              "time": 50,
+              "react": 1,
+              "param": ""
+            },
+            {
+              "id": 34,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 35,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 36,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 37,
+              "time": 60,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 38,
+              "time": 70,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 39,
+              "time": 90,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 40,
+              "time": 40,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 41,
+              "time": 50,
+              "react": 1,
+              "param": ""
+            }
+          ]
+        },
+        "Jump": {
+          "loop": true,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 42,
+              "time": 100,
+              "react": 0,
+              "param": ""
+            }
+          ]
+        },
+        "Peak": {
+          "loop": false,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 43,
+              "time": 40,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 44,
+              "time": 45,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 45,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 46,
+              "time": 55,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 47,
+              "time": 60,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 48,
+              "time": 55,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 49,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            }
+          ]
+        },
+        "Fall": {
+          "loop": true,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 50,
+              "time": 100,
+              "react": 0,
+              "param": ""
+            }
+          ]
+        },
+        "StartRoll": {
+          "loop": false,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 51,
+              "time": 100,
+              "react": 0,
+              "param": ""
+            }
+          ]
+        },
+        "EndRoll": {
+          "loop": false,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 51,
+              "time": 100,
+              "react": 0,
+              "param": ""
+            }
+          ]
+        },
+        "Roll": {
+          "loop": true,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 52,
+              "time": 100,
+              "react": 0,
+              "param": ""
+            }
+          ]
+        },
+        "WaterIdle": {
+          "loop": true,
+          "ping_pong": true,
+          "frames": [
+            {
+              "id": 53,
+              "time": 120,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 54,
+              "time": 205,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 55,
+              "time": 200,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 56,
+              "time": 195,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 57,
+              "time": 190,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 58,
+              "time": 185,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 59,
+              "time": 180,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 60,
+              "time": 175,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 53,
+              "time": 170,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 54,
+              "time": 175,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 55,
+              "time": 180,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 56,
+              "time": 185,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 57,
+              "time": 190,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 58,
+              "time": 195,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 59,
+              "time": 200,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 60,
+              "time": 200,
+              "react": 0,
+              "param": ""
+            }
+          ]
+        },
+        "Swim": {
+          "loop": false,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 61,
+              "time": 60,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 62,
+              "time": 65,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 63,
+              "time": 70,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 64,
+              "time": 75,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 65,
+              "time": 100,
+              "react": 2,
+              "param": ""
+            },
+            {
+              "id": 66,
+              "time": 85,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 67,
+              "time": 85,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 68,
+              "time": 85,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 69,
+              "time": 85,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 70,
+              "time": 85,
+              "react": 0,
+              "param": ""
+            }
+          ]
         }
       },
-      "target_dir": "res://characters/sprites"
+      "target_dir": "res://characters/sprites",
+      "attached_script": "res://characters/sprites/player_sprite_handler.gd"
     }
   },
   "last_id": 30
