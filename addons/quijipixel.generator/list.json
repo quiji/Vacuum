@@ -1,21 +1,103 @@
 {
   "generators": {
-    "SpriteAnim2D.0": {
-      "name": "Test",
+    "SpriteAnim2D.27": {
+      "name": "Player",
       "spritesheet": "res://assets/sprites/player.png",
-      "sprite_width": 42,
       "sprite_height": 50,
+      "sprite_width": 42,
       "animations": {
-        "test": {
+        "Idle": {
+          "frames": [
+            {
+              "id": 8,
+              "time": 300,
+              "method": "",
+              "param": ""
+            },
+            {
+              "id": 9,
+              "time": 120,
+              "method": "",
+              "param": ""
+            },
+            {
+              "id": 10,
+              "time": 120,
+              "method": "",
+              "param": ""
+            },
+            {
+              "id": 11,
+              "time": 120,
+              "method": "",
+              "param": ""
+            },
+            {
+              "id": 12,
+              "time": 200,
+              "method": "",
+              "param": ""
+            }
+          ],
+          "ping_pong": true,
+          "loop": true
         },
-        "Gato": {
+        "LookUp": {
+          "frames": [
+            {
+              "id": 1,
+              "time": 80,
+              "method": "",
+              "param": ""
+            },
+            {
+              "id": 2,
+              "time": 80,
+              "method": "",
+              "param": ""
+            },
+            {
+              "id": 3,
+              "time": 80,
+              "method": "",
+              "param": ""
+            },
+            {
+              "id": 4,
+              "time": 80,
+              "method": "",
+              "param": ""
+            }
+          ],
+          "ping_pong": false,
+          "loop": false
+        },
+        "LookDown": {
+          "frames": [
+            {
+              "id": 5,
+              "time": 80,
+              "method": "",
+              "param": ""
+            },
+            {
+              "id": 6,
+              "time": 80,
+              "method": "",
+              "param": ""
+            },
+            {
+              "id": 7,
+              "time": 80,
+              "method": "",
+              "param": ""
+            }
+          ],
+          "ping_pong": false,
+          "loop": false
         }
       }
-    },
-    "SpriteAnim2D.26": {
-      "name": "Other",
-      "spritesheet": "res://assets/sprites/player.png"
     }
   },
-  "last_id": 27
+  "last_id": 28
 }

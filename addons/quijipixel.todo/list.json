@@ -172,7 +172,10 @@
     "task.188",
     "task.187",
     "task.147",
-    "task.195"
+    "task.195",
+    "task.196",
+    "task.199",
+    "task.197"
   ],
   "completed": {
     "task.0": {
@@ -4326,6 +4329,78 @@
         "minute": 23,
         "second": 52
       }
+    },
+    "task.196": {
+      "task": "Implement Generator plugin with the 2D Sprite Animation code.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 2,
+        "day": 28,
+        "weekday": 3,
+        "dst": true,
+        "hour": 14,
+        "minute": 32,
+        "second": 33
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 5,
+        "minute": 40,
+        "second": 13
+      }
+    },
+    "task.199": {
+      "task": "Check comment on sprite2danimation generator regarding looping issue. ",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 5,
+        "minute": 53,
+        "second": 36
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 6,
+        "minute": 15,
+        "second": 45
+      }
+    },
+    "task.197": {
+      "task": "Loop animation in generator plugin creates a ping-pong. This will be a problem for animations like running.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 5,
+        "minute": 40,
+        "second": 42
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 6,
+        "minute": 15,
+        "second": 49
+      }
     }
   },
   "pend_order": [
@@ -4352,7 +4427,7 @@
     "task.192",
     "task.193",
     "task.194",
-    "task.196"
+    "task.198"
   ],
   "pending": {
     "task.113": {
@@ -4677,18 +4752,18 @@
       "task": "Move inversion checking logic. Attempt to liberate child character from the burden of control inversion, and provide API to let character decide if it wants inversion or not",
       "type": "Refactor"
     },
-    "task.196": {
-      "task": "Implement Generator plugin with the 2D Sprite Animation code.",
+    "task.198": {
+      "task": "Implement generator console and spriteanimation2d generator code.",
       "type": "Task",
       "creation_date": {
         "year": 2018,
-        "month": 2,
-        "day": 28,
-        "weekday": 3,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
         "dst": true,
-        "hour": 14,
-        "minute": 32,
-        "second": 33
+        "hour": 5,
+        "minute": 43,
+        "second": 37
       }
     }
   }

@@ -24,10 +24,7 @@ func configure_components():
 		file.store_line(json_b.str_to_json(list))
 		file.close()
 	else:
-		file.open(LIST_FILE, File.READ)
-		list = parse_json(file.get_as_text())
-		file.close()
-		
+		load_list_from_file()
 	update_list()
 
 
@@ -66,6 +63,11 @@ func save_list_to_file():
 	file.store_line(json_b.str_to_json(list))
 	file.close()
 
+func load_list_from_file():
+	var file = File.new()
+	file.open(LIST_FILE, File.READ)
+	list = parse_json(file.get_as_text())
+	file.close()
 
 
 func update_list(id=null):
