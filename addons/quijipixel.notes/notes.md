@@ -136,6 +136,7 @@ Systemic design!! : https://www.youtube.com/watch?v=SnpAAX9CkIc
 
 Celeste's level design!: https://www.youtube.com/watch?v=4RlpMhBKNr0&t=1019s
 
+Exploating mechanics: https://www.youtube.com/watch?v=M8SwpDKAWdg
 
 > Dungeons??
 Maybe there are big abandoned ships who serve as "zelda dungeons" (not with the template stuff, just the idea).

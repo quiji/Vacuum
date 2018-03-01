@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/quijipixel.generator/editors/spriteanim2d_editor.gd" type="Script" id=1]
 
@@ -29,6 +29,35 @@ shadow_color = Color( 0, 0, 0, 0.6 )
 shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.101562, 0.0999756, 0.0999756, 1 )
+draw_center = true
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.582031, 0.582031, 0.582031, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Border Width" ]
 
 [node name="spriteanim2d_editor" type="WindowDialog" index="0"]
 
@@ -107,14 +136,15 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="debug" type="Label" parent="panel/margins/container" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 149.0
-margin_top = 447.0
-margin_right = 548.0
-margin_bottom = 475.0
+margin_left = 98.0
+margin_top = 566.0
+margin_right = 497.0
+margin_bottom = 594.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -127,6 +157,7 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
 
 [node name="spritesheet" type="VBoxContainer" parent="panel/margins/container" index="1"]
 
@@ -725,29 +756,52 @@ _sections_unfolded = [ "Margin", "Size Flags" ]
 
 [node name="animation" type="Panel" parent="panel/margins/container" index="5"]
 
-visible = false
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 3.0
 margin_top = 317.0
-margin_right = 875.0
-margin_bottom = 412.0
+margin_right = 883.0
+margin_bottom = 446.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_styles/panel = SubResource( 2 )
 _sections_unfolded = [ "custom_styles" ]
 
-[node name="frame_list" type="GridContainer" parent="panel/margins/container/animation" index="0"]
+[node name="margins" type="MarginContainer" parent="panel/margins/container/animation" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="frame_list" type="GridContainer" parent="panel/margins/container/animation/margins" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 876.0
+margin_bottom = 125.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -760,7 +814,6 @@ _sections_unfolded = [ "Columns", "Scroll" ]
 [node name="animation_toolbar" type="Container" parent="panel/margins/container" index="6"]
 
 editor/display_folded = true
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1116,15 +1169,15 @@ align = 1
 
 [node name="anim_options" type="Container" parent="panel/margins/container" index="8"]
 
-visible = false
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 642.0
-margin_top = 406.0
+margin_top = 450.0
 margin_right = 882.0
-margin_bottom = 519.0
+margin_bottom = 524.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -1182,10 +1235,177 @@ text = "Ping Pong"
 flat = false
 align = 0
 
+[node name="func_label" type="Label" parent="panel/margins/container" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 636.0
+margin_top = 317.0
+margin_right = 878.0
+margin_bottom = 337.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="generator_options" type="Container" parent="panel/margins/container" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 452.0
+margin_right = 606.0
+margin_bottom = 521.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="target_label" type="Label" parent="panel/margins/container/generator_options" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 6.0
+margin_right = 67.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Target directory:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="include_script_label" type="Label" parent="panel/margins/container/generator_options" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 67.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Attach Script:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="target_file_edit" type="LineEdit" parent="panel/margins/container/generator_options" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 113.0
+margin_top = 3.0
+margin_right = 552.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="attach_script_edit" type="LineEdit" parent="panel/margins/container/generator_options" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 115.0
+margin_top = 39.0
+margin_right = 552.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="dir_exist" type="Label" parent="panel/margins/container/generator_options" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 558.0
+margin_top = 4.0
+margin_right = 598.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="script_exist" type="Label" parent="panel/margins/container/generator_options" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 559.0
+margin_top = 40.0
+margin_right = 599.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="anim_player" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
-autoplay = ""
+autoplay = "New Anim"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
@@ -1229,6 +1449,10 @@ _sections_unfolded = [ "Playback Options" ]
 [connection signal="pressed" from="panel/margins/container/anim_options/loop_button" to="." method="_on_loop_button_pressed"]
 
 [connection signal="pressed" from="panel/margins/container/anim_options/ping_button" to="." method="_on_ping_button_pressed"]
+
+[connection signal="text_changed" from="panel/margins/container/generator_options/target_file_edit" to="." method="_on_target_file_edit_text_changed"]
+
+[connection signal="text_changed" from="panel/margins/container/generator_options/attach_script_edit" to="." method="_on_attach_script_edit_text_changed"]
 
 [connection signal="animation_finished" from="anim_player" to="." method="_on_anim_player_animation_finished"]
 

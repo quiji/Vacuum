@@ -19,7 +19,7 @@ onready var new_anim_name_edit = $panel/margins/container/animation_list/header/
 onready var animation_list = $panel/margins/container/animation_list/list
 
 onready var animation_editor = $panel/margins/container/animation
-onready var frame_list = $panel/margins/container/animation/frame_list
+onready var frame_list = $panel/margins/container/animation/margins/frame_list
 
 onready var animation_toolbar = $panel/margins/container/animation_toolbar
 onready var animation_options = $panel/margins/container/anim_options
@@ -36,6 +36,12 @@ onready var play_button = $panel/margins/container/play_button
 onready var loop_button = $panel/margins/container/anim_options/loop_button
 onready var ping_button = $panel/margins/container/anim_options/ping_button
 
+onready var func_label = $panel/margins/container/func_label
+
+onready var target_file_edit = $panel/margins/container/generator_options/target_file_edit
+onready var attached_script_edit = $panel/margins/container/generator_options/attach_script_edit
+onready var dir_exist_label = $panel/margins/container/generator_options/dir_exist
+onready var script_exist_label = $panel/margins/container/generator_options/script_exist
 
 func _ready():
 	animation_editor.hide()
@@ -66,6 +72,12 @@ func edit_generator(id):
 			animation_list.add_item(key)
 			create_preview_animation(key)
 
+	if gen.has("target_dir"):
+		target_file_edit.text = gen.target_dir
+		
+	if gen.has("attached_script"):
+		attached_script_edit.text = gen.attached_script
+
 
 func _on_cancel_button_pressed():
 	get_parent().load_list_from_file()
@@ -73,15 +85,28 @@ func _on_cancel_button_pressed():
 
 func _on_save_button_pressed():
 
+	if target_file_edit.text != '':
+		gen.target_dir = target_file_edit.text
+	
+	if attached_script_edit.text != '':
+		gen.attached_script = attached_script_edit.text
+
 	get_parent().list.generators[_id] = gen.duplicate()
 	get_parent().save_list_to_file()
 	hide()
 	
 func _on_save_gen_button_pressed():
 
+	if target_file_edit.text != '':
+		gen.target_dir = target_file_edit.text
+	
+	if attached_script_edit.text != '':
+		gen.attached_script = attached_script_edit.text
+
+
 	get_parent().list.generators[_id] = gen.duplicate()
 	get_parent().save_list_to_file()
-	get_parent().run_generator(_id)
+	get_parent().run_generator([_id])
 	hide()
 
 
@@ -301,6 +326,7 @@ func _on_play_button_pressed():
 			var anim_name = animation_list.get_item_text(ids[0])
 			
 			if $anim_player.has_animation(anim_name):
+				func_label.text = ''
 				$anim_player.play(anim_name)
 				play_button.text = "Stop"
 	else:
@@ -319,7 +345,14 @@ func create_preview_animation(key):
 	if gen.animations[key].has("frames"):
 		anim_obj.clear()
 		var track_idx = anim_obj.add_track(Animation.TYPE_VALUE)
+
+		var track_method_idx = anim_obj.add_track(Animation.TYPE_VALUE)
+		#var track_method_idx = anim_obj.add_track(Animation.TYPE_METHOD)
+		
 		anim_obj.track_set_path(track_idx, 'panel/margins/container/sprite_preview/sprite:frame')
+
+		anim_obj.track_set_path(track_method_idx, 'panel/margins/container/func_label:text')
+		#anim_obj.track_set_path(track_method_idx, '.')
 		
 		anim_obj.step = 0.016
 		
@@ -335,6 +368,25 @@ func create_preview_animation(key):
 			if gen.animations[key].frames[i].id - 1 > 0:
 				
 				anim_obj.track_insert_key(track_idx, delta, gen.animations[key].frames[i].id - 1, Animation.UPDATE_CONTINUOUS)
+				
+				if gen.animations[key].frames[i].method != '':
+					var method_name = gen.animations[key].frames[i].method + '('
+					if gen.animations[key].frames[i].param != '':
+						method_name += gen.animations[key].frames[i].param
+					method_name += ')'
+					anim_obj.track_insert_key(track_method_idx, delta, method_name, Animation.UPDATE_CONTINUOUS)
+
+				"""
+				func_label
+				if gen.animations[key].frames[i].method != '':
+					var method_name = gen.animations[key].frames[i].method + '('
+					if gen.animations[key].frames[i].param != '':
+						method_name += gen.animations[key].frames[i].param
+					method_name += ')'
+					anim_obj.track_insert_key(track_method_idx, delta, {method = "anim_method_preview_test", args = [method_name]})
+				"""
+
+
 				delta += gen.animations[key].frames[i].time / 1000.0
 			i += 1
 		
@@ -344,12 +396,26 @@ func create_preview_animation(key):
 			i -= 1
 			if gen.animations[key].frames[i].id - 1 > 0:
 				anim_obj.track_insert_key(track_idx, delta, gen.animations[key].frames[i].id - 1, Animation.UPDATE_CONTINUOUS)
+	
+	
+				if gen.animations[key].frames[i].method != '':
+					var method_name = gen.animations[key].frames[i].method + '('
+					if gen.animations[key].frames[i].param != '':
+						method_name += gen.animations[key].frames[i].param
+					method_name += ')'
+					anim_obj.track_insert_key(track_method_idx, delta, method_name, Animation.UPDATE_CONTINUOUS)
+
+				"""
+				if gen.animations[key].frames[i].method != '':
+					var method_name = gen.animations[key].frames[i].method + '('
+					if gen.animations[key].frames[i].param != '':
+						method_name += gen.animations[key].frames[i].param
+					method_name += ')'
+					anim_obj.track_insert_key(track_method_idx, delta, {method = "anim_method_preview_test", args = [method_name]})
+				"""
 				delta += gen.animations[key].frames[i].time / 1000.0
-		#	debug.text += str(gen.animations[key].frames[i].id) + '\n'
 		
 		anim_obj.length = delta
-
-		#debug.text = str(anim_obj.track_get_key_count(track_idx))
 
 		
 func remove_preview_animation(anim_name):
@@ -357,11 +423,8 @@ func remove_preview_animation(anim_name):
 		$anim_player.remove_animation(anim_name)
 
 
-
 func _on_anim_player_animation_finished(anim_name):
 	play_button.text = "Play"
-
-
 
 
 func _on_loop_button_pressed():
@@ -372,3 +435,19 @@ func _on_ping_button_pressed():
 	gen.animations[selected_anim].ping_pong = ping_button.pressed
 	create_preview_animation(selected_anim)
 
+
+
+func _on_target_file_edit_text_changed(new_text):
+	var dir = Directory.new()
+	if dir.dir_exists(new_text):
+		dir_exist_label.text = "OK!"
+	else:
+		dir_exist_label.text = "NO!"
+	
+
+func _on_attach_script_edit_text_changed(new_text):
+	var dir = Directory.new()
+	if dir.file_exists(new_text):
+		script_exist_label.text = "OK!"
+	else:
+		script_exist_label.text = "NO!"

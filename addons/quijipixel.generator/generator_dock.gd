@@ -125,11 +125,20 @@ func _on_mark_all_button_pressed():
 
 
 func _on_run_marked_button_pressed():
-
+	var gens = []
 	for child in $generators/scroll_container/list_container.get_children():
 		if child.is_checked():
-			run_generator(child._id)
+			gens.push_back(child._id)
+	
+	run_generator(gens)
 
-func run_generator(id):
-	pass
+func run_generator(gens):
+	var generator = load("res://addons/quijipixel.generator/GeneratorConsole.tscn").instance()
+	add_child(generator)
+
+	generator.popup_centered()
+	var i = 0
+	while i < gens.size():
+		generator.run(gens[i])
+		i += 1
 

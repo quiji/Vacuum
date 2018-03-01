@@ -175,7 +175,9 @@
     "task.195",
     "task.196",
     "task.199",
-    "task.197"
+    "task.197",
+    "task.201",
+    "task.202"
   ],
   "completed": {
     "task.0": {
@@ -4401,6 +4403,54 @@
         "minute": 15,
         "second": 49
       }
+    },
+    "task.201": {
+      "task": "Implement methods to the spriteanim2d editor in the generators plugin.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 11,
+        "minute": 1,
+        "second": 24
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 13,
+        "minute": 0,
+        "second": 6
+      }
+    },
+    "task.202": {
+      "task": "Include generator config data in the spriteanim2d editor in the generator plugin.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 13,
+        "minute": 0,
+        "second": 50
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 13,
+        "minute": 43,
+        "second": 18
+      }
     }
   },
   "pend_order": [
@@ -4427,7 +4477,8 @@
     "task.192",
     "task.193",
     "task.194",
-    "task.198"
+    "task.198",
+    "task.200"
   ],
   "pending": {
     "task.113": {
@@ -4764,6 +4815,20 @@
         "hour": 5,
         "minute": 43,
         "second": 37
+      }
+    },
+    "task.200": {
+      "task": "Remove string comparisons!! (costly and fella will find me!)",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 11,
+        "minute": 0,
+        "second": 44
       }
     }
   }

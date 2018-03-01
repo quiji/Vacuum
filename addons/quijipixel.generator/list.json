@@ -96,8 +96,12 @@
           "ping_pong": false,
           "loop": false
         }
-      }
+      },
+      "target_dir": "res://characters/sprites"
+    },
+    "SpriteAnim2D.28": {
+      "name": "Test"
     }
   },
-  "last_id": 28
+  "last_id": 29
 }
