@@ -4,7 +4,7 @@ extends WindowDialog
 var _id = null
 var gen = null
 
-
+enum ReactTypes {REACT_NO, REACT_STEP, REACT_SWIMSTROKE}
 
 onready var debug = $panel/margins/container/debug
 
@@ -29,7 +29,7 @@ onready var animation_save_button = $panel/margins/container/animation_toolbar/f
 onready var frame_form = $panel/margins/container/animation_toolbar/frame_form
 onready var frame_form_id = $panel/margins/container/animation_toolbar/frame_form/frame
 onready var frame_form_time = $panel/margins/container/animation_toolbar/frame_form/time
-onready var frame_form_funct = $panel/margins/container/animation_toolbar/frame_form/funct
+onready var frame_form_react = $panel/margins/container/animation_toolbar/frame_form/react
 onready var frame_form_param = $panel/margins/container/animation_toolbar/frame_form/param
 
 onready var play_button = $panel/margins/container/play_button
@@ -131,10 +131,8 @@ func load_sprite():
 	sprite_preview.scale = scale
 	
 
-
 func _on_spriteanim2d_editor_popup_hide():
 	self.queue_free()
-
 
 
 func _on_sprite_sheet_width_edit_text_entered(new_text):
@@ -161,9 +159,6 @@ func _on_spritesheet_edit_text_entered(new_text):
 	else:
 		# File doesn't exist
 		pass
-
-
-
 
 
 func _on_remove_animation_button_pressed():
@@ -241,6 +236,7 @@ func _on_list_item_selected(index):
 
 	ping_button.pressed = gen.animations[anim_name].ping_pong
 
+
 func _on_save_frame_button_pressed():
 	if not gen.animations[selected_anim].has("frames"):
 		gen.animations[selected_anim].frames = []
@@ -248,7 +244,7 @@ func _on_save_frame_button_pressed():
 	var frame = {
 		id = int(frame_form_id.text),
 		time = int(frame_form_time.text),
-		method = frame_form_funct.text,
+		react = frame_form_react.get_selected_id(),
 		param = frame_form_param.text
 	}
 
@@ -268,7 +264,7 @@ func edit_frame(idx):
 	selected_idx = idx
 	frame_form_id.text = str(gen.animations[selected_anim].frames[idx].id)
 	frame_form_time.text = str(gen.animations[selected_anim].frames[idx].time)
-	frame_form_funct.text = gen.animations[selected_anim].frames[idx].method
+	frame_form_react.select(gen.animations[selected_anim].frames[idx].react)
 	frame_form_param.text = gen.animations[selected_anim].frames[idx].param
 
 	animation_save_button.hide()
@@ -280,7 +276,7 @@ func _on_edit_frame_button_pressed():
 	gen.animations[selected_anim].frames[selected_idx] = {
 		id = int(frame_form_id.text),
 		time = int(frame_form_time.text),
-		method = frame_form_funct.text,
+		react = frame_form_react.get_selected_id(),
 		param = frame_form_param.text
 	}
 	var children = frame_list.get_children()
@@ -305,7 +301,7 @@ func _on_cancel_frame_button_pressed():
 
 	frame_form_id.text = '1'
 	frame_form_time.text = '0'
-	frame_form_funct.text = ''
+	frame_form_react.select(REACT_NO)
 	frame_form_param.text = ''
 
 
@@ -364,17 +360,19 @@ func create_preview_animation(key):
 
 		var delta = 0.0
 		var i = 0
+		var react_call = ""
 		while i < gen.animations[key].frames.size():
-			if gen.animations[key].frames[i].id - 1 > 0:
+			if gen.animations[key].frames[i].id - 1 >= 0:
 				
 				anim_obj.track_insert_key(track_idx, delta, gen.animations[key].frames[i].id - 1, Animation.UPDATE_CONTINUOUS)
 				
-				if gen.animations[key].frames[i].method != '':
-					var method_name = gen.animations[key].frames[i].method + '('
-					if gen.animations[key].frames[i].param != '':
-						method_name += gen.animations[key].frames[i].param
-					method_name += ')'
-					anim_obj.track_insert_key(track_method_idx, delta, method_name, Animation.UPDATE_CONTINUOUS)
+				if gen.animations[key].frames[i].react != REACT_NO:
+					react_call = ""
+					if gen.animations[key].frames[i].react == REACT_STEP:
+						react_call = "react(Step)"
+					elif gen.animations[key].frames[i].react == REACT_SWIMSTROKE:
+						react_call = "react(SwimStroke)"
+					anim_obj.track_insert_key(track_method_idx, delta, react_call, Animation.UPDATE_CONTINUOUS)
 
 				"""
 				func_label
@@ -394,16 +392,17 @@ func create_preview_animation(key):
 		i -= 1
 		while i > 0 and gen.animations[key].ping_pong:
 			i -= 1
-			if gen.animations[key].frames[i].id - 1 > 0:
+			if gen.animations[key].frames[i].id - 1 >= 0:
 				anim_obj.track_insert_key(track_idx, delta, gen.animations[key].frames[i].id - 1, Animation.UPDATE_CONTINUOUS)
 	
 	
-				if gen.animations[key].frames[i].method != '':
-					var method_name = gen.animations[key].frames[i].method + '('
-					if gen.animations[key].frames[i].param != '':
-						method_name += gen.animations[key].frames[i].param
-					method_name += ')'
-					anim_obj.track_insert_key(track_method_idx, delta, method_name, Animation.UPDATE_CONTINUOUS)
+				if gen.animations[key].frames[i].react != REACT_NO:
+					react_call = ""
+					if gen.animations[key].frames[i].react == REACT_STEP:
+						react_call = "react(Step)"
+					elif gen.animations[key].frames[i].react == REACT_SWIMSTROKE:
+						react_call = "react(SwimStroke)"
+					anim_obj.track_insert_key(track_method_idx, delta, react_call, Animation.UPDATE_CONTINUOUS)
 
 				"""
 				if gen.animations[key].frames[i].method != '':

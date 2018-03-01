@@ -11,31 +11,31 @@
             {
               "id": 8,
               "time": 300,
-              "method": "",
+              "react": 0,
               "param": ""
             },
             {
               "id": 9,
               "time": 120,
-              "method": "",
+              "react": 0,
               "param": ""
             },
             {
               "id": 10,
               "time": 120,
-              "method": "",
+              "react": 0,
               "param": ""
             },
             {
               "id": 11,
               "time": 120,
-              "method": "",
+              "react": 0,
               "param": ""
             },
             {
               "id": 12,
               "time": 200,
-              "method": "",
+              "react": 0,
               "param": ""
             }
           ],
@@ -47,25 +47,25 @@
             {
               "id": 1,
               "time": 80,
-              "method": "",
+              "react": 0,
               "param": ""
             },
             {
               "id": 2,
               "time": 80,
-              "method": "",
+              "react": 0,
               "param": ""
             },
             {
               "id": 3,
               "time": 80,
-              "method": "",
+              "react": 0,
               "param": ""
             },
             {
               "id": 4,
               "time": 80,
-              "method": "",
+              "react": 0,
               "param": ""
             }
           ],
@@ -77,19 +77,19 @@
             {
               "id": 5,
               "time": 80,
-              "method": "",
+              "react": 0,
               "param": ""
             },
             {
               "id": 6,
               "time": 80,
-              "method": "",
+              "react": 0,
               "param": ""
             },
             {
               "id": 7,
               "time": 80,
-              "method": "",
+              "react": 0,
               "param": ""
             }
           ],
@@ -100,8 +100,54 @@
       "target_dir": "res://characters/sprites"
     },
     "SpriteAnim2D.28": {
-      "name": "Test"
+      "name": "Test",
+      "attached_script": "test"
+    },
+    "SpriteAnim2D.29": {
+      "name": "Testing the Capabilities",
+      "spritesheet": "res://assets/sprites/player.png",
+      "sprite_width": 42,
+      "sprite_height": 50,
+      "animations": {
+        "random": {
+          "loop": true,
+          "ping_pong": true,
+          "frames": [
+            {
+              "id": 1,
+              "time": 500,
+              "react": 1,
+              "param": ""
+            },
+            {
+              "id": 2,
+              "time": 500,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 3,
+              "time": 500,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 4,
+              "time": 500,
+              "react": 2,
+              "param": ""
+            },
+            {
+              "id": 30,
+              "time": 200,
+              "react": 0,
+              "param": ""
+            }
+          ]
+        }
+      },
+      "target_dir": "res://"
     }
   },
-  "last_id": 29
+  "last_id": 30
 }

@@ -177,7 +177,8 @@
     "task.199",
     "task.197",
     "task.201",
-    "task.202"
+    "task.202",
+    "task.203"
   ],
   "completed": {
     "task.0": {
@@ -4450,6 +4451,30 @@
         "hour": 13,
         "minute": 43,
         "second": 18
+      }
+    },
+    "task.203": {
+      "task": "Change the function/parameter inputs in the frame form of the spriteanimation2d editor of the generator plugin to hardcoded option button with options like Step, or SwimImpulse that pass an integer number. Avoid passing strings as enum values.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 15,
+        "minute": 14,
+        "second": 53
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 16,
+        "minute": 0,
+        "second": 22
       }
     }
   },
