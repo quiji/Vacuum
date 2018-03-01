@@ -189,6 +189,9 @@ func set_water_center(center):
 func set_open_space_center():
 	space_velocity = _last_velocity
 
+func set_space_velocity(v):
+	space_velocity = v
+
 func fix_parents():
 	if not changing_center:
 		return false
@@ -237,6 +240,7 @@ func change_center(new_center):
 			# CameraSetup.Up
 			Glb.get_current_camera_man().setup_camera(1)
 	elif new_center.has_method("get_water_resistance_scalar"):
+		on_water_entered(new_center)
 		set_water_center(new_center)
 		set_gravity_center(null)
 		changing_center = true

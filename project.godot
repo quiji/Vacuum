@@ -13,7 +13,7 @@ config_version=3
 debug_mode=true
 start_date="9 Jan 2018"
 patch=20
-minor=78
+minor=79
 major=0
 
 [application]
@@ -32,6 +32,7 @@ Console="*res://addons/quijipixel.console/Console.tscn"
 
 window/size/width=640
 window/size/height=360
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 

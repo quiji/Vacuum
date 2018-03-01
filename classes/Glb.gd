@@ -1,5 +1,7 @@
 extends Node
 
+enum ReactTypes {NO_REACTION, REACT_STEP, REACT_SWIMSTROKE}
+
 var _collision_layer_bits = {}
 var _current_camera_man = null
 var debug_mode = false
@@ -33,3 +35,5 @@ func set_current_camera_man(man):
 
 func get_current_camera_man():
 	return _current_camera_man
+
+

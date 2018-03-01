@@ -50,7 +50,7 @@ func _ready():
 	# Maybe this goes in the platform? we can play with platforms with different values
 	set_slope_stop_min_vel(slope_stop_min_velocity)
 
-
+	$sprite.connect("react", self, "_on_animation_reaction")
 
 ############
 # Configuration methods
@@ -69,6 +69,19 @@ func rotate_to_camera_normal(v):
 
 
 ############
+# Callback methods
+############
+
+
+func _on_animation_reaction(action):
+	Console.l("action", action)
+	match action:
+		Glb.REACT_STEP:
+			pass
+		Glb.REACT_SWIMSTROKE: 
+			add_swim_impulse(swim_impulse_scalar)
+
+############
 # Overriden methods
 ############
 
@@ -80,14 +93,14 @@ func on_gravity_center_changed():
 
 func change_sprite_direction(direction):
 	if direction == FACING_LEFT:
-		$teo/sprite.set_flip_h(true)
+		$sprite.set_flip_h(true)
 	else:
-		$teo/sprite.set_flip_h(false)
+		$sprite.set_flip_h(false)
 
 func reached_peak_height():
 	set_gravity_scalar(fall_gravity_scalar)
-	if not $teo.is_playing("r-EndRoll") and not $teo.is_playing("r-StartRoll"):
-		$teo.play("r-Peak")
+	if not $sprite.is_playing("EndRoll") and not $sprite.is_playing("StartRoll"):
+		$sprite.play("Peak")
 
 func reached_ground(ground_object):
 	
@@ -100,18 +113,21 @@ func reached_ground(ground_object):
 
 	set_gravity_scalar(lowest_gravity_scalar)
 	
-	if not $teo.is_playing("r-EndRoll"):
+	if not $sprite.is_playing("EndRoll"):
 		if is_moving():
-			$teo.play("r-Run")
+			$sprite.play("Run")
 		elif not is_moving():
-			$teo.play("r-Idle")
+			$sprite.play("Idle")
 
 func start_rolling():
-	$teo.play("r-StartRoll")
+	$sprite.play("StartRoll")
 
 func end_rolling():
-	Console.c("end_roll")
-	$teo.play("r-EndRoll")
+	$sprite.play("EndRoll")
+
+func on_water_entered(water_bubble):
+	$sprite.play("WaterIdle")
+
 
 func _process_behavior(delta):
 
@@ -128,7 +144,7 @@ func _gravity_behavior(delta):
 		
 	elif Input.is_action_just_pressed("ui_left"):
 		
-		$teo.play("r-Run")
+		$sprite.play("Run")
 		
 		if is_on_ground():
 			move(run_velocity, FACING_LEFT)
@@ -145,11 +161,11 @@ func _gravity_behavior(delta):
 		stop(not is_on_ground())
 		
 		if is_on_ground():
-			$teo.play("r-Idle")
+			$sprite.play("Idle")
 			
 	elif Input.is_action_just_pressed("ui_right"):
 		
-		$teo.play("r-Run")
+		$sprite.play("Run")
 
 		if is_on_ground():
 			move(run_velocity, FACING_RIGHT)
@@ -165,7 +181,7 @@ func _gravity_behavior(delta):
 		stop(not is_on_ground())
 
 		if is_on_ground():
-			$teo.play("r-Idle")
+			$sprite.play("Idle")
 
 
 
@@ -176,7 +192,7 @@ func _gravity_behavior(delta):
 
 	if Input.is_action_just_pressed("jump") and is_on_ground():
 		
-		$teo.play("r-Jump")
+		$sprite.play("Jump")
 
 		
 		set_gravity_scalar(lowest_gravity_scalar)
@@ -231,7 +247,7 @@ func _water_behavior(delta):
 
 
 	if Input.is_action_just_pressed("jump"):
-		add_swim_impulse(swim_impulse_scalar)
+		$sprite.play("Swim")
 	elif Input.is_action_just_released("jump"):
 		increase_water_resistance()
 

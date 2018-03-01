@@ -180,7 +180,8 @@
     "task.202",
     "task.203",
     "task.198",
-    "task.204"
+    "task.204",
+    "task.206"
   ],
   "completed": {
     "task.0": {
@@ -4526,6 +4527,30 @@
         "minute": 29,
         "second": 6
       }
+    },
+    "task.206": {
+      "task": "Update sprite hanlder with new animations and make a better implementation through character class.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 18,
+        "minute": 31,
+        "second": 42
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 18,
+        "minute": 55,
+        "second": 4
+      }
     }
   },
   "pend_order": [
@@ -4552,7 +4577,9 @@
     "task.192",
     "task.193",
     "task.194",
-    "task.200"
+    "task.200",
+    "task.205",
+    "task.207"
   ],
   "pending": {
     "task.113": {
@@ -4889,6 +4916,34 @@
         "hour": 11,
         "minute": 0,
         "second": 44
+      }
+    },
+    "task.205": {
+      "task": "Add range frame creation to SpriteAnim2D editor for faster usage.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 18,
+        "minute": 30,
+        "second": 41
+      }
+    },
+    "task.207": {
+      "task": "When player is on water, rotation pivot should be on center of sprite.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 19,
+        "minute": 7,
+        "second": 25
       }
     }
   }
