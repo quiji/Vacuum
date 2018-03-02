@@ -40,8 +40,7 @@ var old_shape_pos = null
 
 func _ready():
 	._ready()
-	
-	set_playable(true)
+
 	
 	time_to_peak_of_jump = max_x_distance_a_jump / run_velocity
 	jump_initial_velocity_scalar = 2*jump_peak_height / time_to_peak_of_jump
@@ -111,10 +110,6 @@ func _on_animation_reaction(action):
 ############
 
 
-func on_gravity_center_changed():
-	
-	pass
-
 func normal_shift_notice(new_normal, target_normal):
 	var cam = Glb.get_current_camera_man()
 
@@ -163,6 +158,13 @@ func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
 	$tween.interpolate_method(self, "pivot_transition", Vector2(), Vector2(0,25), 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	$tween.start()
+	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
+
+func entered_space():
+	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
+	
+func entered_gravity_platform():
+	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_UP)
 
 
 func left_water():

@@ -201,7 +201,8 @@
     "task.219",
     "task.224",
     "task.223",
-    "task.225"
+    "task.225",
+    "task.227"
   ],
   "completed": {
     "task.0": {
@@ -5050,6 +5051,30 @@
         "hour": 10,
         "minute": 57,
         "second": 44
+      }
+    },
+    "task.227": {
+      "task": "Remove all usage of CameraMan on Character class.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 58,
+        "second": 40
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 11,
+        "minute": 8,
+        "second": 17
       }
     }
   },

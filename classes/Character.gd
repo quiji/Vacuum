@@ -81,7 +81,7 @@ var _rolling = false
 
 ######## Configuration #########
 var _control_mode = ROTATION
-var _playable = false
+
 
 ############
 # Init methods
@@ -160,14 +160,7 @@ func set_gravity_center(center):
 		_gravity_center.move_child(self, _gravity_center.get_tree_pos())
 		global_rotation = rot
 		global_position = pos
-		
 
-		#move_and_collide(Vector2())
-		#move_and_collide(_last_velocity.normalized() * -1)
-		on_gravity_center_changed()
-		
-
-		# what functionality??
 	else:
 		if _gravity_center != null:
 			_gravity_center.remove_collision_exception_with(self)
@@ -200,13 +193,13 @@ func fix_parents():
 	if not changing_center:
 		return false
 	
-	var parent_type = PARENT_SPACE
+	var parent_type = PARENT_GRAVITY_PLATFORM
 	var new_center = null
 	if is_on_water_center() and _water_center != get_parent():
 		new_center = _water_center
 		parent_type = PARENT_WATER
-	#elif is_on_gravity_center():# and _gravity_center != get_parent():
-	#	_gravity_center.add_collision_exception_with(self)
+	elif is_on_gravity_center():
+		parent_type = PARENT_GRAVITY_PLATFORM
 	elif _open_space != get_parent():
 		new_center = _open_space
 		parent_type = PARENT_SPACE
@@ -216,16 +209,18 @@ func fix_parents():
 		get_parent().remove_child(self)
 		new_center.add_child(self)
 		global_position = pos
-
-		if parent_type == PARENT_WATER:
-
-			# ask platform for child position
+		
+	match parent_type:
+		PARENT_WATER:
 			new_center.move_child(self, new_center.get_tree_pos())
 			entered_water(new_center)
-		elif parent_type == PARENT_SPACE:
+		PARENT_SPACE:
 			if was_water_center:
 				left_water()
-
+			entered_space()
+		PARENT_GRAVITY_PLATFORM:
+			entered_gravity_platform()
+				
 	changing_center = false
 
 	return true
@@ -239,36 +234,20 @@ func change_center(new_center):
 		set_water_center(null)
 		set_open_space_center()
 		changing_center = true
-		if is_playable():
-			# CameraSetup.Center
-			Glb.get_current_camera_man().setup_camera(self, 0)
 
 	elif new_center.has_method("get_gravity_from_center"):
 		was_water_center = _water_center != null
 		set_gravity_center(new_center)
 		set_water_center(null)
-		#changing_center = true
-		if is_playable():
-			# CameraSetup.Up
-			Glb.get_current_camera_man().setup_camera(self, 1)
 		if was_water_center:
 			left_water()
 	elif new_center.has_method("get_water_resistance_scalar"):
 		set_water_center(new_center)
 		set_gravity_center(null)
 		changing_center = true
-		if is_playable():
-			# CameraSetup.Center
-			Glb.get_current_camera_man().setup_camera(self, 0)
 
 func get_normal():
 	return _normal
-
-func set_playable(p):
-	_playable = p
-
-func is_playable():
-	return _playable
 
 func set_gravity_scalar(g):
 	_gravity_scalar = g
@@ -528,8 +507,10 @@ func inversion_criteria_met(vect):
 	return vect.dot(Vector2(0, -1)) < -0.4
 	#return vect.dot(Vector2(0, -1)) < 0
 
-
-func on_gravity_center_changed():
+func entered_space():
+	pass
+	
+func entered_gravity_platform():
 	pass
 
 func change_sprite_direction(direction):
