@@ -203,7 +203,8 @@
     "task.223",
     "task.225",
     "task.227",
-    "task.226"
+    "task.226",
+    "task.228"
   ],
   "completed": {
     "task.0": {
@@ -5100,6 +5101,30 @@
         "hour": 11,
         "minute": 12,
         "second": 55
+      }
+    },
+    "task.228": {
+      "task": "LookUp in CameraMan fails sometimes.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 11,
+        "minute": 13,
+        "second": 36
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 11,
+        "minute": 24,
+        "second": 14
       }
     }
   },

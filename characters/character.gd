@@ -28,7 +28,7 @@ var fall_gravity_scalar = 0.0
 var smash_jumping = false
 var smash_jump_start_point
 
-var looking = false
+
 var swimming = false
 
 ######## Control schemes #########
@@ -59,7 +59,7 @@ func _ready():
 
 
 	$sprite.connect("react", self, "_on_animation_reaction")
-	
+
 
 ############
 # Configuration methods
@@ -77,12 +77,10 @@ func rotate_to_camera_normal(v):
 	return v
 
 func make_camera_look(dir):
-	if not looking:
-		looking = true
-		var cam = Glb.get_current_camera_man()
-		
-		if cam != null:
-			cam.look_direction(self, dir)
+	var cam = Glb.get_current_camera_man()
+	
+	if cam != null:
+		cam.look_direction(self, dir)
 
 func restore_camera_look():
 	var cam = Glb.get_current_camera_man()
@@ -144,7 +142,7 @@ func reached_ground(ground_object):
 	if not $sprite.is_playing("EndRoll"):
 		if is_moving():
 			$sprite.play("Run")
-		elif not is_moving() and not looking:
+		elif not is_moving() and not $sprite.is_looking():
 			$sprite.play("Idle")
 
 
@@ -253,19 +251,19 @@ func _gravity_behavior(delta):
 		set_gravity_scalar(highgest_gravity_scalar * 3)
 
 
-	if Input.is_action_pressed("ui_up") and is_idle():
+	if Input.is_action_just_pressed("ui_up") and is_idle():
 		$sprite.play("LookUp")
 		make_camera_look(CameraMan.LOOK_UP)
 
-	elif Input.is_action_just_released("ui_up") and looking:
+	elif Input.is_action_just_released("ui_up") and $sprite.is_looking():
 		$sprite.play("LookUp", true)
 		restore_camera_look()
 
-	if Input.is_action_pressed("ui_down") and is_idle():
+	if Input.is_action_just_pressed("ui_down") and is_idle():
 		$sprite.play("LookDown")
 		make_camera_look(CameraMan.LOOK_DOWN)
 
-	elif Input.is_action_just_released("ui_down") and looking:
+	elif Input.is_action_just_released("ui_down") and $sprite.is_looking():
 		$sprite.play("LookDown", true)
 		restore_camera_look()
 

@@ -70,11 +70,20 @@ func on_animation_finished(anim_name):
 		"IdleLong":
 			play("Idle")
 		"LookDown":
-			continue
+			if last_orientation:
+				play("Idle")
+			else:
+				play("LookingDown")
+
 		"LookUp":
 			if last_orientation:
 				play("Idle")
-				get_parent().looking = false
+			else:
+				play("LookingUp")
 
 func on_timeout():
 	play("IdleLong")
+
+func is_looking():
+	return is_playing("LookUp") or is_playing("LookDown") or is_playing("LookingUp") or is_playing("LookingDown")
+
