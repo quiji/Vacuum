@@ -19,6 +19,7 @@ func _ready():
 
 var current_anim = null
 var last_orientation = false
+var interruption_allowed = false
 func play(anim, back=false):
 
 	if $anim_player.is_playing() and current_anim == "EndRoll":
@@ -27,13 +28,14 @@ func play(anim, back=false):
 	if anim == "Idle" and $anim_player.is_playing() and current_anim == "IdleLong":
 		return false
 		
-	if anim != current_anim or (back != last_orientation):
+	if interruption_allowed or anim != current_anim or (back != last_orientation):
 		if not back:
 			$anim_player.play(anim)
 		else:
 			$anim_player.play_backwards(anim)
 		current_anim = anim
 		last_orientation = back
+		interruption_allowed = false
 			
 		if anim == "Idle":
 			timer.start()
@@ -41,6 +43,9 @@ func play(anim, back=false):
 			timer.stop()
 
 	return true
+
+func allow_interruption():
+	interruption_allowed = true
 
 func is_playing(playing=null):
 	if playing == null:

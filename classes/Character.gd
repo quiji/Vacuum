@@ -48,6 +48,10 @@ var _gravity_scalar = 0.0
 
 var _water_center = null
 var _water_resistance_multiplier = 1
+var _water_resistance_multiplier_target = 1
+
+var swim_tilt_velocity = Vector2()
+var swim_tilt_to_45_time = 0.0
 
 ######## Open Space #########
 
@@ -67,7 +71,6 @@ var changing_center = false
 
 ######## Deltas #########
 var _loosed_ground_delta = 0
-var _swim_impulse_delta = 0
 
 
 ######## States #########
@@ -155,6 +158,7 @@ func set_gravity_center(center):
 		get_parent().remove_child(self)
 		_gravity_center.add_child(self)
 		_gravity_center.add_collision_exception_with(self)
+		_gravity_center.move_child(self, _gravity_center.get_tree_pos())
 		global_rotation = rot
 		global_position = pos
 		
@@ -217,7 +221,7 @@ func fix_parents():
 		if parent_type == PARENT_WATER:
 
 			# ask platform for child position
-			new_center.move_child(self, 0)
+			new_center.move_child(self, new_center.get_tree_pos())
 			entered_water(new_center)
 		elif parent_type == PARENT_SPACE:
 			if was_water_center:
@@ -348,9 +352,17 @@ func stop(keep=true):
 	
 
 
-func tilt(direction):
+func tilt(direction, tilt_to_45_time, tilt_speed):
 	_target_normal = direction
+	
+	var til_speed_factor = 1
+	var normal_dot = _normal.dot(_target_normal)
+	if normal_dot > 0:
+		til_speed_factor = clamp(1 - normal_dot, 0.4, 1)
 
+	swim_tilt_velocity = (_normal + _target_normal).normalized() * tilt_speed * til_speed_factor
+	swim_tilt_to_45_time = tilt_to_45_time 
+	
 func stop_tilt():
 	_target_normal = null
 
@@ -363,25 +375,29 @@ func update_normal():
 	elif is_on_gravity_center():
 		pass
 
+	#this should be in normal_shift_notice that should be called here in hope that overriden method implements camera 
+	#rotation instead of a signal call (this way we can use the camera's constants instead)
 	emit_signal("normal_shift", _normal, $ground_raycast.get_normal(), rotation_mode)
 
 func add_swim_impulse(swim_impulse_scalar):
-	if _swim_impulse_delta == 0:
-		_water_resistance_multiplier = 1
-		swim_velocity += _normal * swim_impulse_scalar
-		_swim_impulse_delta = 0.3
-		emit_signal("swim", position, swim_velocity)
+
+	swim_velocity = (swim_velocity + _normal * swim_impulse_scalar).clamped(swim_impulse_scalar * 1.02)
+	emit_signal("swim", position, swim_velocity)
+
 
 func increase_water_resistance():
-	_water_resistance_multiplier = 1.8
+	_water_resistance_multiplier_target = 2.8
+
+func decrease_water_resistance():
+	_water_resistance_multiplier_target = null
+	_water_resistance_multiplier = 0.75
 
 ############
 # Helper methods
 ############
 
 
-func interpolate_normal_towards(inter_type, val=null):
-	var acc = 0.1
+func interpolate_normal_towards(inter_type, val=null, acc=0.1):
 	
 	if inter_type == TOWARDS_TANGENT:
 		#_normal = _normal.linear_interpolate(_normal.tangent() * _target_normal_direction, acc).normalized()
@@ -667,35 +683,40 @@ func _gravity_physics(delta):
 func _water_physics(delta):
 	
 	var swin_velocity_squared = swim_velocity.length_squared()
-	if swin_velocity_squared > 0.01:
-		var squared_resistance = _water_center.get_water_resistance_squared_scalar()
-		var resistance = _water_center.get_water_resistance_scalar() * _water_resistance_multiplier
-	
+	var swim_tilt_velocity_squared = swim_tilt_velocity.length_squared()
+	var resistance = _water_center.get_water_resistance_scalar()
 
-		swim_velocity += swim_velocity.normalized() * resistance * delta
-		
-		_last_velocity = swim_velocity
-		var collision_data = move_and_collide(swim_velocity * delta)
+	if _water_resistance_multiplier_target != null:
+		_water_resistance_multiplier = lerp(_water_resistance_multiplier, _water_resistance_multiplier_target, delta)
+
+	if swin_velocity_squared > 0.01:
+		swim_velocity += swim_velocity.normalized() * resistance * _water_resistance_multiplier * delta
+
+	if swim_tilt_velocity_squared > 0.01:
+		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
+	
+	_last_velocity = swim_velocity + swim_tilt_velocity
+	var collision_data = move_and_collide(_last_velocity * delta)
 
 
 
 	_process_behavior(delta)
 
+	# percentage from total lerp
+	var percentage = swim_tilt_to_45_time / delta
+
+
 	if _target_normal != null:
 		if _normal.dot(_target_normal) > 0:
-			interpolate_normal_towards(TOWARDS_TARGET)
+			interpolate_normal_towards(TOWARDS_TARGET, null, 1 / percentage)
 		else:
 			if _normal.tangent().dot(_target_normal) > (-_normal.tangent()).dot(_target_normal):
 				_target_normal_direction = 1
 			else:
 				_target_normal_direction = -1
-			interpolate_normal_towards(TOWARDS_TANGENT)
+			interpolate_normal_towards(TOWARDS_TANGENT, null, 1 / percentage)
 		update_normal()
 
-	if _swim_impulse_delta > 0:
-		_swim_impulse_delta -= delta
-	else:
-		_swim_impulse_delta = 0
 	
 	if _water_center != null and not _water_center.overlaps_body(self):
 		_water_center.on_body_out(self, global_position, _last_velocity)

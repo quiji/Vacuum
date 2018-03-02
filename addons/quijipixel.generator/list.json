@@ -540,31 +540,31 @@
           "frames": [
             {
               "id": 61,
-              "time": 60,
+              "time": 80,
               "react": 0,
               "param": ""
             },
             {
               "id": 62,
-              "time": 65,
-              "react": 0,
-              "param": ""
-            },
-            {
-              "id": 63,
-              "time": 70,
-              "react": 0,
-              "param": ""
-            },
-            {
-              "id": 64,
               "time": 75,
               "react": 0,
               "param": ""
             },
             {
+              "id": 63,
+              "time": 80,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 64,
+              "time": 85,
+              "react": 0,
+              "param": ""
+            },
+            {
               "id": 65,
-              "time": 100,
+              "time": 70,
               "react": 2,
               "param": ""
             },
@@ -595,6 +595,18 @@
             {
               "id": 70,
               "time": 85,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 69,
+              "time": 90,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 68,
+              "time": 90,
               "react": 0,
               "param": ""
             }

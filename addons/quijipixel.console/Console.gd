@@ -133,7 +133,7 @@ func _get_node(_att):
 			
 	else:
 		var _node = _att[1]
-		print(get_tree().current_scene)
+
 		var n = get_tree().current_scene.find_node(_node)
 			
 		if n == null:

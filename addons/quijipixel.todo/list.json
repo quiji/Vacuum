@@ -188,7 +188,15 @@
     "task.210",
     "task.212",
     "task.114",
-    "task.216"
+    "task.216",
+    "task.213",
+    "task.214",
+    "task.53",
+    "task.51",
+    "task.113",
+    "task.190",
+    "task.218",
+    "task.222"
   ],
   "completed": {
     "task.0": {
@@ -4726,39 +4734,103 @@
         "minute": 10,
         "second": 10
       }
-    }
-  },
-  "pend_order": [
-    "task.51",
-    "task.53",
-    "task.55",
-    "task.68",
-    "task.75",
-    "task.85",
-    "task.113",
-    "task.134",
-    "task.135",
-    "task.136",
-    "task.152",
-    "task.155",
-    "task.161",
-    "task.176",
-    "task.177",
-    "task.186",
-    "task.189",
-    "task.190",
-    "task.191",
-    "task.192",
-    "task.193",
-    "task.200",
-    "task.205",
-    "task.209",
-    "task.211",
-    "task.213",
-    "task.214",
-    "task.215"
-  ],
-  "pending": {
+    },
+    "task.213": {
+      "task": "Implement LookUp",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 22,
+        "minute": 31,
+        "second": 3
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 39,
+        "second": 48
+      }
+    },
+    "task.214": {
+      "task": "Implement LookDown.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 22,
+        "minute": 31,
+        "second": 11
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 39,
+        "second": 50
+      }
+    },
+    "task.53": {
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 19,
+        "minute": 33,
+        "month": 1,
+        "second": 56,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Implement a way to handle character's stats that is cleaner and easier to work with. (Maybe something to be able to change in runtime with an in-game console for easy testing???)",
+      "type": "Refactor",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 42,
+        "second": 19
+      }
+    },
+    "task.51": {
+      "creation_date": {
+        "day": 17,
+        "dst": true,
+        "hour": 13,
+        "minute": 42,
+        "month": 1,
+        "second": 1,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Create to state machine APIs, one for everyday actions for Character, and one for specific actions in character.",
+      "type": "Refactor",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 42,
+        "second": 33
+      }
+    },
     "task.113": {
       "creation_date": {
         "day": 30,
@@ -4771,8 +4843,121 @@
         "year": 2018
       },
       "task": "When rigid platform is moving and player collides with new gravity center platform, because player is a child node of the platform, the new gravity center registers the collision as rigid and starts moving.",
-      "type": "Bug"
+      "type": "Bug",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 43,
+        "second": 9
+      }
     },
+    "task.190": {
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 13,
+        "minute": 37,
+        "month": 2,
+        "second": 47,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Let the platform decide where in the scene tree the character is going to be. As of now the Character class does this (only for water platforms, in position 0). This is because some of the platforms may have sprite layers and the character is needed to be in certain tree position.",
+      "type": "Refactor",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 48,
+        "second": 19
+      }
+    },
+    "task.218": {
+      "task": "Swmming doesn't feel right yet, remove delay and tweak swim animation.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 51,
+        "second": 32
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 0,
+        "minute": 34,
+        "second": 28
+      }
+    },
+    "task.222": {
+      "task": "Explore the movement/tilting mechanic for swimming. Tune that up and make a satisfactory swimming mechanic!!!!",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 0,
+        "minute": 54,
+        "second": 18
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 9,
+        "minute": 9,
+        "second": 57
+      }
+    }
+  },
+  "pend_order": [
+    "task.55",
+    "task.68",
+    "task.75",
+    "task.85",
+    "task.134",
+    "task.135",
+    "task.136",
+    "task.152",
+    "task.155",
+    "task.161",
+    "task.176",
+    "task.177",
+    "task.186",
+    "task.189",
+    "task.191",
+    "task.192",
+    "task.193",
+    "task.200",
+    "task.205",
+    "task.209",
+    "task.211",
+    "task.215",
+    "task.217",
+    "task.219",
+    "task.220",
+    "task.221",
+    "task.223"
+  ],
+  "pending": {
     "task.134": {
       "creation_date": {
         "day": 1,
@@ -4913,20 +5098,6 @@
       "task": "When jumping the camera follows up but stays up instead of going back to previous position.",
       "type": "Bug"
     },
-    "task.190": {
-      "creation_date": {
-        "day": 23,
-        "dst": true,
-        "hour": 13,
-        "minute": 37,
-        "month": 2,
-        "second": 47,
-        "weekday": 5,
-        "year": 2018
-      },
-      "task": "Let the platform decide where in the scene tree the character is going to be. As of now the Character class does this (only for water platforms, in position 0). This is because some of the platforms may have sprite layers and the character is needed to be in certain tree position.",
-      "type": "Refactor"
-    },
     "task.191": {
       "creation_date": {
         "day": 23,
@@ -4968,34 +5139,6 @@
       },
       "task": "2 water_platforms cannot coexist, when the player reaches the intersection point the platform becomes crazy.",
       "type": "Bug"
-    },
-    "task.51": {
-      "creation_date": {
-        "day": 17,
-        "dst": true,
-        "hour": 13,
-        "minute": 42,
-        "month": 1,
-        "second": 1,
-        "weekday": 3,
-        "year": 2018
-      },
-      "task": "Create to state machine APIs, one for everyday actions for Character, and one for specific actions in character.",
-      "type": "Refactor"
-    },
-    "task.53": {
-      "creation_date": {
-        "day": 17,
-        "dst": true,
-        "hour": 19,
-        "minute": 33,
-        "month": 1,
-        "second": 56,
-        "weekday": 3,
-        "year": 2018
-      },
-      "task": "Implement a way to handle character's stats that is cleaner and easier to work with. (Maybe something to be able to change in runtime with an in-game console for easy testing???)",
-      "type": "Refactor"
     },
     "task.55": {
       "creation_date": {
@@ -5109,34 +5252,6 @@
         "second": 57
       }
     },
-    "task.213": {
-      "task": "Implement LookUp",
-      "type": "Feature",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 22,
-        "minute": 31,
-        "second": 3
-      }
-    },
-    "task.214": {
-      "task": "Implement LookDown.",
-      "type": "Feature",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 22,
-        "minute": 31,
-        "second": 11
-      }
-    },
     "task.215": {
       "task": "Improve small platform collisions when the player arrives from the sides, or to the floor (sort of move_and_slide).",
       "type": "Task",
@@ -5149,6 +5264,76 @@
         "hour": 22,
         "minute": 44,
         "second": 4
+      }
+    },
+    "task.217": {
+      "task": "CameraMan is full of bugs, and rotation and moving mechanics are not working well. Implement all features again and clean that up (fixing platforming bugs becomes inreasingly difficult with bad camera movements, you know... dizzinezz)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 40,
+        "second": 55
+      }
+    },
+    "task.219": {
+      "task": "Change Console.log method names to something more understandable (rather than simple letters)",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 57,
+        "second": 10
+      }
+    },
+    "task.220": {
+      "task": "Improve swimming stroke, remove slur and create fluid animation.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 0,
+        "minute": 34,
+        "second": 24
+      }
+    },
+    "task.221": {
+      "task": "Pivot change in Character fails",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 0,
+        "minute": 39,
+        "second": 35
+      }
+    },
+    "task.223": {
+      "task": "Remove the normal_shift signal from character and implement a normal_shift_notice virtual method to use CamerMan constants.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 9,
+        "minute": 2,
+        "second": 25
       }
     }
   }

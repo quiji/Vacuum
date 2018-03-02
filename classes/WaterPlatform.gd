@@ -41,6 +41,11 @@ func set_radius(r):
 func get_radius():
 	return radius
 
+# This method must be overriden for platforms with different layers of visuals, so the player stays behind the important ones?? I guess?
+func get_tree_pos():
+	return 0
+
+
 func grow(r):
 	
 	var speed = r / 30.0 
