@@ -112,7 +112,7 @@ void fragment() {
 
 render_priority = 0
 shader = SubResource( 5 )
-shader_param/delta = -1.49999e+06
+shader_param/delta = -1.49924e+06
 shader_param/radius = null
 shader_param/frequency = 30.0
 shader_param/depth = 0.004

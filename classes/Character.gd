@@ -75,6 +75,7 @@ var _falling = true
 var _moving = false
 var _attempting_jump = false
 var _rolling = false
+var halt_physics = false
 
 ######## Configuration #########
 var _control_mode = ROTATION
@@ -535,25 +536,27 @@ func left_water():
 
 func _physics_process(delta):
 
-
-	if is_on_gravity_center():
-		_gravity_physics(delta)
-	elif is_on_water_center():
-		_water_physics(delta)
-	else:
-		if space_velocity.length_squared() > 0.01:
-			var motion = space_velocity * delta
-			_last_velocity = space_velocity
-			
-
-			var collision_data = move_and_collide(motion)
-			var changed_center = verify_gravity_center_change(collision_data)
-			
-			if check_ground_reach(collision_data, changed_center):
-				adjust_normal_towards(get_gravity_data().normal, changed_center)
-		
+	if not halt_physics:
+		if is_on_gravity_center():
+			_gravity_physics(delta)
+		elif is_on_water_center():
+			_water_physics(delta)
 		else:
-			_last_velocity = Vector2()
+			if space_velocity.length_squared() > 0.01:
+				var motion = space_velocity * delta
+				_last_velocity = space_velocity
+				
+	
+				var collision_data = move_and_collide(motion)
+				var changed_center = verify_gravity_center_change(collision_data)
+				
+				if check_ground_reach(collision_data, changed_center):
+					adjust_normal_towards(get_gravity_data().normal, changed_center)
+			else:
+				_last_velocity = Vector2()
+
+	little_physics_proces(delta)
+
 
 
 func _gravity_physics(delta):

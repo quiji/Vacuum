@@ -207,7 +207,8 @@
     "task.228",
     "task.229",
     "task.221",
-    "task.230"
+    "task.230",
+    "task.232"
   ],
   "completed": {
     "task.0": {
@@ -5200,6 +5201,30 @@
         "hour": 15,
         "minute": 54,
         "second": 52
+      }
+    },
+    "task.232": {
+      "task": "Offset change is abrupt",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 16,
+        "minute": 3,
+        "second": 28
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 16,
+        "minute": 25,
+        "second": 37
       }
     }
   },
