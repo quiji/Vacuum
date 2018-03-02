@@ -241,7 +241,8 @@ func change_center(new_center):
 		changing_center = true
 		if is_playable():
 			# CameraSetup.Center
-			Glb.get_current_camera_man().setup_camera(0)
+			Glb.get_current_camera_man().setup_camera(self, 0)
+
 	elif new_center.has_method("get_gravity_from_center"):
 		was_water_center = _water_center != null
 		set_gravity_center(new_center)
@@ -249,7 +250,7 @@ func change_center(new_center):
 		#changing_center = true
 		if is_playable():
 			# CameraSetup.Up
-			Glb.get_current_camera_man().setup_camera(1)
+			Glb.get_current_camera_man().setup_camera(self, 1)
 		if was_water_center:
 			left_water()
 	elif new_center.has_method("get_water_resistance_scalar"):
@@ -258,7 +259,7 @@ func change_center(new_center):
 		changing_center = true
 		if is_playable():
 			# CameraSetup.Center
-			Glb.get_current_camera_man().setup_camera(0)
+			Glb.get_current_camera_man().setup_camera(self, 0)
 
 func get_normal():
 	return _normal

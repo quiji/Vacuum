@@ -1,7 +1,7 @@
 extends Node2D
 
 enum RotatingMode {NO_ROTATION, FOLLOW_POLY4}
-enum CameraSetup {CENTER, UP}
+enum CameraSetup {SETUP_CENTER, SETUP_UP}
 
 enum CameraLook {LOOK_CENTER, LOOK_UP, LOOK_DOWN}
 
@@ -53,7 +53,7 @@ func _ready():
 	max_distance_squared = max_distance * max_distance
 	min_distance_squared = min_distance * min_distance
 	
-	setup_camera(UP)
+	setup_camera(null, SETUP_UP)
 
 	# For debug purposes
 	if show_camera_man:
@@ -78,7 +78,7 @@ func get_current_normal():
 		return normal
 
 func normal_shift(request_from, new_normal, new_target_normal, rotation_mode):
-	if request_from != _actor:
+	if request_from != null and request_from != _actor:
 		return false
 		
 	if rotation_mode == FOLLOW_POLY4:
@@ -91,26 +91,34 @@ func normal_shift(request_from, new_normal, new_target_normal, rotation_mode):
 	
 	return true
 
-func setup_camera(dir):
-	if dir == CameraSetup.CENTER && _camera_setup != CameraSetup.CENTER:
+func setup_camera(request_from, dir):
+	if request_from != null and request_from != _actor:
+		return false
+		
+	if dir == SETUP_CENTER && _camera_setup != SETUP_CENTER:
 		tween.interpolate_property(camera, "position", camera.position, Vector2(), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 		tween.start()
-		_camera_setup = CameraSetup.CENTER
+		_camera_setup = SETUP_CENTER
 		camera.drag_margin_top = 0
 		camera.drag_margin_bottom = 0
 		camera.drag_margin_right = 0.1
 		camera.drag_margin_left = 0.1
 
-	if dir == CameraSetup.UP && _camera_setup != CameraSetup.UP:
+	if dir == SETUP_UP && _camera_setup != SETUP_UP:
 		tween.interpolate_property(camera, "position", camera.position, Vector2(0, -1) * setup_distance, 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 		tween.start()
-		_camera_setup = CameraSetup.UP
+		_camera_setup = SETUP_UP
 		camera.drag_margin_top = 0.4
 		camera.drag_margin_bottom = 0
 		camera.drag_margin_right = 0.2
 		camera.drag_margin_left = 0.2
 
-func look_direction(dir):
+	return true
+
+func look_direction(request_from, dir):
+	if request_from != null and request_from != _actor:
+		return false
+		
 	match dir:
 		LOOK_UP:
 			tween.interpolate_property(camera, "offset", Vector2(), get_current_normal() * look_distance, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
@@ -121,6 +129,8 @@ func look_direction(dir):
 		LOOK_CENTER:
 			tween.interpolate_property(camera, "offset", camera.offset, Vector2(), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
+
+	return true
 
 func _physics_process(delta):
 	if _actor != null:

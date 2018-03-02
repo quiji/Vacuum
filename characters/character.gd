@@ -83,13 +83,13 @@ func make_camera_look(dir):
 		var cam = Glb.get_current_camera_man()
 		
 		if cam != null:
-			cam.look_direction(dir)
+			cam.look_direction(self, dir)
 
 func restore_camera_look():
 	var cam = Glb.get_current_camera_man()
 	
 	if cam != null:
-		cam.look_direction(CameraMan.LOOK_CENTER)
+		cam.look_direction(self, CameraMan.LOOK_CENTER)
 
 	
 ############
