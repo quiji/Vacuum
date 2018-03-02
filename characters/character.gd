@@ -1,6 +1,6 @@
 extends "res://classes/Character.gd"
 
-
+const CameraMan = preload("res://addons/quijipixel.cameraman/CameraMan.gd")
 
 ######## Const Stats #########
 var slope_stop_min_velocity = 5.0
@@ -12,6 +12,8 @@ var jump_peak_height = 95.5
 
 var smash_jump_impulse_scalar = 30.0
 var swim_impulse_scalar = 190.0
+var water_tilt_impulse_scalar = 35.0
+var time_to_45_tilt_rotation = 0.4
 
 ######## Calculated Stats #########
 var jump_initial_velocity_scalar = 0.0
@@ -27,12 +29,14 @@ var smash_jumping = false
 var smash_jump_start_point
 
 var looking = false
+var swimming = false
 
 ######## Control schemes #########
 var camera_rotation = 0
 
-######## Counters #########
-
+######## Backups #########
+var old_sprite_pos = null
+var old_shape_pos = null
 
 func _ready():
 	._ready()
@@ -50,6 +54,10 @@ func _ready():
 	
 	# Maybe this goes in the platform? we can play with platforms with different values
 	set_slope_stop_min_vel(slope_stop_min_velocity)
+
+	old_sprite_pos = $sprite.position
+	old_shape_pos = $collision.position
+
 
 	$sprite.connect("react", self, "_on_animation_reaction")
 	
@@ -69,7 +77,21 @@ func rotate_to_camera_normal(v):
 		return v.rotated(camera_rotation)
 	return v
 
+func make_camera_look(dir):
+	if not looking:
+		looking = true
+		var cam = Glb.get_current_camera_man()
+		
+		if cam != null:
+			cam.look_direction(dir)
 
+func restore_camera_look():
+	var cam = Glb.get_current_camera_man()
+	
+	if cam != null:
+		cam.look_direction(CameraMan.LOOK_CENTER)
+
+	
 ############
 # Callback methods
 ############
@@ -82,6 +104,7 @@ func _on_animation_reaction(action):
 			pass
 		Glb.REACT_SWIMSTROKE: 
 			add_swim_impulse(swim_impulse_scalar)
+			$sprite.allow_interruption()
 
 ############
 # Overriden methods
@@ -128,18 +151,14 @@ func start_rolling():
 func end_rolling():
 	$sprite.play("EndRoll")
 
-var old_sprite_pos = null
-var old_shape_pos = null
 func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
-	old_sprite_pos = $sprite.position
-	old_shape_pos = $collision.position
-	$tween.interpolate_method(self, "pivot_transition", Vector2(), Vector2(0,25), 0.3, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	$tween.interpolate_method(self, "pivot_transition", Vector2(), Vector2(0,25), 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	$tween.start()
 
 
 func left_water():
-	$tween.interpolate_method(self, "pivot_transition", Vector2(0, 25), Vector2(), 0.3, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	$tween.interpolate_method(self, "pivot_transition", Vector2(0, 25), Vector2(), 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	$tween.start()
 
 func pivot_transition(pos):
@@ -226,15 +245,19 @@ func _gravity_behavior(delta):
 
 	if Input.is_action_pressed("ui_up") and is_idle():
 		$sprite.play("LookUp")
-		looking = true
+		make_camera_look(CameraMan.LOOK_UP)
+
 	elif Input.is_action_just_released("ui_up") and looking:
 		$sprite.play("LookUp", true)
+		restore_camera_look()
 
 	if Input.is_action_pressed("ui_down") and is_idle():
 		$sprite.play("LookDown")
-		looking = true
+		make_camera_look(CameraMan.LOOK_DOWN)
+
 	elif Input.is_action_just_released("ui_down") and looking:
 		$sprite.play("LookDown", true)
+		restore_camera_look()
 
 
 
@@ -255,29 +278,32 @@ func _water_behavior(delta):
 		establish_angle_from_camera()
 
 	if left_p and up_p:
-		tilt( rotate_to_camera_normal(Vector2(-0.707107, -0.707107)) )
+		tilt( rotate_to_camera_normal(Vector2(-0.707107, -0.707107)), time_to_45_tilt_rotation, water_tilt_impulse_scalar )
 	elif left_p and down_p:
-		tilt( rotate_to_camera_normal(Vector2(-0.707107, 0.707107)) )
+		tilt( rotate_to_camera_normal(Vector2(-0.707107, 0.707107)), time_to_45_tilt_rotation, water_tilt_impulse_scalar )
 	elif right_p and up_p:
-		tilt( rotate_to_camera_normal(Vector2(0.707107, -0.707107)) )
+		tilt( rotate_to_camera_normal(Vector2(0.707107, -0.707107)), time_to_45_tilt_rotation, water_tilt_impulse_scalar )
 	elif right_p and down_p:
-		tilt( rotate_to_camera_normal(Vector2(0.707107, 0.707107)) )
+		tilt( rotate_to_camera_normal(Vector2(0.707107, 0.707107)), time_to_45_tilt_rotation, water_tilt_impulse_scalar )
 	elif left_p:
-		tilt( rotate_to_camera_normal(Vector2(-1, 0)) )
+		tilt( rotate_to_camera_normal(Vector2(-1, 0)), time_to_45_tilt_rotation, water_tilt_impulse_scalar )
 	elif right_p:
-		tilt( rotate_to_camera_normal(Vector2(1, 0)) )
+		tilt( rotate_to_camera_normal(Vector2(1, 0)), time_to_45_tilt_rotation, water_tilt_impulse_scalar )
 	elif up_p:
-		tilt( rotate_to_camera_normal(Vector2(0, -1)) )
+		tilt( rotate_to_camera_normal(Vector2(0, -1)), time_to_45_tilt_rotation, water_tilt_impulse_scalar )
 	elif down_p:
-		tilt( rotate_to_camera_normal(Vector2(0, 1)) )
+		tilt( rotate_to_camera_normal(Vector2(0, 1)), time_to_45_tilt_rotation, water_tilt_impulse_scalar )
 	elif left_jr or right_jr or up_jr or down_jr:
 		stop_tilt()
 
 
 	if Input.is_action_just_pressed("jump"):
 		$sprite.play("Swim")
+		swimming = true
+	elif Input.is_action_pressed("jump") and swimming:
+		decrease_water_resistance()
 	elif Input.is_action_just_released("jump"):
 		increase_water_resistance()
-
+		swimming = false
 
 

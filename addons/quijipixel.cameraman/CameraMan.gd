@@ -3,6 +3,10 @@ extends Node2D
 enum RotatingMode {NO_ROTATION, FOLLOW_POLY4}
 enum CameraSetup {CENTER, UP}
 
+enum CameraLook {LOOK_CENTER, LOOK_UP, LOOK_DOWN}
+
+
+
 # Who to follow
 export (NodePath) var actor
 export (float) var max_speed = 300.0
@@ -11,7 +15,7 @@ export (float) var max_distance = 300.0
 export (float) var min_distance = 4.5
 export (float) var setup_distance = 104.5
 export (bool) var show_camera_man = true
-
+export (float) var look_distance = 100.0
 
 var camera = null
 var tween = null
@@ -109,6 +113,17 @@ func setup_camera(dir):
 		camera.drag_margin_right = 0.2
 		camera.drag_margin_left = 0.2
 
+func look_direction(dir):
+	match dir:
+		LOOK_UP:
+			tween.interpolate_property(camera, "offset", Vector2(), get_current_normal() * look_distance, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.start()
+		LOOK_DOWN:
+			tween.interpolate_property(camera, "offset", Vector2(), -get_current_normal() * look_distance, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.start()
+		LOOK_CENTER:
+			tween.interpolate_property(camera, "offset", camera.offset, Vector2(), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.start()
 
 func _physics_process(delta):
 	if _actor != null:
