@@ -196,7 +196,8 @@
     "task.113",
     "task.190",
     "task.218",
-    "task.222"
+    "task.222",
+    "task.220"
   ],
   "completed": {
     "task.0": {
@@ -4926,6 +4927,30 @@
         "minute": 9,
         "second": 57
       }
+    },
+    "task.220": {
+      "task": "Improve swimming stroke, remove slur and create fluid animation.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 0,
+        "minute": 34,
+        "second": 24
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 21,
+        "second": 55
+      }
     }
   },
   "pend_order": [
@@ -4953,7 +4978,6 @@
     "task.215",
     "task.217",
     "task.219",
-    "task.220",
     "task.221",
     "task.223"
   ],
@@ -5292,20 +5316,6 @@
         "hour": 23,
         "minute": 57,
         "second": 10
-      }
-    },
-    "task.220": {
-      "task": "Improve swimming stroke, remove slur and create fluid animation.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 2,
-        "weekday": 5,
-        "dst": true,
-        "hour": 0,
-        "minute": 34,
-        "second": 24
       }
     },
     "task.221": {
