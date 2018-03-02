@@ -10,11 +10,11 @@
 custom_solver_bias = 0.0
 radius = 8.06226
 
-[node name="character" type="KinematicBody2D" index="0"]
+[node name="character" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 3
-collision_mask = 3
+collision_layer = 1
+collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
@@ -36,17 +36,21 @@ position = Vector2( 0, -6 )
 shape = SubResource( 1 )
 disabled = true
 
-[node name="ground_raycast" parent="." index="3" instance=ExtResource( 4 )]
+[node name="water_raycast" parent="." index="3" instance=ExtResource( 4 )]
+
+b = Vector2( 0, -36 )
+
+[node name="ground_raycast" parent="." index="4" instance=ExtResource( 4 )]
 
 a = Vector2( -6, 3 )
 b = Vector2( 6, 3 )
 
-[node name="collision" type="CollisionPolygon2D" parent="." index="4"]
+[node name="collision" type="CollisionPolygon2D" parent="." index="5"]
 
 build_mode = 0
 polygon = PoolVector2Array( -6.625, -34.375, 4.375, -37.375, 10.125, -27.875, 8.125, -23.625, 15.125, -14.125, 8.375, -5.625, 6.125, 1.625, -7.375, 0.125, -8.625, -6.625, -13.875, -10.875, -6.375, -25.625 )
 
-[node name="tween" type="Tween" parent="." index="5"]
+[node name="tween" type="Tween" parent="." index="6"]
 
 repeat = false
 playback_process_mode = 0

@@ -2,7 +2,6 @@
 
 [ext_resource path="res://classes/WaterPlatform.gd" type="Script" id=1]
 [ext_resource path="res://tools/Circle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://shaders/water_platform_wave.shader" type="Shader" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -13,7 +12,7 @@ light_mode = 2
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 180.0
+radius = 120.0
 
 [sub_resource type="Shader" id=3]
 
@@ -62,11 +61,58 @@ shader = SubResource( 3 )
 shader_param/radius = null
 _sections_unfolded = [ "shader_param" ]
 
+[sub_resource type="Shader" id=5]
+
+code = "shader_type canvas_item;
+
+uniform float delta = 0.0;
+uniform float radius = 120.0;
+
+
+uniform float frequency=30;
+uniform float depth = 0.005;
+
+uniform float size_x=0.001;
+uniform float size_y=0.001;
+uniform float pixelized_step=0.0018;
+
+void vertex() {
+	UV = VERTEX / (radius * 2.0);
+}
+
+
+void fragment() {
+
+
+	vec2 uv = SCREEN_UV;
+	vec2 local_uv = UV;
+	
+
+	float the_pixelized_step = 0.0;
+	// Waves
+	uv.x = clamp(uv.x+sin(local_uv.y*frequency+delta)*depth,0,1);
+	
+	// Pixelated distortion
+	//float pixelate_mod = abs(cos(local_uv.x*frequency+delta)*pixelized_step);
+	float pixelate_mod = abs(cos(local_uv.x*frequency+delta)*the_pixelized_step);
+	uv-=mod(uv,vec2(size_x+pixelate_mod,size_y+pixelate_mod));
+
+	//vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb;
+
+	vec4 c = textureLod(SCREEN_TEXTURE,uv,0.0);
+
+	
+	COLOR=c;
+	
+}
+
+"
+
 [sub_resource type="ShaderMaterial" id=6]
 
 render_priority = 0
-shader = ExtResource( 3 )
-shader_param/delta = -1.49898e+06
+shader = SubResource( 5 )
+shader_param/delta = -1.49999e+06
 shader_param/radius = null
 shader_param/frequency = 30.0
 shader_param/depth = 0.004
@@ -75,21 +121,16 @@ shader_param/size_y = 0.001
 shader_param/pixelized_step = 0.001
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[node name="water_platform" type="Area2D" index="0"]
+[node name="water_platform" type="KinematicBody2D" index="0"]
 
 material = SubResource( 1 )
 input_pickable = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = -1.0
-angular_damp = -1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pickable" ]
-radius = 150.0
+radius = 120
 
 [node name="collision" type="CollisionShape2D" parent="." index="0"]
 
@@ -99,7 +140,7 @@ shape = SubResource( 2 )
 [node name="bkg" parent="." index="1" instance=ExtResource( 2 )]
 
 _sections_unfolded = [ "Material" ]
-radius = 150.0
+radius = 120
 base_color = Color( 0.10553, 0.427153, 0.710938, 0 )
 border_size = 2.0
 
@@ -112,7 +153,7 @@ rect = Rect2( -120, -120, 240, 240 )
 
 material = SubResource( 4 )
 _sections_unfolded = [ "Material" ]
-radius = 150.0
+radius = 120
 
 [node name="second_buffer" type="BackBufferCopy" parent="." index="4"]
 
@@ -123,7 +164,7 @@ rect = Rect2( -100, -100, 200, 200 )
 
 material = SubResource( 6 )
 _sections_unfolded = [ "Material" ]
-radius = 153.0
+radius = 122.4
 
 [node name="tween" type="Tween" parent="." index="6"]
 

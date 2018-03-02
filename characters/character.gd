@@ -153,25 +153,32 @@ func end_rolling():
 
 func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
-	$tween.interpolate_method(self, "pivot_transition", Vector2(), Vector2(0,25), 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	$tween.start()
+	
+	$sprite.position = old_sprite_pos + Vector2(0,25)
+	$collision.position = old_shape_pos + Vector2(0,25)
+	#$tween.interpolate_method(self, "pivot_transition", Vector2(), Vector2(0,25), 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	#$tween.start()
+	
 	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
 
-func entered_space():
+func entered_space(center):
 	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
 	
-func entered_gravity_platform():
-	Console.p("Centered gravity platform")
+func entered_gravity_platform(center):
 	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_UP)
 
 
 func left_water():
-	$tween.interpolate_method(self, "pivot_transition", Vector2(0, 25), Vector2(), 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	$tween.start()
+	Console.count("left_water")
+	$sprite.position = old_sprite_pos
+	$collision.position = old_shape_pos
+	#$tween.interpolate_method(self, "pivot_transition", Vector2(0, 25), Vector2(), 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	#$tween.start()
 
 func pivot_transition(pos):
 	$sprite.position = old_sprite_pos + pos
-	$collision.position = old_shape_pos + pos
+	Console.p(str(old_sprite_pos + pos))
+	
 
 func _process_behavior(delta):
 

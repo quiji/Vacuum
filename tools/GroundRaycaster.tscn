@@ -2,7 +2,7 @@
 
 [ext_resource path="res://tools/GroundRaycaster.gd" type="Script" id=1]
 
-[node name="GroundRaycaster" type="Node2D"]
+[node name="GroundRaycaster" type="Node2D" index="0"]
 
 rotation = 4.37114e-08
 script = ExtResource( 1 )

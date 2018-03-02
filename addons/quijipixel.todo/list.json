@@ -204,7 +204,10 @@
     "task.225",
     "task.227",
     "task.226",
-    "task.228"
+    "task.228",
+    "task.229",
+    "task.221",
+    "task.230"
   ],
   "completed": {
     "task.0": {
@@ -5126,6 +5129,78 @@
         "minute": 24,
         "second": 14
       }
+    },
+    "task.229": {
+      "task": "Use intersect_ray instead!! Create cast_water.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 14,
+        "minute": 40,
+        "second": 33
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 15,
+        "minute": 53,
+        "second": 46
+      }
+    },
+    "task.221": {
+      "task": "Pivot change in Character fails",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 0,
+        "minute": 39,
+        "second": 35
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 15,
+        "minute": 54,
+        "second": 34
+      }
+    },
+    "task.230": {
+      "task": "Transform water platform from Area2D to KinematicBody2D",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 15,
+        "minute": 54,
+        "second": 51
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 15,
+        "minute": 54,
+        "second": 52
+      }
     }
   },
   "pend_order": [
@@ -5151,8 +5226,7 @@
     "task.209",
     "task.211",
     "task.215",
-    "task.217",
-    "task.221"
+    "task.217"
   ],
   "pending": {
     "task.134": {
@@ -5475,20 +5549,6 @@
         "hour": 23,
         "minute": 40,
         "second": 55
-      }
-    },
-    "task.221": {
-      "task": "Pivot change in Character fails",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 2,
-        "weekday": 5,
-        "dst": true,
-        "hour": 0,
-        "minute": 39,
-        "second": 35
       }
     }
   }

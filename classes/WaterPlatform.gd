@@ -1,5 +1,5 @@
 tool
-extends Area2D
+extends KinematicBody2D
 
 
 const WATER_RESISTANCE = 200.5
@@ -24,8 +24,6 @@ func _ready():
 	$collision.shape = $collision.shape.duplicate(true)
 	$water_shader.material = $water_shader.material.duplicate(true)
 	$color_shader.material = $color_shader.material.duplicate(true)
-	
-	connect("body_entered", self, "on_body_entered")
 
 	wave_speed = WATER_NORMAL_WAVE_SPEED
 
@@ -69,25 +67,16 @@ func setup_radial_structures():
 	$color_shader.material.set("shader_params/radius", radius)
 
 
-
-func on_body_entered(body):
-	var collision_point = Vector2()
-	if body.has_method("is_on_water_center") and not body.is_water_center(self):
-		
-		collision_point = body.global_position - position
-		body.change_center(self)
-		body.connect("swim", self, "child_swim")
-		child_swim(collision_point, body.get_last_velocity())
-		
-		set_wave_speed(WATER_ENTER_WAVE_SPEED)
-
-
-
 func get_water_resistance_scalar():
 	return -WATER_RESISTANCE
 	
 func get_water_resistance_squared_scalar():
 	return -WATER_RESISTANCE_SQUARED
+
+func on_body_in(body, pos, vel):
+	child_movement(pos, vel)
+	set_wave_speed(WATER_ENTER_WAVE_SPEED)
+
 
 func on_body_out(body, pos, vel):
 	pending_point = {
@@ -96,9 +85,8 @@ func on_body_out(body, pos, vel):
 	}
 
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
-	body.disconnect("swim", self, "child_swim")
 
-func child_swim(pos, swim_impulse):
+func child_movement(pos, swim_impulse):
 	var factor = pos.length_squared() / squared_radius 
 	var speedo = clamp(WATER_SWIM_WAVE_SPEED * factor, WATER_NORMAL_WAVE_SPEED, WATER_SWIM_WAVE_SPEED)
 	set_wave_speed(speedo)

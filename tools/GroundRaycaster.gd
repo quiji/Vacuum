@@ -65,6 +65,35 @@ func cast_ground(collision_layer):
 
 	return space_state.get_rest_info(shape_query)
 
+func cast_water(collision_layer):
+	
+	if Engine.editor_hint:
+		return null
+	
+	var ground_result = cast_ground(collision_layer)
+	
+	if not ground_result.empty():
+		var collision_layer_int = collision_layer
+		var space_rid = get_world_2d().get_space()
+		var space_state = Physics2DServer.space_get_direct_state(space_rid)
+		var result_a = space_state.intersect_point($point_a.global_position, 1, [get_parent()], collision_layer_int)
+		var result_b = space_state.intersect_point($point_b.global_position, 1, [get_parent()], collision_layer_int)
+		var result_ab = space_state.intersect_point(($point_a.global_position + $point_b.global_position) / 2, 1, [get_parent()], collision_layer_int)
+		if result_a.size() > 0:
+			return result_a[0]
+		elif result_ab.size() > 0:
+			return result_ab[0]
+		elif result_b.size() > 0:
+			return result_b[0]
+	
+	return {}
+	
+	var collision_layer_int = collision_layer
+	var space_rid = get_world_2d().get_space()
+	var space_state = Physics2DServer.space_get_direct_state(space_rid)
+	
+	return space_state.intersect_ray($point_a.global_position, $point_b.global_position, [get_parent()], collision_layer_int)
+
 
 func cast_movement(motion, collision_layer):
 
