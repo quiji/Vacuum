@@ -26,7 +26,7 @@ var fall_gravity_scalar = 0.0
 var smash_jumping = false
 var smash_jump_start_point
 
-
+var looking = false
 
 ######## Control schemes #########
 var camera_rotation = 0
@@ -52,6 +52,7 @@ func _ready():
 	set_slope_stop_min_vel(slope_stop_min_velocity)
 
 	$sprite.connect("react", self, "_on_animation_reaction")
+	
 
 ############
 # Configuration methods
@@ -117,7 +118,7 @@ func reached_ground(ground_object):
 	if not $sprite.is_playing("EndRoll"):
 		if is_moving():
 			$sprite.play("Run")
-		elif not is_moving():
+		elif not is_moving() and not looking:
 			$sprite.play("Idle")
 
 
@@ -222,12 +223,19 @@ func _gravity_behavior(delta):
 		smash_jump_start_point = position
 		set_gravity_scalar(highgest_gravity_scalar * 3)
 
-	if Input.is_action_just_pressed("ui_up") and is_idle():
 
+	if Input.is_action_pressed("ui_up") and is_idle():
 		$sprite.play("LookUp")
-	
-	#if Input.is_action_pressed("ui_down") and $sprite.is_playing("Idle"):
-	#	$sprite.play("LookDown")
+		looking = true
+	elif Input.is_action_just_released("ui_up") and looking:
+		$sprite.play("LookUp", true)
+
+	if Input.is_action_pressed("ui_down") and is_idle():
+		$sprite.play("LookDown")
+		looking = true
+	elif Input.is_action_just_released("ui_down") and looking:
+		$sprite.play("LookDown", true)
+
 
 
 

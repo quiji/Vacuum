@@ -18,8 +18,8 @@ func _ready():
 	
 
 var current_anim = null
-
-func play(anim):
+var last_orientation = false
+func play(anim, back=false):
 
 	if $anim_player.is_playing() and current_anim == "EndRoll":
 		return false
@@ -27,9 +27,13 @@ func play(anim):
 	if anim == "Idle" and $anim_player.is_playing() and current_anim == "IdleLong":
 		return false
 		
-	if anim != current_anim :
-		$anim_player.play(anim)
+	if anim != current_anim or (back != last_orientation):
+		if not back:
+			$anim_player.play(anim)
+		else:
+			$anim_player.play_backwards(anim)
 		current_anim = anim
+		last_orientation = back
 			
 		if anim == "Idle":
 			timer.start()
@@ -60,6 +64,12 @@ func on_animation_finished(anim_name):
 			play("WaterIdle")
 		"IdleLong":
 			play("Idle")
+		"LookDown":
+			continue
+		"LookUp":
+			if last_orientation:
+				play("Idle")
+				get_parent().looking = false
 
 func on_timeout():
 	play("IdleLong")
