@@ -4,7 +4,7 @@ enum RotatingMode {NO_ROTATION, FOLLOW_POLY4}
 enum CameraSetup {SETUP_CENTER, SETUP_UP}
 
 enum CameraLook {LOOK_CENTER, LOOK_UP, LOOK_DOWN}
-
+enum CameraFilmMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM}
 
 
 # Who to follow
@@ -54,7 +54,7 @@ func _ready():
 	max_distance_squared = max_distance * max_distance
 	min_distance_squared = min_distance * min_distance
 	
-	setup_camera(null, SETUP_UP)
+	setup_camera(null, SETUP_CENTER)
 
 	# For debug purposes
 	if show_camera_man:
@@ -72,7 +72,23 @@ func _ready():
 func set_actor(actor):
 	_actor = actor
 
+	
+	#tween.stop(self, "reach_actor")
+	#tween.interpolate_method(self, "reach_actor", 0, 100, 2.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	#tween.start()
 
+func reach_actor(value):
+	value = 1 - value / 100
+	var target = _actor.position - position
+	#var target_length_squared = target.length_squared
+
+	position += target * value
+	"""
+	var total = target / value
+	355
+	0.4
+	"""
+	
 func get_current_normal():
 	if target_normal != null:
 		return target_normal

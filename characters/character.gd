@@ -56,8 +56,7 @@ func _ready():
 
 	old_sprite_pos = $sprite.position
 	old_shape_pos = $collision.position
-
-
+	
 	$sprite.connect("react", self, "_on_animation_reaction")
 
 
