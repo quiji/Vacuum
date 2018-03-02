@@ -199,7 +199,8 @@
     "task.222",
     "task.220",
     "task.219",
-    "task.224"
+    "task.224",
+    "task.223"
   ],
   "completed": {
     "task.0": {
@@ -5001,6 +5002,30 @@
         "minute": 28,
         "second": 15
       }
+    },
+    "task.223": {
+      "task": "Remove the normal_shift signal from character and implement a normal_shift_notice virtual method to use CamerMan constants.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 9,
+        "minute": 2,
+        "second": 25
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 45,
+        "second": 20
+      }
     }
   },
   "pend_order": [
@@ -5028,7 +5053,7 @@
     "task.215",
     "task.217",
     "task.221",
-    "task.223"
+    "task.225"
   ],
   "pending": {
     "task.134": {
@@ -5367,8 +5392,8 @@
         "second": 35
       }
     },
-    "task.223": {
-      "task": "Remove the normal_shift signal from character and implement a normal_shift_notice virtual method to use CamerMan constants.",
+    "task.225": {
+      "task": "Add object parameter to CameraMan API so it knows if the request comes from the actor.",
       "type": "Task",
       "creation_date": {
         "year": 2018,
@@ -5376,9 +5401,9 @@
         "day": 2,
         "weekday": 5,
         "dst": true,
-        "hour": 9,
-        "minute": 2,
-        "second": 25
+        "hour": 10,
+        "minute": 40,
+        "second": 22
       }
     }
   }

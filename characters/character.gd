@@ -115,6 +115,14 @@ func on_gravity_center_changed():
 	
 	pass
 
+func normal_shift_notice(new_normal, target_normal):
+	var cam = Glb.get_current_camera_man()
+
+	if is_on_water_center() or is_on_space():
+		cam.normal_shift(self, new_normal, target_normal, CameraMan.NO_ROTATION)
+	elif is_on_gravity_center():
+		cam.normal_shift(self, new_normal, target_normal, CameraMan.FOLLOW_POLY4)
+
 
 func change_sprite_direction(direction):
 	if direction == FACING_LEFT:

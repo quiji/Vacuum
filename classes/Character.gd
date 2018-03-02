@@ -17,7 +17,6 @@ const INV_NORMAL = 1
 enum ControlMode {ROTATION, INVERSION}
 
 signal swim
-signal normal_shift
 
 
 ######## Physics/Movement #########
@@ -368,16 +367,8 @@ func stop_tilt():
 
 func update_normal():
 	global_rotation = (-_normal).angle() - PI/2
-	
-	var rotation_mode = 1 # follow_poly4
-	if is_on_water_center() or is_on_space():
-		rotation_mode = 0 # no_rotation
-	elif is_on_gravity_center():
-		pass
 
-	#this should be in normal_shift_notice that should be called here in hope that overriden method implements camera 
-	#rotation instead of a signal call (this way we can use the camera's constants instead)
-	emit_signal("normal_shift", _normal, $ground_raycast.get_normal(), rotation_mode)
+	normal_shift_notice(_normal, $ground_raycast.get_normal())
 
 func add_swim_impulse(swim_impulse_scalar):
 
@@ -527,6 +518,9 @@ func adjust_normal_towards(new_normal, gravity_center_collision_data):
 ############
 # Virtual methods
 ############
+
+func normal_shift_notice(normal, target_normal):
+	pass
 
 func inversion_criteria_met(vect):
 

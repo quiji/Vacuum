@@ -68,14 +68,7 @@ func _ready():
 
 
 func set_actor(actor):
-	if _actor != null:
-		if Glb.has_signal(_actor, "normal_shift"):
-			_actor.disconnect("normal_shift", self, "on_actors_normal_shift")
-
-
 	_actor = actor
-	if Glb.has_signal(_actor, "normal_shift"):
-		_actor.connect("normal_shift", self, "on_actors_normal_shift")
 
 
 func get_current_normal():
@@ -84,8 +77,10 @@ func get_current_normal():
 	else:
 		return normal
 
-func on_actors_normal_shift(new_normal, new_target_normal, rotation_mode):
-
+func normal_shift(request_from, new_normal, new_target_normal, rotation_mode):
+	if request_from != _actor:
+		return false
+		
 	if rotation_mode == FOLLOW_POLY4:
 		var _normal = new_normal
 		if new_target_normal != null:
@@ -93,6 +88,8 @@ func on_actors_normal_shift(new_normal, new_target_normal, rotation_mode):
 		var target = VectorLib.snap_to(_normal, VectorLib.POLY4)
 		#if normal.dot(target) <= 0.2:
 		target_normal = target
+	
+	return true
 
 func setup_camera(dir):
 	if dir == CameraSetup.CENTER && _camera_setup != CameraSetup.CENTER:
