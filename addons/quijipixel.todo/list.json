@@ -208,7 +208,9 @@
     "task.229",
     "task.221",
     "task.230",
-    "task.232"
+    "task.232",
+    "task.211",
+    "task.177"
   ],
   "completed": {
     "task.0": {
@@ -5226,6 +5228,54 @@
         "minute": 25,
         "second": 37
       }
+    },
+    "task.211": {
+      "task": "Water doesn't pull the player inside as before.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 21,
+        "minute": 48,
+        "second": 57
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 16,
+        "minute": 28,
+        "second": 59
+      }
+    },
+    "task.177": {
+      "creation_date": {
+        "day": 10,
+        "dst": true,
+        "hour": 11,
+        "minute": 46,
+        "month": 2,
+        "second": 26,
+        "weekday": 6,
+        "year": 2018
+      },
+      "task": "Help player outside of bubble to prevent player stuck half outside of bubble.",
+      "type": "Task",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 16,
+        "minute": 29,
+        "second": 15
+      }
     }
   },
   "pend_order": [
@@ -5240,7 +5290,6 @@
     "task.155",
     "task.161",
     "task.176",
-    "task.177",
     "task.186",
     "task.189",
     "task.191",
@@ -5249,7 +5298,6 @@
     "task.200",
     "task.205",
     "task.209",
-    "task.211",
     "task.215",
     "task.217",
     "task.231"
@@ -5352,20 +5400,6 @@
       },
       "task": "Implement a functional invert mode for character.",
       "type": "Feature"
-    },
-    "task.177": {
-      "creation_date": {
-        "day": 10,
-        "dst": true,
-        "hour": 11,
-        "minute": 46,
-        "month": 2,
-        "second": 26,
-        "weekday": 6,
-        "year": 2018
-      },
-      "task": "Help player outside of bubble to prevent player stuck half outside of bubble.",
-      "type": "Task"
     },
     "task.186": {
       "creation_date": {
@@ -5533,20 +5567,6 @@
         "hour": 21,
         "minute": 12,
         "second": 9
-      }
-    },
-    "task.211": {
-      "task": "Water doesn't pull the player inside as before.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 21,
-        "minute": 48,
-        "second": 57
       }
     },
     "task.215": {
