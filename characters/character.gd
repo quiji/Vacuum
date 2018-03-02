@@ -156,12 +156,13 @@ func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
 	$tween.interpolate_method(self, "pivot_transition", Vector2(), Vector2(0,25), 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	$tween.start()
-	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
+	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
 
 func entered_space():
 	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
 	
 func entered_gravity_platform():
+	Console.p("Centered gravity platform")
 	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_UP)
 
 

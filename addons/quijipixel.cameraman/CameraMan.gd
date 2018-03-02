@@ -20,6 +20,7 @@ export (float) var look_distance = 100.0
 var camera = null
 var tween = null
 var _actor = null
+var _object = null
 var _camera_setup = -1
 
 var normal = Vector2(0, -1)
@@ -66,6 +67,7 @@ func _ready():
 		spr.modulate = Color(0.9, 4.0, 3.0, 1.0)
 		camera.add_child(spr)
 
+	Console.add_log(self, "_object")
 
 func set_actor(actor):
 	_actor = actor
@@ -91,14 +93,21 @@ func normal_shift(request_from, new_normal, new_target_normal, rotation_mode):
 	
 	return true
 
-func setup_camera(request_from, dir):
+func setup_camera(request_from, dir, obj = null):
 	if request_from != null and request_from != _actor:
 		return false
-		
+	_object = obj
 	if dir == SETUP_CENTER && _camera_setup != SETUP_CENTER:
-		tween.stop(camera, "position")
-		tween.interpolate_property(camera, "position", camera.position, Vector2(), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-		tween.start()
+		if _object == null:
+			tween.stop(camera, "position")
+			tween.interpolate_property(camera, "position", camera.position, Vector2(), 2.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.start()
+		else:
+			tween.stop(self, "global_position")
+			tween.stop(camera, "position")
+			tween.interpolate_property(camera, "position", camera.position, Vector2(), 2.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.interpolate_property(self, "global_position", global_position, _object.global_position, 2.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.start()
 		_camera_setup = SETUP_CENTER
 		camera.drag_margin_top = 0
 		camera.drag_margin_bottom = 0
@@ -106,15 +115,27 @@ func setup_camera(request_from, dir):
 		camera.drag_margin_left = 0.1
 
 	if dir == SETUP_UP && _camera_setup != SETUP_UP:
-		tween.stop(camera, "position")
-		tween.interpolate_property(camera, "position", camera.position, Vector2(0, -1) * setup_distance, 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-		tween.start()
+		if _object == null:
+			tween.stop(camera, "position")
+			tween.interpolate_property(camera, "position", camera.position, Vector2(0, -1) * setup_distance, 2.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.start()
+		else:
+			tween.stop(self, "global_position")
+			tween.stop(camera, "position")
+			tween.interpolate_property(camera, "position", camera.position, Vector2(0, -1) * setup_distance, 2.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.interpolate_property(self, "global_position", global_position, _object.global_position, 2.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.start()
 		_camera_setup = SETUP_UP
 		camera.drag_margin_top = 0.4
 		camera.drag_margin_bottom = 0
 		camera.drag_margin_right = 0.2
 		camera.drag_margin_left = 0.2
 
+	if _camera_setup == SETUP_CENTER:
+		Console.add_log("Camera_setup", "CENTER")
+	else:
+		Console.add_log("Camera_setup", "UP")
+		
 	return true
 
 func look_direction(request_from, dir):
@@ -138,7 +159,7 @@ func look_direction(request_from, dir):
 	return true
 
 func _physics_process(delta):
-	if _actor != null:
+	if _actor != null and _object == null:
 		var move_direction = _actor.global_position - global_position
 		var speed = 100
 		var distance_squared = move_direction.length_squared()

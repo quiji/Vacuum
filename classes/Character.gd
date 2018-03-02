@@ -160,12 +160,14 @@ func set_gravity_center(center):
 		_gravity_center.move_child(self, _gravity_center.get_tree_pos())
 		global_rotation = rot
 		global_position = pos
-
+		entered_gravity_platform()
 	else:
 		if _gravity_center != null:
 			_gravity_center.remove_collision_exception_with(self)
 		_gravity_center = null
 
+func get_water_center():
+	return _water_center
 
 func set_water_center(center):
 	if center != null:
@@ -198,8 +200,8 @@ func fix_parents():
 	if is_on_water_center() and _water_center != get_parent():
 		new_center = _water_center
 		parent_type = PARENT_WATER
-	elif is_on_gravity_center():
-		parent_type = PARENT_GRAVITY_PLATFORM
+	#elif is_on_gravity_center():
+	#	parent_type = PARENT_GRAVITY_PLATFORM
 	elif _open_space != get_parent():
 		new_center = _open_space
 		parent_type = PARENT_SPACE
@@ -218,8 +220,8 @@ func fix_parents():
 			if was_water_center:
 				left_water()
 			entered_space()
-		PARENT_GRAVITY_PLATFORM:
-			entered_gravity_platform()
+		#PARENT_GRAVITY_PLATFORM:
+			#entered_gravity_platform()
 				
 	changing_center = false
 
