@@ -28,7 +28,7 @@ var fall_gravity_scalar = 0.0
 var smash_jumping = false
 var smash_jump_start_point
 
-var looking = false
+
 var swimming = false
 
 ######## Control schemes #########
@@ -40,8 +40,7 @@ var old_shape_pos = null
 
 func _ready():
 	._ready()
-	
-	set_playable(true)
+
 	
 	time_to_peak_of_jump = max_x_distance_a_jump / run_velocity
 	jump_initial_velocity_scalar = 2*jump_peak_height / time_to_peak_of_jump
@@ -57,10 +56,9 @@ func _ready():
 
 	old_sprite_pos = $sprite.position
 	old_shape_pos = $collision.position
-
-
-	$sprite.connect("react", self, "_on_animation_reaction")
 	
+	$sprite.connect("react", self, "_on_animation_reaction")
+
 
 ############
 # Configuration methods
@@ -78,18 +76,16 @@ func rotate_to_camera_normal(v):
 	return v
 
 func make_camera_look(dir):
-	if not looking:
-		looking = true
-		var cam = Glb.get_current_camera_man()
-		
-		if cam != null:
-			cam.look_direction(dir)
+	var cam = Glb.get_current_camera_man()
+	
+	if cam != null:
+		cam.look_direction(self, dir)
 
 func restore_camera_look():
 	var cam = Glb.get_current_camera_man()
 	
 	if cam != null:
-		cam.look_direction(CameraMan.LOOK_CENTER)
+		cam.look_direction(self, CameraMan.LOOK_CENTER)
 
 	
 ############
@@ -111,9 +107,13 @@ func _on_animation_reaction(action):
 ############
 
 
-func on_gravity_center_changed():
-	
-	pass
+func normal_shift_notice(new_normal, target_normal):
+	var cam = Glb.get_current_camera_man()
+
+	if is_on_water_center() or is_on_space():
+		cam.normal_shift(self, new_normal, target_normal, CameraMan.NO_ROTATION)
+	elif is_on_gravity_center():
+		cam.normal_shift(self, new_normal, target_normal, CameraMan.FOLLOW_POLY4)
 
 
 func change_sprite_direction(direction):
@@ -141,7 +141,7 @@ func reached_ground(ground_object):
 	if not $sprite.is_playing("EndRoll"):
 		if is_moving():
 			$sprite.play("Run")
-		elif not is_moving() and not looking:
+		elif not is_moving() and not $sprite.is_looking():
 			$sprite.play("Idle")
 
 
@@ -155,6 +155,14 @@ func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
 	$tween.interpolate_method(self, "pivot_transition", Vector2(), Vector2(0,25), 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	$tween.start()
+	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
+
+func entered_space():
+	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
+	
+func entered_gravity_platform():
+	Console.p("Centered gravity platform")
+	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_UP)
 
 
 func left_water():
@@ -243,19 +251,19 @@ func _gravity_behavior(delta):
 		set_gravity_scalar(highgest_gravity_scalar * 3)
 
 
-	if Input.is_action_pressed("ui_up") and is_idle():
+	if Input.is_action_just_pressed("ui_up") and is_idle():
 		$sprite.play("LookUp")
 		make_camera_look(CameraMan.LOOK_UP)
 
-	elif Input.is_action_just_released("ui_up") and looking:
+	elif Input.is_action_just_released("ui_up") and $sprite.is_looking():
 		$sprite.play("LookUp", true)
 		restore_camera_look()
 
-	if Input.is_action_pressed("ui_down") and is_idle():
+	if Input.is_action_just_pressed("ui_down") and is_idle():
 		$sprite.play("LookDown")
 		make_camera_look(CameraMan.LOOK_DOWN)
 
-	elif Input.is_action_just_released("ui_down") and looking:
+	elif Input.is_action_just_released("ui_down") and $sprite.is_looking():
 		$sprite.play("LookDown", true)
 		restore_camera_look()
 

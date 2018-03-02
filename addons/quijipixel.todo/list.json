@@ -199,7 +199,12 @@
     "task.222",
     "task.220",
     "task.219",
-    "task.224"
+    "task.224",
+    "task.223",
+    "task.225",
+    "task.227",
+    "task.226",
+    "task.228"
   ],
   "completed": {
     "task.0": {
@@ -5001,6 +5006,126 @@
         "minute": 28,
         "second": 15
       }
+    },
+    "task.223": {
+      "task": "Remove the normal_shift signal from character and implement a normal_shift_notice virtual method to use CamerMan constants.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 9,
+        "minute": 2,
+        "second": 25
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 45,
+        "second": 20
+      }
+    },
+    "task.225": {
+      "task": "Add object parameter to CameraMan API so it knows if the request comes from the actor.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 40,
+        "second": 22
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 57,
+        "second": 44
+      }
+    },
+    "task.227": {
+      "task": "Remove all usage of CameraMan on Character class.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 58,
+        "second": 40
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 11,
+        "minute": 8,
+        "second": 17
+      }
+    },
+    "task.226": {
+      "task": "CameraMan look feature stumbles when several tweens on same property are request. Find a better way to use the tweening (Probably queue)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 49,
+        "second": 6
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 11,
+        "minute": 12,
+        "second": 55
+      }
+    },
+    "task.228": {
+      "task": "LookUp in CameraMan fails sometimes.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 11,
+        "minute": 13,
+        "second": 36
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 11,
+        "minute": 24,
+        "second": 14
+      }
     }
   },
   "pend_order": [
@@ -5027,8 +5152,7 @@
     "task.211",
     "task.215",
     "task.217",
-    "task.221",
-    "task.223"
+    "task.221"
   ],
   "pending": {
     "task.134": {
@@ -5365,20 +5489,6 @@
         "hour": 0,
         "minute": 39,
         "second": 35
-      }
-    },
-    "task.223": {
-      "task": "Remove the normal_shift signal from character and implement a normal_shift_notice virtual method to use CamerMan constants.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 2,
-        "weekday": 5,
-        "dst": true,
-        "hour": 9,
-        "minute": 2,
-        "second": 25
       }
     }
   }
