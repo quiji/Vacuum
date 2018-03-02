@@ -209,3 +209,11 @@ git push origin branch_name
 after PR succesfully merged, delete branch
 git branch -d branch_name
 
+>Mental Notes:
+- Master scene that loads other scenes
+- Commands to navigate to the intended scene (requries a scene switching implementation)
+- Room kind of nodes (instead of playground that should be called open space)
+	- This node doesn't have collision shape, instead defines a gravity direction
+	- Usage of small platforms is required for this to work.
+    - Keep in mind the center swapping between rooms and water platforms
+	- Water platforms should be affected by gravity :O
