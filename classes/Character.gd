@@ -357,11 +357,11 @@ func decrease_water_resistance():
 func interpolate_normal_towards(inter_type, val=null, acc=0.1):
 	
 	if inter_type == TOWARDS_TANGENT:
-		_normal = _normal.linear_interpolate(VectorLib.snap_to(_normal.tangent(), VectorLib.POLY16) * _target_normal_direction, acc).normalized()
+		_normal = _normal.linear_interpolate(Glb.VectorLib.snap_to(_normal.tangent(), Glb.VectorLib.POLY16) * _target_normal_direction, acc).normalized()
 	elif inter_type == TOWARDS_TARGET:
-		_normal = _normal.linear_interpolate(VectorLib.snap_to(_target_normal, VectorLib.POLY16), acc).normalized()
+		_normal = _normal.linear_interpolate(Glb.VectorLib.snap_to(_target_normal, Glb.VectorLib.POLY16), acc).normalized()
 	elif inter_type == TOWARDS_NEW_VALUE:
-		_normal = _normal.linear_interpolate(VectorLib.snap_to(val, VectorLib.POLY16), acc).normalized()
+		_normal = _normal.linear_interpolate(Glb.VectorLib.snap_to(val, Glb.VectorLib.POLY16), acc).normalized()
 
 
 ############
@@ -462,7 +462,7 @@ func adjust_normal_towards(new_normal, gravity_center_collision_data):
 
 			else:
 				# Simple, if negative then we are moving counter closkwise, if positive, clockwise
-				_target_normal_direction = VectorLib.vector_orientation(_normal, _target_normal)
+				_target_normal_direction = Glb.VectorLib.vector_orientation(_normal, _target_normal)
 				
 				
 			interpolate_normal_towards(TOWARDS_TANGENT)

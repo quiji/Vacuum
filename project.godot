@@ -24,7 +24,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-VectorLib="*res://classes/VectorLib.gd"
 Glb="*res://classes/Glb.gd"
 Console="*res://addons/quijipixel.console/Console.tscn"
 

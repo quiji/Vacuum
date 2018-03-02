@@ -1,5 +1,7 @@
 extends Node
 
+const VectorLib = preload("res://classes/VectorLib.gd")
+
 enum ReactTypes {NO_REACTION, REACT_STEP, REACT_SWIMSTROKE}
 
 var _collision_layer_bits = {}
