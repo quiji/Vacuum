@@ -202,7 +202,8 @@
     "task.224",
     "task.223",
     "task.225",
-    "task.227"
+    "task.227",
+    "task.226"
   ],
   "completed": {
     "task.0": {
@@ -5076,6 +5077,30 @@
         "minute": 8,
         "second": 17
       }
+    },
+    "task.226": {
+      "task": "CameraMan look feature stumbles when several tweens on same property are request. Find a better way to use the tweening (Probably queue)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 49,
+        "second": 6
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 11,
+        "minute": 12,
+        "second": 55
+      }
     }
   },
   "pend_order": [
@@ -5102,8 +5127,7 @@
     "task.211",
     "task.215",
     "task.217",
-    "task.221",
-    "task.226"
+    "task.221"
   ],
   "pending": {
     "task.134": {
@@ -5440,20 +5464,6 @@
         "hour": 0,
         "minute": 39,
         "second": 35
-      }
-    },
-    "task.226": {
-      "task": "CameraMan look feature stumbles when several tweens on same property are request. Find a better way to use the tweening (Probably queue)",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 2,
-        "weekday": 5,
-        "dst": true,
-        "hour": 10,
-        "minute": 49,
-        "second": 6
       }
     }
   }

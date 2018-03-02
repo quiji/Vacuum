@@ -96,6 +96,7 @@ func setup_camera(request_from, dir):
 		return false
 		
 	if dir == SETUP_CENTER && _camera_setup != SETUP_CENTER:
+		tween.stop(camera, "position")
 		tween.interpolate_property(camera, "position", camera.position, Vector2(), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 		tween.start()
 		_camera_setup = SETUP_CENTER
@@ -105,6 +106,7 @@ func setup_camera(request_from, dir):
 		camera.drag_margin_left = 0.1
 
 	if dir == SETUP_UP && _camera_setup != SETUP_UP:
+		tween.stop(camera, "position")
 		tween.interpolate_property(camera, "position", camera.position, Vector2(0, -1) * setup_distance, 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 		tween.start()
 		_camera_setup = SETUP_UP
@@ -121,12 +123,15 @@ func look_direction(request_from, dir):
 		
 	match dir:
 		LOOK_UP:
+			tween.stop(camera, "offset")
 			tween.interpolate_property(camera, "offset", Vector2(), get_current_normal() * look_distance, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
 		LOOK_DOWN:
+			tween.stop(camera, "offset")
 			tween.interpolate_property(camera, "offset", Vector2(), -get_current_normal() * look_distance, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
 		LOOK_CENTER:
+			tween.stop(camera, "offset")
 			tween.interpolate_property(camera, "offset", camera.offset, Vector2(), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
 
