@@ -18,7 +18,7 @@
 [ext_resource path="res://addons/quijipixel.cameraman/icon.png" type="Texture" id=16]
 [ext_resource path="res://gui/hud.tscn" type="PackedScene" id=17]
 
-[node name="space" type="Node" index="0"]
+[node name="space" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -123,17 +123,14 @@ _sections_unfolded = [ "Angular", "Collision", "Linear" ]
 [node name="water_platform" parent="playground" index="14" instance=ExtResource( 14 )]
 
 position = Vector2( 60, -112 )
-radius = 120.0
 
 [node name="water_platform2" parent="playground" index="15" instance=ExtResource( 14 )]
 
 position = Vector2( 332, -424 )
-radius = 160.0
 
 [node name="water_platform3" parent="playground" index="16" instance=ExtResource( 14 )]
 
 position = Vector2( -100, 672 )
-radius = 180.0
 
 [node name="camera_man" type="Camera2D" parent="." index="2"]
 

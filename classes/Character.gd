@@ -16,8 +16,6 @@ const INV_NORMAL = 1
 
 enum ControlMode {ROTATION, INVERSION}
 
-signal swim
-
 
 ######## Physics/Movement #########
 var _altitude_velocity_scalar = 0.0
@@ -66,7 +64,6 @@ var _target_normal = null
 var _facing = FACING_RIGHT
 # Invert controls!
 var _invertor = FACING_RIGHT
-var changing_center = false
 
 ######## Deltas #########
 var _loosed_ground_delta = 0
@@ -78,6 +75,7 @@ var _falling = true
 var _moving = false
 var _attempting_jump = false
 var _rolling = false
+var halt_physics = false
 
 ######## Configuration #########
 var _control_mode = ROTATION
@@ -160,11 +158,12 @@ func set_gravity_center(center):
 		_gravity_center.move_child(self, _gravity_center.get_tree_pos())
 		global_rotation = rot
 		global_position = pos
-		entered_gravity_platform()
-	else:
-		if _gravity_center != null:
-			_gravity_center.remove_collision_exception_with(self)
+		
+		entered_gravity_platform(_gravity_center)
+	elif _gravity_center != null:
+		_gravity_center.remove_collision_exception_with(self)
 		_gravity_center = null
+		#left_gravity_platform()
 
 func get_water_center():
 	return _water_center
@@ -178,75 +177,60 @@ func set_water_center(center):
 		if vel < resistance:
 			_water_resistance_multiplier = 0.7
 
-
 		swim_velocity = (_last_velocity.normalized() + dir * 1.4).normalized() * vel
 		_water_center = center
-	else:
-		_water_center = null
-
-func set_open_space_center():
-	space_velocity = _last_velocity
-
-func set_space_velocity(v):
-	space_velocity = v
-
-enum ParentTypes {PARENT_SPACE, PARENT_GRAVITY_PLATFORM, PARENT_WATER}
-func fix_parents():
-	if not changing_center:
-		return false
-	
-	var parent_type = PARENT_GRAVITY_PLATFORM
-	var new_center = null
-	if is_on_water_center() and _water_center != get_parent():
-		new_center = _water_center
-		parent_type = PARENT_WATER
-	#elif is_on_gravity_center():
-	#	parent_type = PARENT_GRAVITY_PLATFORM
-	elif _open_space != get_parent():
-		new_center = _open_space
-		parent_type = PARENT_SPACE
-	if new_center != null:
 		
 		var pos = global_position
 		get_parent().remove_child(self)
-		new_center.add_child(self)
-		global_position = pos
-		
-	match parent_type:
-		PARENT_WATER:
-			new_center.move_child(self, new_center.get_tree_pos())
-			entered_water(new_center)
-		PARENT_SPACE:
-			if was_water_center:
-				left_water()
-			entered_space()
-		#PARENT_GRAVITY_PLATFORM:
-			#entered_gravity_platform()
-				
-	changing_center = false
+		_water_center.add_child(self)
 
-	return true
+		_water_center.move_child(self, _water_center.get_tree_pos())
+
+		global_position = pos
+		entered_water(_water_center)
+		_water_center.on_body_in(self, position, get_last_velocity())
+	elif _water_center != null:
+
+		_water_center = null
+		left_water()
+
+
+func set_open_space_center(center):
+	space_velocity = _last_velocity
+	if center != null:
+
+		var pos = global_position
+		get_parent().remove_child(self)
+		center.add_child(self)
+		global_position = pos
+		entered_space(center)
+
+		
+func set_space_velocity(v):
+	space_velocity = v
 
 var was_water_center = false
 func change_center(new_center):
 	
+	Console.add_log("new_center", new_center.name)
+	
 	if new_center == null:
-		was_water_center = _water_center != null
-		set_gravity_center(null)
-		set_water_center(null)
-		set_open_space_center()
-		changing_center = true
-
+		pass
 	elif new_center.has_method("get_gravity_from_center"):
-		was_water_center = _water_center != null
+
 		set_gravity_center(new_center)
 		set_water_center(null)
-		if was_water_center:
-			left_water()
+		set_open_space_center(null)
 	elif new_center.has_method("get_water_resistance_scalar"):
 		set_water_center(new_center)
 		set_gravity_center(null)
-		changing_center = true
+		set_open_space_center(null)
+
+	else:
+		set_gravity_center(null)
+		set_water_center(null)
+		set_open_space_center(new_center)
+
 
 func get_normal():
 	return _normal
@@ -354,9 +338,9 @@ func update_normal():
 
 func add_swim_impulse(swim_impulse_scalar):
 
-	swim_velocity = (swim_velocity + _normal * swim_impulse_scalar).clamped(swim_impulse_scalar * 1.02)
-	emit_signal("swim", position, swim_velocity)
-
+	if _water_center != null:
+		swim_velocity = (swim_velocity + _normal * swim_impulse_scalar).clamped(swim_impulse_scalar * 1.02)
+		_water_center.child_movement(position, swim_velocity)
 
 func increase_water_resistance():
 	_water_resistance_multiplier_target = 2.8
@@ -373,13 +357,10 @@ func decrease_water_resistance():
 func interpolate_normal_towards(inter_type, val=null, acc=0.1):
 	
 	if inter_type == TOWARDS_TANGENT:
-		#_normal = _normal.linear_interpolate(_normal.tangent() * _target_normal_direction, acc).normalized()
 		_normal = _normal.linear_interpolate(VectorLib.snap_to(_normal.tangent(), VectorLib.POLY16) * _target_normal_direction, acc).normalized()
 	elif inter_type == TOWARDS_TARGET:
-		#_normal = _normal.linear_interpolate(_target_normal, acc).normalized()
 		_normal = _normal.linear_interpolate(VectorLib.snap_to(_target_normal, VectorLib.POLY16), acc).normalized()
 	elif inter_type == TOWARDS_NEW_VALUE:
-		#_normal = _normal.linear_interpolate(val, acc).normalized()
 		_normal = _normal.linear_interpolate(VectorLib.snap_to(val, VectorLib.POLY16), acc).normalized()
 
 
@@ -389,9 +370,12 @@ func interpolate_normal_towards(inter_type, val=null, acc=0.1):
 
 func verify_gravity_center_change(collision_info):
 	
+	if verify_water_center(false):
+		return null
+
 	if collision_info != null:
 		var collider = collision_info.collider
-		if collider.has_method("get_gravity_from_center") and _gravity_center != collider:
+		if  collider.has_method("get_gravity_from_center") and get_parent() != collider:
 			change_center(collider)
 			return collision_info
 	return null
@@ -509,12 +493,6 @@ func inversion_criteria_met(vect):
 	return vect.dot(Vector2(0, -1)) < -0.4
 	#return vect.dot(Vector2(0, -1)) < 0
 
-func entered_space():
-	pass
-	
-func entered_gravity_platform():
-	pass
-
 func change_sprite_direction(direction):
 	pass
 
@@ -524,6 +502,9 @@ func set_sprite_rotation(angle):
 func _process_behavior(delta):
 	pass
 
+func little_physics_proces(delta):
+	pass
+	
 func reached_peak_height():
 	pass
 	
@@ -539,6 +520,12 @@ func end_rolling():
 func entered_water(center):
 	pass
 
+func entered_space(center):
+	pass
+	
+func entered_gravity_platform(center):
+	pass
+
 func left_water():
 	pass
 
@@ -549,26 +536,26 @@ func left_water():
 
 func _physics_process(delta):
 
-	fix_parents()
-
-	if is_on_gravity_center():
-		_gravity_physics(delta)
-	elif is_on_water_center():
-		_water_physics(delta)
-	else:
-		if space_velocity.length_squared() > 0.01:
-			var motion = space_velocity * delta
-			_last_velocity = space_velocity
-			
-
-			var collision_data = move_and_collide(motion)
-			var changed_center = verify_gravity_center_change(collision_data)
-			
-			if check_ground_reach(collision_data, changed_center):
-				adjust_normal_towards(get_gravity_data().normal, changed_center)
-		
+	if not halt_physics:
+		if is_on_gravity_center():
+			_gravity_physics(delta)
+		elif is_on_water_center():
+			_water_physics(delta)
 		else:
-			_last_velocity = Vector2()
+			if space_velocity.length_squared() > 0.01:
+				var motion = space_velocity * delta
+				_last_velocity = space_velocity
+				
+	
+				var collision_data = move_and_collide(motion)
+				var changed_center = verify_gravity_center_change(collision_data)
+				
+				if check_ground_reach(collision_data, changed_center):
+					adjust_normal_towards(get_gravity_data().normal, changed_center)
+			else:
+				_last_velocity = Vector2()
+
+	little_physics_proces(delta)
 
 
 
@@ -647,8 +634,9 @@ func _gravity_physics(delta):
 	var changed_center = false
 	changed_center = verify_gravity_center_change(collision_info)
 
-	check_ground_reach(collision_info, changed_center)
-	adjust_normal_towards(normal, changed_center)
+	if _gravity_center != null:
+		check_ground_reach(collision_info, changed_center)
+		adjust_normal_towards(normal, changed_center)
 
 	if not _on_ground:
 		_loosed_ground_delta += delta
@@ -674,9 +662,7 @@ func _water_physics(delta):
 		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
 	
 	_last_velocity = swim_velocity + swim_tilt_velocity
-	var collision_data = move_and_collide(_last_velocity * delta)
-
-
+	move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
 
 	_process_behavior(delta)
 
@@ -695,11 +681,24 @@ func _water_physics(delta):
 			interpolate_normal_towards(TOWARDS_TANGENT, null, 1 / percentage)
 		update_normal()
 
-	
-	if _water_center != null and not _water_center.overlaps_body(self):
+
+	if not verify_water_center():
 		_water_center.on_body_out(self, global_position, _last_velocity)
 
-		change_center(null)
+		change_center(_open_space)
 		
+		# for debugging
+		#space_velocity = Vector2()
 
+
+
+func verify_water_center(with_center=true):
+	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))
 	
+	if with_center:
+		return not water_cast_result.empty() and water_cast_result.collider == _water_center
+	elif not water_cast_result.empty(): 
+		change_center(water_cast_result.collider)
+		return true
+	return false
+

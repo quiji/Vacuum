@@ -204,7 +204,11 @@
     "task.225",
     "task.227",
     "task.226",
-    "task.228"
+    "task.228",
+    "task.229",
+    "task.221",
+    "task.230",
+    "task.232"
   ],
   "completed": {
     "task.0": {
@@ -5126,6 +5130,102 @@
         "minute": 24,
         "second": 14
       }
+    },
+    "task.229": {
+      "task": "Use intersect_ray instead!! Create cast_water.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 14,
+        "minute": 40,
+        "second": 33
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 15,
+        "minute": 53,
+        "second": 46
+      }
+    },
+    "task.221": {
+      "task": "Pivot change in Character fails",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 0,
+        "minute": 39,
+        "second": 35
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 15,
+        "minute": 54,
+        "second": 34
+      }
+    },
+    "task.230": {
+      "task": "Transform water platform from Area2D to KinematicBody2D",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 15,
+        "minute": 54,
+        "second": 51
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 15,
+        "minute": 54,
+        "second": 52
+      }
+    },
+    "task.232": {
+      "task": "Offset change is abrupt",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 16,
+        "minute": 3,
+        "second": 28
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 16,
+        "minute": 25,
+        "second": 37
+      }
     }
   },
   "pend_order": [
@@ -5152,7 +5252,7 @@
     "task.211",
     "task.215",
     "task.217",
-    "task.221"
+    "task.231"
   ],
   "pending": {
     "task.134": {
@@ -5477,18 +5577,18 @@
         "second": 55
       }
     },
-    "task.221": {
-      "task": "Pivot change in Character fails",
-      "type": "Bug",
+    "task.231": {
+      "task": "Implement smoothstep library and improve lerping through code.",
+      "type": "Refactor",
       "creation_date": {
         "year": 2018,
         "month": 3,
         "day": 2,
         "weekday": 5,
         "dst": true,
-        "hour": 0,
-        "minute": 39,
-        "second": 35
+        "hour": 16,
+        "minute": 1,
+        "second": 30
       }
     }
   }
