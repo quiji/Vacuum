@@ -1,4 +1,5 @@
-extends RigidBody2D
+#extends RigidBody2D
+extends KinematicBody2D
 
 var center_of_mass = null
 
@@ -65,6 +66,11 @@ func _draw():
 			"rectangle":
 				var r = Rect2(shape.pos - shape.extents, shape.pos + shape.extents * 2)
 				draw_rect(r, col)
+
+
+func apply_impulse(impulse):
+	# Nope, not doing this
+	pass
 
 
 

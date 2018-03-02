@@ -23,12 +23,13 @@ void fragment() {
 	vec2 local_uv = UV;
 	
 
-
+	float the_pixelized_step = 0.0;
 	// Waves
 	uv.x = clamp(uv.x+sin(local_uv.y*frequency+delta)*depth,0,1);
 	
 	// Pixelated distortion
-	float pixelate_mod = abs(cos(local_uv.x*frequency+delta)*pixelized_step);
+	//float pixelate_mod = abs(cos(local_uv.x*frequency+delta)*pixelized_step);
+	float pixelate_mod = abs(cos(local_uv.x*frequency+delta)*the_pixelized_step);
 	uv-=mod(uv,vec2(size_x+pixelate_mod,size_y+pixelate_mod));
 
 	//vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb;

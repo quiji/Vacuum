@@ -186,7 +186,7 @@ func get_circular_gravity(pos):
 
 func get_square_metadata(shape):
 	var extents = shape.get_extents()
-	var squared_radius = pow(extents.x, 2.0)
+	var squared_radius = extents.x * extents.x
 	# Pytagoras theorem, simple
 	return {type = "square", max_squared_radius = squared_radius + squared_radius }
 
@@ -233,8 +233,8 @@ func get_rectangle_metadata(shape):
 	result.axis_directions.push_back((vector_a + vector_b).normalized())
 
 	
-	var squared_a = pow(extents.x, 2.0)
-	var squared_b = pow(extents.y, 2.0)
+	var squared_a = extents.x * extents.x
+	var squared_b = extents.y * extents.y
 	# Pytagoras theorem, simple
 	result.max_squared_radius = squared_a + squared_b
 	

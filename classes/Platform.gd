@@ -1,5 +1,5 @@
-extends RigidBody2D
-
+#extends RigidBody2D
+extends KinematicBody2D
 
 func _ready():
 
@@ -39,7 +39,7 @@ func draw_shape():
 func _draw():
 	
 	if shape != null:
-		var col = Color(0.9, 0.5, 0.6)
+		var col = Color(0.5, 0.9, 0.6)
 		match shape.form:
 			"polygon":
 				draw_polygon(shape.points, [col])
@@ -51,6 +51,8 @@ func _draw():
 
 
 
-
+func apply_impulse(impulse):
+	# Nope, not doing this
+	pass
 
 

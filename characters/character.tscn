@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 radius = 8.06226
 
-[node name="character" type="KinematicBody2D"]
+[node name="character" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 3
@@ -30,7 +30,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 0, -20 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="collision" type="CollisionShape2D" parent="." index="2"]
+[node name="old_collision" type="CollisionShape2D" parent="." index="2"]
 
 position = Vector2( 0, -6 )
 shape = SubResource( 1 )
@@ -41,9 +41,19 @@ disabled = true
 a = Vector2( -6, 3 )
 b = Vector2( 6, 3 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="4"]
+[node name="collision" type="CollisionPolygon2D" parent="." index="4"]
 
 build_mode = 0
 polygon = PoolVector2Array( -6.625, -34.375, 4.375, -37.375, 10.125, -27.875, 8.125, -23.625, 15.125, -14.125, 8.375, -5.625, 6.125, 1.625, -7.375, 0.125, -8.625, -6.625, -13.875, -10.875, -6.375, -25.625 )
+
+[node name="tween" type="Tween" parent="." index="5"]
+
+repeat = false
+playback_process_mode = 0
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "playback" ]
 
 

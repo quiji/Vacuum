@@ -17,7 +17,7 @@ var pending_point = null
 var wave_speed = 0
 
 
-var squared_radius = pow(radius, 2.0)
+var squared_radius = radius * radius
 
 func _ready():
 	
@@ -34,7 +34,7 @@ func _ready():
 
 func set_radius(r):
 	radius = r
-	squared_radius = pow(radius, 2.0)
+	squared_radius = radius * radius
 	if has_node("bkg") and $bkg != null:
 		setup_radial_structures()
 

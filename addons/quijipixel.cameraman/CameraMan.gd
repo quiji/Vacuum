@@ -46,8 +46,8 @@ func _ready():
 	if actor != '':
 		set_actor(get_node(actor))
 
-	max_distance_squared = pow(max_distance, 2.0)
-	min_distance_squared = pow(min_distance, 2.0)
+	max_distance_squared = max_distance * max_distance
+	min_distance_squared = min_distance * min_distance
 	
 	setup_camera(UP)
 
@@ -117,7 +117,7 @@ func _physics_process(delta):
 		var distance_squared = move_direction.length_squared()
 		
 		
-		if  distance_squared > pow(100, 2.0):
+		if  distance_squared > 100 *100:
 			speed = 200
 		
 		if distance_squared > min_distance_squared:

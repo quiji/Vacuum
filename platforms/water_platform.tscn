@@ -2,6 +2,7 @@
 
 [ext_resource path="res://classes/WaterPlatform.gd" type="Script" id=1]
 [ext_resource path="res://tools/Circle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://shaders/water_platform_wave.shader" type="Shader" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -54,66 +55,18 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=4]
 
 render_priority = 0
 shader = SubResource( 3 )
 shader_param/radius = null
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="Shader" id=8]
-
-resource_local_to_scene = true
-code = "shader_type canvas_item;
-
-uniform float delta = 0.0;
-uniform float radius = 120.0;
-
-
-uniform float frequency=30;
-uniform float depth = 0.005;
-
-uniform float size_x=0.001;
-uniform float size_y=0.001;
-uniform float pixelized_step=0.0018;
-
-void vertex() {
-	UV = VERTEX / (radius * 2.0);
-}
-
-
-void fragment() {
-
-
-	vec2 uv = SCREEN_UV;
-	vec2 local_uv = UV;
-	
-
-
-	// Waves
-	uv.x = clamp(uv.x+sin(local_uv.y*frequency+delta)*depth,0,1);
-	
-	// Pixelated distortion
-	float pixelate_mod = abs(cos(local_uv.x*frequency+delta)*pixelized_step);
-	uv-=mod(uv,vec2(size_x+pixelate_mod,size_y+pixelate_mod));
-
-	//vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb;
-
-	vec4 c = textureLod(SCREEN_TEXTURE,uv,0.0);
-
-	
-	COLOR=c;
-	
-}
-
-"
-_sections_unfolded = [ "Resource" ]
-
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=6]
 
 render_priority = 0
-shader = SubResource( 8 )
-shader_param/delta = -1.49999e+06
+shader = ExtResource( 3 )
+shader_param/delta = -1.49898e+06
 shader_param/radius = null
 shader_param/frequency = 30.0
 shader_param/depth = 0.004
@@ -122,7 +75,7 @@ shader_param/size_y = 0.001
 shader_param/pixelized_step = 0.001
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[node name="water_platform" type="Area2D"]
+[node name="water_platform" type="Area2D" index="0"]
 
 material = SubResource( 1 )
 input_pickable = false
@@ -157,7 +110,7 @@ rect = Rect2( -120, -120, 240, 240 )
 
 [node name="color_shader" parent="." index="3" instance=ExtResource( 2 )]
 
-material = SubResource( 9 )
+material = SubResource( 4 )
 _sections_unfolded = [ "Material" ]
 radius = 150.0
 
@@ -168,7 +121,7 @@ rect = Rect2( -100, -100, 200, 200 )
 
 [node name="water_shader" parent="." index="5" instance=ExtResource( 2 )]
 
-material = SubResource( 10 )
+material = SubResource( 6 )
 _sections_unfolded = [ "Material" ]
 radius = 153.0
 

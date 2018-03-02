@@ -192,20 +192,21 @@ func set_open_space_center():
 func set_space_velocity(v):
 	space_velocity = v
 
+enum ParentTypes {PARENT_SPACE, PARENT_GRAVITY_PLATFORM, PARENT_WATER}
 func fix_parents():
 	if not changing_center:
 		return false
 	
-	var parent_type = ""
+	var parent_type = PARENT_SPACE
 	var new_center = null
 	if is_on_water_center() and _water_center != get_parent():
 		new_center = _water_center
-		parent_type = "water"
+		parent_type = PARENT_WATER
 	#elif is_on_gravity_center():# and _gravity_center != get_parent():
 	#	_gravity_center.add_collision_exception_with(self)
 	elif _open_space != get_parent():
 		new_center = _open_space
-	
+		parent_type = PARENT_SPACE
 	if new_center != null:
 		
 		var pos = global_position
@@ -213,18 +214,24 @@ func fix_parents():
 		new_center.add_child(self)
 		global_position = pos
 
-		if parent_type == "water":
-			#new_center.move_child(self, new_center.get_child_count() - 2)
+		if parent_type == PARENT_WATER:
+
+			# ask platform for child position
 			new_center.move_child(self, 0)
-			
+			entered_water(new_center)
+		elif parent_type == PARENT_SPACE:
+			if was_water_center:
+				left_water()
 
 	changing_center = false
 
 	return true
 
+var was_water_center = false
 func change_center(new_center):
 	
 	if new_center == null:
+		was_water_center = _water_center != null
 		set_gravity_center(null)
 		set_water_center(null)
 		set_open_space_center()
@@ -233,14 +240,16 @@ func change_center(new_center):
 			# CameraSetup.Center
 			Glb.get_current_camera_man().setup_camera(0)
 	elif new_center.has_method("get_gravity_from_center"):
+		was_water_center = _water_center != null
 		set_gravity_center(new_center)
 		set_water_center(null)
 		#changing_center = true
 		if is_playable():
 			# CameraSetup.Up
 			Glb.get_current_camera_man().setup_camera(1)
+		if was_water_center:
+			left_water()
 	elif new_center.has_method("get_water_resistance_scalar"):
-		on_water_entered(new_center)
 		set_water_center(new_center)
 		set_gravity_center(null)
 		changing_center = true
@@ -277,6 +286,9 @@ func is_moving():
 
 func is_rolling():
 	return _rolling
+
+func is_idle():
+	return not _rolling and not _moving and not _falling and is_on_ground()
 
 func set_rolling(value):
 	_rolling = value
@@ -402,7 +414,17 @@ func get_gravity_data():
 	return {gravity = Vector2(), normal = Vector2()}
 
 func check_ground_reach(collision_info, changed_center):
-	if collision_info != null and (_falling or changed_center != null ):
+
+	# Checking for small platform collisions...
+	var on_small_platform = false
+	if changed_center == null and collision_info != null:
+		Console.l("Collision_normal", collision_info.normal)
+		Console.l("my_normal", _normal)
+		if _normal.dot(collision_info.normal) > 0.1:
+			on_small_platform = true
+			Console.l("collided", "COLLIDED!")
+
+	if on_small_platform or (collision_info != null and (_falling or changed_center != null ) ):
 
 		_altitude_velocity_scalar = 0
 		_falling = false
@@ -520,6 +542,12 @@ func start_rolling():
 func end_rolling():
 	pass
 
+func entered_water(center):
+	pass
+
+func left_water():
+	pass
+
 ############
 # Physics process method
 ############
@@ -556,11 +584,13 @@ func _gravity_physics(delta):
 	if not _attempting_jump:
 	
 		var ground_cast_result = $ground_raycast.cast_ground(Glb.get_collision_layer_int(["Platform"]))
-
+		
 		var gcenter_id = -1 if _gravity_center == null else _gravity_center.get_instance_id()
+		var on_small_platform = not ground_cast_result.empty() and ground_cast_result.collider_id != gcenter_id and _normal.dot(ground_cast_result.normal) > 0.1
 		var valid_raycast = not ground_cast_result.empty() and ground_cast_result.collider_id == gcenter_id
 
-		if valid_raycast:
+
+		if valid_raycast or on_small_platform:
 			collision_normal = ground_cast_result.normal
 			_on_ground = true
 			_falling = false

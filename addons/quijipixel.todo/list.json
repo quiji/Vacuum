@@ -181,7 +181,14 @@
     "task.203",
     "task.198",
     "task.204",
-    "task.206"
+    "task.206",
+    "task.207",
+    "task.208",
+    "task.194",
+    "task.210",
+    "task.212",
+    "task.114",
+    "task.216"
   ],
   "completed": {
     "task.0": {
@@ -4551,6 +4558,174 @@
         "minute": 55,
         "second": 4
       }
+    },
+    "task.207": {
+      "task": "When player is on water, rotation pivot should be on center of sprite.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 19,
+        "minute": 7,
+        "second": 25
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 20,
+        "minute": 52,
+        "second": 18
+      }
+    },
+    "task.208": {
+      "task": "Improve concole's readibility.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 20,
+        "minute": 55,
+        "second": 26
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 21,
+        "minute": 38,
+        "second": 49
+      }
+    },
+    "task.194": {
+      "creation_date": {
+        "day": 25,
+        "dst": true,
+        "hour": 18,
+        "minute": 27,
+        "month": 2,
+        "second": 19,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "Remove pow usage (as it is as costly as sqrt)!!!!!!!!",
+      "type": "Task",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 21,
+        "minute": 50,
+        "second": 16
+      }
+    },
+    "task.210": {
+      "task": "Convert platforms to kinematic as platform movement is going to be more simple.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 21,
+        "minute": 45,
+        "second": 5
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 21,
+        "minute": 55,
+        "second": 55
+      }
+    },
+    "task.212": {
+      "task": "Roll Animation is not working properly.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 21,
+        "minute": 56,
+        "second": 18
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 21,
+        "minute": 59,
+        "second": 14
+      }
+    },
+    "task.114": {
+      "creation_date": {
+        "day": 30,
+        "dst": true,
+        "hour": 19,
+        "minute": 54,
+        "month": 1,
+        "second": 16,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Small platforms don't work anymore, moving logic is failing as depends on raycasting and not in collisions. Or has to do with _gravity_center checking to avoid previous bug.",
+      "type": "Bug",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 22,
+        "minute": 43,
+        "second": 13
+      }
+    },
+    "task.216": {
+      "task": "Implement long idle animations.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 22,
+        "minute": 47,
+        "second": 10
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 10,
+        "second": 10
+      }
     }
   },
   "pend_order": [
@@ -4561,7 +4736,6 @@
     "task.75",
     "task.85",
     "task.113",
-    "task.114",
     "task.134",
     "task.135",
     "task.136",
@@ -4576,10 +4750,13 @@
     "task.191",
     "task.192",
     "task.193",
-    "task.194",
     "task.200",
     "task.205",
-    "task.207"
+    "task.209",
+    "task.211",
+    "task.213",
+    "task.214",
+    "task.215"
   ],
   "pending": {
     "task.113": {
@@ -4594,20 +4771,6 @@
         "year": 2018
       },
       "task": "When rigid platform is moving and player collides with new gravity center platform, because player is a child node of the platform, the new gravity center registers the collision as rigid and starts moving.",
-      "type": "Bug"
-    },
-    "task.114": {
-      "creation_date": {
-        "day": 30,
-        "dst": true,
-        "hour": 19,
-        "minute": 54,
-        "month": 1,
-        "second": 16,
-        "weekday": 2,
-        "year": 2018
-      },
-      "task": "Small platforms don't work anymore, moving logic is failing as depends on raycasting and not in collisions. Or has to do with _gravity_center checking to avoid previous bug.",
       "type": "Bug"
     },
     "task.134": {
@@ -4806,20 +4969,6 @@
       "task": "2 water_platforms cannot coexist, when the player reaches the intersection point the platform becomes crazy.",
       "type": "Bug"
     },
-    "task.194": {
-      "creation_date": {
-        "day": 25,
-        "dst": true,
-        "hour": 18,
-        "minute": 27,
-        "month": 2,
-        "second": 19,
-        "weekday": 0,
-        "year": 2018
-      },
-      "task": "Remove pow usage (as it is as costly as sqrt)!!!!!!!!",
-      "type": "Task"
-    },
     "task.51": {
       "creation_date": {
         "day": 17,
@@ -4932,8 +5081,64 @@
         "second": 41
       }
     },
-    "task.207": {
-      "task": "When player is on water, rotation pivot should be on center of sprite.",
+    "task.209": {
+      "task": "Console can't find nodes that were moved.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 21,
+        "minute": 12,
+        "second": 9
+      }
+    },
+    "task.211": {
+      "task": "Water doesn't pull the player inside as before.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 21,
+        "minute": 48,
+        "second": 57
+      }
+    },
+    "task.213": {
+      "task": "Implement LookUp",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 22,
+        "minute": 31,
+        "second": 3
+      }
+    },
+    "task.214": {
+      "task": "Implement LookDown.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 22,
+        "minute": 31,
+        "second": 11
+      }
+    },
+    "task.215": {
+      "task": "Improve small platform collisions when the player arrives from the sides, or to the floor (sort of move_and_slide).",
       "type": "Task",
       "creation_date": {
         "year": 2018,
@@ -4941,9 +5146,9 @@
         "day": 1,
         "weekday": 4,
         "dst": true,
-        "hour": 19,
-        "minute": 7,
-        "second": 25
+        "hour": 22,
+        "minute": 44,
+        "second": 4
       }
     }
   }

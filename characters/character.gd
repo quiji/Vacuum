@@ -27,6 +27,7 @@ var smash_jumping = false
 var smash_jump_start_point
 
 
+
 ######## Control schemes #########
 var camera_rotation = 0
 
@@ -41,8 +42,8 @@ func _ready():
 	time_to_peak_of_jump = max_x_distance_a_jump / run_velocity
 	jump_initial_velocity_scalar = 2*jump_peak_height / time_to_peak_of_jump
 
-	fall_gravity_scalar = -2*jump_peak_height*pow(run_velocity, 2.0) / pow(max_x_distance_b_jump, 2.0)
-	lowest_gravity_scalar = -2*jump_peak_height*pow(run_velocity, 2.0) / pow(max_x_distance_a_jump, 2.0)
+	fall_gravity_scalar = -2*jump_peak_height* (run_velocity*run_velocity) / (max_x_distance_b_jump*max_x_distance_b_jump)
+	lowest_gravity_scalar = -2*jump_peak_height* (run_velocity*run_velocity) / (max_x_distance_a_jump*max_x_distance_a_jump)
 	highgest_gravity_scalar = lowest_gravity_scalar * 6
 	
 	set_gravity_scalar(lowest_gravity_scalar)
@@ -74,7 +75,7 @@ func rotate_to_camera_normal(v):
 
 
 func _on_animation_reaction(action):
-	Console.l("action", action)
+
 	match action:
 		Glb.REACT_STEP:
 			pass
@@ -108,7 +109,7 @@ func reached_ground(ground_object):
 		smash_jumping = false
 		if ground_object != null and ground_object.has_method("apply_impulse"):
 			var distance_squared = (position - smash_jump_start_point).length_squared()
-			var impulse = -_normal * smash_jump_impulse_scalar * distance_squared / pow(jump_peak_height, 2.0)
+			var impulse = -_normal * smash_jump_impulse_scalar * distance_squared / jump_peak_height * jump_peak_height
 			ground_object.apply_impulse(position, impulse)
 
 	set_gravity_scalar(lowest_gravity_scalar)
@@ -119,15 +120,30 @@ func reached_ground(ground_object):
 		elif not is_moving():
 			$sprite.play("Idle")
 
+
 func start_rolling():
 	$sprite.play("StartRoll")
 
 func end_rolling():
 	$sprite.play("EndRoll")
 
-func on_water_entered(water_bubble):
+var old_sprite_pos = null
+var old_shape_pos = null
+func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
+	old_sprite_pos = $sprite.position
+	old_shape_pos = $collision.position
+	$tween.interpolate_method(self, "pivot_transition", Vector2(), Vector2(0,25), 0.3, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	$tween.start()
 
+
+func left_water():
+	$tween.interpolate_method(self, "pivot_transition", Vector2(0, 25), Vector2(), 0.3, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	$tween.start()
+
+func pivot_transition(pos):
+	$sprite.position = old_sprite_pos + pos
+	$collision.position = old_shape_pos + pos
 
 func _process_behavior(delta):
 
@@ -184,11 +200,8 @@ func _gravity_behavior(delta):
 			$sprite.play("Idle")
 
 
-
 	elif not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
 		stop()
-
-
 
 	if Input.is_action_just_pressed("jump") and is_on_ground():
 		
@@ -208,6 +221,13 @@ func _gravity_behavior(delta):
 		smash_jumping = true
 		smash_jump_start_point = position
 		set_gravity_scalar(highgest_gravity_scalar * 3)
+
+	if Input.is_action_just_pressed("ui_up") and is_idle():
+
+		$sprite.play("LookUp")
+	
+	#if Input.is_action_pressed("ui_down") and $sprite.is_playing("Idle"):
+	#	$sprite.play("LookDown")
 
 
 

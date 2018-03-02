@@ -384,6 +384,12 @@
           "frames": [
             {
               "id": 51,
+              "time": 70,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 52,
               "time": 100,
               "react": 0,
               "param": ""
@@ -395,7 +401,19 @@
           "ping_pong": false,
           "frames": [
             {
+              "id": 52,
+              "time": 100,
+              "react": 0,
+              "param": ""
+            },
+            {
               "id": 51,
+              "time": 80,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 42,
               "time": 100,
               "react": 0,
               "param": ""

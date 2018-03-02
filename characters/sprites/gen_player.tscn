@@ -5,7 +5,7 @@
 
 [sub_resource type="Animation" id=1]
 
-length = 0.1
+length = 0.28
 loop = false
 step = 0.0166667
 tracks/0/type = "value"
@@ -15,10 +15,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 0 ),
+"times": PoolRealArray( 0, 0.1, 0.18 ),
+"transitions": PoolRealArray( 0, 0, 0 ),
 "update": 0,
-"values": [ 50 ]
+"values": [ 51, 50, 41 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -250,7 +250,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 0 ),
 "update": 0,
-"values": [ 51 ]
+"values": [ 51.0 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -301,7 +301,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=11]
 
-length = 0.1
+length = 0.17
 loop = false
 step = 0.0166667
 tracks/0/type = "value"
@@ -311,10 +311,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 0 ),
+"times": PoolRealArray( 0, 0.07 ),
+"transitions": PoolRealArray( 0, 0 ),
 "update": 0,
-"values": [ 50 ]
+"values": [ 50, 51 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -343,7 +343,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.06, 0.125, 0.195, 0.27, 0.37, 0.455, 0.54, 0.625, 0.71 ),
 "transitions": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "update": 0,
-"values": [ 60, 61, 62, 63, 64, 65, 66, 67, 68, 69 ]
+"values": [ 60.0, 61.0, 62.0, 63.0, 64.0, 65.0, 66.0, 67.0, 68.0, 69.0 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -375,7 +375,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.12, 0.325, 0.525, 0.72, 0.91, 1.095, 1.275, 1.45, 1.62, 1.795, 1.975, 2.16, 2.35, 2.545, 2.745, 2.945, 3.145, 3.34, 3.53, 3.715, 3.895, 4.07, 4.24, 4.415, 4.595, 4.78, 4.97, 5.165, 5.365, 5.57 ),
 "transitions": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "update": 0,
-"values": [ 52, 53, 54, 55, 56, 57, 58, 59, 52, 53, 54, 55, 56, 57, 58, 59, 58, 57, 56, 55, 54, 53, 52, 59, 58, 57, 56, 55, 54, 53, 52 ]
+"values": [ 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0, 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0, 58.0, 57.0, 56.0, 55.0, 54.0, 53.0, 52.0, 59.0, 58.0, 57.0, 56.0, 55.0, 54.0, 53.0, 52.0 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
