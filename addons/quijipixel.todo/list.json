@@ -5226,7 +5226,8 @@
     "task.209",
     "task.211",
     "task.215",
-    "task.217"
+    "task.217",
+    "task.231"
   ],
   "pending": {
     "task.134": {
@@ -5549,6 +5550,20 @@
         "hour": 23,
         "minute": 40,
         "second": 55
+      }
+    },
+    "task.231": {
+      "task": "Implement smoothstep library and improve lerping through code.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 16,
+        "minute": 1,
+        "second": 30
       }
     }
   }

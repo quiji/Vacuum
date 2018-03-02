@@ -64,7 +64,6 @@ var _target_normal = null
 var _facing = FACING_RIGHT
 # Invert controls!
 var _invertor = FACING_RIGHT
-var changing_center = false
 
 ######## Deltas #########
 var _loosed_ground_delta = 0
@@ -183,15 +182,14 @@ func set_water_center(center):
 		var pos = global_position
 		get_parent().remove_child(self)
 		_water_center.add_child(self)
-		#_water_center.add_collision_exception_with(self)
+
 		_water_center.move_child(self, _water_center.get_tree_pos())
 
 		global_position = pos
 		entered_water(_water_center)
 		_water_center.on_body_in(self, position, get_last_velocity())
-		Console.add_log("water", "on")
 	elif _water_center != null:
-		#_water_center.remove_collision_exception_with(self)
+
 		_water_center = null
 		left_water()
 
@@ -210,75 +208,28 @@ func set_open_space_center(center):
 func set_space_velocity(v):
 	space_velocity = v
 
-"""
-enum ParentTypes {PARENT_SPACE, PARENT_GRAVITY_PLATFORM, PARENT_WATER}
-func fix_parents():
-	if not changing_center:
-		return false
-	
-	var parent_type = PARENT_GRAVITY_PLATFORM
-	var new_center = null
-	if is_on_water_center() and _water_center != get_parent():
-		new_center = _water_center
-		parent_type = PARENT_WATER
-	#elif is_on_gravity_center():
-	#	parent_type = PARENT_GRAVITY_PLATFORM
-	elif _open_space != get_parent():
-		new_center = _open_space
-		parent_type = PARENT_SPACE
-		
-	if new_center != null:
-		
-		var pos = global_position
-		get_parent().remove_child(self)
-		new_center.add_child(self)
-		global_position = pos
-		
-	match parent_type:
-		PARENT_WATER:
-			new_center.move_child(self, new_center.get_tree_pos())
-			entered_water(new_center)
-		PARENT_SPACE:
-			if was_water_center:
-				left_water()
-			entered_space()
-		#PARENT_GRAVITY_PLATFORM:
-			#entered_gravity_platform()
-				
-	changing_center = false
-
-	return true
-"""
-
 var was_water_center = false
 func change_center(new_center):
 	
 	Console.add_log("new_center", new_center.name)
 	
 	if new_center == null:
-		#was_water_center = _water_center != null
-		#set_gravity_center(null)
-		#set_water_center(null)
-		#set_open_space_center(_open_space)
-		#changing_center = true
 		pass
 	elif new_center.has_method("get_gravity_from_center"):
-		#was_water_center = _water_center != null
+
 		set_gravity_center(new_center)
 		set_water_center(null)
 		set_open_space_center(null)
-		#if was_water_center:
-		#	left_water()
 	elif new_center.has_method("get_water_resistance_scalar"):
 		set_water_center(new_center)
 		set_gravity_center(null)
 		set_open_space_center(null)
-		#changing_center = true
+
 	else:
 		set_gravity_center(null)
 		set_water_center(null)
 		set_open_space_center(new_center)
-		#changing_center = true
+
 
 func get_normal():
 	return _normal
@@ -405,13 +356,10 @@ func decrease_water_resistance():
 func interpolate_normal_towards(inter_type, val=null, acc=0.1):
 	
 	if inter_type == TOWARDS_TANGENT:
-		#_normal = _normal.linear_interpolate(_normal.tangent() * _target_normal_direction, acc).normalized()
 		_normal = _normal.linear_interpolate(VectorLib.snap_to(_normal.tangent(), VectorLib.POLY16) * _target_normal_direction, acc).normalized()
 	elif inter_type == TOWARDS_TARGET:
-		#_normal = _normal.linear_interpolate(_target_normal, acc).normalized()
 		_normal = _normal.linear_interpolate(VectorLib.snap_to(_target_normal, VectorLib.POLY16), acc).normalized()
 	elif inter_type == TOWARDS_NEW_VALUE:
-		#_normal = _normal.linear_interpolate(val, acc).normalized()
 		_normal = _normal.linear_interpolate(VectorLib.snap_to(val, VectorLib.POLY16), acc).normalized()
 
 
@@ -553,6 +501,9 @@ func set_sprite_rotation(angle):
 func _process_behavior(delta):
 	pass
 
+func little_physics_proces(delta):
+	pass
+	
 func reached_peak_height():
 	pass
 	
@@ -584,7 +535,6 @@ func left_water():
 
 func _physics_process(delta):
 
-	#fix_parents()
 
 	if is_on_gravity_center():
 		_gravity_physics(delta)
@@ -604,7 +554,6 @@ func _physics_process(delta):
 		
 		else:
 			_last_velocity = Vector2()
-
 
 
 func _gravity_physics(delta):
