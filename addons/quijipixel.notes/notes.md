@@ -190,3 +190,22 @@ The animation plugin could be an importer. We can create an animation file (json
 
 
 
+> GIT
+
+download:
+git pull
+
+push!
+git push
+
+create and work on branch:
+git checkout -b branch_name
+
+finished? now commit and PR
+git add *
+git commit -a
+git push origin branch_name
+
+after PR succesfully merged, delete branch
+git branch -d branch_name
+
