@@ -97,13 +97,13 @@ func _ready():
 		else:
 			new_parent = new_parent.get_parent()
 
-	#Console.l(self, "_altitude_velocity_scalar")
-	Console.l(self, "_falling")
-	Console.l(self, "_on_ground")
-	Console.l(self, "_rolling")
 
-	Console.l(self, "_gravity_center")
-	Console.l(self, "_water_center")
+	Console.add_log(self, "_falling")
+	Console.add_log(self, "_on_ground")
+	Console.add_log(self, "_rolling")
+
+	Console.add_log(self, "_gravity_center")
+	Console.add_log(self, "_water_center")
 
 ############
 # Accesors methods
@@ -434,11 +434,11 @@ func check_ground_reach(collision_info, changed_center):
 	# Checking for small platform collisions...
 	var on_small_platform = false
 	if changed_center == null and collision_info != null:
-		Console.l("Collision_normal", collision_info.normal)
-		Console.l("my_normal", _normal)
+		Console.add_log("Collision_normal", collision_info.normal)
+		Console.add_log("my_normal", _normal)
 		if _normal.dot(collision_info.normal) > 0.1:
 			on_small_platform = true
-			Console.l("collided", "COLLIDED!")
+			Console.add_log("collided", "COLLIDED!")
 
 	if on_small_platform or (collision_info != null and (_falling or changed_center != null ) ):
 
