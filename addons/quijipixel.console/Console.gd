@@ -52,7 +52,7 @@ func la(obj, value):
 
 
 var logs = {}
-func l(obj, _name):
+func add_log(obj, _name):
 	# polymorphic variables... darn
 	if typeof(obj) == TYPE_STRING:
 		if not logs.has(obj):
@@ -64,7 +64,7 @@ func l(obj, _name):
 		if not logs.has(new_name) and obj != null:
 			logs[new_name] = {object = obj, prop = _name, value = null, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
 
-func c(_name, accum=1):
+func count(_name, accum=1):
 	if not logs.has(_name):
 		logs[_name] = {object = null, prop = _name, value = 0, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
 	else:

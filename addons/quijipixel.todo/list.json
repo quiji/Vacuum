@@ -197,7 +197,9 @@
     "task.190",
     "task.218",
     "task.222",
-    "task.220"
+    "task.220",
+    "task.219",
+    "task.224"
   ],
   "completed": {
     "task.0": {
@@ -4951,6 +4953,54 @@
         "minute": 21,
         "second": 55
       }
+    },
+    "task.219": {
+      "task": "Change Console.log method names to something more understandable (rather than simple letters)",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 57,
+        "second": 10
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 23,
+        "second": 40
+      }
+    },
+    "task.224": {
+      "task": "Change Console.log method names to something more understandable (rather than simple letters)",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 23,
+        "second": 34
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 10,
+        "minute": 28,
+        "second": 15
+      }
     }
   },
   "pend_order": [
@@ -4977,7 +5027,6 @@
     "task.211",
     "task.215",
     "task.217",
-    "task.219",
     "task.221",
     "task.223"
   ],
@@ -5302,20 +5351,6 @@
         "hour": 23,
         "minute": 40,
         "second": 55
-      }
-    },
-    "task.219": {
-      "task": "Change Console.log method names to something more understandable (rather than simple letters)",
-      "type": "Remainder",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 23,
-        "minute": 57,
-        "second": 10
       }
     },
     "task.221": {

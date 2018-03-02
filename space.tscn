@@ -18,7 +18,7 @@
 [ext_resource path="res://addons/quijipixel.cameraman/icon.png" type="Texture" id=16]
 [ext_resource path="res://gui/hud.tscn" type="PackedScene" id=17]
 
-[node name="space" type="Node"]
+[node name="space" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
