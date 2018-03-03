@@ -9,6 +9,8 @@ const WATER_RESISTANCE_SQUARED = WATER_RESISTANCE * WATER_RESISTANCE
 const WATER_NORMAL_WAVE_SPEED = 1.8
 const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
+const WATER_INNER_RADIUS = 16.8
+const WATER_RADIUS_LIMIT = 16.9
 
 export (float) var radius = 120 setget set_radius,get_radius
 
@@ -22,11 +24,27 @@ var squared_radius = radius * radius
 func _ready():
 	
 	$collision.shape = $collision.shape.duplicate(true)
+	$water_reaction_area/collision.shape = $water_reaction_area/collision.shape.duplicate(true)
+
+	#var bkg  = $bkg.duplicate(DUPLICATE_USE_INSTANCING)
+	#$bkg.replace_by(bkg)
+
+	#var color_shader = $color_shader.duplicate(DUPLICATE_USE_INSTANCING)
+	#$color_shader.replace_by(color_shader)
+
+	#var water_shader = $water_shader.duplicate(DUPLICATE_USE_INSTANCING)
+	#$water_shader.replace_by(water_shader)
+
+
+
 	$water_shader.material = $water_shader.material.duplicate(true)
 	$color_shader.material = $color_shader.material.duplicate(true)
+	
 
 	wave_speed = WATER_NORMAL_WAVE_SPEED
 
+	$water_reaction_area.connect("body_entered", self, "on_body_in")
+	$water_reaction_area.connect("body_exited", self, "on_body_out")
 
 	setup_radial_structures()
 
@@ -60,7 +78,8 @@ func shrink(r):
 func setup_radial_structures():
 	$bkg.set_radius(radius)
 	$color_shader.set_radius(radius)
-	$collision.shape.radius = radius * 0.84
+	$collision.shape.radius = radius - WATER_INNER_RADIUS
+	$water_reaction_area/collision.shape.radius = radius
 
 	$water_shader.set_radius(radius * 1.02)
 	$water_shader.material.set("shader_params/radius", radius * 1.02)
@@ -73,20 +92,15 @@ func get_water_resistance_scalar():
 func get_water_resistance_squared_scalar():
 	return -WATER_RESISTANCE_SQUARED
 
-func on_body_in(body, pos, vel):
-	child_movement(pos, vel)
+func on_body_in(body):
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
 
 
-func on_body_out(body, pos, vel):
-	pending_point = {
-		point = pos - position,
-		velocity = vel
-	}
-
+func on_body_out(body):
+	
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
 
-func child_movement(pos, swim_impulse):
+func child_movement(pos):
 	var factor = pos.length_squared() / squared_radius 
 	var speedo = clamp(WATER_SWIM_WAVE_SPEED * factor, WATER_NORMAL_WAVE_SPEED, WATER_SWIM_WAVE_SPEED)
 	set_wave_speed(speedo)
@@ -96,6 +110,11 @@ func set_wave_speed(speedo):
 	if wave_speed < speedo:
 		wave_speed = speedo
 
+func report_body(body, velocity):
+	if body.has_method("limit_water_movement_on_edges"):
+		return body.limit_water_movement_on_edges(radius - WATER_RADIUS_LIMIT, velocity)
+	return velocity
+	
 
 var total_t = -1499990.0
 func _physics_process(delta):

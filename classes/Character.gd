@@ -14,6 +14,8 @@ const FACING_RIGHT = 1
 const INV_INVERTED = -1
 const INV_NORMAL = 1
 
+const SWIM_STROKE_DURATION = 0.5
+
 enum ControlMode {ROTATION, INVERSION}
 
 
@@ -24,6 +26,9 @@ var _move_velocity_scalar = 0.0
 var _target_move_velocity_scalar = 0.0
 
 var _prev_altitude_velocity_scalar = 0
+
+var _target_swim_velocity_scalar = null
+var _swim_velocity_scalar = 0.0
 
 var _last_velocity = Vector2()
 var swim_velocity = Vector2()
@@ -44,11 +49,11 @@ var _gravity_scalar = 0.0
 ######## Water #########
 
 var _water_center = null
-var _water_resistance_multiplier = 1
-var _water_resistance_multiplier_target = 1
 
 var swim_tilt_velocity = Vector2()
 var swim_tilt_to_45_time = 0.0
+
+var swim_stroke_step = 0.0
 
 ######## Open Space #########
 
@@ -101,6 +106,8 @@ func _ready():
 
 	Console.add_log(self, "_gravity_center")
 	Console.add_log(self, "_water_center")
+
+
 
 ############
 # Accesors methods
@@ -174,8 +181,7 @@ func set_water_center(center):
 		var dir = (center.global_position - global_position).normalized() 
 		var vel =  clamp(_last_velocity.length(), 90, resistance * 1.5)
 
-		if vel < resistance:
-			_water_resistance_multiplier = 0.7
+		increase_water_resistance()
 
 		swim_velocity = (_last_velocity.normalized() + dir * 1.4).normalized() * vel
 		_water_center = center
@@ -188,7 +194,6 @@ func set_water_center(center):
 
 		global_position = pos
 		entered_water(_water_center)
-		_water_center.on_body_in(self, position, get_last_velocity())
 	elif _water_center != null:
 
 		_water_center = null
@@ -202,6 +207,7 @@ func set_open_space_center(center):
 		var pos = global_position
 		get_parent().remove_child(self)
 		center.add_child(self)
+		center.move_child(self, center.get_tree_pos())
 		global_position = pos
 		entered_space(center)
 
@@ -330,24 +336,41 @@ func tilt(direction, tilt_to_45_time, tilt_speed):
 	
 func stop_tilt():
 	_target_normal = null
+	#swim_tilt_velocity = Vector2()
 
 func update_normal():
 	global_rotation = (-_normal).angle() - PI/2
 
 	normal_shift_notice(_normal, $ground_raycast.get_normal())
 
+
+var record_pos = Vector2()
 func add_swim_impulse(swim_impulse_scalar):
 
 	if _water_center != null:
-		swim_velocity = (swim_velocity + _normal * swim_impulse_scalar).clamped(swim_impulse_scalar * 1.02)
-		_water_center.child_movement(position, swim_velocity)
+		if started_stroke:
+			swim_stroke_step = 0.0
+			_target_swim_velocity_scalar  = swim_impulse_scalar
+			started_stroke = false
+		else:
+			swim_stroke_step = 0.4
+			_target_swim_velocity_scalar  = swim_impulse_scalar * 0.5
+		record_pos = position
+		_water_center.child_movement(position)
 
 func increase_water_resistance():
-	_water_resistance_multiplier_target = 2.8
+	if _target_swim_velocity_scalar != null:
+		var diff = _target_swim_velocity_scalar - _swim_velocity_scalar
+		if diff > 0:
+			var done = _swim_velocity_scalar / _target_swim_velocity_scalar
+			_target_swim_velocity_scalar -= diff * 0.6 *(1 - done)
 
+	started_stroke = false
+
+
+var started_stroke = false
 func decrease_water_resistance():
-	_water_resistance_multiplier_target = null
-	_water_resistance_multiplier = 0.75
+	started_stroke = true
 
 ############
 # Helper methods
@@ -480,6 +503,36 @@ func adjust_normal_towards(new_normal, gravity_center_collision_data):
 	if updated_normal:
 		$ground_raycast.set_normal(new_normal)
 		update_normal() 
+
+############
+# Water methods
+############
+
+func limit_water_movement_on_edges(inner_radius, velocity):
+	var normalized_dist = clamp(position.length_squared() / (inner_radius * inner_radius), 0.0, 1.0)
+
+	var center_direction = position.normalized()
+	var min_speed = 50
+	var min_tilt_speed = 14
+	min_speed *= min_speed
+	min_tilt_speed *= min_tilt_speed
+
+	if center_direction.dot(velocity) >= -0.1 and velocity.length_squared() < min_speed and normalized_dist > 0.5:
+		return velocity.linear_interpolate(Vector2(), Glb.Smooth.water_resistance_on_edges(normalized_dist))
+	return velocity
+
+
+func verify_water_center(with_center=true):
+	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))
+	
+	if with_center:
+		return not water_cast_result.empty() and water_cast_result.collider == _water_center
+	elif not water_cast_result.empty(): 
+		change_center(water_cast_result.collider)
+		return true
+	return false
+
+
 
 ############
 # Virtual methods
@@ -648,20 +701,31 @@ func _gravity_physics(delta):
 
 func _water_physics(delta):
 	
-	var swin_velocity_squared = swim_velocity.length_squared()
-	var swim_tilt_velocity_squared = swim_tilt_velocity.length_squared()
+	
 	var resistance = _water_center.get_water_resistance_scalar()
 
-	if _water_resistance_multiplier_target != null:
-		_water_resistance_multiplier = lerp(_water_resistance_multiplier, _water_resistance_multiplier_target, delta)
 
-	if swin_velocity_squared > 0.01:
-		swim_velocity += swim_velocity.normalized() * resistance * _water_resistance_multiplier * delta
+	if _target_swim_velocity_scalar != null:
+		swim_stroke_step += delta / SWIM_STROKE_DURATION
+		_swim_velocity_scalar = lerp(0, _target_swim_velocity_scalar, Glb.Smooth.swim_stroke(swim_stroke_step))
+		swim_velocity = (swim_velocity * 0.8 + _normal * _swim_velocity_scalar).clamped(_target_swim_velocity_scalar * 1.02)
+		if swim_stroke_step > 1:
+			_target_swim_velocity_scalar = null
+			Console.add_log("record", (record_pos - position).length())
 
-	if swim_tilt_velocity_squared > 0.01:
-		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
+	var swin_velocity_squared = swim_velocity.length_squared()
+	var swim_tilt_velocity_squared = swim_tilt_velocity.length_squared()
+
+
+	if swin_velocity_squared > 25:
+		swim_velocity += swim_velocity.normalized() * resistance * delta
+
 	
-	_last_velocity = swim_velocity + swim_tilt_velocity
+	if swim_tilt_velocity_squared > 8.25:# 6.25:
+		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
+
+	
+	_last_velocity = _water_center.report_body(self, swim_velocity + swim_tilt_velocity)
 	move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
 
 	_process_behavior(delta)
@@ -683,22 +747,8 @@ func _water_physics(delta):
 
 
 	if not verify_water_center():
-		_water_center.on_body_out(self, global_position, _last_velocity)
-
 		change_center(_open_space)
+
 		
-		# for debugging
-		#space_velocity = Vector2()
 
-
-
-func verify_water_center(with_center=true):
-	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))
-	
-	if with_center:
-		return not water_cast_result.empty() and water_cast_result.collider == _water_center
-	elif not water_cast_result.empty(): 
-		change_center(water_cast_result.collider)
-		return true
-	return false
 

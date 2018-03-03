@@ -41,11 +41,21 @@ static func graph(owner, method, size=150, offset=Vector2(), step=0.01):
 # Personal Lib
 
 static func water_out(t):
-	return cross(t, arch(stop2(t), 2.8), flip(arch(start2(t), 0.6)))
+	return cross(t, stop2(t), flip(arch(t, 5)))
 
 static func water_in_pivot(t):
 	return cross(t, start3(stop3(t)), stop3(start3(t)))
 
-static func test(t):
+static func water_in(t):
 	return cross(t, stop6(t), flip(arch(t)))
+
+static func water_resistance_on_edges(t):
+	return scale(t, start6(t))
+
+static func swim_stroke(t):
+	return stop6(start5(t))
+	return cross(t, stop6(start5(t)), start5(stop6(t)))
+
+static func test(t):
+	return arch(t, 4)
 

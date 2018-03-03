@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://classes/WaterPlatform.gd" type="Script" id=1]
 [ext_resource path="res://tools/Circle.tscn" type="PackedScene" id=2]
@@ -12,7 +12,7 @@ light_mode = 2
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 100.8
+radius = 103.2
 
 [sub_resource type="Shader" id=3]
 
@@ -121,6 +121,11 @@ shader_param/size_y = 0.001
 shader_param/pixelized_step = 0.001
 _sections_unfolded = [ "Resource", "shader_param" ]
 
+[sub_resource type="CircleShape2D" id=7]
+
+custom_solver_bias = 0.0
+radius = 120.0
+
 [node name="water_platform" type="KinematicBody2D" index="0"]
 
 material = SubResource( 1 )
@@ -173,5 +178,20 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="water_reaction_area" type="Area2D" parent="." index="7"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="collision" type="CollisionShape2D" parent="water_reaction_area" index="0"]
+
+shape = SubResource( 7 )
 
 

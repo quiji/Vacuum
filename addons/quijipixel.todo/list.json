@@ -211,7 +211,16 @@
     "task.232",
     "task.211",
     "task.177",
-    "task.231"
+    "task.231",
+    "task.234",
+    "task.233",
+    "task.236",
+    "task.237",
+    "task.235",
+    "task.240",
+    "task.239",
+    "task.193",
+    "task.241"
   ],
   "completed": {
     "task.0": {
@@ -5301,6 +5310,222 @@
         "minute": 4,
         "second": 1
       }
+    },
+    "task.234": {
+      "task": "Try instancing the shader nodes in water platform to see if it makes the water platform work.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 15,
+        "minute": 14,
+        "second": 2
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 15,
+        "minute": 16,
+        "second": 25
+      }
+    },
+    "task.233": {
+      "task": "Smooth entrance/leavence from water platforms. If player has little out speed, don't let them leave, or little in speed, help them in.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 16,
+        "minute": 30,
+        "second": 36
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 15,
+        "minute": 46,
+        "second": 17
+      }
+    },
+    "task.236": {
+      "task": "Move all movement code from water platform to character.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 15,
+        "minute": 47,
+        "second": 13
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 15,
+        "minute": 53,
+        "second": 49
+      }
+    },
+    "task.237": {
+      "task": "Avoid player from coming out of water platform from the other side if velocity is too high.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 1,
+        "second": 45
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 6,
+        "second": 39
+      }
+    },
+    "task.235": {
+      "task": "Improve water movement handling, allowing for slow movement towards fast towards slow.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 15,
+        "minute": 46,
+        "second": 50
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 44,
+        "second": 42
+      }
+    },
+    "task.240": {
+      "task": "Add End of swim stroke reaction to animations.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 57,
+        "second": 30
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 18,
+        "minute": 9,
+        "second": 59
+      }
+    },
+    "task.239": {
+      "task": "Sometimes after entering the water platform, the weak stroke doesn't work.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 47,
+        "second": 29
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 19,
+        "minute": 9,
+        "second": 38
+      }
+    },
+    "task.193": {
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 16,
+        "minute": 56,
+        "month": 2,
+        "second": 43,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "2 water_platforms cannot coexist, when the player reaches the intersection point the platform becomes crazy.",
+      "type": "Bug",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 19,
+        "minute": 47,
+        "second": 6
+      }
+    },
+    "task.241": {
+      "task": "When character swims out of water platform the space node puts it as last child and zindex messes the shader effect.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 19,
+        "minute": 47,
+        "second": 55
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 19,
+        "minute": 50,
+        "second": 19
+      }
     }
   },
   "pend_order": [
@@ -5319,13 +5544,12 @@
     "task.189",
     "task.191",
     "task.192",
-    "task.193",
     "task.200",
     "task.205",
     "task.209",
     "task.215",
     "task.217",
-    "task.233"
+    "task.238"
   ],
   "pending": {
     "task.134": {
@@ -5482,20 +5706,6 @@
       "task": "When there are more than 1 water platform, the shader is buggy for the platforms instead of the first one instanced by the scene tree.",
       "type": "Bug"
     },
-    "task.193": {
-      "creation_date": {
-        "day": 23,
-        "dst": true,
-        "hour": 16,
-        "minute": 56,
-        "month": 2,
-        "second": 43,
-        "weekday": 5,
-        "year": 2018
-      },
-      "task": "2 water_platforms cannot coexist, when the player reaches the intersection point the platform becomes crazy.",
-      "type": "Bug"
-    },
     "task.55": {
       "creation_date": {
         "day": 18,
@@ -5622,18 +5832,18 @@
         "second": 55
       }
     },
-    "task.233": {
-      "task": "Smooth entrance/leavence from water platforms. If player has little out speed, don't let them leave, or little in speed, help them in.",
-      "type": "Feature",
+    "task.238": {
+      "task": "When player is in the limbo between a gravity platform and a water platform, it starts behaving badly because of offset change.(or something)",
+      "type": "Bug",
       "creation_date": {
         "year": 2018,
         "month": 3,
-        "day": 2,
-        "weekday": 5,
+        "day": 3,
+        "weekday": 6,
         "dst": true,
-        "hour": 16,
-        "minute": 30,
-        "second": 36
+        "hour": 17,
+        "minute": 8,
+        "second": 13
       }
     }
   }

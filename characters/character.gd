@@ -11,7 +11,7 @@ var max_x_distance_b_jump = 70.0
 var jump_peak_height = 95.5
 
 var smash_jump_impulse_scalar = 30.0
-var swim_impulse_scalar = 190.0
+var swim_impulse_scalar = 188.5
 var water_tilt_impulse_scalar = 35.0
 var time_to_45_tilt_rotation = 0.4
 
@@ -100,6 +100,7 @@ func _on_animation_reaction(action):
 			pass
 		Glb.REACT_SWIMSTROKE: 
 			add_swim_impulse(swim_impulse_scalar)
+		Glb.REACT_ENDSWIMSTROKE: 
 			$sprite.allow_interruption()
 
 ############
@@ -193,17 +194,18 @@ func little_physics_proces(delta):
 		var current_position = 0
 		if entering_water:
 			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in_pivot(pivot_t))
-			current_position = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.test(pivot_t))
+			current_position = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in(pivot_t))
 		else:
 			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_out(pivot_t))
-			current_position = current_pivot
+			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in_pivot(pivot_t))
+			
 		$sprite.position = old_sprite_pos + Vector2(0, 1) * current_pivot
 		$collision.position = old_shape_pos + Vector2(0, 1) * current_pivot
 		
 		if entering_water:
-			global_position += _last_velocity.normalized() * current_pivot * 4 * delta
+			global_position += _last_velocity.normalized() * current_pivot * 7 * delta
 		else:
-			global_position += _last_velocity.normalized() * current_pivot * 4 * delta
+			global_position += _last_velocity.normalized() * current_pivot * 1 * delta
 		if pivot_t > 1:
 			target_pivot = null
 			halt_physics = false
@@ -348,10 +350,11 @@ func _water_behavior(delta):
 	if Input.is_action_just_pressed("jump"):
 		$sprite.play("Swim")
 		swimming = true
-	elif Input.is_action_pressed("jump") and swimming:
+
 		decrease_water_resistance()
+	#elif Input.is_action_pressed("jump") and swimming:
+	#	swim_delta += delta
 	elif Input.is_action_just_released("jump"):
 		increase_water_resistance()
 		swimming = false
-
 

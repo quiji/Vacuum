@@ -3,7 +3,7 @@ extends Node
 const VectorLib = preload("res://classes/VectorLib.gd")
 const Smooth = preload("res://classes/Smoothstep.gd")
 
-enum ReactTypes {NO_REACTION, REACT_STEP, REACT_SWIMSTROKE}
+enum ReactTypes {NO_REACTION, REACT_STEP, REACT_SWIMSTROKE, REACT_ENDSWIMSTROKE}
 
 var _collision_layer_bits = {}
 var _current_camera_man = null
@@ -14,7 +14,7 @@ func _ready():
 	
 	debug_mode = ProjectSettings.get_setting("Project/debug_mode")
 	
-	#OS.window_maximized = not debug_mode
+	OS.window_maximized = not debug_mode
 	
 	var i = 1
 	var setting_name = "layer_names/2d_physics/layer_"
