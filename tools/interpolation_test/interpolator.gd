@@ -54,13 +54,13 @@ func _physics_process(delta):
 
 	if right:
 		var smooth_t = m_owner.call(method, percentage)
-		x = Smooth.linear_i(0, size, smooth_t)
-		lerp_x = Smooth.linear_i(0, size, percentage)
+		x = Smooth.linear_interp(0, size, smooth_t)
+		lerp_x = Smooth.linear_interp(0, size, percentage)
 		pos = Vector2(percentage * size, -smooth_t * size)
 	else:
 		var smooth_t = m_owner.call(method, percentage)
-		x = Smooth.linear_i(size, 0, smooth_t)
-		lerp_x = Smooth.linear_i(size, 0, percentage)
+		x = Smooth.linear_interp(size, 0, smooth_t)
+		lerp_x = Smooth.linear_interp(size, 0, percentage)
 		pos = Vector2(percentage * size, -smooth_t * size)
 
 	$smooth.position.x = start_x + x

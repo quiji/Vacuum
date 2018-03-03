@@ -20,9 +20,9 @@ static func cross(t, smootha, smoothb): return blend(t, smootha, smoothb, t)
 static func scale(t, smootha): return t * smootha
 static func rev_scale(t, smootha): return (1 - t) * smootha
 
-static func arch2(t): return t * (1 - t)
+static func arch(t, w=1): return scale(t * w, flip(t))
 
-static func linear_i(a, b, t):
+static func linear_interp(a, b, t):
 	return a + (b - a) * t
 
 
@@ -35,3 +35,17 @@ static func graph(owner, method, size=150, offset=Vector2(), step=0.01):
 		t += step
 	
 	return points
+
+
+#######################################
+# Personal Lib
+
+static func water_out(t):
+	return cross(t, arch(stop2(t), 2.8), flip(arch(start2(t), 0.6)))
+
+static func water_in_pivot(t):
+	return cross(t, start3(stop3(t)), stop3(start3(t)))
+
+static func test(t):
+	return cross(t, stop6(t), flip(arch(t)))
+

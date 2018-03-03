@@ -60,7 +60,7 @@ func shrink(r):
 func setup_radial_structures():
 	$bkg.set_radius(radius)
 	$color_shader.set_radius(radius)
-	$collision.shape.radius = radius
+	$collision.shape.radius = radius * 0.84
 
 	$water_shader.set_radius(radius * 1.02)
 	$water_shader.material.set("shader_params/radius", radius * 1.02)

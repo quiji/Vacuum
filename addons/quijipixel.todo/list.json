@@ -210,7 +210,8 @@
     "task.230",
     "task.232",
     "task.211",
-    "task.177"
+    "task.177",
+    "task.231"
   ],
   "completed": {
     "task.0": {
@@ -5276,6 +5277,30 @@
         "minute": 29,
         "second": 15
       }
+    },
+    "task.231": {
+      "task": "Implement smoothstep library and improve lerping through code.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 2,
+        "weekday": 5,
+        "dst": true,
+        "hour": 16,
+        "minute": 1,
+        "second": 30
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 14,
+        "minute": 4,
+        "second": 1
+      }
     }
   },
   "pend_order": [
@@ -5300,7 +5325,6 @@
     "task.209",
     "task.215",
     "task.217",
-    "task.231",
     "task.233"
   ],
   "pending": {
@@ -5596,20 +5620,6 @@
         "hour": 23,
         "minute": 40,
         "second": 55
-      }
-    },
-    "task.231": {
-      "task": "Implement smoothstep library and improve lerping through code.",
-      "type": "Refactor",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 2,
-        "weekday": 5,
-        "dst": true,
-        "hour": 16,
-        "minute": 1,
-        "second": 30
       }
     },
     "task.233": {
