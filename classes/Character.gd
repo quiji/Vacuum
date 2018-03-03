@@ -106,8 +106,8 @@ func _ready():
 
 	Console.add_log(self, "_gravity_center")
 	Console.add_log(self, "_water_center")
-	Console.add_log(self, "swim_stroke_step")
-	Console.add_log(self, "_last_velocity")
+
+
 
 ############
 # Accesors methods
@@ -342,6 +342,8 @@ func update_normal():
 
 	normal_shift_notice(_normal, $ground_raycast.get_normal())
 
+
+var record_pos = Vector2()
 func add_swim_impulse(swim_impulse_scalar):
 
 	if _water_center != null:
@@ -351,12 +353,17 @@ func add_swim_impulse(swim_impulse_scalar):
 			started_stroke = false
 		else:
 			swim_stroke_step = 0.4
-			_target_swim_velocity_scalar  = swim_impulse_scalar / 2
+			_target_swim_velocity_scalar  = swim_impulse_scalar * 0.5
+		record_pos = position
 		_water_center.child_movement(position)
 
 func increase_water_resistance():
-	if _target_swim_velocity_scalar != null and _target_swim_velocity_scalar < _target_swim_velocity_scalar:
-		_target_swim_velocity_scalar = _target_swim_velocity_scalar / 2
+	if _target_swim_velocity_scalar != null:
+		var diff = _target_swim_velocity_scalar - _swim_velocity_scalar
+		if diff > 0:
+			var done = _swim_velocity_scalar / _target_swim_velocity_scalar
+			_target_swim_velocity_scalar -= diff * 0.6 *(1 - done)
+
 	started_stroke = false
 
 
@@ -703,6 +710,7 @@ func _water_physics(delta):
 		swim_velocity = (swim_velocity * 0.8 + _normal * _swim_velocity_scalar).clamped(_target_swim_velocity_scalar * 1.02)
 		if swim_stroke_step > 1:
 			_target_swim_velocity_scalar = null
+			Console.add_log("record", (record_pos - position).length())
 
 	var swin_velocity_squared = swim_velocity.length_squared()
 	var swim_tilt_velocity_squared = swim_tilt_velocity.length_squared()
@@ -715,8 +723,6 @@ func _water_physics(delta):
 	if swim_tilt_velocity_squared > 8.25:# 6.25:
 		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
 
-	Console.add_log("swim_velocity", swim_velocity)
-	Console.add_log("swim_tilt_velocity", swim_tilt_velocity)
 	
 	_last_velocity = _water_center.report_body(self, swim_velocity + swim_tilt_velocity)
 	move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)

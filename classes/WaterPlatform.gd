@@ -9,8 +9,8 @@ const WATER_RESISTANCE_SQUARED = WATER_RESISTANCE * WATER_RESISTANCE
 const WATER_NORMAL_WAVE_SPEED = 1.8
 const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
-const WATER_INNER_RADIUS = 0.86
-const WATER_RADIUS_LIMIT = 0.85
+const WATER_INNER_RADIUS = 16.8
+const WATER_RADIUS_LIMIT = 16.9
 
 export (float) var radius = 120 setget set_radius,get_radius
 
@@ -24,6 +24,7 @@ var squared_radius = radius * radius
 func _ready():
 	
 	$collision.shape = $collision.shape.duplicate(true)
+	$water_reaction_area/collision.shape = $water_reaction_area/collision.shape.duplicate(true)
 
 	#var bkg  = $bkg.duplicate(DUPLICATE_USE_INSTANCING)
 	#$bkg.replace_by(bkg)
@@ -77,7 +78,7 @@ func shrink(r):
 func setup_radial_structures():
 	$bkg.set_radius(radius)
 	$color_shader.set_radius(radius)
-	$collision.shape.radius = radius * WATER_INNER_RADIUS
+	$collision.shape.radius = radius - WATER_INNER_RADIUS
 	$water_reaction_area/collision.shape.radius = radius
 
 	$water_shader.set_radius(radius * 1.02)
@@ -111,7 +112,7 @@ func set_wave_speed(speedo):
 
 func report_body(body, velocity):
 	if body.has_method("limit_water_movement_on_edges"):
-		return body.limit_water_movement_on_edges(radius * WATER_RADIUS_LIMIT, velocity)
+		return body.limit_water_movement_on_edges(radius - WATER_RADIUS_LIMIT, velocity)
 	return velocity
 	
 

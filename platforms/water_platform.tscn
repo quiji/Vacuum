@@ -126,7 +126,7 @@ _sections_unfolded = [ "Resource", "shader_param" ]
 custom_solver_bias = 0.0
 radius = 120.0
 
-[node name="water_platform" type="KinematicBody2D"]
+[node name="water_platform" type="KinematicBody2D" index="0"]
 
 material = SubResource( 1 )
 input_pickable = false
