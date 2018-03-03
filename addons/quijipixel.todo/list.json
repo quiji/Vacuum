@@ -217,7 +217,8 @@
     "task.236",
     "task.237",
     "task.235",
-    "task.240"
+    "task.240",
+    "task.239"
   ],
   "completed": {
     "task.0": {
@@ -5451,6 +5452,30 @@
         "minute": 9,
         "second": 59
       }
+    },
+    "task.239": {
+      "task": "Sometimes after entering the water platform, the weak stroke doesn't work.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 47,
+        "second": 29
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 19,
+        "minute": 9,
+        "second": 38
+      }
     }
   },
   "pend_order": [
@@ -5475,8 +5500,7 @@
     "task.209",
     "task.215",
     "task.217",
-    "task.238",
-    "task.239"
+    "task.238"
   ],
   "pending": {
     "task.134": {
@@ -5785,20 +5809,6 @@
         "hour": 17,
         "minute": 8,
         "second": 13
-      }
-    },
-    "task.239": {
-      "task": "Sometimes after entering the water platform, the weak stroke doesn't work.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 3,
-        "weekday": 6,
-        "dst": true,
-        "hour": 17,
-        "minute": 47,
-        "second": 29
       }
     }
   }

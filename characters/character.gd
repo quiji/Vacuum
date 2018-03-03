@@ -11,7 +11,7 @@ var max_x_distance_b_jump = 70.0
 var jump_peak_height = 95.5
 
 var smash_jump_impulse_scalar = 30.0
-var swim_impulse_scalar = 140.0
+var swim_impulse_scalar = 188.5
 var water_tilt_impulse_scalar = 35.0
 var time_to_45_tilt_rotation = 0.4
 

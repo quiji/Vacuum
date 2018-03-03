@@ -49,8 +49,6 @@ var _gravity_scalar = 0.0
 ######## Water #########
 
 var _water_center = null
-var _water_resistance_multiplier = 1
-var _water_resistance_multiplier_target = 1
 
 var swim_tilt_velocity = Vector2()
 var swim_tilt_to_45_time = 0.0
@@ -108,6 +106,8 @@ func _ready():
 
 	Console.add_log(self, "_gravity_center")
 	Console.add_log(self, "_water_center")
+	Console.add_log(self, "swim_stroke_step")
+	Console.add_log(self, "_last_velocity")
 
 ############
 # Accesors methods
@@ -335,7 +335,7 @@ func tilt(direction, tilt_to_45_time, tilt_speed):
 	
 func stop_tilt():
 	_target_normal = null
-	swim_tilt_velocity = Vector2()
+	#swim_tilt_velocity = Vector2()
 
 func update_normal():
 	global_rotation = (-_normal).angle() - PI/2
@@ -345,25 +345,23 @@ func update_normal():
 func add_swim_impulse(swim_impulse_scalar):
 
 	if _water_center != null:
-		swim_stroke_step = 0.0
 		if started_stroke:
+			swim_stroke_step = 0.0
 			_target_swim_velocity_scalar  = swim_impulse_scalar
 			started_stroke = false
 		else:
-			_target_swim_velocity_scalar  = swim_impulse_scalar / 1.5
+			swim_stroke_step = 0.4
+			_target_swim_velocity_scalar  = swim_impulse_scalar / 2
 		_water_center.child_movement(position)
 
 func increase_water_resistance():
-	#_water_resistance_multiplier_target = 2.8
-	_target_swim_velocity_scalar = null
+	if _target_swim_velocity_scalar != null and _target_swim_velocity_scalar < _target_swim_velocity_scalar:
+		_target_swim_velocity_scalar = _target_swim_velocity_scalar / 2
 	started_stroke = false
-	
 
 
 var started_stroke = false
 func decrease_water_resistance():
-	_water_resistance_multiplier_target = null
-	_water_resistance_multiplier = 0.75
 	started_stroke = true
 
 ############
@@ -506,7 +504,7 @@ func limit_water_movement_on_edges(inner_radius, velocity):
 	var normalized_dist = clamp(position.length_squared() / (inner_radius * inner_radius), 0.0, 1.0)
 
 	var center_direction = position.normalized()
-	var min_speed = 35
+	var min_speed = 50
 	var min_tilt_speed = 14
 	min_speed *= min_speed
 	min_tilt_speed *= min_tilt_speed
@@ -696,30 +694,30 @@ func _gravity_physics(delta):
 func _water_physics(delta):
 	
 	
-	var swin_velocity_squared = swim_velocity.length_squared()
-	var swim_tilt_velocity_squared = swim_tilt_velocity.length_squared()
 	var resistance = _water_center.get_water_resistance_scalar()
 
-
-	if _water_resistance_multiplier_target != null:
-		_water_resistance_multiplier = lerp(_water_resistance_multiplier, _water_resistance_multiplier_target, delta)
 
 	if _target_swim_velocity_scalar != null:
 		swim_stroke_step += delta / SWIM_STROKE_DURATION
 		_swim_velocity_scalar = lerp(0, _target_swim_velocity_scalar, Glb.Smooth.swim_stroke(swim_stroke_step))
-		swim_velocity = (swim_velocity + _normal * _swim_velocity_scalar).clamped(_target_swim_velocity_scalar * 1.02)
+		swim_velocity = (swim_velocity * 0.8 + _normal * _swim_velocity_scalar).clamped(_target_swim_velocity_scalar * 1.02)
 		if swim_stroke_step > 1:
 			_target_swim_velocity_scalar = null
 
+	var swin_velocity_squared = swim_velocity.length_squared()
+	var swim_tilt_velocity_squared = swim_tilt_velocity.length_squared()
+
+
 	if swin_velocity_squared > 25:
-		swim_velocity += swim_velocity.normalized() * resistance * _water_resistance_multiplier * delta
+		swim_velocity += swim_velocity.normalized() * resistance * delta
 
 	
-	if swim_tilt_velocity_squared > 6.25:
+	if swim_tilt_velocity_squared > 8.25:# 6.25:
 		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
 
+	Console.add_log("swim_velocity", swim_velocity)
+	Console.add_log("swim_tilt_velocity", swim_tilt_velocity)
 	
-
 	_last_velocity = _water_center.report_body(self, swim_velocity + swim_tilt_velocity)
 	move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
 
