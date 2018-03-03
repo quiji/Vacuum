@@ -9,6 +9,7 @@ const WATER_RESISTANCE_SQUARED = WATER_RESISTANCE * WATER_RESISTANCE
 const WATER_NORMAL_WAVE_SPEED = 1.8
 const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
+const WATER_INNER_RADIUS = 0.86
 
 export (float) var radius = 120 setget set_radius,get_radius
 
@@ -75,7 +76,7 @@ func shrink(r):
 func setup_radial_structures():
 	$bkg.set_radius(radius)
 	$color_shader.set_radius(radius)
-	$collision.shape.radius = radius * 0.86
+	$collision.shape.radius = radius * WATER_INNER_RADIUS
 	$water_reaction_area/collision.shape.radius = radius
 
 	$water_shader.set_radius(radius * 1.02)
@@ -108,21 +109,10 @@ func set_wave_speed(speedo):
 		wave_speed = speedo
 
 func report_body(body):
-	var inner_radius = radius * 0.86
+	if body.has_method("limit_water_movement_on_edges"):
+		body.limit_water_movement_on_edges(radius * WATER_INNER_RADIUS)
+		
 	
-	var normalized_dist = clamp(body.position.length_squared() / (inner_radius * inner_radius), 0.0, 1.0)
-
-	var min_speed = 35
-	var min_tilt_speed = 5
-	min_speed *= min_speed
-	min_tilt_speed *= min_tilt_speed
-
-	if body.position.normalized().dot(body.swim_velocity) >= -0.1 and body.swim_velocity.length_squared() < min_speed and normalized_dist > 0.5:
-		body.swim_velocity = body.swim_velocity.linear_interpolate(Vector2(), Glb.Smooth.test(normalized_dist))
-
-	if body.position.normalized().dot(body.swim_tilt_velocity) >= -0.1 and body.swim_tilt_velocity.length_squared() < min_speed and normalized_dist > 0.5:
-		body.swim_tilt_velocity = body.swim_tilt_velocity.linear_interpolate(Vector2(), Glb.Smooth.test(normalized_dist))
-
 
 var total_t = -1499990.0
 func _physics_process(delta):

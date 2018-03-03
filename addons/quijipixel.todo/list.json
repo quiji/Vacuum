@@ -213,7 +213,8 @@
     "task.177",
     "task.231",
     "task.234",
-    "task.233"
+    "task.233",
+    "task.236"
   ],
   "completed": {
     "task.0": {
@@ -5351,6 +5352,30 @@
         "minute": 46,
         "second": 17
       }
+    },
+    "task.236": {
+      "task": "Move all movement code from water platform to character.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 15,
+        "minute": 47,
+        "second": 13
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 15,
+        "minute": 53,
+        "second": 49
+      }
     }
   },
   "pend_order": [
@@ -5375,8 +5400,7 @@
     "task.209",
     "task.215",
     "task.217",
-    "task.235",
-    "task.236"
+    "task.235"
   ],
   "pending": {
     "task.134": {
@@ -5685,20 +5709,6 @@
         "hour": 15,
         "minute": 46,
         "second": 50
-      }
-    },
-    "task.236": {
-      "task": "Move all movement code from water platform to character.",
-      "type": "Refactor",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 3,
-        "weekday": 6,
-        "dst": true,
-        "hour": 15,
-        "minute": 47,
-        "second": 13
       }
     }
   }

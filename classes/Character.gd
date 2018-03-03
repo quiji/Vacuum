@@ -688,8 +688,22 @@ func _water_physics(delta):
 		# for debugging
 		#space_velocity = Vector2()
 
-func limit_water_movement_on_edges():
-	pass
+func limit_water_movement_on_edges(inner_radius):
+	var normalized_dist = clamp(position.length_squared() / (inner_radius * inner_radius), 0.0, 1.0)
+
+	var center_direction = position.normalized()
+	var min_speed = 35
+	var min_tilt_speed = 5
+	min_speed *= min_speed
+	min_tilt_speed *= min_tilt_speed
+	
+
+	if center_direction.dot(swim_velocity) >= -0.1 and swim_velocity.length_squared() < min_speed and normalized_dist > 0.5:
+		swim_velocity = swim_velocity.linear_interpolate(Vector2(), Glb.Smooth.water_resistance_on_edges(normalized_dist))
+
+	if center_direction.dot(swim_tilt_velocity) >= -0.1 and swim_tilt_velocity.length_squared() < min_tilt_speed and normalized_dist > 0.5:
+		swim_tilt_velocity = swim_tilt_velocity.linear_interpolate(Vector2(), Glb.Smooth.water_resistance_on_edges(normalized_dist))
+
 
 func verify_water_center(with_center=true):
 	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))

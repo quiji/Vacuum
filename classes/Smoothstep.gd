@@ -49,6 +49,9 @@ static func water_in_pivot(t):
 static func water_in(t):
 	return cross(t, stop6(t), flip(arch(t)))
 
+static func water_resistance_on_edges(t):
+	return scale(t, start6(t))
+
 
 static func test(t):
 	return scale(t, start6(t))
