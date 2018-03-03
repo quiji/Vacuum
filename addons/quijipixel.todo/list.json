@@ -218,7 +218,9 @@
     "task.237",
     "task.235",
     "task.240",
-    "task.239"
+    "task.239",
+    "task.193",
+    "task.241"
   ],
   "completed": {
     "task.0": {
@@ -5476,6 +5478,54 @@
         "minute": 9,
         "second": 38
       }
+    },
+    "task.193": {
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 16,
+        "minute": 56,
+        "month": 2,
+        "second": 43,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "2 water_platforms cannot coexist, when the player reaches the intersection point the platform becomes crazy.",
+      "type": "Bug",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 19,
+        "minute": 47,
+        "second": 6
+      }
+    },
+    "task.241": {
+      "task": "When character swims out of water platform the space node puts it as last child and zindex messes the shader effect.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 19,
+        "minute": 47,
+        "second": 55
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 19,
+        "minute": 50,
+        "second": 19
+      }
     }
   },
   "pend_order": [
@@ -5494,7 +5544,6 @@
     "task.189",
     "task.191",
     "task.192",
-    "task.193",
     "task.200",
     "task.205",
     "task.209",
@@ -5655,20 +5704,6 @@
         "year": 2018
       },
       "task": "When there are more than 1 water platform, the shader is buggy for the platforms instead of the first one instanced by the scene tree.",
-      "type": "Bug"
-    },
-    "task.193": {
-      "creation_date": {
-        "day": 23,
-        "dst": true,
-        "hour": 16,
-        "minute": 56,
-        "month": 2,
-        "second": 43,
-        "weekday": 5,
-        "year": 2018
-      },
-      "task": "2 water_platforms cannot coexist, when the player reaches the intersection point the platform becomes crazy.",
       "type": "Bug"
     },
     "task.55": {

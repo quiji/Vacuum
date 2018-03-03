@@ -207,6 +207,7 @@ func set_open_space_center(center):
 		var pos = global_position
 		get_parent().remove_child(self)
 		center.add_child(self)
+		center.move_child(self, center.get_tree_pos())
 		global_position = pos
 		entered_space(center)
 
