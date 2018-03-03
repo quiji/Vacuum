@@ -10,7 +10,8 @@ const WATER_NORMAL_WAVE_SPEED = 1.8
 const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
 const WATER_INNER_RADIUS = 16.8
-const WATER_RADIUS_LIMIT = 17.5
+#const WATER_RADIUS_LIMIT = 17.5
+const WATER_RADIUS_LIMIT = 5
 
 export (float) var radius = 120 setget set_radius,get_radius
 

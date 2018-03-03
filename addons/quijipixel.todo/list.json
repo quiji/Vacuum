@@ -220,7 +220,8 @@
     "task.240",
     "task.239",
     "task.193",
-    "task.241"
+    "task.241",
+    "task.242"
   ],
   "completed": {
     "task.0": {
@@ -5526,6 +5527,30 @@
         "minute": 50,
         "second": 19
       }
+    },
+    "task.242": {
+      "task": "When entering a Water platform in a direction different from the pivot movement the water entrance feels buggy.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 20,
+        "minute": 12,
+        "second": 40
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 20,
+        "minute": 43,
+        "second": 36
+      }
     }
   },
   "pend_order": [
@@ -5549,8 +5574,7 @@
     "task.209",
     "task.215",
     "task.217",
-    "task.238",
-    "task.242"
+    "task.238"
   ],
   "pending": {
     "task.134": {
@@ -5845,20 +5869,6 @@
         "hour": 17,
         "minute": 8,
         "second": 13
-      }
-    },
-    "task.242": {
-      "task": "When entering a Water platform in a direction different from the pivot movement the water entrance feels buggy.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 3,
-        "weekday": 6,
-        "dst": true,
-        "hour": 20,
-        "minute": 12,
-        "second": 40
       }
     }
   }

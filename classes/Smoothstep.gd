@@ -44,8 +44,8 @@ static func water_out(t):
 	return cross(t, stop2(t), flip(arch(t, 5)))
 
 static func water_entrance_rotation(t):
-	return stop6(t)
-	#return scale(water_in_pivot(t), t)
+	return cross(t, stop2(t), flip(arch(t, 2.8)))
+
 	
 static func water_in_pivot(t):
 	return cross(t, start3(stop3(t)), stop3(start3(t)))
