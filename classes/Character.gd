@@ -188,7 +188,6 @@ func set_water_center(center):
 
 		global_position = pos
 		entered_water(_water_center)
-		#_water_center.on_body_in(self, position, get_last_velocity())
 	elif _water_center != null:
 
 		_water_center = null
@@ -655,10 +654,10 @@ func _water_physics(delta):
 	if _water_resistance_multiplier_target != null:
 		_water_resistance_multiplier = lerp(_water_resistance_multiplier, _water_resistance_multiplier_target, delta)
 
-	if swin_velocity_squared > 0.01:
+	if swin_velocity_squared > 25:
 		swim_velocity += swim_velocity.normalized() * resistance * _water_resistance_multiplier * delta
 
-	if swim_tilt_velocity_squared > 0.01:
+	if swim_tilt_velocity_squared > 6.25:
 		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
 	
 	_last_velocity = swim_velocity + swim_tilt_velocity
@@ -683,13 +682,14 @@ func _water_physics(delta):
 
 
 	if not verify_water_center():
-		#_water_center.on_body_out(self, global_position, _last_velocity)
 		change_center(_open_space)
-		
+	elif _water_center != null:
+		_water_center.report_body(self)
 		# for debugging
 		#space_velocity = Vector2()
 
-
+func limit_water_movement_on_edges():
+	pass
 
 func verify_water_center(with_center=true):
 	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))

@@ -51,5 +51,5 @@ static func water_in(t):
 
 
 static func test(t):
-	return cross(t, stop2(t), flip(arch(t, 5)))
+	return scale(t, start6(t))
 

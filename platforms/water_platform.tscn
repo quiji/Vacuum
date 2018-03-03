@@ -12,7 +12,7 @@ light_mode = 2
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 100.8
+radius = 103.2
 
 [sub_resource type="Shader" id=3]
 
@@ -135,7 +135,6 @@ collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pickable" ]
-radius = 120
 
 [node name="collision" type="CollisionShape2D" parent="." index="0"]
 
@@ -181,6 +180,7 @@ playback/speed = 1.0
 
 [node name="water_reaction_area" type="Area2D" parent="." index="7"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

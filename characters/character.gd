@@ -59,6 +59,8 @@ func _ready():
 	
 	$sprite.connect("react", self, "_on_animation_reaction")
 
+	#Console.add_log(self, "swim_velocity")
+	Console.add_log(self, "swim_tilt_velocity")
 
 ############
 # Configuration methods

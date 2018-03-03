@@ -22,8 +22,21 @@ var squared_radius = radius * radius
 func _ready():
 	
 	$collision.shape = $collision.shape.duplicate(true)
+
+	#var bkg  = $bkg.duplicate(DUPLICATE_USE_INSTANCING)
+	#$bkg.replace_by(bkg)
+
+	#var color_shader = $color_shader.duplicate(DUPLICATE_USE_INSTANCING)
+	#$color_shader.replace_by(color_shader)
+
+	#var water_shader = $water_shader.duplicate(DUPLICATE_USE_INSTANCING)
+	#$water_shader.replace_by(water_shader)
+
+
+
 	$water_shader.material = $water_shader.material.duplicate(true)
 	$color_shader.material = $color_shader.material.duplicate(true)
+	
 
 	wave_speed = WATER_NORMAL_WAVE_SPEED
 
@@ -62,7 +75,7 @@ func shrink(r):
 func setup_radial_structures():
 	$bkg.set_radius(radius)
 	$color_shader.set_radius(radius)
-	$collision.shape.radius = radius * 0.84
+	$collision.shape.radius = radius * 0.86
 	$water_reaction_area/collision.shape.radius = radius
 
 	$water_shader.set_radius(radius * 1.02)
@@ -93,6 +106,22 @@ func child_movement(pos, swim_impulse):
 func set_wave_speed(speedo):
 	if wave_speed < speedo:
 		wave_speed = speedo
+
+func report_body(body):
+	var inner_radius = radius * 0.86
+	
+	var normalized_dist = clamp(body.position.length_squared() / (inner_radius * inner_radius), 0.0, 1.0)
+
+	var min_speed = 35
+	var min_tilt_speed = 5
+	min_speed *= min_speed
+	min_tilt_speed *= min_tilt_speed
+
+	if body.position.normalized().dot(body.swim_velocity) >= -0.1 and body.swim_velocity.length_squared() < min_speed and normalized_dist > 0.5:
+		body.swim_velocity = body.swim_velocity.linear_interpolate(Vector2(), Glb.Smooth.test(normalized_dist))
+
+	if body.position.normalized().dot(body.swim_tilt_velocity) >= -0.1 and body.swim_tilt_velocity.length_squared() < min_speed and normalized_dist > 0.5:
+		body.swim_tilt_velocity = body.swim_tilt_velocity.linear_interpolate(Vector2(), Glb.Smooth.test(normalized_dist))
 
 
 var total_t = -1499990.0

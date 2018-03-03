@@ -18,7 +18,7 @@ func inter(t):
 	return Smooth.start3(Smooth.stop3(t))
 
 func inter2(t):
-	return Smooth.water_in(t)
+	return Smooth.start6(t)
 
 
 func inter3(t):
