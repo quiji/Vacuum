@@ -193,17 +193,18 @@ func little_physics_proces(delta):
 		var current_position = 0
 		if entering_water:
 			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in_pivot(pivot_t))
-			current_position = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.test(pivot_t))
+			current_position = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in(pivot_t))
 		else:
 			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_out(pivot_t))
-			current_position = current_pivot
+			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in_pivot(pivot_t))
+			
 		$sprite.position = old_sprite_pos + Vector2(0, 1) * current_pivot
 		$collision.position = old_shape_pos + Vector2(0, 1) * current_pivot
 		
 		if entering_water:
-			global_position += _last_velocity.normalized() * current_pivot * 4 * delta
+			global_position += _last_velocity.normalized() * current_pivot * 7 * delta
 		else:
-			global_position += _last_velocity.normalized() * current_pivot * 4 * delta
+			global_position += _last_velocity.normalized() * current_pivot * 1 * delta
 		if pivot_t > 1:
 			target_pivot = null
 			halt_physics = false

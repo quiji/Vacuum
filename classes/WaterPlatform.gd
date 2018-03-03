@@ -27,6 +27,8 @@ func _ready():
 
 	wave_speed = WATER_NORMAL_WAVE_SPEED
 
+	$water_reaction_area.connect("body_entered", self, "on_body_in")
+	$water_reaction_area.connect("body_exited", self, "on_body_out")
 
 	setup_radial_structures()
 
@@ -61,6 +63,7 @@ func setup_radial_structures():
 	$bkg.set_radius(radius)
 	$color_shader.set_radius(radius)
 	$collision.shape.radius = radius * 0.84
+	$water_reaction_area/collision.shape.radius = radius
 
 	$water_shader.set_radius(radius * 1.02)
 	$water_shader.material.set("shader_params/radius", radius * 1.02)
@@ -73,17 +76,12 @@ func get_water_resistance_scalar():
 func get_water_resistance_squared_scalar():
 	return -WATER_RESISTANCE_SQUARED
 
-func on_body_in(body, pos, vel):
-	child_movement(pos, vel)
+func on_body_in(body):
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
 
 
-func on_body_out(body, pos, vel):
-	pending_point = {
-		point = pos - position,
-		velocity = vel
-	}
-
+func on_body_out(body):
+	
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
 
 func child_movement(pos, swim_impulse):

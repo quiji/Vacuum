@@ -18,14 +18,14 @@ func inter(t):
 	return Smooth.start3(Smooth.stop3(t))
 
 func inter2(t):
+	return Smooth.water_in(t)
 
-	return Smooth.stop6(Smooth.start2(t))
 
 func inter3(t):
-	return Smooth.cross(t, Smooth.start3(Smooth.stop3(t)), Smooth.stop3(Smooth.start3(t)))
+	return Smooth.water_in_pivot(t)
 
 func inter4(t):
-	return Smooth.blend(t, Smooth.start3(Smooth.stop3(t)), Smooth.flip(Smooth.stop3( Smooth.flip( Smooth.start3(t))) ), 0.1)
+	return Smooth.water_out(t)
 
 func inter5(t):
 	#return Smooth.cross(t, Smooth.arch(Smooth.stop6(t), 2), Smooth.flip(Smooth.arch(Smooth.start6(t), 0.5)))

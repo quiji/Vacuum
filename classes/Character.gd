@@ -188,7 +188,7 @@ func set_water_center(center):
 
 		global_position = pos
 		entered_water(_water_center)
-		_water_center.on_body_in(self, position, get_last_velocity())
+		#_water_center.on_body_in(self, position, get_last_velocity())
 	elif _water_center != null:
 
 		_water_center = null
@@ -683,8 +683,7 @@ func _water_physics(delta):
 
 
 	if not verify_water_center():
-		_water_center.on_body_out(self, global_position, _last_velocity)
-
+		#_water_center.on_body_out(self, global_position, _last_velocity)
 		change_center(_open_space)
 		
 		# for debugging
