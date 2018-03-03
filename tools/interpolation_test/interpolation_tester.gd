@@ -15,7 +15,7 @@ func _ready():
 
 
 func inter(t):
-	return Smooth.swim_stroke(t)
+	return Smooth.water_entrance_rotation(t)
 
 func inter2(t):
 	return Smooth.start6(t)

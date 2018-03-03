@@ -126,7 +126,7 @@ _sections_unfolded = [ "Resource", "shader_param" ]
 custom_solver_bias = 0.0
 radius = 120.0
 
-[node name="water_platform" type="KinematicBody2D" index="0"]
+[node name="water_platform" type="KinematicBody2D"]
 
 material = SubResource( 1 )
 input_pickable = false
@@ -162,7 +162,7 @@ radius = 120
 [node name="second_buffer" type="BackBufferCopy" parent="." index="4"]
 
 copy_mode = 2
-rect = Rect2( -100, -100, 200, 200 )
+rect = Rect2( -120, -120, 240, 240 )
 
 [node name="water_shader" parent="." index="5" instance=ExtResource( 2 )]
 

@@ -178,12 +178,10 @@ func get_water_center():
 func set_water_center(center):
 	if center != null:
 		var resistance = abs(center.get_water_resistance_scalar())
-		var dir = (center.global_position - global_position).normalized() 
 		var vel =  clamp(_last_velocity.length(), 90, resistance * 1.5)
 
 		increase_water_resistance()
 
-		swim_velocity = (_last_velocity.normalized() + dir * 1.4).normalized() * vel
 		_water_center = center
 		
 		var pos = global_position
@@ -193,6 +191,10 @@ func set_water_center(center):
 		_water_center.move_child(self, _water_center.get_tree_pos())
 
 		global_position = pos
+		
+		swim_velocity = -position.normalized() * vel
+
+	
 		entered_water(_water_center)
 	elif _water_center != null:
 
@@ -555,7 +557,7 @@ func set_sprite_rotation(angle):
 func _process_behavior(delta):
 	pass
 
-func little_physics_proces(delta):
+func little_physics_process(delta):
 	pass
 	
 func reached_peak_height():
@@ -608,7 +610,7 @@ func _physics_process(delta):
 			else:
 				_last_velocity = Vector2()
 
-	little_physics_proces(delta)
+	little_physics_process(delta)
 
 
 

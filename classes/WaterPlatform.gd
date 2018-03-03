@@ -10,7 +10,7 @@ const WATER_NORMAL_WAVE_SPEED = 1.8
 const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
 const WATER_INNER_RADIUS = 16.8
-const WATER_RADIUS_LIMIT = 16.9
+const WATER_RADIUS_LIMIT = 17.5
 
 export (float) var radius = 120 setget set_radius,get_radius
 
@@ -61,6 +61,10 @@ func get_radius():
 func get_tree_pos():
 	return 0
 
+func test(t):
+
+	$bkg.set_radius(radius + t)
+
 
 func grow(r):
 	
@@ -76,6 +80,7 @@ func shrink(r):
 	$tween.start()
 
 func setup_radial_structures():
+	
 	$bkg.set_radius(radius)
 	$color_shader.set_radius(radius)
 	$collision.shape.radius = radius - WATER_INNER_RADIUS
@@ -85,6 +90,7 @@ func setup_radial_structures():
 	$water_shader.material.set("shader_params/radius", radius * 1.02)
 	$color_shader.material.set("shader_params/radius", radius)
 
+	
 
 func get_water_resistance_scalar():
 	return -WATER_RESISTANCE

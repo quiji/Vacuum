@@ -43,6 +43,10 @@ static func graph(owner, method, size=150, offset=Vector2(), step=0.01):
 static func water_out(t):
 	return cross(t, stop2(t), flip(arch(t, 5)))
 
+static func water_entrance_rotation(t):
+	return stop6(t)
+	#return scale(water_in_pivot(t), t)
+	
 static func water_in_pivot(t):
 	return cross(t, start3(stop3(t)), stop3(start3(t)))
 
