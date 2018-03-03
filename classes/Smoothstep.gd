@@ -52,6 +52,9 @@ static func water_in(t):
 static func water_resistance_on_edges(t):
 	return scale(t, start6(t))
 
+static func swim_stroke(t):
+	return stop6(start5(t))
+	return cross(t, stop6(start5(t)), start5(stop6(t)))
 
 static func test(t):
 	return arch(t, 4)

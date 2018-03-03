@@ -350,10 +350,7 @@ func add_swim_impulse(swim_impulse_scalar):
 			_target_swim_velocity_scalar  = swim_impulse_scalar
 			started_stroke = false
 		else:
-			
-			_target_swim_velocity_scalar  = swim_impulse_scalar / (2 * (1 - stroke_delta))
-			Console.count("increased_resistance")
-		#swim_velocity = (swim_velocity + _normal * swim_impulse_scalar).clamped(swim_impulse_scalar * 1.02)
+			_target_swim_velocity_scalar  = swim_impulse_scalar / 2
 		_water_center.child_movement(position)
 
 func increase_water_resistance():
@@ -362,12 +359,11 @@ func increase_water_resistance():
 	started_stroke = false
 	
 
-var stroke_delta = 0
+
 var started_stroke = false
 func decrease_water_resistance():
 	_water_resistance_multiplier_target = null
 	_water_resistance_multiplier = 0.75
-	stroke_delta = 0.0
 	started_stroke = true
 
 ############
@@ -699,8 +695,6 @@ func _gravity_physics(delta):
 
 func _water_physics(delta):
 	
-	if started_stroke:
-		stroke_delta += delta
 	
 	var swin_velocity_squared = swim_velocity.length_squared()
 	var swim_tilt_velocity_squared = swim_tilt_velocity.length_squared()
@@ -712,7 +706,7 @@ func _water_physics(delta):
 
 	if _target_swim_velocity_scalar != null:
 		swim_stroke_step += delta / SWIM_STROKE_DURATION
-		_swim_velocity_scalar = lerp(0, _target_swim_velocity_scalar, Glb.Smooth.start2(swim_stroke_step))
+		_swim_velocity_scalar = lerp(0, _target_swim_velocity_scalar, Glb.Smooth.swim_stroke(swim_stroke_step))
 		swim_velocity = (swim_velocity + _normal * _swim_velocity_scalar).clamped(_target_swim_velocity_scalar * 1.02)
 		if swim_stroke_step > 1:
 			_target_swim_velocity_scalar = null

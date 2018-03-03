@@ -5450,7 +5450,9 @@
     "task.209",
     "task.215",
     "task.217",
-    "task.238"
+    "task.238",
+    "task.239",
+    "task.240"
   ],
   "pending": {
     "task.134": {
@@ -5759,6 +5761,34 @@
         "hour": 17,
         "minute": 8,
         "second": 13
+      }
+    },
+    "task.239": {
+      "task": "Sometimes after entering the water platform, the weak stroke doesn't work.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 47,
+        "second": 29
+      }
+    },
+    "task.240": {
+      "task": "Add End of swim stroke reaction to animations.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 57,
+        "second": 30
       }
     }
   }

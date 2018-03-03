@@ -15,7 +15,7 @@ func _ready():
 
 
 func inter(t):
-	return Smooth.start3(Smooth.stop3(t))
+	return Smooth.swim_stroke(t)
 
 func inter2(t):
 	return Smooth.start6(t)
