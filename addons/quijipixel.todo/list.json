@@ -215,7 +215,8 @@
     "task.234",
     "task.233",
     "task.236",
-    "task.237"
+    "task.237",
+    "task.235"
   ],
   "completed": {
     "task.0": {
@@ -5401,6 +5402,30 @@
         "minute": 6,
         "second": 39
       }
+    },
+    "task.235": {
+      "task": "Improve water movement handling, allowing for slow movement towards fast towards slow.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 15,
+        "minute": 46,
+        "second": 50
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 44,
+        "second": 42
+      }
     }
   },
   "pend_order": [
@@ -5425,7 +5450,7 @@
     "task.209",
     "task.215",
     "task.217",
-    "task.235"
+    "task.238"
   ],
   "pending": {
     "task.134": {
@@ -5722,18 +5747,18 @@
         "second": 55
       }
     },
-    "task.235": {
-      "task": "Improve water movement handling, allowing for slow movement towards fast towards slow.",
-      "type": "Task",
+    "task.238": {
+      "task": "When player is in the limbo between a gravity platform and a water platform, it starts behaving badly because of offset change.(or something)",
+      "type": "Bug",
       "creation_date": {
         "year": 2018,
         "month": 3,
         "day": 3,
         "weekday": 6,
         "dst": true,
-        "hour": 15,
-        "minute": 46,
-        "second": 50
+        "hour": 17,
+        "minute": 8,
+        "second": 13
       }
     }
   }
