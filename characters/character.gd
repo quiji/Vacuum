@@ -59,8 +59,6 @@ func _ready():
 	
 	$sprite.connect("react", self, "_on_animation_reaction")
 
-	#Console.add_log(self, "swim_velocity")
-	Console.add_log(self, "swim_tilt_velocity")
 
 ############
 # Configuration methods
@@ -351,10 +349,11 @@ func _water_behavior(delta):
 	if Input.is_action_just_pressed("jump"):
 		$sprite.play("Swim")
 		swimming = true
-	elif Input.is_action_pressed("jump") and swimming:
+
 		decrease_water_resistance()
+	#elif Input.is_action_pressed("jump") and swimming:
+	#	swim_delta += delta
 	elif Input.is_action_just_released("jump"):
 		increase_water_resistance()
 		swimming = false
-
 

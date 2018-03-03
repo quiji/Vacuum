@@ -14,6 +14,8 @@ const FACING_RIGHT = 1
 const INV_INVERTED = -1
 const INV_NORMAL = 1
 
+const SWIM_STROKE_DURATION = 1.8
+
 enum ControlMode {ROTATION, INVERSION}
 
 
@@ -174,8 +176,7 @@ func set_water_center(center):
 		var dir = (center.global_position - global_position).normalized() 
 		var vel =  clamp(_last_velocity.length(), 90, resistance * 1.5)
 
-		if vel < resistance:
-			_water_resistance_multiplier = 0.7
+		increase_water_resistance()
 
 		swim_velocity = (_last_velocity.normalized() + dir * 1.4).normalized() * vel
 		_water_center = center
@@ -329,6 +330,7 @@ func tilt(direction, tilt_to_45_time, tilt_speed):
 	
 func stop_tilt():
 	_target_normal = null
+	swim_tilt_velocity = Vector2()
 
 func update_normal():
 	global_rotation = (-_normal).angle() - PI/2
@@ -479,6 +481,36 @@ func adjust_normal_towards(new_normal, gravity_center_collision_data):
 	if updated_normal:
 		$ground_raycast.set_normal(new_normal)
 		update_normal() 
+
+############
+# Water methods
+############
+
+func limit_water_movement_on_edges(inner_radius, velocity):
+	var normalized_dist = clamp(position.length_squared() / (inner_radius * inner_radius), 0.0, 1.0)
+
+	var center_direction = position.normalized()
+	var min_speed = 35
+	var min_tilt_speed = 14
+	min_speed *= min_speed
+	min_tilt_speed *= min_tilt_speed
+
+	if center_direction.dot(velocity) >= -0.1 and velocity.length_squared() < min_speed and normalized_dist > 0.5:
+		return velocity.linear_interpolate(Vector2(), Glb.Smooth.water_resistance_on_edges(normalized_dist))
+	return velocity
+
+
+func verify_water_center(with_center=true):
+	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))
+	
+	if with_center:
+		return not water_cast_result.empty() and water_cast_result.collider == _water_center
+	elif not water_cast_result.empty(): 
+		change_center(water_cast_result.collider)
+		return true
+	return false
+
+
 
 ############
 # Virtual methods
@@ -651,16 +683,20 @@ func _water_physics(delta):
 	var swim_tilt_velocity_squared = swim_tilt_velocity.length_squared()
 	var resistance = _water_center.get_water_resistance_scalar()
 
+
 	if _water_resistance_multiplier_target != null:
 		_water_resistance_multiplier = lerp(_water_resistance_multiplier, _water_resistance_multiplier_target, delta)
 
 	if swin_velocity_squared > 25:
 		swim_velocity += swim_velocity.normalized() * resistance * _water_resistance_multiplier * delta
 
+	
 	if swim_tilt_velocity_squared > 6.25:
 		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
+
 	
-	_last_velocity = swim_velocity + swim_tilt_velocity
+
+	_last_velocity = _water_center.report_body(self, swim_velocity + swim_tilt_velocity)
 	move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
 
 	_process_behavior(delta)
@@ -683,35 +719,7 @@ func _water_physics(delta):
 
 	if not verify_water_center():
 		change_center(_open_space)
-	elif _water_center != null:
-		_water_center.report_body(self)
-		# for debugging
-		#space_velocity = Vector2()
 
-func limit_water_movement_on_edges(inner_radius):
-	var normalized_dist = clamp(position.length_squared() / (inner_radius * inner_radius), 0.0, 1.0)
+		
 
-	var center_direction = position.normalized()
-	var min_speed = 35
-	var min_tilt_speed = 5
-	min_speed *= min_speed
-	min_tilt_speed *= min_tilt_speed
-	
-
-	if center_direction.dot(swim_velocity) >= -0.1 and swim_velocity.length_squared() < min_speed and normalized_dist > 0.5:
-		swim_velocity = swim_velocity.linear_interpolate(Vector2(), Glb.Smooth.water_resistance_on_edges(normalized_dist))
-
-	if center_direction.dot(swim_tilt_velocity) >= -0.1 and swim_tilt_velocity.length_squared() < min_tilt_speed and normalized_dist > 0.5:
-		swim_tilt_velocity = swim_tilt_velocity.linear_interpolate(Vector2(), Glb.Smooth.water_resistance_on_edges(normalized_dist))
-
-
-func verify_water_center(with_center=true):
-	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))
-	
-	if with_center:
-		return not water_cast_result.empty() and water_cast_result.collider == _water_center
-	elif not water_cast_result.empty(): 
-		change_center(water_cast_result.collider)
-		return true
-	return false
 

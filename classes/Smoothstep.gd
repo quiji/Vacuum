@@ -54,5 +54,5 @@ static func water_resistance_on_edges(t):
 
 
 static func test(t):
-	return scale(t, start6(t))
+	return arch(t, 4)
 

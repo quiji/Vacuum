@@ -214,7 +214,8 @@
     "task.231",
     "task.234",
     "task.233",
-    "task.236"
+    "task.236",
+    "task.237"
   ],
   "completed": {
     "task.0": {
@@ -5375,6 +5376,30 @@
         "hour": 15,
         "minute": 53,
         "second": 49
+      }
+    },
+    "task.237": {
+      "task": "Avoid player from coming out of water platform from the other side if velocity is too high.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 1,
+        "second": 45
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 6,
+        "second": 39
       }
     }
   },

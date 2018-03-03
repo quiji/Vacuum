@@ -10,6 +10,7 @@ const WATER_NORMAL_WAVE_SPEED = 1.8
 const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
 const WATER_INNER_RADIUS = 0.86
+const WATER_RADIUS_LIMIT = 0.85
 
 export (float) var radius = 120 setget set_radius,get_radius
 
@@ -108,10 +109,10 @@ func set_wave_speed(speedo):
 	if wave_speed < speedo:
 		wave_speed = speedo
 
-func report_body(body):
+func report_body(body, velocity):
 	if body.has_method("limit_water_movement_on_edges"):
-		body.limit_water_movement_on_edges(radius * WATER_INNER_RADIUS)
-		
+		return body.limit_water_movement_on_edges(radius * WATER_RADIUS_LIMIT, velocity)
+	return velocity
 	
 
 var total_t = -1499990.0
