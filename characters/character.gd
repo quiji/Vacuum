@@ -107,11 +107,13 @@ func _on_animation_reaction(action):
 ############
 
 var target_pivot = null
-var current_pivot = null
+var start_pivot = null
+var pivot_t = 0
 func transition_pivot(from, to):
 	halt_physics = true
 	target_pivot = to
-	current_pivot = from
+	start_pivot = from
+	pivot_t = 0
 	
 
 ############
@@ -166,9 +168,9 @@ func end_rolling():
 func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
 	
-	transition_pivot(Vector2(), Vector2(0,25))
+	transition_pivot(0, 25)
 	
-	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
+	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
 
 func entered_space(center):
 	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
@@ -178,21 +180,37 @@ func entered_gravity_platform(center):
 
 
 func left_water():
-	transition_pivot(Vector2(0,25), Vector2())
+	transition_pivot(25, 0)
 
 
 func little_physics_proces(delta):
 
 	if target_pivot != null:
-		var percentage = 0.02 / delta
-		current_pivot = current_pivot.linear_interpolate(target_pivot, 1 / percentage)
-		$sprite.position = old_sprite_pos + current_pivot
-		$collision.position = old_shape_pos + current_pivot
-		position += _last_velocity.normalized() * 1.5 * delta
-
-		if (current_pivot - target_pivot).length_squared() < 1:
+		var entering_water = target_pivot - start_pivot > 0
+		pivot_t += delta / 0.5
+		
+		var current_pivot =  0 
+		var current_position = 0
+		if entering_water:
+			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in_pivot(pivot_t))
+			current_position = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.test(pivot_t))
+		else:
+			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_out(pivot_t))
+			current_position = current_pivot
+		$sprite.position = old_sprite_pos + Vector2(0, 1) * current_pivot
+		$collision.position = old_shape_pos + Vector2(0, 1) * current_pivot
+		
+		if entering_water:
+			global_position += _last_velocity.normalized() * current_pivot * 4 * delta
+		else:
+			global_position += _last_velocity.normalized() * current_pivot * 4 * delta
+		if pivot_t > 1:
 			target_pivot = null
 			halt_physics = false
+			pivot_t = 0
+			if entering_water:
+				Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
+
 
 
 func _process_behavior(delta):

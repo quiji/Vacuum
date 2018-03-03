@@ -12,7 +12,7 @@ light_mode = 2
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 120.0
+radius = 100.8
 
 [sub_resource type="Shader" id=3]
 
@@ -112,7 +112,7 @@ void fragment() {
 
 render_priority = 0
 shader = SubResource( 5 )
-shader_param/delta = -1.49924e+06
+shader_param/delta = -1.49999e+06
 shader_param/radius = null
 shader_param/frequency = 30.0
 shader_param/depth = 0.004
@@ -134,7 +134,6 @@ radius = 120
 
 [node name="collision" type="CollisionShape2D" parent="." index="0"]
 
-visible = false
 shape = SubResource( 2 )
 
 [node name="bkg" parent="." index="1" instance=ExtResource( 2 )]

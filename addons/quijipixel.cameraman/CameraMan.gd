@@ -103,7 +103,7 @@ func normal_shift(request_from, new_normal, new_target_normal, rotation_mode):
 		var _normal = new_normal
 		if new_target_normal != null:
 			_normal = new_target_normal
-		var target = VectorLib.snap_to(_normal, VectorLib.POLY4)
+		var target = Glb.VectorLib.snap_to(_normal, Glb.VectorLib.POLY4)
 		#if normal.dot(target) <= 0.2:
 		target_normal = target
 	

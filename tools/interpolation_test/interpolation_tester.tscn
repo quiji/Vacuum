@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tools/interpolation_test/interpolation_tester.gd" type="Script" id=1]
+[ext_resource path="res://tools/interpolation_test/interpolator.tscn" type="PackedScene" id=2]
+
+[node name="interpolation_tester" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="interpolator" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 18, 256 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="interpolator3" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 264, 256 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="interpolator2" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 141, 256 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="interpolator4" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 387, 256 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="interpolator5" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 510, 256 )
+_sections_unfolded = [ "Transform" ]
+
+
