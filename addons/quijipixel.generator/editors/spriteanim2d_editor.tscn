@@ -871,7 +871,7 @@ group = null
 text = "No Reaction"
 flat = false
 align = 0
-items = [ "No Reaction", null, false, 0, null, "Step", null, false, 1, null, "SwimStroke", null, false, 2, null ]
+items = [ "No Reaction", null, false, 0, null, "Step", null, false, 1, null, "SwimStroke", null, false, 2, null, "EndSwimStroke", null, false, 3, null ]
 selected = 0
 
 [node name="param" type="LineEdit" parent="panel/margins/container/animation_toolbar/frame_form" index="1"]

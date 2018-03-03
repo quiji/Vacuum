@@ -3,7 +3,7 @@ extends Node
 const VectorLib = preload("res://classes/VectorLib.gd")
 const Smooth = preload("res://classes/Smoothstep.gd")
 
-enum ReactTypes {NO_REACTION, REACT_STEP, REACT_SWIMSTROKE}
+enum ReactTypes {NO_REACTION, REACT_STEP, REACT_SWIMSTROKE, REACT_ENDSWIMSTROKE}
 
 var _collision_layer_bits = {}
 var _current_camera_man = null

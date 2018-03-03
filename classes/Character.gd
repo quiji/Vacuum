@@ -350,11 +350,11 @@ func add_swim_impulse(swim_impulse_scalar):
 			_target_swim_velocity_scalar  = swim_impulse_scalar
 			started_stroke = false
 		else:
-			_target_swim_velocity_scalar  = swim_impulse_scalar / 2
+			_target_swim_velocity_scalar  = swim_impulse_scalar / 1.5
 		_water_center.child_movement(position)
 
 func increase_water_resistance():
-	_water_resistance_multiplier_target = 2.8
+	#_water_resistance_multiplier_target = 2.8
 	_target_swim_velocity_scalar = null
 	started_stroke = false
 	
