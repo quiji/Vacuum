@@ -522,7 +522,11 @@ func verify_water_center(with_center=true):
 		return true
 	return false
 
+func check_for_water_arrival(global_water_pos, radius):
+	var direction = (global_water_pos - global_position).normalized()
 
+	if direction.dot(_last_velocity.normalized()) < 0.1:
+		Console.count("about")
 
 ############
 # Virtual methods

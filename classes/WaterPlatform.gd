@@ -101,7 +101,8 @@ func get_water_resistance_squared_scalar():
 
 func on_body_in(body):
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
-
+	if body.has_method("set_water_center"):
+		body.check_for_water_arrival(global_position, radius)
 
 func on_body_out(body):
 	

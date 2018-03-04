@@ -222,7 +222,8 @@
     "task.193",
     "task.241",
     "task.242",
-    "task.243"
+    "task.243",
+    "task.245"
   ],
   "completed": {
     "task.0": {
@@ -5575,6 +5576,30 @@
         "hour": 11,
         "minute": 23,
         "second": 53
+      }
+    },
+    "task.245": {
+      "task": "Include a restart feature to Console.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 33,
+        "second": 10
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 38,
+        "second": 51
       }
     }
   },
