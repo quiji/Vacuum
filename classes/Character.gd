@@ -257,6 +257,7 @@ func is_falling():
 	
 func is_on_ground():
 	return _on_ground or _loosed_ground_delta < 0.025
+	
 
 func is_moving():
 	return _moving
@@ -518,11 +519,16 @@ func limit_water_movement_on_edges(inner_radius, velocity):
 func verify_water_center(with_center=true):
 	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))
 	
+	
+
 	if with_center:
 		return not water_cast_result.empty() and water_cast_result.collider == _water_center
 	elif not water_cast_result.empty() and not is_on_ground(): 
 		change_center(water_cast_result.collider)
 		return true
+	elif not water_cast_result.empty():
+		slow_down()
+
 	return false
 
 var water_arrival_normal = null
@@ -539,6 +545,12 @@ func failed_water_arrival():
 ############
 # Virtual methods
 ############
+
+func slow_down():
+	pass
+
+func restore_speed():
+	pass
 
 func normal_shift_notice(normal, target_normal):
 	pass
@@ -631,8 +643,9 @@ func _gravity_physics(delta):
 			collision_normal = ground_cast_result.normal
 			_on_ground = true
 			_falling = false
-			_prev_altitude_velocity_scalar = 0
-			_altitude_velocity_scalar = 0
+			if on_small_platform:
+				_prev_altitude_velocity_scalar = 0
+				_altitude_velocity_scalar = 0
 
 			reached_ground(_gravity_center)
 			if not _moving:

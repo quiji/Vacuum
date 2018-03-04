@@ -228,7 +228,8 @@
     "task.249",
     "task.246",
     "task.247",
-    "task.251"
+    "task.251",
+    "task.252"
   ],
   "completed": {
     "task.0": {
@@ -5725,6 +5726,30 @@
         "hour": 12,
         "minute": 47,
         "second": 39
+      }
+    },
+    "task.252": {
+      "task": "When character rotates and microfalls the running animation is reset.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 54,
+        "second": 46
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 1,
+        "second": 3
       }
     }
   },

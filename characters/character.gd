@@ -223,6 +223,11 @@ func little_physics_process(delta):
 				Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
 
 
+func slow_down():
+	$sprite/anim_player.playback_speed = 0.5
+
+func restore_speed():
+	$sprite/anim_player.playback_speed = 1
 
 func _process_behavior(delta):
 
