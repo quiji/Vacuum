@@ -184,6 +184,7 @@ func get_water_center():
 
 func set_water_center(center):
 	if center != null:
+		restore_speed()
 		var resistance = abs(center.get_water_resistance_scalar())
 		var vel =  clamp(_last_velocity.length(), 90, resistance * 1.5)
 
@@ -537,8 +538,10 @@ func verify_water_center(with_center=true):
 	elif not water_cast_result.empty() and not is_on_ground(): 
 		change_center(water_cast_result.collider)
 		return true
-	#elif not water_cast_result.empty():
-	#	slow_down()
+	elif not water_cast_result.empty():
+		slow_down()
+	else:
+		restore_speed()
 
 	return false
 

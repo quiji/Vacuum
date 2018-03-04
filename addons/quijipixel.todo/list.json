@@ -231,7 +231,8 @@
     "task.251",
     "task.252",
     "task.253",
-    "task.255"
+    "task.255",
+    "task.250"
   ],
   "completed": {
     "task.0": {
@@ -5801,6 +5802,30 @@
         "minute": 13,
         "second": 24
       }
+    },
+    "task.250": {
+      "task": "Add slower running when on water.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 36,
+        "second": 57
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 18,
+        "minute": 20,
+        "second": 35
+      }
     }
   },
   "pend_order": [
@@ -5826,7 +5851,6 @@
     "task.217",
     "task.238",
     "task.248",
-    "task.250",
     "task.254"
   ],
   "pending": {
@@ -6136,20 +6160,6 @@
         "hour": 11,
         "minute": 57,
         "second": 3
-      }
-    },
-    "task.250": {
-      "task": "Add slower running when on water.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 12,
-        "minute": 36,
-        "second": 57
       }
     },
     "task.254": {
