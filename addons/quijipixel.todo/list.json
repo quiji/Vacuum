@@ -221,7 +221,8 @@
     "task.239",
     "task.193",
     "task.241",
-    "task.242"
+    "task.242",
+    "task.243"
   ],
   "completed": {
     "task.0": {
@@ -5551,6 +5552,30 @@
         "minute": 43,
         "second": 36
       }
+    },
+    "task.243": {
+      "task": "Improve swimming mechanic, make it smoother.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 10,
+        "minute": 46,
+        "second": 23
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 23,
+        "second": 53
+      }
     }
   },
   "pend_order": [
@@ -5574,7 +5599,8 @@
     "task.209",
     "task.215",
     "task.217",
-    "task.238"
+    "task.238",
+    "task.244"
   ],
   "pending": {
     "task.134": {
@@ -5869,6 +5895,20 @@
         "hour": 17,
         "minute": 8,
         "second": 13
+      }
+    },
+    "task.244": {
+      "task": "try to rotate character before entering water platform to make it look better.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 10,
+        "minute": 46,
+        "second": 41
       }
     }
   }

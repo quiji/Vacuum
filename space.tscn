@@ -96,39 +96,45 @@ position = Vector2( 643.34, -78.64 )
 rotation = 1.5708
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
 
-[node name="polygon" parent="playground" index="9" instance=ExtResource( 11 )]
+[node name="random_rectangle2" parent="playground" index="9" instance=ExtResource( 10 )]
+
+position = Vector2( 583.34, 147.36 )
+rotation = 1.30635
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
+
+[node name="polygon" parent="playground" index="10" instance=ExtResource( 11 )]
 
 position = Vector2( -214.227, 314.613 )
 rotation = 1.45034
 
-[node name="small_platform" parent="playground" index="10" instance=ExtResource( 12 )]
+[node name="small_platform" parent="playground" index="11" instance=ExtResource( 12 )]
 
 position = Vector2( 638, -160 )
 
-[node name="small_platform2" parent="playground" index="11" instance=ExtResource( 12 )]
+[node name="small_platform2" parent="playground" index="12" instance=ExtResource( 12 )]
 
 position = Vector2( 724, -2 )
 
-[node name="test" parent="playground" index="12" instance=ExtResource( 13 )]
+[node name="test" parent="playground" index="13" instance=ExtResource( 13 )]
 
 position = Vector2( 1030, 210 )
 _sections_unfolded = [ "Angular", "Collision", "Linear" ]
 
-[node name="test2" parent="playground" index="13" instance=ExtResource( 13 )]
+[node name="test2" parent="playground" index="14" instance=ExtResource( 13 )]
 
 position = Vector2( 1012, 372 )
 rotation = -1.78391
 _sections_unfolded = [ "Angular", "Collision", "Linear" ]
 
-[node name="water_platform" parent="playground" index="14" instance=ExtResource( 14 )]
+[node name="water_platform" parent="playground" index="15" instance=ExtResource( 14 )]
 
 position = Vector2( 60, -112 )
 
-[node name="water_platform2" parent="playground" index="15" instance=ExtResource( 14 )]
+[node name="water_platform2" parent="playground" index="16" instance=ExtResource( 14 )]
 
 position = Vector2( 332, -424 )
 
-[node name="water_platform3" parent="playground" index="16" instance=ExtResource( 14 )]
+[node name="water_platform3" parent="playground" index="17" instance=ExtResource( 14 )]
 
 position = Vector2( -100, 672 )
 

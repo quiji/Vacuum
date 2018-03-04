@@ -14,7 +14,8 @@ const FACING_RIGHT = 1
 const INV_INVERTED = -1
 const INV_NORMAL = 1
 
-const SWIM_STROKE_DURATION = 0.5
+#const SWIM_STROKE_DURATION = 0.5
+const SWIM_STROKE_DURATION = 0.6
 
 enum ControlMode {ROTATION, INVERSION}
 
@@ -179,8 +180,6 @@ func set_water_center(center):
 	if center != null:
 		var resistance = abs(center.get_water_resistance_scalar())
 		var vel =  clamp(_last_velocity.length(), 90, resistance * 1.5)
-
-		increase_water_resistance()
 
 		_water_center = center
 		
@@ -350,13 +349,9 @@ var record_pos = Vector2()
 func add_swim_impulse(swim_impulse_scalar):
 
 	if _water_center != null:
-		if started_stroke:
-			swim_stroke_step = 0.0
-			_target_swim_velocity_scalar  = swim_impulse_scalar
-			started_stroke = false
-		else:
-			swim_stroke_step = 0.4
-			_target_swim_velocity_scalar  = swim_impulse_scalar * 0.5
+
+		swim_stroke_step = 0.0
+		_target_swim_velocity_scalar  = swim_impulse_scalar
 		record_pos = position
 		_water_center.child_movement(position)
 
@@ -365,14 +360,11 @@ func increase_water_resistance():
 		var diff = _target_swim_velocity_scalar - _swim_velocity_scalar
 		if diff > 0:
 			var done = _swim_velocity_scalar / _target_swim_velocity_scalar
-			_target_swim_velocity_scalar -= diff * 0.6 *(1 - done)
-
-	started_stroke = false
+			_target_swim_velocity_scalar -= diff * lerp(0, 1, Glb.Smooth.water_resistance(done))
 
 
-var started_stroke = false
 func decrease_water_resistance():
-	started_stroke = true
+	pass
 
 ############
 # Helper methods
