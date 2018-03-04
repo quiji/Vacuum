@@ -22,6 +22,7 @@ func _ready():
 	add_command("properties", self, "_list_properties", "List the properties of the $<name> node passed as argument")
 	add_command(".", self, "_execute", "$<name>.<property> to show content, $<name>.<property> <type:f/i/s> <new_value> to assign or $<name>.<method> <argument1> <argument2> to execute.")
 	add_command("log", self, "_activate_log", "Activate/deactivate by running log on/off")
+	add_command("reboot", self, "_reboot", "Restart current scene")
 	
 func _input(delta):
 	if Input.is_action_just_pressed("toggle_console"):
@@ -259,3 +260,9 @@ func _activate_log(args):
 	else:
 		set_visual_log(false)
 		out.info("Finished logging.")
+
+func _reboot(args):
+	out.info("Rebooting scene...")
+	set_physics_process(false)
+	get_tree().reload_current_scene()
+

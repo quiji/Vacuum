@@ -221,7 +221,15 @@
     "task.239",
     "task.193",
     "task.241",
-    "task.242"
+    "task.242",
+    "task.243",
+    "task.245",
+    "task.244",
+    "task.249",
+    "task.246",
+    "task.247",
+    "task.251",
+    "task.252"
   ],
   "completed": {
     "task.0": {
@@ -5551,6 +5559,198 @@
         "minute": 43,
         "second": 36
       }
+    },
+    "task.243": {
+      "task": "Improve swimming mechanic, make it smoother.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 10,
+        "minute": 46,
+        "second": 23
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 23,
+        "second": 53
+      }
+    },
+    "task.245": {
+      "task": "Include a restart feature to Console.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 33,
+        "second": 10
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 38,
+        "second": 51
+      }
+    },
+    "task.244": {
+      "task": "try to rotate character before entering water platform to make it look better.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 10,
+        "minute": 46,
+        "second": 41
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 3,
+        "second": 11
+      }
+    },
+    "task.249": {
+      "task": "Avoid player rotation when entering through walking (Try a way to make it feel better)",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 3,
+        "second": 42
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 36,
+        "second": 23
+      }
+    },
+    "task.246": {
+      "task": "Can stand on edges of water platforms.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 51,
+        "second": 37
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 37,
+        "second": 39
+      }
+    },
+    "task.247": {
+      "task": "Player walks in air when changing mid air direction.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 56,
+        "second": 24
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 40,
+        "second": 59
+      }
+    },
+    "task.251": {
+      "task": "Character doesn't fall from edges of small platforms sometimes.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 41,
+        "second": 32
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 47,
+        "second": 39
+      }
+    },
+    "task.252": {
+      "task": "When character rotates and microfalls the running animation is reset.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 54,
+        "second": 46
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 1,
+        "second": 3
+      }
     }
   },
   "pend_order": [
@@ -5574,7 +5774,11 @@
     "task.209",
     "task.215",
     "task.217",
-    "task.238"
+    "task.238",
+    "task.248",
+    "task.250",
+    "task.253",
+    "task.254"
   ],
   "pending": {
     "task.134": {
@@ -5869,6 +6073,62 @@
         "hour": 17,
         "minute": 8,
         "second": 13
+      }
+    },
+    "task.248": {
+      "task": "Sometimes when arriving from water platform to a gravity one, the character enters the body and then rotates looking annoyingly wrong.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 57,
+        "second": 3
+      }
+    },
+    "task.250": {
+      "task": "Add slower running when on water.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 36,
+        "second": 57
+      }
+    },
+    "task.253": {
+      "task": "Implement movement by step rather than continous.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 6,
+        "second": 31
+      }
+    },
+    "task.254": {
+      "task": "Implement arriving to a gravity center inside of a water platform.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 8,
+        "second": 24
       }
     }
   }

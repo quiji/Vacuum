@@ -112,7 +112,7 @@ void fragment() {
 
 render_priority = 0
 shader = SubResource( 5 )
-shader_param/delta = -1.49999e+06
+shader_param/delta = -1.4999e+06
 shader_param/radius = null
 shader_param/frequency = 30.0
 shader_param/depth = 0.004
@@ -126,7 +126,7 @@ _sections_unfolded = [ "Resource", "shader_param" ]
 custom_solver_bias = 0.0
 radius = 120.0
 
-[node name="water_platform" type="KinematicBody2D"]
+[node name="water_platform" type="KinematicBody2D" index="0"]
 
 material = SubResource( 1 )
 input_pickable = false
@@ -187,8 +187,11 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="collision" type="CollisionShape2D" parent="water_reaction_area" index="0"]
 

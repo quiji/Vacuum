@@ -401,7 +401,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.06, 0.12, 0.185, 0.255, 0.33, 0.41, 0.475, 0.56, 0.63, 0.68, 0.76, 0.84, 0.92, 1, 1.08, 1.16, 1.24, 1.32 ),
 "transitions": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "update": 0,
-"values": [ 60.0, 61.0, 62.0, 63.0, 64.0, 65.0, 66.0, 67.0, 68.0, 69, 70.0, 71.0, 72.0, 73.0, 74.0, 75.0, 76.0, 77.0, 78.0 ]
+"values": [ 60, 61.0, 62, 63.0, 64.0, 65.0, 66.0, 67.0, 68.0, 69.0, 70.0, 71.0, 72.0, 73.0, 74.0, 75.0, 76.0, 77.0, 78.0 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -410,7 +410,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.12, 0.63 ),
+"times": PoolRealArray( 0, 0.63 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ 2 ],

@@ -46,7 +46,6 @@ static func water_out(t):
 static func water_entrance_rotation(t):
 	return cross(t, stop2(t), flip(arch(t, 2.8)))
 
-	
 static func water_in_pivot(t):
 	return cross(t, start3(stop3(t)), stop3(start3(t)))
 
@@ -57,9 +56,13 @@ static func water_resistance_on_edges(t):
 	return scale(t, start6(t))
 
 static func swim_stroke(t):
-	return stop6(start5(t))
-	return cross(t, stop6(start5(t)), start5(stop6(t)))
+	return stop6(start4(t))
+
+static func water_resistance(t):
+	return clamp(flip(cross(t, start2(t), start6(t))), 0, 0.7)
 
 static func test(t):
-	return arch(t, 4)
+	return cross(t, start2(t), start6(t))
+
+#	return arch(t, 4)
 

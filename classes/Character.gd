@@ -14,7 +14,8 @@ const FACING_RIGHT = 1
 const INV_INVERTED = -1
 const INV_NORMAL = 1
 
-const SWIM_STROKE_DURATION = 0.5
+#const SWIM_STROKE_DURATION = 0.5
+const SWIM_STROKE_DURATION = 0.6
 
 enum ControlMode {ROTATION, INVERSION}
 
@@ -33,6 +34,8 @@ var _swim_velocity_scalar = 0.0
 var _last_velocity = Vector2()
 var swim_velocity = Vector2()
 var space_velocity = Vector2()
+
+var move_speed_reducer = 0
 
 ######## Slope related #########
 
@@ -180,9 +183,8 @@ func set_water_center(center):
 		var resistance = abs(center.get_water_resistance_scalar())
 		var vel =  clamp(_last_velocity.length(), 90, resistance * 1.5)
 
-		increase_water_resistance()
-
 		_water_center = center
+		water_arrival_normal = null
 		
 		var pos = global_position
 		get_parent().remove_child(self)
@@ -191,8 +193,8 @@ func set_water_center(center):
 		_water_center.move_child(self, _water_center.get_tree_pos())
 
 		global_position = pos
-		
-		swim_velocity = -position.normalized() * vel
+		if not is_on_ground():
+			swim_velocity = -position.normalized() * vel
 
 	
 		entered_water(_water_center)
@@ -257,6 +259,7 @@ func is_falling():
 	
 func is_on_ground():
 	return _on_ground or _loosed_ground_delta < 0.025
+	
 
 func is_moving():
 	return _moving
@@ -350,13 +353,9 @@ var record_pos = Vector2()
 func add_swim_impulse(swim_impulse_scalar):
 
 	if _water_center != null:
-		if started_stroke:
-			swim_stroke_step = 0.0
-			_target_swim_velocity_scalar  = swim_impulse_scalar
-			started_stroke = false
-		else:
-			swim_stroke_step = 0.4
-			_target_swim_velocity_scalar  = swim_impulse_scalar * 0.5
+
+		swim_stroke_step = 0.0
+		_target_swim_velocity_scalar  = swim_impulse_scalar
 		record_pos = position
 		_water_center.child_movement(position)
 
@@ -365,14 +364,7 @@ func increase_water_resistance():
 		var diff = _target_swim_velocity_scalar - _swim_velocity_scalar
 		if diff > 0:
 			var done = _swim_velocity_scalar / _target_swim_velocity_scalar
-			_target_swim_velocity_scalar -= diff * 0.6 *(1 - done)
-
-	started_stroke = false
-
-
-var started_stroke = false
-func decrease_water_resistance():
-	started_stroke = true
+			_target_swim_velocity_scalar -= diff * lerp(0, 1, Glb.Smooth.water_resistance(done))
 
 ############
 # Helper methods
@@ -395,9 +387,6 @@ func interpolate_normal_towards(inter_type, val=null, acc=0.1):
 
 func verify_gravity_center_change(collision_info):
 	
-	if verify_water_center(false):
-		return null
-
 	if collision_info != null:
 		var collider = collision_info.collider
 		if  collider.has_method("get_gravity_from_center") and get_parent() != collider:
@@ -423,7 +412,7 @@ func check_ground_reach(collision_info, changed_center):
 			Console.add_log("collided", "COLLIDED!")
 
 	if on_small_platform or (collision_info != null and (_falling or changed_center != null ) ):
-
+		_prev_altitude_velocity_scalar = 0
 		_altitude_velocity_scalar = 0
 		_falling = false
 		_attempting_jump = false
@@ -440,7 +429,12 @@ func adjust_normal_towards(new_normal, gravity_center_collision_data):
 	if gravity_center_collision_data != null:
 		new_normal = get_gravity_data().normal
 
-	if _target_normal != null:
+	if water_arrival_normal != null:
+		interpolate_normal_towards(TOWARDS_NEW_VALUE, water_arrival_normal)
+		if water_arrival_normal.dot(_normal) > 0.9:
+			water_arrival_normal = null
+		updated_normal = true
+	elif _target_normal != null:
 		# If _normal is close enough (less than 45 degrees) to target
 		if _target_normal.dot(_normal) > 0.5:
 			# Interpolate towards target one last time and remove target.
@@ -527,18 +521,37 @@ func limit_water_movement_on_edges(inner_radius, velocity):
 func verify_water_center(with_center=true):
 	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))
 	
+	
 	if with_center:
 		return not water_cast_result.empty() and water_cast_result.collider == _water_center
-	elif not water_cast_result.empty(): 
+	elif not water_cast_result.empty() and not is_on_ground(): 
 		change_center(water_cast_result.collider)
 		return true
+	#elif not water_cast_result.empty():
+	#	slow_down()
+
 	return false
 
+var water_arrival_normal = null
+func check_for_water_arrival(global_water_pos, radius):
+	var direction = (global_water_pos - global_position).normalized()
+	
+	if direction.dot(_last_velocity.normalized()) > 0 and not _on_ground:
+		water_arrival_normal = direction
 
+
+func failed_water_arrival():
+	water_arrival_normal = null
 
 ############
 # Virtual methods
 ############
+
+func slow_down():
+	pass
+
+func restore_speed():
+	pass
 
 func normal_shift_notice(normal, target_normal):
 	pass
@@ -603,10 +616,11 @@ func _physics_process(delta):
 				
 	
 				var collision_data = move_and_collide(motion)
-				var changed_center = verify_gravity_center_change(collision_data)
+				if not verify_water_center(false):
+					var changed_center = verify_gravity_center_change(collision_data)
 				
-				if check_ground_reach(collision_data, changed_center):
-					adjust_normal_towards(get_gravity_data().normal, changed_center)
+					if check_ground_reach(collision_data, changed_center):
+						adjust_normal_towards(get_gravity_data().normal, changed_center)
 			else:
 				_last_velocity = Vector2()
 
@@ -630,6 +644,10 @@ func _gravity_physics(delta):
 			collision_normal = ground_cast_result.normal
 			_on_ground = true
 			_falling = false
+			if on_small_platform:
+				_prev_altitude_velocity_scalar = 0
+				_altitude_velocity_scalar = 0
+
 			reached_ground(_gravity_center)
 			if not _moving:
 				_target_move_velocity_scalar = 0
@@ -687,7 +705,8 @@ func _gravity_physics(delta):
 		_last_velocity = Vector2()
 
 	var changed_center = false
-	changed_center = verify_gravity_center_change(collision_info)
+	if not verify_water_center(false):
+		changed_center = verify_gravity_center_change(collision_info)
 
 	if _gravity_center != null:
 		check_ground_reach(collision_info, changed_center)
@@ -730,6 +749,16 @@ func _water_physics(delta):
 	_last_velocity = _water_center.report_body(self, swim_velocity + swim_tilt_velocity)
 	move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
 
+	"""
+	var collision_info = move_and_collide(_last_velocity * delta)
+	var reached_ground = verify_gravity_center_change(collision_info)
+
+	if reached_ground:
+		if check_ground_reach(collision_info, reached_ground):
+			adjust_normal_towards(get_gravity_data().normal, reached_ground)
+
+	else:
+	"""
 	_process_behavior(delta)
 
 	# percentage from total lerp
