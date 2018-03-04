@@ -674,6 +674,8 @@ func _gravity_physics(delta):
 	if step_duration > 0:
 		step_t = step_delta / step_duration
 	
+		Console.add_log("_move_velocity_scalar", _move_velocity_scalar)
+	
 		_move_velocity_scalar = lerp(0, _target_move_velocity_scalar, Glb.Smooth.run_step(step_t))
 	
 	#_move_velocity_scalar = lerp(_move_velocity_scalar, _target_move_velocity_scalar, 0.1)
