@@ -75,7 +75,8 @@ var _invertor = FACING_RIGHT
 
 ######## Deltas #########
 var _loosed_ground_delta = 0
-
+var step_delta = 0
+var step_duration = 0
 
 ######## States #########
 var _on_ground = false
@@ -83,6 +84,7 @@ var _falling = true
 var _moving = false
 var _attempting_jump = false
 var _rolling = false
+var _step = false
 var halt_physics = false
 
 ######## Configuration #########
@@ -151,6 +153,8 @@ func set_facing(direction):
 func get_facing():
 	return _facing
 
+func set_step_duration(duration):
+	step_duration = duration
 
 func set_gravity_center(center):
 	if center != null:
@@ -313,10 +317,14 @@ func move(velocity, new_facing=null):
 	
 	if new_facing != null:
 		set_facing(new_facing)
-	
-	_target_move_velocity_scalar = velocity * _facing * _invertor
-	_moving = true
+	#_target_move_velocity_scalar = velocity * _facing * _invertor
+	if not _moving:
+		add_step_impulse(velocity)
+		_moving = true
 
+func add_step_impulse(step_velocity):
+	step_delta = step_duration
+	_target_move_velocity_scalar = step_velocity * _facing * _invertor
 
 func stop(keep=true):
 	if not keep:
@@ -341,7 +349,6 @@ func tilt(direction, tilt_to_45_time, tilt_speed):
 	
 func stop_tilt():
 	_target_normal = null
-	#swim_tilt_velocity = Vector2()
 
 func update_normal():
 	global_rotation = (-_normal).angle() - PI/2
@@ -349,14 +356,12 @@ func update_normal():
 	normal_shift_notice(_normal, $ground_raycast.get_normal())
 
 
-var record_pos = Vector2()
 func add_swim_impulse(swim_impulse_scalar):
 
 	if _water_center != null:
 
 		swim_stroke_step = 0.0
 		_target_swim_velocity_scalar  = swim_impulse_scalar
-		record_pos = position
 		_water_center.child_movement(position)
 
 func increase_water_resistance():
@@ -662,8 +667,17 @@ func _gravity_physics(delta):
 	var altitude_velocity = Vector2()
 	var environment_velocity = Vector2()
 
-
-	_move_velocity_scalar = lerp(_move_velocity_scalar, _target_move_velocity_scalar, 0.1)
+	if step_delta > 0:
+		step_delta -= delta
+	
+	var step_t = 0
+	if step_duration > 0:
+		step_t = step_delta / step_duration
+	
+		_move_velocity_scalar = lerp(0, _target_move_velocity_scalar, Glb.Smooth.run_step(step_t))
+	
+	#_move_velocity_scalar = lerp(_move_velocity_scalar, _target_move_velocity_scalar, 0.1)
+	
 	# We use the right perpendicular to the normal because the direction is in _move_velocity_scalar
 	
 	move_velocity = (-normal).tangent() * _move_velocity_scalar
@@ -732,7 +746,6 @@ func _water_physics(delta):
 		swim_velocity = (swim_velocity * 0.8 + _normal * _swim_velocity_scalar).clamped(_target_swim_velocity_scalar * 1.02)
 		if swim_stroke_step > 1:
 			_target_swim_velocity_scalar = null
-			Console.add_log("record", (record_pos - position).length())
 
 	var swin_velocity_squared = swim_velocity.length_squared()
 	var swim_tilt_velocity_squared = swim_tilt_velocity.length_squared()

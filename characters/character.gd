@@ -52,6 +52,8 @@ func _ready():
 	# Maybe this goes in the platform? we can play with platforms with different values
 	set_slope_stop_min_vel(slope_stop_min_velocity)
 
+	set_step_duration(0.46)
+
 	old_sprite_pos = $sprite.position
 	old_shape_pos = $collision.position
 	
@@ -95,7 +97,7 @@ func _on_animation_reaction(action):
 
 	match action:
 		Glb.REACT_STEP:
-			pass
+			add_step_impulse(run_velocity)
 		Glb.REACT_SWIMSTROKE: 
 			add_swim_impulse(swim_impulse_scalar)
 		Glb.REACT_ENDSWIMSTROKE: 

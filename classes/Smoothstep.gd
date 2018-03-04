@@ -61,6 +61,9 @@ static func swim_stroke(t):
 static func water_resistance(t):
 	return clamp(flip(cross(t, start2(t), start6(t))), 0, 0.7)
 
+static func run_step(t):
+	return arch(t, 1.5) + 0.66
+
 static func test(t):
 	return cross(t, start2(t), start6(t))
 
