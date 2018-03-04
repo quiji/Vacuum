@@ -29,8 +29,6 @@ var smash_jumping = false
 var smash_jump_start_point
 
 
-var swimming = false
-
 ######## Control schemes #########
 var camera_rotation = 0
 
@@ -357,12 +355,7 @@ func _water_behavior(delta):
 
 	if Input.is_action_just_pressed("jump"):
 		$sprite.play("Swim")
-		swimming = true
-
-		decrease_water_resistance()
-	#elif Input.is_action_pressed("jump") and swimming:
-	#	swim_delta += delta
 	elif Input.is_action_just_released("jump"):
 		increase_water_resistance()
-		swimming = false
+
 

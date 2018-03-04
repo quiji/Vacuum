@@ -362,10 +362,6 @@ func increase_water_resistance():
 			var done = _swim_velocity_scalar / _target_swim_velocity_scalar
 			_target_swim_velocity_scalar -= diff * lerp(0, 1, Glb.Smooth.water_resistance(done))
 
-
-func decrease_water_resistance():
-	pass
-
 ############
 # Helper methods
 ############
