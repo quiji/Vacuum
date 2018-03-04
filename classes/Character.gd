@@ -409,7 +409,7 @@ func check_ground_reach(collision_info, changed_center):
 			Console.add_log("collided", "COLLIDED!")
 
 	if on_small_platform or (collision_info != null and (_falling or changed_center != null ) ):
-
+		_prev_altitude_velocity_scalar = 0
 		_altitude_velocity_scalar = 0
 		_falling = false
 		_attempting_jump = false
@@ -631,6 +631,9 @@ func _gravity_physics(delta):
 			collision_normal = ground_cast_result.normal
 			_on_ground = true
 			_falling = false
+			_prev_altitude_velocity_scalar = 0
+			_altitude_velocity_scalar = 0
+
 			reached_ground(_gravity_center)
 			if not _moving:
 				_target_move_velocity_scalar = 0

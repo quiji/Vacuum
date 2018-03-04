@@ -226,7 +226,9 @@
     "task.245",
     "task.244",
     "task.249",
-    "task.246"
+    "task.246",
+    "task.247",
+    "task.251"
   ],
   "completed": {
     "task.0": {
@@ -5676,6 +5678,54 @@
         "minute": 37,
         "second": 39
       }
+    },
+    "task.247": {
+      "task": "Player walks in air when changing mid air direction.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 56,
+        "second": 24
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 40,
+        "second": 59
+      }
+    },
+    "task.251": {
+      "task": "Character doesn't fall from edges of small platforms sometimes.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 41,
+        "second": 32
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 47,
+        "second": 39
+      }
     }
   },
   "pend_order": [
@@ -5701,8 +5751,7 @@
     "task.217",
     "task.238",
     "task.248",
-    "task.250",
-    "task.247"
+    "task.250"
   ],
   "pending": {
     "task.134": {
@@ -6025,20 +6074,6 @@
         "hour": 12,
         "minute": 36,
         "second": 57
-      }
-    },
-    "task.247": {
-      "task": "Player walks in air when changing mid air direction.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 11,
-        "minute": 56,
-        "second": 24
       }
     }
   }
