@@ -11,7 +11,7 @@ const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
 const WATER_INNER_RADIUS = 16.8
 #const WATER_RADIUS_LIMIT = 17.5
-const WATER_RADIUS_LIMIT = 5
+const WATER_RADIUS_LIMIT = 10
 
 export (float) var radius = 120 setget set_radius,get_radius
 
@@ -105,8 +105,9 @@ func on_body_in(body):
 		body.check_for_water_arrival(global_position, radius)
 
 func on_body_out(body):
-	
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
+	if body.has_method("set_water_center"):
+		body.failed_water_arrival()
 
 func child_movement(pos):
 	var factor = pos.length_squared() / squared_radius 

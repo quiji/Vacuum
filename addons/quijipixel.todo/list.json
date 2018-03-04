@@ -223,7 +223,9 @@
     "task.241",
     "task.242",
     "task.243",
-    "task.245"
+    "task.245",
+    "task.244",
+    "task.249"
   ],
   "completed": {
     "task.0": {
@@ -5601,6 +5603,54 @@
         "minute": 38,
         "second": 51
       }
+    },
+    "task.244": {
+      "task": "try to rotate character before entering water platform to make it look better.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 10,
+        "minute": 46,
+        "second": 41
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 3,
+        "second": 11
+      }
+    },
+    "task.249": {
+      "task": "Avoid player rotation when entering through walking (Try a way to make it feel better)",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 3,
+        "second": 42
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 36,
+        "second": 23
+      }
     }
   },
   "pend_order": [
@@ -5625,7 +5675,9 @@
     "task.215",
     "task.217",
     "task.238",
-    "task.244"
+    "task.246",
+    "task.247",
+    "task.248"
   ],
   "pending": {
     "task.134": {
@@ -5922,18 +5974,46 @@
         "second": 13
       }
     },
-    "task.244": {
-      "task": "try to rotate character before entering water platform to make it look better.",
-      "type": "Task",
+    "task.246": {
+      "task": "Can stand on edges of water platforms.",
+      "type": "Bug",
       "creation_date": {
         "year": 2018,
         "month": 3,
         "day": 4,
         "weekday": 0,
         "dst": true,
-        "hour": 10,
-        "minute": 46,
-        "second": 41
+        "hour": 11,
+        "minute": 51,
+        "second": 37
+      }
+    },
+    "task.247": {
+      "task": "Player walks in air when changing mid air direction.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 56,
+        "second": 24
+      }
+    },
+    "task.248": {
+      "task": "Sometimes when arriving from water platform to a gravity one, the character enters the body and then rotates looking annoyingly wrong.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 57,
+        "second": 3
       }
     }
   }

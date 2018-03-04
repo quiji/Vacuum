@@ -165,38 +165,39 @@ func start_rolling():
 func end_rolling():
 	$sprite.play("EndRoll")
 
-func entered_water(water_bubble):
-	$sprite.play("WaterIdle")
-
-	center_direction = -position.normalized()
-	transition_pivot(0, 25)
-
-	
-	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
-
 func entered_space(center):
 	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
 	
 func entered_gravity_platform(center):
 	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_UP)
 
+func entered_water(water_bubble):
+	$sprite.play("WaterIdle")
+
+
+	center_direction = -position.normalized()
+	transition_pivot(0, 18)
+
+	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
+
 
 func left_water():
-	transition_pivot(25, 0)
+	transition_pivot(18, 0)
 
 
 func little_physics_process(delta):
 
 	if target_pivot != null:
 		var entering_water = target_pivot - start_pivot > 0
-		pivot_t += delta / 0.5
+		pivot_t += delta / 0.4
 		#pivot_t += delta / 2.0
 		
 		var current_pivot =  0 
 		var current_position = 0
 		if entering_water:
-			interpolate_normal_towards(TOWARDS_NEW_VALUE, center_direction, Glb.Smooth.water_entrance_rotation(pivot_t))
-			update_normal()
+			if not is_on_ground():
+				interpolate_normal_towards(TOWARDS_NEW_VALUE, center_direction, Glb.Smooth.water_entrance_rotation(pivot_t))
+				update_normal()
 			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in_pivot(pivot_t))
 			current_position = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in(pivot_t))
 		else:
@@ -208,8 +209,10 @@ func little_physics_process(delta):
 		$collision.position = old_shape_pos + Vector2(0, 1) * current_pivot
 		
 		if entering_water:
-			#global_position += _last_velocity.normalized() * current_pivot * 7 * delta
-			global_position += center_direction.normalized() * current_pivot * 7 * delta
+			if not is_on_ground():
+				global_position += center_direction.normalized() * current_pivot * 7 * delta
+			else:
+				global_position += (center_direction + _normal).normalized() * current_pivot * 6 * delta
 		else:
 			global_position += _last_velocity.normalized() * current_pivot * 1 * delta
 		if pivot_t > 1:

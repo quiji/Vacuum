@@ -13,7 +13,7 @@ config_version=3
 debug_mode=true
 start_date="9 Jan 2018"
 patch=35
-minor=103
+minor=105
 major=0
 
 [application]
@@ -75,6 +75,7 @@ toggle_console=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_
 
 2d_physics/layer_1="Platform"
 2d_physics/layer_2="WaterPlatform"
+2d_physics/layer_3="WaterEdge"
 
 [physics]
 
