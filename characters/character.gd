@@ -4,7 +4,7 @@ const CameraMan = preload("res://addons/quijipixel.cameraman/CameraMan.gd")
 
 ######## Const Stats #########
 var slope_stop_min_velocity = 5.0
-var run_velocity = 100.0
+var run_velocity = 130.0
 var midair_move_velocity = 40.0
 var max_x_distance_a_jump = 50.0
 var max_x_distance_b_jump = 70.0
@@ -14,6 +14,8 @@ var smash_jump_impulse_scalar = 30.0
 var swim_impulse_scalar = 190.5
 var water_tilt_impulse_scalar = 35.0
 var time_to_45_tilt_rotation = 0.4
+
+var water_slow_mo = 0.5
 
 ######## Calculated Stats #########
 var jump_initial_velocity_scalar = 0.0
@@ -28,6 +30,9 @@ var fall_gravity_scalar = 0.0
 var smash_jumping = false
 var smash_jump_start_point
 
+
+######## Factors #########
+var slow_mo_factor = 1
 
 ######## Control schemes #########
 var camera_rotation = 0
@@ -51,6 +56,8 @@ func _ready():
 	
 	# Maybe this goes in the platform? we can play with platforms with different values
 	set_slope_stop_min_vel(slope_stop_min_velocity)
+
+	set_step_duration(0.46)
 
 	old_sprite_pos = $sprite.position
 	old_shape_pos = $collision.position
@@ -95,7 +102,7 @@ func _on_animation_reaction(action):
 
 	match action:
 		Glb.REACT_STEP:
-			pass
+			add_step_impulse(run_velocity * slow_mo_factor)
 		Glb.REACT_SWIMSTROKE: 
 			add_swim_impulse(swim_impulse_scalar)
 		Glb.REACT_ENDSWIMSTROKE: 
@@ -224,9 +231,12 @@ func little_physics_process(delta):
 
 
 func slow_down():
-	$sprite/anim_player.playback_speed = 0.5
+	$sprite/anim_player.playback_speed = water_slow_mo
+	slow_mo_factor = water_slow_mo
 
+	
 func restore_speed():
+	slow_mo_factor = 1
 	$sprite/anim_player.playback_speed = 1
 
 func _process_behavior(delta):
@@ -240,19 +250,19 @@ func _gravity_behavior(delta):
 	
 	if is_rolling():
 		
-		move(run_velocity)
+		move(run_velocity * slow_mo_factor)
 		
 	elif Input.is_action_just_pressed("ui_left"):
 		
 		if is_on_ground():
 			$sprite.play("Run")
-			move(run_velocity, FACING_LEFT)
+			move(run_velocity * slow_mo_factor, FACING_LEFT)
 		else:
 			move(midair_move_velocity, FACING_LEFT)
 
 	elif  Input.is_action_pressed("ui_left") and is_on_ground():
 		
-		move(run_velocity, FACING_LEFT)
+		move(run_velocity * slow_mo_factor, FACING_LEFT)
 		
 		
 	elif Input.is_action_just_released("ui_left"):
@@ -267,13 +277,13 @@ func _gravity_behavior(delta):
 
 		if is_on_ground():
 			$sprite.play("Run")
-			move(run_velocity, FACING_RIGHT)
+			move(run_velocity * slow_mo_factor, FACING_RIGHT)
 		else:
 			move(midair_move_velocity, FACING_RIGHT)
 			
 	elif  Input.is_action_pressed("ui_right") and is_on_ground():
 		
-		move(run_velocity, FACING_RIGHT)
+		move(run_velocity * slow_mo_factor, FACING_RIGHT)
 		
 	elif Input.is_action_just_released("ui_right"):
 

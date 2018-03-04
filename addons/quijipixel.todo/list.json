@@ -229,7 +229,10 @@
     "task.246",
     "task.247",
     "task.251",
-    "task.252"
+    "task.252",
+    "task.253",
+    "task.255",
+    "task.250"
   ],
   "completed": {
     "task.0": {
@@ -5751,6 +5754,78 @@
         "minute": 1,
         "second": 3
       }
+    },
+    "task.253": {
+      "task": "Implement movement by step rather than continous.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 6,
+        "second": 31
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 17,
+        "minute": 59,
+        "second": 19
+      }
+    },
+    "task.255": {
+      "task": "When turning after a step, the sprite flips but the step don't.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 18,
+        "minute": 0,
+        "second": 13
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 18,
+        "minute": 13,
+        "second": 24
+      }
+    },
+    "task.250": {
+      "task": "Add slower running when on water.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 36,
+        "second": 57
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 18,
+        "minute": 20,
+        "second": 35
+      }
     }
   },
   "pend_order": [
@@ -5776,9 +5851,8 @@
     "task.217",
     "task.238",
     "task.248",
-    "task.250",
-    "task.253",
-    "task.254"
+    "task.254",
+    "task.256"
   ],
   "pending": {
     "task.134": {
@@ -6089,34 +6163,6 @@
         "second": 3
       }
     },
-    "task.250": {
-      "task": "Add slower running when on water.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 12,
-        "minute": 36,
-        "second": 57
-      }
-    },
-    "task.253": {
-      "task": "Implement movement by step rather than continous.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 13,
-        "minute": 6,
-        "second": 31
-      }
-    },
     "task.254": {
       "task": "Implement arriving to a gravity center inside of a water platform.",
       "type": "Feature",
@@ -6129,6 +6175,20 @@
         "hour": 13,
         "minute": 8,
         "second": 24
+      }
+    },
+    "task.256": {
+      "task": "Test/implement dynamic lightning",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 19,
+        "minute": 9,
+        "second": 52
       }
     }
   }
