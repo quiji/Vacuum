@@ -5776,7 +5776,9 @@
     "task.217",
     "task.238",
     "task.248",
-    "task.250"
+    "task.250",
+    "task.253",
+    "task.254"
   ],
   "pending": {
     "task.134": {
@@ -6099,6 +6101,34 @@
         "hour": 12,
         "minute": 36,
         "second": 57
+      }
+    },
+    "task.253": {
+      "task": "Implement movement by step rather than continous.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 6,
+        "second": 31
+      }
+    },
+    "task.254": {
+      "task": "Implement arriving to a gravity center inside of a water platform.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 8,
+        "second": 24
       }
     }
   }

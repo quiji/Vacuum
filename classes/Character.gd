@@ -35,6 +35,8 @@ var _last_velocity = Vector2()
 var swim_velocity = Vector2()
 var space_velocity = Vector2()
 
+var move_speed_reducer = 0
+
 ######## Slope related #########
 
 var _slope_stop_min_vel = 0
@@ -520,14 +522,13 @@ func verify_water_center(with_center=true):
 	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))
 	
 	
-
 	if with_center:
 		return not water_cast_result.empty() and water_cast_result.collider == _water_center
 	elif not water_cast_result.empty() and not is_on_ground(): 
 		change_center(water_cast_result.collider)
 		return true
-	elif not water_cast_result.empty():
-		slow_down()
+	#elif not water_cast_result.empty():
+	#	slow_down()
 
 	return false
 
