@@ -5851,7 +5851,8 @@
     "task.217",
     "task.238",
     "task.248",
-    "task.254"
+    "task.254",
+    "task.256"
   ],
   "pending": {
     "task.134": {
@@ -6174,6 +6175,20 @@
         "hour": 13,
         "minute": 8,
         "second": 24
+      }
+    },
+    "task.256": {
+      "task": "Test/implement dynamic lightning",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 19,
+        "minute": 9,
+        "second": 52
       }
     }
   }

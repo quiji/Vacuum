@@ -171,6 +171,10 @@ Possible dungeons:
 > Normal Maps for Dynamic Lightning:
 https://www.reddit.com/r/gamedev/comments/3c8t82/creating_hand_drawn_normal_maps_for_pixel_art/
 https://www.youtube.com/watch?v=W0H4vza9knM
+https://www.gamasutra.com/view/news/312977/Adding_depth_to_2D_with_handdrawn_normal_maps_in_The_Siege_and_the_Sandfox.php
+http://www.alkemi-games.com/a-game-of-tricks/
+https://simonschreibt.de/gat/handmade-normal-maps/
+http://blog.mousta.ch/post/115734152718
 
 > Interpolation stuff:
 http://sol.gfxile.net/interpolation/
