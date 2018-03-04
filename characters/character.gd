@@ -15,7 +15,7 @@ var swim_impulse_scalar = 190.5
 var water_tilt_impulse_scalar = 35.0
 var time_to_45_tilt_rotation = 0.4
 
-var water_slow_mo = 0.6
+var water_slow_mo = 0.5
 
 ######## Calculated Stats #########
 var jump_initial_velocity_scalar = 0.0

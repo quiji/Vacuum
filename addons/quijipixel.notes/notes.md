@@ -168,6 +168,9 @@ Possible dungeons:
 - Dark side of somewhere: just dark.
 - Asteroid river: Asteroids!!
 
+> Normal Maps for Dynamic Lightning:
+https://www.reddit.com/r/gamedev/comments/3c8t82/creating_hand_drawn_normal_maps_for_pixel_art/
+https://www.youtube.com/watch?v=W0H4vza9knM
 
 > Interpolation stuff:
 http://sol.gfxile.net/interpolation/
