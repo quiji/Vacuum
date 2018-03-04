@@ -318,13 +318,18 @@ func move(velocity, new_facing=null):
 	if new_facing != null:
 		set_facing(new_facing)
 	#_target_move_velocity_scalar = velocity * _facing * _invertor
+	
 	if not _moving:
 		add_step_impulse(velocity)
 		_moving = true
 
+	_target_move_velocity_scalar = abs(_target_move_velocity_scalar) * _facing * _invertor
+	_move_velocity_scalar = abs(_move_velocity_scalar) * _facing * _invertor
+
 func add_step_impulse(step_velocity):
 	step_delta = step_duration
-	_target_move_velocity_scalar = step_velocity * _facing * _invertor
+	_target_move_velocity_scalar= step_velocity
+	#_target_move_velocity_scalar = step_velocity * _facing * _invertor
 
 func stop(keep=true):
 	if not keep:

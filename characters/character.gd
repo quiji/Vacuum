@@ -4,7 +4,7 @@ const CameraMan = preload("res://addons/quijipixel.cameraman/CameraMan.gd")
 
 ######## Const Stats #########
 var slope_stop_min_velocity = 5.0
-var run_velocity = 100.0
+var run_velocity = 130.0
 var midair_move_velocity = 40.0
 var max_x_distance_a_jump = 50.0
 var max_x_distance_b_jump = 70.0
@@ -14,6 +14,8 @@ var smash_jump_impulse_scalar = 30.0
 var swim_impulse_scalar = 190.5
 var water_tilt_impulse_scalar = 35.0
 var time_to_45_tilt_rotation = 0.4
+
+var slow_mo_factor = 0.6
 
 ######## Calculated Stats #########
 var jump_initial_velocity_scalar = 0.0
@@ -226,7 +228,7 @@ func little_physics_process(delta):
 
 
 func slow_down():
-	$sprite/anim_player.playback_speed = 0.5
+	$sprite/anim_player.playback_speed = slow_mo_factor
 
 func restore_speed():
 	$sprite/anim_player.playback_speed = 1

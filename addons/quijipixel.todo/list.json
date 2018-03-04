@@ -229,7 +229,9 @@
     "task.246",
     "task.247",
     "task.251",
-    "task.252"
+    "task.252",
+    "task.253",
+    "task.255"
   ],
   "completed": {
     "task.0": {
@@ -5751,6 +5753,54 @@
         "minute": 1,
         "second": 3
       }
+    },
+    "task.253": {
+      "task": "Implement movement by step rather than continous.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 6,
+        "second": 31
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 17,
+        "minute": 59,
+        "second": 19
+      }
+    },
+    "task.255": {
+      "task": "When turning after a step, the sprite flips but the step don't.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 18,
+        "minute": 0,
+        "second": 13
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 18,
+        "minute": 13,
+        "second": 24
+      }
     }
   },
   "pend_order": [
@@ -5777,7 +5827,6 @@
     "task.238",
     "task.248",
     "task.250",
-    "task.253",
     "task.254"
   ],
   "pending": {
@@ -6101,20 +6150,6 @@
         "hour": 12,
         "minute": 36,
         "second": 57
-      }
-    },
-    "task.253": {
-      "task": "Implement movement by step rather than continous.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 13,
-        "minute": 6,
-        "second": 31
       }
     },
     "task.254": {
