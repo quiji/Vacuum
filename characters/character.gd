@@ -239,9 +239,8 @@ func _gravity_behavior(delta):
 		
 	elif Input.is_action_just_pressed("ui_left"):
 		
-		$sprite.play("Run")
-		
 		if is_on_ground():
+			$sprite.play("Run")
 			move(run_velocity, FACING_LEFT)
 		else:
 			move(midair_move_velocity, FACING_LEFT)
@@ -260,9 +259,9 @@ func _gravity_behavior(delta):
 			
 	elif Input.is_action_just_pressed("ui_right"):
 		
-		$sprite.play("Run")
 
 		if is_on_ground():
+			$sprite.play("Run")
 			move(run_velocity, FACING_RIGHT)
 		else:
 			move(midair_move_velocity, FACING_RIGHT)

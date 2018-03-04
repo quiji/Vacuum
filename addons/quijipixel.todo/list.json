@@ -225,7 +225,8 @@
     "task.243",
     "task.245",
     "task.244",
-    "task.249"
+    "task.249",
+    "task.246"
   ],
   "completed": {
     "task.0": {
@@ -5651,6 +5652,30 @@
         "minute": 36,
         "second": 23
       }
+    },
+    "task.246": {
+      "task": "Can stand on edges of water platforms.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 51,
+        "second": 37
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 37,
+        "second": 39
+      }
     }
   },
   "pend_order": [
@@ -5675,9 +5700,9 @@
     "task.215",
     "task.217",
     "task.238",
-    "task.246",
-    "task.247",
-    "task.248"
+    "task.248",
+    "task.250",
+    "task.247"
   ],
   "pending": {
     "task.134": {
@@ -5974,8 +5999,8 @@
         "second": 13
       }
     },
-    "task.246": {
-      "task": "Can stand on edges of water platforms.",
+    "task.248": {
+      "task": "Sometimes when arriving from water platform to a gravity one, the character enters the body and then rotates looking annoyingly wrong.",
       "type": "Bug",
       "creation_date": {
         "year": 2018,
@@ -5984,8 +6009,22 @@
         "weekday": 0,
         "dst": true,
         "hour": 11,
-        "minute": 51,
-        "second": 37
+        "minute": 57,
+        "second": 3
+      }
+    },
+    "task.250": {
+      "task": "Add slower running when on water.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 12,
+        "minute": 36,
+        "second": 57
       }
     },
     "task.247": {
@@ -6000,20 +6039,6 @@
         "hour": 11,
         "minute": 56,
         "second": 24
-      }
-    },
-    "task.248": {
-      "task": "Sometimes when arriving from water platform to a gravity one, the character enters the body and then rotates looking annoyingly wrong.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 11,
-        "minute": 57,
-        "second": 3
       }
     }
   }
