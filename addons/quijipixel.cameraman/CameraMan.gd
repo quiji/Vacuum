@@ -10,7 +10,7 @@ enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM}
 #########################################################################
 export (NodePath) var actor
 export (int, "WaterBubble", "FlyingSpace", "GravityPlatform") var scene_mode
-export (bool) var debug_cameraman = true
+export (bool) var debug_cameraman = false
 #########################################################################
 
 export (float) var max_speed = 300.0
@@ -30,7 +30,6 @@ var target_normal = null
 var max_distance_squared = 0
 var min_distance_squared = 0
 
-var follow_margins = Rect2(20, 20, 20, 20)
 
 
 #########################################################################
@@ -46,21 +45,7 @@ var lock_actor = {
 	locked = false
 }
 
-var follow_actor = {
-	t_x = null,
-	t_y = null,
-	target = null,
-	start = Vector2(),
-	duration = 1.0
-	
-}
 
-var ahead = {
-	distance = 150,
-	mov_duration = 1.2,
-	t = null,
-	on = false
-}
 
 var gravity = {
 	duration = 2.0,
@@ -71,14 +56,9 @@ var gravity = {
 	start_position = Vector2()
 }
 
-var margins_inter = {
-	t = null,
-	target = Rect2(0, 0, 0, 0),
-	start = Rect2(0, 0, 0, 0),
-	duration = 0.4
-}
 
 
+var rect_area = null
 var camera = null
 var _actor = null
 
@@ -90,6 +70,11 @@ func _ready():
 	Glb.set_current_camera_man(self)
 	
 	camera.add_action(gravity)
+	
+	rect_area = Area2D.new()
+	rect_area.set_script(preload("res://addons/quijipixel.cameraman/MarginArea.gd"))
+	add_child(rect_area)
+	
 	
 	tween = Tween.new()
 	add_child(tween)
@@ -120,8 +105,10 @@ func _ready():
 		spr.texture = preload("res://addons/quijipixel.cameraman/icon.png")
 		spr.modulate = Color(0.9, 4.0, 3.0, 1.0)
 		camera.add_child(spr)
+		
+		rect_area.debug_cameraman = true
 
-	Console.add_log(self, "_object")
+
 
 func set_actor(actor):
 	_actor = actor
@@ -151,6 +138,7 @@ func normal_shift(request_from, new_normal, new_target_normal, rotation_mode):
 
 func attempt_lock():
 	if lock_actor.target == null:
+
 		lock_actor.locked = false
 		lock_actor.target = _actor.global_position - global_position
 		lock_actor.t = 0
@@ -187,7 +175,7 @@ func change_scene_mode(mode):
 	match scene_mode:
 		GRAVITY_PLATFORM:
 			attempt_lock()
-			change_margins(40, 60, 40, 0, true)
+			rect_area.change_margins(40, 60, 40, 0)
 
 
 func look_direction(request_from, dir):
@@ -209,37 +197,6 @@ func look_direction(request_from, dir):
 			tween.start()
 
 	return true
-
-func change_margins(left_dist, up_dist, right_dist, down_dist, force=false):
-	if not force:
-		margins_inter.t = 0
-		margins_inter.start = follow_margins
-		margins_inter.target = Rect2(-left_dist, -up_dist, left_dist + right_dist, up_dist + down_dist)
-	else:
-		follow_margins = Rect2(-left_dist, -up_dist, left_dist + right_dist, up_dist + down_dist)
-		if debug_cameraman:
-			update()
-
-func check_margins(actor_pos):
-	if actor_pos.x > follow_margins.end.x:
-		global_position.x = _actor.global_position.x - follow_margins.end.x
-	elif actor_pos.x < follow_margins.position.x:
-		global_position.x = _actor.global_position.x - follow_margins.position.x
-		
-	if actor_pos.y < follow_margins.position.y:
-		global_position.y = _actor.global_position.y - follow_margins.position.y
-	elif actor_pos.y > follow_margins.end.y:
-		global_position.y = _actor.global_position.y - follow_margins.end.y
-
-
-
-func _draw():
-	if debug_cameraman:
-		draw_line(Vector2(follow_margins.position.x,300), Vector2(follow_margins.position.x,-300), Color(1.0, 0.2, 0.2), 2.0)
-		draw_line(Vector2(follow_margins.end.x,300), Vector2(follow_margins.end.x,-300), Color(1.0, 0.2, 0.2), 2.0)
-		
-		draw_line(follow_margins.position, Vector2(follow_margins.end.x, follow_margins.position.y), Color(0.2, 1.0, 0.2), 2.0)
-		draw_line(follow_margins.end, Vector2(follow_margins.position.x, follow_margins.end.y), Color(0.2, 1.0, 0.2), 2.0)
 
 
 """
@@ -268,7 +225,7 @@ func _draw():
 """
 
 func flying_space_logic(delta):
-	pass
+	global_position = _actor.global_position
 
 
 
@@ -282,13 +239,9 @@ func gravity_platform_logic(delta):
 		if not _actor.is_looking_right() and gravity.target.x != 70:
 			gravity.target.x = 70
 			camera.camera_start_action(gravity)
-
 	
-		
-		var actor_pos = _actor.global_position - global_position
-		check_margins(actor_pos)
-		
-		
+		if not rect_area.in_margins(_actor.global_position):
+			global_position += _actor.get_last_velocity() * delta
 
 
 
@@ -304,17 +257,12 @@ func _physics_process(delta):
 	elif _actor != null:
 		reach_and_lock_actor(delta)
 
-	if margins_inter.t != null:
-		if margins_inter.t < 1:
-			margins_inter.t += delta / margins_inter.duration
-			margins_inter.start.position = Glb.Smooth.linear_interp(margins_inter.start.position, margins_inter.target.position, margins_inter.t)
-			margins_inter.start.end = Glb.Smooth.linear_interp(margins_inter.start.end, margins_inter.target.end, margins_inter.t)
-			
-			follow_margins = margins_inter.start
-		else:
-			margins_inter.t = null
-			follow_margins = margins_inter.target
-		if debug_cameraman:
-			update()
 
+	if target_normal != null:
+		var distance_factor = (normal.dot(target_normal) + 1) / 2
+		
+		normal = normal.linear_interpolate(target_normal, delta * (1.05 + distance_factor))
+		rotation = (-normal).angle() - PI/2
+		if normal.dot(target_normal) >= 0.999:
+			target_normal = null
 

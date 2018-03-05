@@ -158,7 +158,7 @@ func reached_ground(ground_object):
 		if ground_object != null and ground_object.has_method("apply_impulse"):
 			var distance_squared = (position - smash_jump_start_point).length_squared()
 			var impulse = -_normal * smash_jump_impulse_scalar * distance_squared / jump_peak_height * jump_peak_height
-			ground_object.apply_impulse(position, impulse)
+			#ground_object.apply_impulse(position, impulse)
 
 	set_gravity_scalar(lowest_gravity_scalar)
 	
@@ -233,8 +233,8 @@ func little_physics_process(delta):
 			target_pivot = null
 			halt_physics = false
 			pivot_t = 0
-			if entering_water:
-				Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
+			#if entering_water:
+			#	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
 
 
 func slow_down():

@@ -10,7 +10,7 @@ config_version=3
 
 [Project]
 
-debug_mode=true
+debug_mode=false
 start_date="9 Jan 2018"
 patch=41
 minor=107
@@ -76,6 +76,7 @@ toggle_console=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_
 2d_physics/layer_1="Platform"
 2d_physics/layer_2="WaterPlatform"
 2d_physics/layer_3="WaterEdge"
+2d_physics/layer_4="CameraActor"
 
 [physics]
 
