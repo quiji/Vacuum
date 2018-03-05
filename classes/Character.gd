@@ -186,7 +186,7 @@ func set_water_center(center):
 	if center != null:
 		restore_speed()
 		var resistance = abs(center.get_water_resistance_scalar())
-		var vel =  clamp(_last_velocity.length(), 90, resistance * 1.5)
+		var vel =  clamp(_last_velocity.length(), 90, resistance)
 
 		_water_center = center
 		water_arrival_normal = null
