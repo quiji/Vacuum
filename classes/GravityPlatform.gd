@@ -88,6 +88,7 @@ func set_camera_rotation_mode(m):
 	camera_rotation_mode = m
 
 func get_camera_rotation_mode():
+	#return Glb.CameraMan.CIRCULAR
 	return camera_rotation_mode
 
 func get_rotation_snapper():

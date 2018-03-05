@@ -187,7 +187,7 @@ __meta__ = {
 }
 actor = NodePath("../playground/character")
 scene_mode = null
-debug_cameraman = true
+debug_cameraman = false
 max_speed = 300.0
 min_speed = 190.0
 max_distance = 300.0

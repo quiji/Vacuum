@@ -10,7 +10,7 @@ enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM, BLOCKED}
 #########################################################################
 export (NodePath) var actor
 export (int, "WaterBubble", "FlyingSpace", "GravityPlatform") var scene_mode
-export (bool) var debug_cameraman = true
+export (bool) var debug_cameraman = false
 #########################################################################
 
 export (float) var max_speed = 300.0
@@ -148,10 +148,32 @@ func normal_shift(new_normal, new_target_normal):
 		rotation_mode = gravity_center.get_camera_rotation_mode()
 
 		Console.add_log("rotation_mode", rotation_mode)
+	"""
+	if rotation_mode != NO_ROTATION:
+		var snapper = [Vector2(0, -1).rotated(gravity_center.rotation), Vector2(0, 1).rotated(gravity_center.rotation)]
+		var _normal = new_normal if new_target_normal == null else new_target_normal
+		var target = Glb.VectorLib.snap_to(_normal, snapper)
+	
+		if normal.dot(target) < 0:
+			target_normal = target
+			line.t = 0
+			line.start = normal
+
+	"""
 
 	match rotation_mode:
 		CIRCULAR:
 			target_normal = new_normal if new_target_normal == null else new_target_normal
+		
+		FOLLOW_LINE:
+			continue
+		FOLLOW_POLY4:
+			continue
+		FOLLOW_CUSTOM_POLY:
+			continue
+
+			target_normal = new_normal if new_target_normal == null else new_target_normal
+
 		FOLLOW_LINE:
 			var snapper = gravity_center.get_rotation_snapper()
 			var _normal = new_normal if new_target_normal == null else new_target_normal
@@ -173,7 +195,7 @@ func normal_shift(new_normal, new_target_normal):
 			var _normal = new_normal if new_target_normal == null else new_target_normal
 			var target = Glb.VectorLib.snap_to(_normal, snapper)
 			target_normal = target
-	
+
 	return true
 
 func attempt_lock():
