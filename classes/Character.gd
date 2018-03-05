@@ -156,6 +156,9 @@ func get_facing():
 func set_step_duration(duration):
 	step_duration = duration
 
+func get_gravity_center():
+	return _gravity_center
+
 func set_gravity_center(center):
 	if center != null:
 		

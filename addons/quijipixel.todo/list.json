@@ -235,7 +235,8 @@
     "task.250",
     "task.257",
     "task.259",
-    "task.260"
+    "task.260",
+    "task.161"
   ],
   "completed": {
     "task.0": {
@@ -5901,6 +5902,30 @@
         "minute": 58,
         "second": 30
       }
+    },
+    "task.161": {
+      "creation_date": {
+        "day": 7,
+        "dst": true,
+        "hour": 11,
+        "minute": 28,
+        "month": 2,
+        "second": 10,
+        "weekday": 3,
+        "year": 2018
+      },
+      "task": "Keep testing new camera rotation functionality.",
+      "type": "Remainder",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 17,
+        "minute": 2,
+        "second": 33
+      }
     }
   },
   "pend_order": [
@@ -5913,7 +5938,6 @@
     "task.136",
     "task.152",
     "task.155",
-    "task.161",
     "task.176",
     "task.186",
     "task.189",
@@ -5931,7 +5955,8 @@
     "task.258",
     "task.261",
     "task.262",
-    "task.263"
+    "task.263",
+    "task.264"
   ],
   "pending": {
     "task.134": {
@@ -6003,20 +6028,6 @@
       },
       "task": "Sometimes the character rolles 2 times (usually when there are too many normal changes before the character reaches the normal destination).",
       "type": "Bug"
-    },
-    "task.161": {
-      "creation_date": {
-        "day": 7,
-        "dst": true,
-        "hour": 11,
-        "minute": 28,
-        "month": 2,
-        "second": 10,
-        "weekday": 3,
-        "year": 2018
-      },
-      "task": "Keep testing new camera rotation functionality.",
-      "type": "Remainder"
     },
     "task.176": {
       "creation_date": {
@@ -6324,6 +6335,20 @@
         "hour": 14,
         "minute": 36,
         "second": 9
+      }
+    },
+    "task.264": {
+      "task": "Remember to try circle textures instead of the circle node, and duplicating the textures to see if water platforms can coexist.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 17,
+        "minute": 2,
+        "second": 19
       }
     }
   }

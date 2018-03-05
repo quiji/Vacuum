@@ -84,24 +84,20 @@ func make_camera_look(dir):
 	var cam = Glb.get_current_camera_man()
 	
 	if cam != null:
-		cam.look_direction(self, dir)
+		cam.look_direction(dir)
 
 func restore_camera_look():
 	var cam = Glb.get_current_camera_man()
 	
 	if cam != null:
-		cam.look_direction(self, CameraMan.LOOK_CENTER)
+		cam.look_direction(CameraMan.LOOK_CENTER)
 
 func is_looking_right():
 	return $sprite.get_flip_h()
 
 func normal_shift_notice(new_normal, target_normal):
 	var cam = Glb.get_current_camera_man()
-
-	if is_on_water_center() or is_on_space():
-		cam.normal_shift(self, new_normal, target_normal, CameraMan.NO_ROTATION)
-	elif is_on_gravity_center():
-		cam.normal_shift(self, new_normal, target_normal, CameraMan.FOLLOW_POLY4)
+	cam.normal_shift(new_normal, target_normal)
 
 
 ############
@@ -183,7 +179,7 @@ func entered_space(center):
 	
 func entered_gravity_platform(center):
 	entered_space = false
-	Glb.get_current_camera_man().change_scene_mode(CameraMan.GRAVITY_PLATFORM)
+	Glb.get_current_camera_man().change_scene_mode(CameraMan.GRAVITY_PLATFORM, get_gravity_center())
 
 func entered_water(water_bubble):
 	$sprite.play("WaterIdle")

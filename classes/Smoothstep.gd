@@ -73,8 +73,16 @@ static func cam_space_path(t):
 	return cross(t, stop2(t), flip(arch(t, 2)))
 
 static func cam_water_mov(t):
-	return cross(t, start3(t), flip(arch(t, 2)))
+	return stop6(start2(t))
 
+static func cam_circular_full_rot(t):
+	return start5(stop4(t))
+
+static func cam_circular_small_rot(t):
+	return scale(t, stop2(t))
+
+static func cam_circular_rot(t, d):
+	return blend(t, cam_circular_small_rot(t), cam_circular_full_rot(t), d)
 
 static func test(t):
 	return cross(t, start2(t), start6(t))

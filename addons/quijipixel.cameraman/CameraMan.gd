@@ -1,6 +1,6 @@
 extends Node2D
 
-enum RotatingMode {NO_ROTATION, FOLLOW_POLY4}
+enum RotatingMode {NO_ROTATION, CIRCULAR, FOLLOW_POLY4}
 enum CameraSetup {SETUP_CENTER, SETUP_UP}
 
 enum CameraLook {LOOK_CENTER, LOOK_UP, LOOK_DOWN}
@@ -63,12 +63,20 @@ var water = {
 	target = Vector2(0, -100),
 	current_position = Vector2(),
 	start_position = Vector2(),
-	method = "cam_space_mov"
+	method = "cam_water_mov"
 }
+
+var circular = {
+	#duration for a full circle rotation
+	duration = 0.2
+}
+
 
 
 var water_center = null
 var water_radius_limits = 0
+
+var gravity_center = null
 
 var rect_area = null
 var camera = null
@@ -129,17 +137,23 @@ func get_current_normal():
 	else:
 		return normal
 
-func normal_shift(request_from, new_normal, new_target_normal, rotation_mode):
-	if request_from != null and request_from != _actor:
-		return false
+func normal_shift(new_normal, new_target_normal):
 		
-	if rotation_mode == FOLLOW_POLY4:
-		var _normal = new_normal
-		if new_target_normal != null:
-			_normal = new_target_normal
-		var target = Glb.VectorLib.snap_to(_normal, Glb.VectorLib.POLY4)
-		#if normal.dot(target) <= 0.2:
-		target_normal = target
+	var rotation_mode = NO_ROTATION
+	if gravity_center != null:
+		rotation_mode = gravity_center.get_camera_rotation_mode()
+
+		Console.add_log("rotation_mode", rotation_mode)
+
+	match rotation_mode:
+		CIRCULAR:
+			target_normal = new_normal if new_target_normal == null else new_target_normal
+		FOLLOW_POLY4:
+			var _normal = new_normal if new_target_normal == null else new_target_normal
+			var target = Glb.VectorLib.snap_to(_normal, Glb.VectorLib.POLY4)
+
+			target_normal = target
+
 	
 	return true
 
@@ -187,6 +201,7 @@ func change_scene_mode(mode, data=null):
 		match scene_mode:
 			GRAVITY_PLATFORM:
 				camera.camera_end_action(gravity)
+				gravity_center = null
 			WATER_BUBBLE:
 				camera.camera_end_action(water)
 				water_center = null
@@ -197,6 +212,7 @@ func change_scene_mode(mode, data=null):
 		FLYING_SPACE:
 			attempt_lock()
 		GRAVITY_PLATFORM:
+			gravity_center = data
 			lock_actor.duration = 1.0
 			lock_actor.speed = 270
 			attempt_lock()
@@ -213,9 +229,7 @@ func change_scene_mode(mode, data=null):
 			attempt_lock()
 
 
-func look_direction(request_from, dir):
-	if request_from != null and request_from != _actor:
-		return false
+func look_direction(dir):
 		
 	match dir:
 		LOOK_UP:
@@ -277,7 +291,7 @@ func water_bubble_logic(delta):
 
 
 func _physics_process(delta):
-	#if _actor != null and _object == null:
+
 	if _actor != null and lock_actor.locked:
 
 		match scene_mode:
@@ -292,10 +306,26 @@ func _physics_process(delta):
 
 
 	if target_normal != null:
-		var distance_factor = (normal.dot(target_normal) + 1) / 2
 		
-		normal = normal.linear_interpolate(target_normal, delta * (1.05 + distance_factor))
+		var rotation_mode = NO_ROTATION
+		if gravity_center != null:
+			rotation_mode = gravity_center.get_camera_rotation_mode()
+
+		match rotation_mode:
+			CIRCULAR:
+				# this is the d_t that will blend different rotation speeds depending of normal - target_normal distance
+				var d_t = (normal.dot(target_normal) + 1) / 2
+				# this is the t for a whole circle rotation
+				var t = delta / circular.duration * (1 - d_t)
+				Console.add_log("circle_percentage", 1 - d_t)
+				Console.add_log("piece_duration", circular.duration * (1 - d_t))
+
+				normal = normal.linear_interpolate(target_normal, Glb.Smooth.cam_circular_rot(t, d_t))
+			FOLLOW_POLY4:
+				var distance_factor = (normal.dot(target_normal) + 1) / 2
+				normal = normal.linear_interpolate(target_normal, delta * (1.05 + distance_factor))
+
 		rotation = (-normal).angle() - PI/2
 		if normal.dot(target_normal) >= 0.999:
 			target_normal = null
-
+	

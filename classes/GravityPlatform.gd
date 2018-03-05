@@ -1,6 +1,9 @@
 #extends RigidBody2D
 extends KinematicBody2D
 
+
+export (int, "NO_ROTATION", "CIRCULAR", "FOLLOW_POLY4") var camera_rotation_mode = 0 setget set_camera_rotation_mode,get_camera_rotation_mode
+
 var center_of_mass = null
 
 func _ready():
@@ -16,9 +19,6 @@ func _ready():
 	if not has_sprite:
 		draw_shape()
 
-# This method must be overriden for platforms with different layers of visuals, so the player stays behind the important ones?? I guess?
-func get_tree_pos():
-	return 0
 
 func get_gravity_from_center(pos):
 	var result = {gravity = Vector2(), normal = Vector2()}
@@ -76,7 +76,16 @@ func apply_impulse(impulse):
 	pass
 
 
+###################################################################################
+# Virtual methods
 
+# This method must be overriden for platforms with different layers of visuals, so the player stays behind the important ones?? I guess?
+func get_tree_pos():
+	return 0
 
+func set_camera_rotation_mode(m):
+	camera_rotation_mode = m
 
+func get_camera_rotation_mode():
+	return camera_rotation_mode
 

@@ -18,7 +18,7 @@
 [ext_resource path="res://addons/quijipixel.cameraman/icon.png" type="Texture" id=16]
 [ext_resource path="res://gui/hud.tscn" type="PackedScene" id=17]
 
-[node name="space" type="Node" index="0"]
+[node name="space" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -64,23 +64,27 @@ _sections_unfolded = [ "Linear", "Transform" ]
 
 position = Vector2( 915.968, 40.146 )
 _sections_unfolded = [ "Collision", "Linear", "Transform" ]
+camera_rotation_mode = 0
 
 [node name="square3" parent="playground" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 395.968, 328.146 )
 _sections_unfolded = [ "Collision", "Linear", "Transform" ]
+camera_rotation_mode = 0
 
 [node name="square2" parent="playground" index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 316.99, -126.709 )
 rotation = -0.348661
 _sections_unfolded = [ "Angular", "Collision", "Linear" ]
+camera_rotation_mode = 0
 
 [node name="square4" parent="playground" index="5" instance=ExtResource( 6 )]
 
 position = Vector2( -121.01, -318.709 )
 rotation = -0.709473
 _sections_unfolded = [ "Angular", "Collision", "Linear" ]
+camera_rotation_mode = 0
 
 [node name="rectangular" parent="playground" index="6" instance=ExtResource( 7 )]
 
@@ -91,10 +95,12 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( 70.506, 597.521 )
 rotation = -0.740351
+camera_rotation_mode = 0
 
 [node name="strange_circle" parent="playground" index="8" instance=ExtResource( 9 )]
 
 position = Vector2( 213.436, 442.787 )
+camera_rotation_mode = 0
 
 [node name="random_rectangle" parent="playground" index="9" instance=ExtResource( 10 )]
 
@@ -125,12 +131,14 @@ position = Vector2( 724, -2 )
 
 position = Vector2( 1030, 210 )
 _sections_unfolded = [ "Angular", "Collision", "Linear" ]
+camera_rotation_mode = 0
 
 [node name="test2" parent="playground" index="15" instance=ExtResource( 13 )]
 
 position = Vector2( 1012, 372 )
 rotation = -1.78391
 _sections_unfolded = [ "Angular", "Collision", "Linear" ]
+camera_rotation_mode = 0
 
 [node name="water_platform" parent="playground" index="16" instance=ExtResource( 14 )]
 
