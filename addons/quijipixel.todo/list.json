@@ -233,7 +233,8 @@
     "task.253",
     "task.255",
     "task.250",
-    "task.257"
+    "task.257",
+    "task.259"
   ],
   "completed": {
     "task.0": {
@@ -5851,6 +5852,30 @@
         "minute": 24,
         "second": 19
       }
+    },
+    "task.259": {
+      "task": "Directons of camera in water platform are crossed and allright in different normal directions.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 11,
+        "minute": 24,
+        "second": 43
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 14,
+        "minute": 22,
+        "second": 43
+      }
     }
   },
   "pend_order": [
@@ -5879,8 +5904,8 @@
     "task.254",
     "task.256",
     "task.258",
-    "task.259",
-    "task.260"
+    "task.260",
+    "task.261"
   ],
   "pending": {
     "task.134": {
@@ -6233,20 +6258,6 @@
         "second": 51
       }
     },
-    "task.259": {
-      "task": "Directons of camera in water platform are crossed and allright in different normal directions.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 5,
-        "weekday": 1,
-        "dst": true,
-        "hour": 11,
-        "minute": 24,
-        "second": 43
-      }
-    },
     "task.260": {
       "task": "Out of water platform camera transition to into space is abrupt.",
       "type": "Bug",
@@ -6259,6 +6270,20 @@
         "hour": 11,
         "minute": 25,
         "second": 0
+      }
+    },
+    "task.261": {
+      "task": "Conside doing transition animations: fall-land-idle, fall-land-run, etc...",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 12,
+        "minute": 10,
+        "second": 8
       }
     }
   }

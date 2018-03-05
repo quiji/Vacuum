@@ -258,15 +258,8 @@ func water_bubble_logic(delta):
 		if not rect_area.in_margins(_actor.global_position):
 
 			var distance = water_center.get_inner_limit_radius() * 1.05
-			#var direction = _actor.position.rotated((get_current_normal()).angle() - PI/2)
-			var direction = _actor.position
-			if Glb.VectorLib.perp_prod(Vector2(0, -1), get_current_normal()) > 0:
-				#direction = direction.rotated(get_current_normal().angle() - PI/2)
-				direction = direction.rotated((-get_current_normal()).angle() + PI/2)
-			else:
-				direction = direction.rotated(get_current_normal().angle() - PI/2)
-				#direction = direction.rotated((-get_current_normal()).angle() + PI/2)
-				
+			var direction = transform.xform_inv(_actor.global_position)
+			
 			direction = Glb.VectorLib.snap_to(direction, Glb.VectorLib.POLY8)
 			if direction.normalized().dot(water.target.normalized()) != 1:
 				water.target = direction * distance
