@@ -64,6 +64,18 @@ func calculate_average_center_of_mass():
 		points /= polygon.size()
 	_avg_center_of_mass = points
 
+func get_poly_normals(rot):
+	var points = PoolVector2Array()
+	if polygon.size() > 0:
+		var i = 0
+		for point in polygon:
+			if i > 0:
+				points.append((point - polygon[i - 1]).tangent().rotated(rot).normalized())
+			i += 1
+		points.append((polygon[0] - polygon[i - 1]).tangent().rotated(rot).normalized())
+
+	return points
+
 #########################################
 # accesors
 #########################################

@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 21.7332, 186.801 )
+extents = Vector2( 186.801, 21.7332 )
 
 [node name="random_rectangle" type="KinematicBody2D" index="0"]
 
@@ -17,6 +17,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "collision" ]
+camera_rotation_mode = 0
 
 [node name="collision" type="CollisionShape2D" parent="." index="0"]
 

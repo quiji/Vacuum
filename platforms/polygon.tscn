@@ -4,13 +4,14 @@
 [ext_resource path="res://addons/quijipixel.center_of_mass/center_of_mass.gd" type="Script" id=2]
 [ext_resource path="res://addons/quijipixel.center_of_mass/icon.png" type="Texture" id=3]
 
-[node name="polygon" type="KinematicBody2D" index="0"]
+[node name="polygon" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+camera_rotation_mode = 0
 
 [node name="collision" type="CollisionPolygon2D" parent="." index="0"]
 

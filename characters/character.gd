@@ -66,7 +66,7 @@ func _ready():
 
 
 ############
-# Configuration methods
+# Camera Related methods
 ############
 
 func establish_angle_from_camera():
@@ -84,15 +84,22 @@ func make_camera_look(dir):
 	var cam = Glb.get_current_camera_man()
 	
 	if cam != null:
-		cam.look_direction(self, dir)
+		cam.look_direction(dir)
 
 func restore_camera_look():
 	var cam = Glb.get_current_camera_man()
 	
 	if cam != null:
-		cam.look_direction(self, CameraMan.LOOK_CENTER)
+		cam.look_direction(CameraMan.LOOK_CENTER)
 
-	
+func is_looking_right():
+	return $sprite.get_flip_h()
+
+func normal_shift_notice(new_normal, target_normal):
+	var cam = Glb.get_current_camera_man()
+	cam.normal_shift(new_normal, target_normal)
+
+
 ############
 # Callback methods
 ############
@@ -116,6 +123,7 @@ var target_pivot = null
 var start_pivot = null
 var pivot_t = 0
 var center_direction = null
+var entered_space = false
 func transition_pivot(from, to):
 	halt_physics = true
 	target_pivot = to
@@ -127,14 +135,6 @@ func transition_pivot(from, to):
 # Overriden methods
 ############
 
-
-func normal_shift_notice(new_normal, target_normal):
-	var cam = Glb.get_current_camera_man()
-
-	if is_on_water_center() or is_on_space():
-		cam.normal_shift(self, new_normal, target_normal, CameraMan.NO_ROTATION)
-	elif is_on_gravity_center():
-		cam.normal_shift(self, new_normal, target_normal, CameraMan.FOLLOW_POLY4)
 
 
 func change_sprite_direction(direction):
@@ -155,7 +155,7 @@ func reached_ground(ground_object):
 		if ground_object != null and ground_object.has_method("apply_impulse"):
 			var distance_squared = (position - smash_jump_start_point).length_squared()
 			var impulse = -_normal * smash_jump_impulse_scalar * distance_squared / jump_peak_height * jump_peak_height
-			ground_object.apply_impulse(position, impulse)
+			#ground_object.apply_impulse(position, impulse)
 
 	set_gravity_scalar(lowest_gravity_scalar)
 	
@@ -173,19 +173,24 @@ func end_rolling():
 	$sprite.play("EndRoll")
 
 func entered_space(center):
-	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
+	entered_space = true
+	Glb.get_current_camera_man().change_scene_mode(CameraMan.BLOCKED)
+	
 	
 func entered_gravity_platform(center):
-	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_UP)
+	entered_space = false
+	Glb.get_current_camera_man().change_scene_mode(CameraMan.GRAVITY_PLATFORM, get_gravity_center())
 
 func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
-
+	entered_space = false
 
 	center_direction = -position.normalized()
 	transition_pivot(0, 18)
 
-	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
+	Glb.get_current_camera_man().change_scene_mode(CameraMan.WATER_BUBBLE, get_water_center())
+
+
 
 
 func left_water():
@@ -226,8 +231,8 @@ func little_physics_process(delta):
 			target_pivot = null
 			halt_physics = false
 			pivot_t = 0
-			if entering_water:
-				Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
+			if not entering_water and entered_space:
+				Glb.get_current_camera_man().change_scene_mode(CameraMan.FLYING_SPACE)
 
 
 func slow_down():

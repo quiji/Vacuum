@@ -1,8 +1,11 @@
 #extends RigidBody2D
 extends KinematicBody2D
 
-var center_of_mass = null
 
+export (int, "NO_ROTATION", "CIRCULAR", "FOLLOW_LINE", "FOLLOW_POLY4", "FOLLOW_CUSTOM_POLY") var camera_rotation_mode = 0 setget set_camera_rotation_mode,get_camera_rotation_mode
+
+var center_of_mass = null
+var center_of_mass_normals = null
 func _ready():
 
 	var has_sprite = false
@@ -10,15 +13,13 @@ func _ready():
 	for child in get_children():
 		if child.has_method("feed_normal_field"):
 			center_of_mass = child
+			center_of_mass_normals = center_of_mass.get_poly_normals(rotation)
 		elif child.is_class("Sprite"):
 			has_sprite = true
 
 	if not has_sprite:
 		draw_shape()
 
-# This method must be overriden for platforms with different layers of visuals, so the player stays behind the important ones?? I guess?
-func get_tree_pos():
-	return 0
 
 func get_gravity_from_center(pos):
 	var result = {gravity = Vector2(), normal = Vector2()}
@@ -76,7 +77,27 @@ func apply_impulse(impulse):
 	pass
 
 
+###################################################################################
+# Virtual methods
 
+# This method must be overriden for platforms with different layers of visuals, so the player stays behind the important ones?? I guess?
+func get_tree_pos():
+	return 0
 
+func set_camera_rotation_mode(m):
+	camera_rotation_mode = m
 
+func get_camera_rotation_mode():
+	#return Glb.CameraMan.CIRCULAR
+	return camera_rotation_mode
 
+func get_rotation_snapper():
+	match camera_rotation_mode:
+		Glb.CameraMan.FOLLOW_LINE:
+			return [Vector2(0, 1).rotated(rotation), Vector2(0, -1).rotated(rotation)]
+		Glb.CameraMan.FOLLOW_POLY4:
+			return Glb.VectorLib.POLY4
+		Glb.CameraMan.FOLLOW_CUSTOM_POLY:
+			return center_of_mass_normals
+
+	return Glb.VectorLib.POLY4

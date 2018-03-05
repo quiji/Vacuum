@@ -55,7 +55,10 @@ func is_playing(playing=null):
 	
 func set_flip_h(val):
 	$sprite.set_flip_h(val)
-	
+
+func get_flip_h():
+	return $sprite.flip_h
+
 func react(action):
 	emit_signal("react", action)
 
