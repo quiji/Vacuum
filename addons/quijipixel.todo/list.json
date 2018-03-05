@@ -234,7 +234,8 @@
     "task.255",
     "task.250",
     "task.257",
-    "task.259"
+    "task.259",
+    "task.260"
   ],
   "completed": {
     "task.0": {
@@ -5876,6 +5877,30 @@
         "minute": 22,
         "second": 43
       }
+    },
+    "task.260": {
+      "task": "Out of water platform camera transition to into space is abrupt.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 11,
+        "minute": 25,
+        "second": 0
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 16,
+        "minute": 58,
+        "second": 30
+      }
     }
   },
   "pend_order": [
@@ -5904,8 +5929,9 @@
     "task.254",
     "task.256",
     "task.258",
-    "task.260",
-    "task.261"
+    "task.261",
+    "task.262",
+    "task.263"
   ],
   "pending": {
     "task.134": {
@@ -6258,20 +6284,6 @@
         "second": 51
       }
     },
-    "task.260": {
-      "task": "Out of water platform camera transition to into space is abrupt.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 5,
-        "weekday": 1,
-        "dst": true,
-        "hour": 11,
-        "minute": 25,
-        "second": 0
-      }
-    },
     "task.261": {
       "task": "Conside doing transition animations: fall-land-idle, fall-land-run, etc...",
       "type": "Remainder",
@@ -6284,6 +6296,34 @@
         "hour": 12,
         "minute": 10,
         "second": 8
+      }
+    },
+    "task.262": {
+      "task": "Improve water reaction in borders. Get_last_velocity from bodies to react differently.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 14,
+        "minute": 34,
+        "second": 36
+      }
+    },
+    "task.263": {
+      "task": "Add gravity_center to CameraMan Gravity Platform handler. Take the directions directly from the source instead of the character. Also implement individual schemes (do not make it dependant of center_of_gravity) allowing for customer behaviours from individual inherited scripts.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 14,
+        "minute": 36,
+        "second": 9
       }
     }
   }
