@@ -72,6 +72,9 @@ static func cam_space_mov(t):
 static func cam_space_path(t):
 	return cross(t, stop2(t), flip(arch(t, 2)))
 
+static func cam_water_mov(t):
+	return cross(t, stop2(t), flip(arch(stop7(t), 1)))
+
 
 static func test(t):
 	return cross(t, start2(t), start6(t))

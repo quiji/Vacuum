@@ -247,15 +247,39 @@ func gravity_platform_logic(delta):
 
 func water_bubble_logic(delta):
 	if lock_actor.locked:
-		var radius_squared = water_center.get_radius() * water_center.get_radius()
-		var distance_to_center = _actor.position / radius_squared
+		var radius_squared = water_center.get_inner_limit_radius() * water_center.get_inner_limit_radius()
+		var distance_to_center = _actor.position.length_squared() / radius_squared
+		var total_distance = water_center.get_inner_limit_radius() * 1.5
 		
 		if not rect_area.in_margins(_actor.global_position):
-			global_position += _actor.get_last_velocity() * delta
+			#global_position += _actor.get_last_velocity() * delta
 			
-			water.target = _actor.get_last_velocity().normalized() * water_center.get_radius()
+			Console.add_log("distance_to_center", distance_to_center)
+			Console.add_log("total_distance", total_distance)
+	
 			if camera.camera_is_action_completed(water) or not water.on:
+				var distance = lerp(0, total_distance, Glb.Smooth.cam_water_mov(distance_to_center))
+				var direction = _actor.position.rotated(get_current_normal().angle() - PI/2)
+				var actor_normal = _actor.get_normal().rotated(PI/2) * 2
+				var dot = direction.dot(actor_normal)
+				
+				if direction.dot(actor_normal) > -0.2 and false:
+					direction = (direction * dot + actor_normal).normalized()
+				else:
+					direction = (-direction * dot + actor_normal).normalized()
+					
+				direction = (direction * dot + actor_normal).normalized()
+				water.target = Glb.VectorLib.snap_to(_actor.get_normal().rotated(PI/2), Glb.VectorLib.POLY8) * distance
 				camera.camera_start_action(water)
+		else:
+			water.target = Vector2()
+			camera.camera_start_action(water)
+			#water.current_position = Glb.VectorLib.snap_to(_actor.get_normal().rotated(PI/2), Glb.VectorLib.POLY4)  * distance
+
+			#water.target = _actor.get_last_velocity().normalized() * water_center.get_radius()
+			#if camera.camera_is_action_completed(water) or not water.on:
+			#	camera.camera_start_action(water)
+			
 
 
 

@@ -66,7 +66,7 @@ func _ready():
 
 
 ############
-# Configuration methods
+# Camera Related methods
 ############
 
 func establish_angle_from_camera():
@@ -95,7 +95,15 @@ func restore_camera_look():
 func is_looking_right():
 	return $sprite.get_flip_h()
 
-	
+func normal_shift_notice(new_normal, target_normal):
+	var cam = Glb.get_current_camera_man()
+
+	if is_on_water_center() or is_on_space():
+		cam.normal_shift(self, new_normal, target_normal, CameraMan.NO_ROTATION)
+	elif is_on_gravity_center():
+		cam.normal_shift(self, new_normal, target_normal, CameraMan.FOLLOW_POLY4)
+
+
 ############
 # Callback methods
 ############
@@ -130,14 +138,6 @@ func transition_pivot(from, to):
 # Overriden methods
 ############
 
-
-func normal_shift_notice(new_normal, target_normal):
-	var cam = Glb.get_current_camera_man()
-
-	if is_on_water_center() or is_on_space():
-		cam.normal_shift(self, new_normal, target_normal, CameraMan.NO_ROTATION)
-	elif is_on_gravity_center():
-		cam.normal_shift(self, new_normal, target_normal, CameraMan.FOLLOW_POLY4)
 
 
 func change_sprite_direction(direction):

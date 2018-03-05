@@ -10,7 +10,7 @@ const WATER_NORMAL_WAVE_SPEED = 1.8
 const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
 const WATER_INNER_RADIUS = 16.8
-const WATER_RADIUS_LIMIT = 17.5
+const WATER_RADIUS_LIMIT = 23.8
 
 
 export (float) var radius = 120 setget set_radius,get_radius
@@ -57,6 +57,9 @@ func set_radius(r):
 
 func get_radius():
 	return radius
+
+func get_inner_limit_radius():
+	return radius - WATER_RADIUS_LIMIT
 
 # This method must be overriden for platforms with different layers of visuals, so the player stays behind the important ones?? I guess?
 func get_tree_pos():
@@ -119,7 +122,7 @@ func set_wave_speed(speedo):
 
 func report_body(body, velocity):
 	if body.has_method("limit_water_movement_on_edges"):
-		return body.limit_water_movement_on_edges(radius - WATER_INNER_RADIUS, velocity)
+		return body.limit_water_movement_on_edges(radius - WATER_RADIUS_LIMIT, velocity)
 	return velocity
 	
 

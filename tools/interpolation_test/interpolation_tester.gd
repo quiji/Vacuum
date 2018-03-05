@@ -22,7 +22,7 @@ func inter2(t):
 
 
 func inter3(t):
-	return Smooth.water_in_pivot(t)
+	return Smooth.cam_water_mov(t)
 
 func inter4(t):
 	return Smooth.water_out(t)
