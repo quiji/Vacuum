@@ -52,7 +52,8 @@ var gravity = {
 	on = false,
 	target = Vector2(0, -100),
 	current_position = Vector2(),
-	start_position = Vector2()
+	start_position = Vector2(),
+	method = "cam_space_mov"
 }
 
 var water = {
@@ -61,11 +62,13 @@ var water = {
 	on = false,
 	target = Vector2(0, -100),
 	current_position = Vector2(),
-	start_position = Vector2()
+	start_position = Vector2(),
+	method = "cam_space_mov"
 }
 
 
 var water_center = null
+var water_radius_limits = 0
 
 var rect_area = null
 var camera = null
@@ -191,6 +194,8 @@ func change_scene_mode(mode, data=null):
 	scene_mode = mode
 	
 	match scene_mode:
+		FLYING_SPACE:
+			attempt_lock()
 		GRAVITY_PLATFORM:
 			lock_actor.duration = 1.0
 			lock_actor.speed = 270
@@ -202,7 +207,8 @@ func change_scene_mode(mode, data=null):
 			lock_actor.speed = 180
 			water_center = data
 			var r = water_center.get_radius() / 80
-			rect_area.change_margins(30 * r, 30 * r, 30 * r, 30 * r)
+			water_radius_limits = 30 * r
+			rect_area.change_margins(water_radius_limits, water_radius_limits, water_radius_limits, water_radius_limits)
 
 			attempt_lock()
 
@@ -228,7 +234,8 @@ func look_direction(request_from, dir):
 	return true
 
 func flying_space_logic(delta):
-	global_position = _actor.global_position
+	if lock_actor.locked:
+		global_position = _actor.global_position
 
 
 func gravity_platform_logic(delta):
@@ -247,44 +254,34 @@ func gravity_platform_logic(delta):
 
 func water_bubble_logic(delta):
 	if lock_actor.locked:
-		var radius_squared = water_center.get_inner_limit_radius() * water_center.get_inner_limit_radius()
-		var distance_to_center = _actor.position.length_squared() / radius_squared
-		var total_distance = water_center.get_inner_limit_radius() * 1.5
 		
 		if not rect_area.in_margins(_actor.global_position):
-			#global_position += _actor.get_last_velocity() * delta
-			
-			Console.add_log("distance_to_center", distance_to_center)
-			Console.add_log("total_distance", total_distance)
-	
-			if camera.camera_is_action_completed(water) or not water.on:
-				var distance = lerp(0, total_distance, Glb.Smooth.cam_water_mov(distance_to_center))
-				var direction = _actor.position.rotated(get_current_normal().angle() - PI/2)
-				var actor_normal = _actor.get_normal().rotated(PI/2) * 2
-				var dot = direction.dot(actor_normal)
+
+			var distance = water_center.get_inner_limit_radius() * 1.05
+			#var direction = _actor.position.rotated((get_current_normal()).angle() - PI/2)
+			var direction = _actor.position
+			if Glb.VectorLib.perp_prod(Vector2(0, -1), get_current_normal()) > 0:
+				#direction = direction.rotated(get_current_normal().angle() - PI/2)
+				direction = direction.rotated((-get_current_normal()).angle() + PI/2)
+			else:
+				direction = direction.rotated(get_current_normal().angle() - PI/2)
+				#direction = direction.rotated((-get_current_normal()).angle() + PI/2)
 				
-				if direction.dot(actor_normal) > -0.2 and false:
-					direction = (direction * dot + actor_normal).normalized()
-				else:
-					direction = (-direction * dot + actor_normal).normalized()
-					
-				direction = (direction * dot + actor_normal).normalized()
-				water.target = Glb.VectorLib.snap_to(_actor.get_normal().rotated(PI/2), Glb.VectorLib.POLY8) * distance
+			direction = Glb.VectorLib.snap_to(direction, Glb.VectorLib.POLY8)
+			if direction.normalized().dot(water.target.normalized()) != 1:
+				water.target = direction * distance
+
 				camera.camera_start_action(water)
-		else:
+
+
+		elif water.target != Vector2():
+
 			water.target = Vector2()
 			camera.camera_start_action(water)
-			#water.current_position = Glb.VectorLib.snap_to(_actor.get_normal().rotated(PI/2), Glb.VectorLib.POLY4)  * distance
-
-			#water.target = _actor.get_last_velocity().normalized() * water_center.get_radius()
-			#if camera.camera_is_action_completed(water) or not water.on:
-			#	camera.camera_start_action(water)
+			attempt_lock()
 			
 
 
-
-		
-		#global_position = _actor.global_position
 
 func _physics_process(delta):
 	#if _actor != null and _object == null:

@@ -3,7 +3,7 @@
 [ext_resource path="res://tools/interpolation_test/interpolation_tester.gd" type="Script" id=1]
 [ext_resource path="res://tools/interpolation_test/interpolator.tscn" type="PackedScene" id=2]
 
-[node name="interpolation_tester" type="Node2D" index="0"]
+[node name="interpolation_tester" type="Node2D"]
 
 script = ExtResource( 1 )
 

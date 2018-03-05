@@ -232,7 +232,8 @@
     "task.252",
     "task.253",
     "task.255",
-    "task.250"
+    "task.250",
+    "task.257"
   ],
   "completed": {
     "task.0": {
@@ -5826,6 +5827,30 @@
         "minute": 20,
         "second": 35
       }
+    },
+    "task.257": {
+      "task": "Implement camera modes for different game mechanics.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 19,
+        "minute": 31,
+        "second": 36
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 11,
+        "minute": 24,
+        "second": 19
+      }
     }
   },
   "pend_order": [
@@ -5853,8 +5878,9 @@
     "task.248",
     "task.254",
     "task.256",
-    "task.257",
-    "task.258"
+    "task.258",
+    "task.259",
+    "task.260"
   ],
   "pending": {
     "task.134": {
@@ -6193,20 +6219,6 @@
         "second": 52
       }
     },
-    "task.257": {
-      "task": "Implement camera modes for different game mechanics.",
-      "type": "Feature",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 19,
-        "minute": 31,
-        "second": 36
-      }
-    },
     "task.258": {
       "task": "Implement camera transitions between modes.",
       "type": "Feature",
@@ -6219,6 +6231,34 @@
         "hour": 19,
         "minute": 31,
         "second": 51
+      }
+    },
+    "task.259": {
+      "task": "Directons of camera in water platform are crossed and allright in different normal directions.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 11,
+        "minute": 24,
+        "second": 43
+      }
+    },
+    "task.260": {
+      "task": "Out of water platform camera transition to into space is abrupt.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 11,
+        "minute": 25,
+        "second": 0
       }
     }
   }
