@@ -520,11 +520,11 @@ func limit_water_movement_on_edges(inner_radius, velocity):
 
 	var center_direction = position.normalized()
 	var min_speed = 50
-	var min_tilt_speed = 14
 	min_speed *= min_speed
-	min_tilt_speed *= min_tilt_speed
+
 
 	if center_direction.dot(velocity) >= -0.1 and velocity.length_squared() < min_speed and normalized_dist > 0.5:
+		Console.add_log("distance_to_limit", normalized_dist)
 		return velocity.linear_interpolate(Vector2(), Glb.Smooth.water_resistance_on_edges(normalized_dist))
 	return velocity
 
@@ -763,6 +763,7 @@ func _water_physics(delta):
 
 	if swin_velocity_squared > 25:
 		swim_velocity += swim_velocity.normalized() * resistance * delta
+	
 
 	
 	if swim_tilt_velocity_squared > 8.25:# 6.25:

@@ -176,11 +176,11 @@ func end_rolling():
 	$sprite.play("EndRoll")
 
 func entered_space(center):
-	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
+
 	Glb.get_current_camera_man().change_scene_mode(CameraMan.FLYING_SPACE)
 	
 func entered_gravity_platform(center):
-	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_UP)
+
 	Glb.get_current_camera_man().change_scene_mode(CameraMan.GRAVITY_PLATFORM)
 
 func entered_water(water_bubble):
@@ -190,9 +190,9 @@ func entered_water(water_bubble):
 	center_direction = -position.normalized()
 	transition_pivot(0, 18)
 
-	Glb.get_current_camera_man().change_scene_mode(CameraMan.WATER_BUBBLE)
+	Glb.get_current_camera_man().change_scene_mode(CameraMan.WATER_BUBBLE, get_water_center())
+	#Glb.get_current_camera_man().change_scene_mode(CameraMan.BLOCKED)
 
-	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
 
 
 func left_water():
@@ -234,7 +234,7 @@ func little_physics_process(delta):
 			halt_physics = false
 			pivot_t = 0
 			#if entering_water:
-			#	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
+			#	Glb.get_current_camera_man().change_scene_mode(CameraMan.WATER_BUBBLE, get_water_center())
 
 
 func slow_down():

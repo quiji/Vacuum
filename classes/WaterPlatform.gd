@@ -10,8 +10,8 @@ const WATER_NORMAL_WAVE_SPEED = 1.8
 const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
 const WATER_INNER_RADIUS = 16.8
-#const WATER_RADIUS_LIMIT = 17.5
-const WATER_RADIUS_LIMIT = 10
+const WATER_RADIUS_LIMIT = 17.5
+
 
 export (float) var radius = 120 setget set_radius,get_radius
 
@@ -62,10 +62,8 @@ func get_radius():
 func get_tree_pos():
 	return 0
 
-func test(t):
-
-	$bkg.set_radius(radius + t)
-
+func get_last_velocity():
+	return Vector2()
 
 func grow(r):
 	
@@ -85,7 +83,7 @@ func setup_radial_structures():
 	$bkg.set_radius(radius)
 	$color_shader.set_radius(radius)
 	$collision.shape.radius = radius - WATER_INNER_RADIUS
-	$water_reaction_area/collision.shape.radius = radius
+	$water_reaction_area/collision.shape.radius = radius * 1.01
 
 	$water_shader.set_radius(radius * 1.02)
 	$water_shader.material.set("shader_params/radius", radius * 1.02)
@@ -121,7 +119,7 @@ func set_wave_speed(speedo):
 
 func report_body(body, velocity):
 	if body.has_method("limit_water_movement_on_edges"):
-		return body.limit_water_movement_on_edges(radius - WATER_RADIUS_LIMIT, velocity)
+		return body.limit_water_movement_on_edges(radius - WATER_INNER_RADIUS, velocity)
 	return velocity
 	
 

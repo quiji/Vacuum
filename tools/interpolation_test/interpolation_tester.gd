@@ -29,5 +29,5 @@ func inter4(t):
 
 func inter5(t):
 	#return Smooth.cross(t, Smooth.arch(Smooth.stop6(t), 2), Smooth.flip(Smooth.arch(Smooth.start6(t), 0.5)))
-	return Smooth.test(t)
+	return Smooth.water_resistance_on_edges(t)
 

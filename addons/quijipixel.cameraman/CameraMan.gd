@@ -4,13 +4,13 @@ enum RotatingMode {NO_ROTATION, FOLLOW_POLY4}
 enum CameraSetup {SETUP_CENTER, SETUP_UP}
 
 enum CameraLook {LOOK_CENTER, LOOK_UP, LOOK_DOWN}
-enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM}
+enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM, BLOCKED}
 
 
 #########################################################################
 export (NodePath) var actor
 export (int, "WaterBubble", "FlyingSpace", "GravityPlatform") var scene_mode
-export (bool) var debug_cameraman = false
+export (bool) var debug_cameraman = true
 #########################################################################
 
 export (float) var max_speed = 300.0
@@ -27,8 +27,6 @@ var _camera_setup = -1
 var normal = Vector2(0, -1)
 var target_normal = null
 
-var max_distance_squared = 0
-var min_distance_squared = 0
 
 
 
@@ -42,7 +40,8 @@ var lock_actor = {
 	base_position = null,
 	duration = 1.0,
 	speed = 270,
-	locked = false
+	locked = false,
+	objective = null
 }
 
 
@@ -56,7 +55,17 @@ var gravity = {
 	start_position = Vector2()
 }
 
+var water = {
+	duration = 2.0,
+	t = null,
+	on = false,
+	target = Vector2(0, -100),
+	current_position = Vector2(),
+	start_position = Vector2()
+}
 
+
+var water_center = null
 
 var rect_area = null
 var camera = null
@@ -70,6 +79,7 @@ func _ready():
 	Glb.set_current_camera_man(self)
 	
 	camera.add_action(gravity)
+	camera.add_action(water)
 	
 	rect_area = Area2D.new()
 	rect_area.set_script(preload("res://addons/quijipixel.cameraman/MarginArea.gd"))
@@ -87,12 +97,6 @@ func _ready():
 		set_actor(get_node(actor))
 
 	change_scene_mode(FLYING_SPACE)
-
-
-	max_distance_squared = max_distance * max_distance
-	min_distance_squared = min_distance * min_distance
-	
-	#setup_camera(null, SETUP_CENTER)
 
 
 	# For debug purposes
@@ -139,8 +143,13 @@ func normal_shift(request_from, new_normal, new_target_normal, rotation_mode):
 func attempt_lock():
 	if lock_actor.target == null:
 
+		if water_center != null:
+			lock_actor.objective = water_center
+		else:
+			lock_actor.objective = _actor
+
 		lock_actor.locked = false
-		lock_actor.target = _actor.global_position - global_position
+		lock_actor.target = lock_actor.objective.global_position - global_position
 		lock_actor.t = 0
 		lock_actor.base_position = position
 		var distance = lock_actor.target.length()
@@ -153,7 +162,7 @@ func attempt_lock():
 func reach_and_lock_actor(delta):
 	# Reach for actor
 	if lock_actor.target != null:
-		lock_actor.base_position += _actor.get_last_velocity() * delta
+		lock_actor.base_position += lock_actor.objective.get_last_velocity() * delta
 
 		lock_actor.t += delta / lock_actor.duration
 		if lock_actor.t < 1:
@@ -164,18 +173,38 @@ func reach_and_lock_actor(delta):
 		else:
 			position = lock_actor.base_position + lock_actor.target
 			lock_actor.target = null
-			global_position = _actor.global_position
+			global_position = lock_actor.objective.global_position
 			lock_actor.locked = true
 
 
 
-func change_scene_mode(mode):
-	scene_mode = mode
+func change_scene_mode(mode, data=null):
+	
+	if scene_mode != mode:
+		match scene_mode:
+			GRAVITY_PLATFORM:
+				camera.camera_end_action(gravity)
+			WATER_BUBBLE:
+				camera.camera_end_action(water)
+				water_center = null
 
+	scene_mode = mode
+	
 	match scene_mode:
 		GRAVITY_PLATFORM:
+			lock_actor.duration = 1.0
+			lock_actor.speed = 270
 			attempt_lock()
 			rect_area.change_margins(40, 60, 40, 0)
+		WATER_BUBBLE:
+			lock_actor.duration = 8.0
+			lock_actor.target = null
+			lock_actor.speed = 180
+			water_center = data
+			var r = water_center.get_radius() / 80
+			rect_area.change_margins(30 * r, 30 * r, 30 * r, 30 * r)
+
+			attempt_lock()
 
 
 func look_direction(request_from, dir):
@@ -198,35 +227,8 @@ func look_direction(request_from, dir):
 
 	return true
 
-
-"""
-		var move_direction = _actor.global_position - global_position
-		var speed = 100
-		var distance_squared = move_direction.length_squared()
-		
-		
-		if  distance_squared > 100 *100:
-			speed = 200
-		
-		if distance_squared > min_distance_squared:
-			var distance_factor = (clamp(distance_squared, min_distance_squared, max_distance_squared) - min_distance_squared) / (max_distance_squared - min_distance_squared)
-			speed = clamp(max_speed * distance_factor, min_speed, max_speed)
-			position += move_direction.normalized() * speed * delta
-		else:
-			global_position = _actor.global_position
-
-	if target_normal != null:
-		var distance_factor = (normal.dot(target_normal) + 1) / 2
-		
-		normal = normal.linear_interpolate(target_normal, delta * (1.05 + distance_factor))
-		rotation = (-normal).angle() - PI/2
-		if normal.dot(target_normal) >= 0.999:
-			target_normal = null
-"""
-
 func flying_space_logic(delta):
 	global_position = _actor.global_position
-
 
 
 func gravity_platform_logic(delta):
@@ -234,16 +236,28 @@ func gravity_platform_logic(delta):
 	if lock_actor.locked:
 
 		if _actor.is_looking_right() and gravity.target.x != -70:
-			gravity.target.x = -70
+			gravity.target = Vector2(-70, -100)
 			camera.camera_start_action(gravity)
 		if not _actor.is_looking_right() and gravity.target.x != 70:
-			gravity.target.x = 70
+			gravity.target = Vector2(70, -100)
 			camera.camera_start_action(gravity)
 	
 		if not rect_area.in_margins(_actor.global_position):
 			global_position += _actor.get_last_velocity() * delta
 
+func water_bubble_logic(delta):
+	if lock_actor.locked:
+		var radius_squared = water_center.get_radius() * water_center.get_radius()
+		var distance_to_center = _actor.position / radius_squared
+		
+		if not rect_area.in_margins(_actor.global_position):
+			global_position += _actor.get_last_velocity() * delta
+			water.target = normal * water_center.get_radius()
+			camera.camera_start_action(water)
 
+
+		
+		#global_position = _actor.global_position
 
 func _physics_process(delta):
 	#if _actor != null and _object == null:
@@ -254,6 +268,8 @@ func _physics_process(delta):
 				flying_space_logic(delta)
 			GRAVITY_PLATFORM:
 				gravity_platform_logic(delta)
+			WATER_BUBBLE:
+				water_bubble_logic(delta)
 	elif _actor != null:
 		reach_and_lock_actor(delta)
 
