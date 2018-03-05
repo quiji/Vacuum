@@ -7,9 +7,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 21.7332, 186.801 )
+extents = Vector2( 186.801, 21.7332 )
 
-[node name="random_rectangle" type="KinematicBody2D"]
+[node name="random_rectangle" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1

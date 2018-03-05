@@ -27,6 +27,25 @@ static func arch(t, w=1): return scale(t * w, flip(t))
 static func linear_interp(a, b, t):
 	return a + (b - a) * t
 
+static func radial_interpolate(a, b, t):
+	var dot = a.dot(b)
+	var res
+	
+	if dot >= 0:
+		res = linear_interp(a, b, t)
+	elif dot >= -0.5:
+		var half = (a + b)/2
+		res = cross(t, linear_interp(a, half, t), linear_interp(half, b, t))
+	else:
+		var half = b.tangent()
+		half = half * (1 if a.dot(half) > 0 else -1)
+		res = cross(t, linear_interp(a, half, t), linear_interp(half, b, t))
+	
+	return res.normalized()
+
+
+
+
 
 static func graph(owner, method, size=150, offset=Vector2(), step=0.01):
 	var points = PoolVector2Array()

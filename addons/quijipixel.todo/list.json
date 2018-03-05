@@ -236,7 +236,9 @@
     "task.257",
     "task.259",
     "task.260",
-    "task.161"
+    "task.161",
+    "task.263",
+    "task.258"
   ],
   "completed": {
     "task.0": {
@@ -5926,6 +5928,54 @@
         "minute": 2,
         "second": 33
       }
+    },
+    "task.263": {
+      "task": "Add gravity_center to CameraMan Gravity Platform handler. Take the directions directly from the source instead of the character. Also implement individual schemes (do not make it dependant of center_of_gravity) allowing for customer behaviours from individual inherited scripts.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 14,
+        "minute": 36,
+        "second": 9
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 20,
+        "minute": 49,
+        "second": 14
+      }
+    },
+    "task.258": {
+      "task": "Implement camera transitions between modes.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 19,
+        "minute": 31,
+        "second": 51
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 20,
+        "minute": 49,
+        "second": 28
+      }
     }
   },
   "pend_order": [
@@ -5952,10 +6002,8 @@
     "task.248",
     "task.254",
     "task.256",
-    "task.258",
     "task.261",
     "task.262",
-    "task.263",
     "task.264"
   ],
   "pending": {
@@ -6281,20 +6329,6 @@
         "second": 52
       }
     },
-    "task.258": {
-      "task": "Implement camera transitions between modes.",
-      "type": "Feature",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 19,
-        "minute": 31,
-        "second": 51
-      }
-    },
     "task.261": {
       "task": "Conside doing transition animations: fall-land-idle, fall-land-run, etc...",
       "type": "Remainder",
@@ -6321,20 +6355,6 @@
         "hour": 14,
         "minute": 34,
         "second": 36
-      }
-    },
-    "task.263": {
-      "task": "Add gravity_center to CameraMan Gravity Platform handler. Take the directions directly from the source instead of the character. Also implement individual schemes (do not make it dependant of center_of_gravity) allowing for customer behaviours from individual inherited scripts.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 5,
-        "weekday": 1,
-        "dst": true,
-        "hour": 14,
-        "minute": 36,
-        "second": 9
       }
     },
     "task.264": {

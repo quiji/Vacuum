@@ -1,6 +1,6 @@
 extends Node2D
 
-enum RotatingMode {NO_ROTATION, CIRCULAR, FOLLOW_POLY4}
+enum RotatingMode {NO_ROTATION, CIRCULAR, FOLLOW_LINE, FOLLOW_POLY4, FOLLOW_CUSTOM_POLY}
 enum CameraSetup {SETUP_CENTER, SETUP_UP}
 
 enum CameraLook {LOOK_CENTER, LOOK_UP, LOOK_DOWN}
@@ -68,10 +68,14 @@ var water = {
 
 var circular = {
 	#duration for a full circle rotation
-	duration = 0.2
+	duration = 0.0485
 }
 
-
+var line = {
+	duration = 1.0,
+	t = 0,
+	start = null
+}
 
 var water_center = null
 var water_radius_limits = 0
@@ -148,12 +152,27 @@ func normal_shift(new_normal, new_target_normal):
 	match rotation_mode:
 		CIRCULAR:
 			target_normal = new_normal if new_target_normal == null else new_target_normal
-		FOLLOW_POLY4:
+		FOLLOW_LINE:
+			var snapper = gravity_center.get_rotation_snapper()
 			var _normal = new_normal if new_target_normal == null else new_target_normal
-			var target = Glb.VectorLib.snap_to(_normal, Glb.VectorLib.POLY4)
+			var target = Glb.VectorLib.snap_to(_normal, snapper)
+
+			if normal.dot(target) < 0:
+				target_normal = target
+				line.t = 0
+				line.start = normal
+
+		FOLLOW_POLY4:
+			var snapper = gravity_center.get_rotation_snapper()
+			var _normal = new_normal if new_target_normal == null else new_target_normal
+			var target = Glb.VectorLib.snap_to(_normal, snapper)
 
 			target_normal = target
-
+		FOLLOW_CUSTOM_POLY:
+			var snapper = gravity_center.get_rotation_snapper()
+			var _normal = new_normal if new_target_normal == null else new_target_normal
+			var target = Glb.VectorLib.snap_to(_normal, snapper)
+			target_normal = target
 	
 	return true
 
@@ -289,7 +308,6 @@ func water_bubble_logic(delta):
 			
 
 
-
 func _physics_process(delta):
 
 	if _actor != null and lock_actor.locked:
@@ -317,15 +335,21 @@ func _physics_process(delta):
 				var d_t = (normal.dot(target_normal) + 1) / 2
 				# this is the t for a whole circle rotation
 				var t = delta / circular.duration * (1 - d_t)
-				Console.add_log("circle_percentage", 1 - d_t)
-				Console.add_log("piece_duration", circular.duration * (1 - d_t))
 
-				normal = normal.linear_interpolate(target_normal, Glb.Smooth.cam_circular_rot(t, d_t))
+				normal = Glb.Smooth.radial_interpolate(normal, target_normal, Glb.Smooth.cam_circular_rot(t, d_t))
 			FOLLOW_POLY4:
 				var distance_factor = (normal.dot(target_normal) + 1) / 2
-				normal = normal.linear_interpolate(target_normal, delta * (1.05 + distance_factor))
+				normal = Glb.Smooth.radial_interpolate(normal, target_normal, delta * (1.05 + distance_factor))
+			FOLLOW_LINE:
+				if line.start != null:
+					line.t += delta / line.duration 
+					normal = Glb.Smooth.radial_interpolate(line.start, target_normal, line.t)
+			FOLLOW_CUSTOM_POLY:
+				var distance_factor = (normal.dot(target_normal) + 1) / 2
+				normal = Glb.Smooth.radial_interpolate(normal, target_normal, delta * (1.05 + distance_factor))
+
 
 		rotation = (-normal).angle() - PI/2
 		if normal.dot(target_normal) >= 0.999:
 			target_normal = null
-	
+

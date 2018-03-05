@@ -2,10 +2,10 @@
 extends KinematicBody2D
 
 
-export (int, "NO_ROTATION", "CIRCULAR", "FOLLOW_POLY4") var camera_rotation_mode = 0 setget set_camera_rotation_mode,get_camera_rotation_mode
+export (int, "NO_ROTATION", "CIRCULAR", "FOLLOW_LINE", "FOLLOW_POLY4", "FOLLOW_CUSTOM_POLY") var camera_rotation_mode = 0 setget set_camera_rotation_mode,get_camera_rotation_mode
 
 var center_of_mass = null
-
+var center_of_mass_normals = null
 func _ready():
 
 	var has_sprite = false
@@ -13,6 +13,7 @@ func _ready():
 	for child in get_children():
 		if child.has_method("feed_normal_field"):
 			center_of_mass = child
+			center_of_mass_normals = center_of_mass.get_poly_normals(rotation)
 		elif child.is_class("Sprite"):
 			has_sprite = true
 
@@ -89,3 +90,13 @@ func set_camera_rotation_mode(m):
 func get_camera_rotation_mode():
 	return camera_rotation_mode
 
+func get_rotation_snapper():
+	match camera_rotation_mode:
+		Glb.CameraMan.FOLLOW_LINE:
+			return [Vector2(0, 1).rotated(rotation), Vector2(0, -1).rotated(rotation)]
+		Glb.CameraMan.FOLLOW_POLY4:
+			return Glb.VectorLib.POLY4
+		Glb.CameraMan.FOLLOW_CUSTOM_POLY:
+			return center_of_mass_normals
+
+	return Glb.VectorLib.POLY4
