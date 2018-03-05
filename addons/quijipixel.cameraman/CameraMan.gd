@@ -252,8 +252,11 @@ func water_bubble_logic(delta):
 		
 		if not rect_area.in_margins(_actor.global_position):
 			global_position += _actor.get_last_velocity() * delta
-			water.target = normal * water_center.get_radius()
-			camera.camera_start_action(water)
+			
+			water.target = _actor.get_last_velocity().normalized() * water_center.get_radius()
+			if camera.camera_is_action_completed(water) or not water.on:
+				camera.camera_start_action(water)
+
 
 
 		
