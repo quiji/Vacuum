@@ -5,12 +5,14 @@ static func start3(t): return t * t * t
 static func start4(t): return t * t * t * t
 static func start5(t): return t * t * t * t * t
 static func start6(t): return t * t * t * t * t * t
+static func start7(t): return t * t * t * t * t * t * t
 
 static func stop2(t): return 1 - (1 - t) * (1 - t) 
 static func stop3(t): return 1 - (1 - t) * (1 - t) * (1 - t) 
 static func stop4(t): return 1 - (1 - t) * (1 - t) * (1 - t) * (1 - t) 
 static func stop5(t): return 1 - (1 - t) * (1 - t) * (1 - t) * (1 - t) * (1 - t) 
 static func stop6(t): return 1 - (1 - t) * (1 - t) * (1 - t) * (1 - t) * (1 - t) * (1 - t) 
+static func stop7(t): return 1 - (1 - t) * (1 - t) * (1 - t) * (1 - t) * (1 - t) * (1 - t) * (1 - t) 
 
 static func flip(t): return 1 - t
 
@@ -63,6 +65,13 @@ static func water_resistance(t):
 
 static func run_step(t):
 	return arch(start2(t), 1.5) + 0.66
+
+static func cam_space_mov(t):
+	return stop3(start2(t))
+
+static func cam_space_path(t):
+	return cross(t, stop2(t), flip(arch(t, 2)))
+
 
 static func test(t):
 	return cross(t, start2(t), start6(t))

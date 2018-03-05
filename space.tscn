@@ -53,7 +53,7 @@ script = ExtResource( 3 )
 
 [node name="character" parent="playground" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 290.659, -212.634 )
+position = Vector2( 770.659, -134.634 )
 
 [node name="circular" parent="playground" index="1" instance=ExtResource( 5 )]
 
@@ -132,7 +132,7 @@ position = Vector2( 60, -112 )
 
 [node name="water_platform2" parent="playground" index="16" instance=ExtResource( 14 )]
 
-position = Vector2( 332, -424 )
+position = Vector2( 446, -364 )
 
 [node name="water_platform3" parent="playground" index="17" instance=ExtResource( 14 )]
 
@@ -140,7 +140,7 @@ position = Vector2( -100, 672 )
 
 [node name="camera_man" type="Camera2D" parent="." index="2"]
 
-position = Vector2( 390, 66 )
+position = Vector2( 718, 400 )
 anchor_mode = 1
 rotating = false
 current = false
@@ -168,12 +168,13 @@ __meta__ = {
 "_editor_icon": ExtResource( 16 )
 }
 actor = NodePath("../playground/character")
+scene_mode = null
+debug_cameraman = true
 max_speed = 300.0
 min_speed = 190.0
 max_distance = 300.0
 min_distance = 4.5
 setup_distance = 104.5
-show_camera_man = true
 look_distance = 100.0
 
 [node name="hud" parent="." index="3" instance=ExtResource( 17 )]

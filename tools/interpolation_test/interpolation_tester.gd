@@ -15,10 +15,10 @@ func _ready():
 
 
 func inter(t):
-	return Smooth.run_step(t)
+	return Smooth.cam_space_mov(t)
 
 func inter2(t):
-	return Smooth.swim_stroke(t)
+	return Smooth.cam_space_path(t)
 
 
 func inter3(t):

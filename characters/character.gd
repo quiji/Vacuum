@@ -92,6 +92,9 @@ func restore_camera_look():
 	if cam != null:
 		cam.look_direction(self, CameraMan.LOOK_CENTER)
 
+func is_looking_right():
+	return $sprite.get_flip_h()
+
 	
 ############
 # Callback methods
@@ -173,10 +176,12 @@ func end_rolling():
 	$sprite.play("EndRoll")
 
 func entered_space(center):
-	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
+	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER)
+	Glb.get_current_camera_man().change_scene_mode(CameraMan.FLYING_SPACE)
 	
 func entered_gravity_platform(center):
-	Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_UP)
+	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_UP)
+	Glb.get_current_camera_man().change_scene_mode(CameraMan.GRAVITY_PLATFORM)
 
 func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
@@ -184,6 +189,8 @@ func entered_water(water_bubble):
 
 	center_direction = -position.normalized()
 	transition_pivot(0, 18)
+
+	Glb.get_current_camera_man().change_scene_mode(CameraMan.WATER_BUBBLE)
 
 	#Glb.get_current_camera_man().setup_camera(self, CameraMan.SETUP_CENTER, get_water_center())
 
