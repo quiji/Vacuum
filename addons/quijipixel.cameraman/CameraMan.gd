@@ -47,7 +47,8 @@ var lock_actor = {
 
 
 var gravity = {
-	duration = 2.0,
+	#duration = 2.0,
+	duration = 1.5,
 	t = null,
 	on = false,
 	target = Vector2(0, -100),
@@ -68,11 +69,13 @@ var water = {
 
 var circular = {
 	#duration for a full circle rotation
-	duration = 0.0485
+	#duration = 0.0485
+	duration = 0.9
 }
 
 var line = {
-	duration = 1.0,
+	#duration = 1.0,
+	duration = 0.8,
 	t = 0,
 	start = null
 }
@@ -148,6 +151,7 @@ func normal_shift(new_normal, new_target_normal):
 		rotation_mode = gravity_center.get_camera_rotation_mode()
 
 		Console.add_log("rotation_mode", rotation_mode)
+
 	"""
 	if rotation_mode != NO_ROTATION:
 		var snapper = [Vector2(0, -1).rotated(gravity_center.rotation), Vector2(0, 1).rotated(gravity_center.rotation)]
@@ -179,7 +183,7 @@ func normal_shift(new_normal, new_target_normal):
 			var _normal = new_normal if new_target_normal == null else new_target_normal
 			var target = Glb.VectorLib.snap_to(_normal, snapper)
 
-			if normal.dot(target) < 0:
+			if normal.dot(target) < 0.8:
 				target_normal = target
 				line.t = 0
 				line.start = normal
@@ -371,7 +375,7 @@ func _physics_process(delta):
 				normal = Glb.Smooth.radial_interpolate(normal, target_normal, delta * (1.05 + distance_factor))
 
 
-		rotation = (-normal).angle() - PI/2
 		if normal.dot(target_normal) >= 0.999:
+			normal = target_normal
 			target_normal = null
-
+		rotation = (-normal).angle() - PI/2
