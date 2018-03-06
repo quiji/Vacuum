@@ -69,8 +69,7 @@ var water = {
 
 var circular = {
 	#duration for a full circle rotation
-	#duration = 0.0485
-	duration = 0.9
+	duration = 0.0485
 }
 
 var line = {
