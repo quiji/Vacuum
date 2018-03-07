@@ -262,7 +262,7 @@ func little_physics_process(delta):
 			else:
 				global_position += (center_direction + _normal).normalized() * current_pivot * 6 * delta
 		else:
-			global_position += _last_velocity.normalized() * current_pivot * 1 * delta
+			global_position += get_last_velocity_normalized() * current_pivot * 1 * delta
 		if pivot_t > 1:
 			target_pivot = null
 			halt_physics = false
