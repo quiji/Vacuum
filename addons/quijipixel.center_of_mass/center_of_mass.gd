@@ -27,6 +27,10 @@ func _ready():
 		feed_normal_field(get_node(field))
 
 	calculate_average_center_of_mass()
+	
+	
+	Console.add_command("debug_normals", self, "debug_normals", "Show normals from center of mass nodes")
+	
 
 func feed_normal_field(field):
 
@@ -124,7 +128,11 @@ func calc_closest_center(pos):
 			second_center = new_center
 		i += 1
 	if closest_length != null and second_length != null:
-		var center_factor = 0.5 * closest_length / second_length
+		#var center_factor = 0.5 * closest_length / second_length
+		var closest = _closest_center.normalized()
+		#var second = second_center.normalized()
+
+		var center_factor = 1 - closest.dot(pos.normalized())
 		_closest_center = (second_center - _closest_center) * center_factor + _closest_center
 		
 
@@ -404,3 +412,35 @@ func get_gravity(pos):
 	else: 
 		return Vector2()
 
+
+
+#########################
+# DEBUG!
+var debug = false
+
+
+
+func debug_normals(args):
+	debug = not debug
+	update()
+
+
+
+func _draw():
+	
+	if _field_meta != null and _field_meta.type == "polygon" and polygon.size() == 0:
+		return null
+	
+	if debug:
+		var i = 0
+		while i < PI * 2:
+			
+			var data = -get_gravity(Vector2(0, -1).rotated(i) * 300)
+			
+			draw_line(_closest_center, data * 50 + _closest_center, Color(0.9, 0.6, 0.6), 2)
+			draw_circle(_closest_center, 4, Color(1.0, 0.2, 0.2))
+			
+			i += PI * 2 /64
+	
+	
+		

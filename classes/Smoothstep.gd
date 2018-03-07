@@ -43,6 +43,17 @@ static func radial_interpolate(a, b, t):
 	
 	return res.normalized()
 
+static func directed_radial_interpolate(a, b, t, dir):
+	var dot = a.dot(b)
+	var res
+	
+	if dot >= 0.4:
+		res = linear_interp(a, b, t)
+	else:
+		var half = a.tangent() * dir
+		res = cross(t, linear_interp(a, half, t), linear_interp(half, b, t))
+	
+	return res.normalized()
 
 
 
@@ -60,6 +71,10 @@ static func graph(owner, method, size=150, offset=Vector2(), step=0.01):
 
 #######################################
 # Personal Lib
+
+static func player_roll(t):
+	return cross(t, stop2(t), flip(arch(t, 3)))
+
 
 static func water_out(t):
 	return cross(t, stop2(t), flip(arch(t, 5)))

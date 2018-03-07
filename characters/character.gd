@@ -124,6 +124,10 @@ var start_pivot = null
 var pivot_t = 0
 var center_direction = null
 var entered_space = false
+
+var gravity_rotation_t = null
+var start_normal = null
+
 func transition_pivot(from, to):
 	halt_physics = true
 	target_pivot = to
@@ -168,23 +172,39 @@ func reached_ground(ground_object):
 
 func start_rolling():
 	$sprite.play("StartRoll")
+	$roll_collision.disabled = false
+	$collision.disabled = true
 
 func end_rolling():
 	$sprite.play("EndRoll")
+	$roll_collision.disabled = true
+	$collision.disabled = false
 
 func entered_space(center):
 	entered_space = true
+
 	Glb.get_current_camera_man().change_scene_mode(CameraMan.BLOCKED)
 	
 	
 func entered_gravity_platform(center):
+
 	entered_space = false
+	"""
+	var data = get_gravity_data()
+	set_target_normal(data.normal)
+	start_normal = get_normal()
+	gravity_rotation_t = 0
+	halt_physics = true
+	$roll_collision.disabled = false
+	$collision.disabled = true
+	"""
 	Glb.get_current_camera_man().change_scene_mode(CameraMan.GRAVITY_PLATFORM, get_gravity_center())
 
 func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
 	entered_space = false
 
+	
 	center_direction = -position.normalized()
 	transition_pivot(0, 18)
 
@@ -198,18 +218,34 @@ func left_water():
 
 
 func little_physics_process(delta):
+	
+	if gravity_rotation_t != null and get_target_normal() != null:
+		if gravity_rotation_t < 1:
+			gravity_rotation_t += delta / 0.6
+			set_normal(Glb.Smooth.radial_interpolate(start_normal, get_target_normal(), gravity_rotation_t))
+		else:
+			Console.add_log("gravity_rotation_t", gravity_rotation_t)
+			set_normal(get_target_normal())
+			set_target_normal(null)
+			gravity_rotation_t = 0
+			halt_physics = false
+			$roll_collision.disabled = true
+			$collision.disabled = false
 
+	elif target_pivot == null:
+		halt_physics = false
+	
+	
 	if target_pivot != null:
 		var entering_water = target_pivot - start_pivot > 0
 		pivot_t += delta / 0.4
 		#pivot_t += delta / 2.0
-		
+
 		var current_pivot =  0 
 		var current_position = 0
 		if entering_water:
 			if not is_on_ground():
-				interpolate_normal_towards(TOWARDS_NEW_VALUE, center_direction, Glb.Smooth.water_entrance_rotation(pivot_t))
-				update_normal()
+				set_normal(Glb.Smooth.radial_interpolate(_normal, center_direction, Glb.Smooth.water_entrance_rotation(pivot_t)))
 			current_pivot = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in_pivot(pivot_t))
 			current_position = Glb.Smooth.linear_interp(start_pivot, target_pivot, Glb.Smooth.water_in(pivot_t))
 		else:

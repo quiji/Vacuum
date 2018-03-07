@@ -238,7 +238,13 @@
     "task.260",
     "task.161",
     "task.263",
-    "task.258"
+    "task.258",
+    "task.217",
+    "task.191",
+    "task.189",
+    "task.186",
+    "task.266",
+    "task.265"
   ],
   "completed": {
     "task.0": {
@@ -5976,6 +5982,150 @@
         "minute": 49,
         "second": 28
       }
+    },
+    "task.217": {
+      "task": "CameraMan is full of bugs, and rotation and moving mechanics are not working well. Implement all features again and clean that up (fixing platforming bugs becomes inreasingly difficult with bad camera movements, you know... dizzinezz)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 23,
+        "minute": 40,
+        "second": 55
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 23,
+        "minute": 24,
+        "second": 35
+      }
+    },
+    "task.191": {
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 16,
+        "minute": 48,
+        "month": 2,
+        "second": 34,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "CameraMan flickers when character moves fast.",
+      "type": "Bug",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 23,
+        "minute": 24,
+        "second": 57
+      }
+    },
+    "task.189": {
+      "creation_date": {
+        "day": 16,
+        "dst": true,
+        "hour": 3,
+        "minute": 1,
+        "month": 2,
+        "second": 15,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "When jumping the camera follows up but stays up instead of going back to previous position.",
+      "type": "Bug",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 23,
+        "minute": 25,
+        "second": 0
+      }
+    },
+    "task.186": {
+      "creation_date": {
+        "day": 13,
+        "dst": true,
+        "hour": 17,
+        "minute": 7,
+        "month": 2,
+        "second": 40,
+        "weekday": 2,
+        "year": 2018
+      },
+      "task": "Change camera rotations depending on the platform.",
+      "type": "Feature",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 23,
+        "minute": 25,
+        "second": 6
+      }
+    },
+    "task.266": {
+      "task": "Rolling! Use a special low (circular) collision in the axis level and move the asprite closer to that axis to make the roll smoother and (probably) eliminate the annoying bounciness.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 6,
+        "weekday": 2,
+        "dst": true,
+        "hour": 0,
+        "minute": 27,
+        "second": 51
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 6,
+        "weekday": 2,
+        "dst": true,
+        "hour": 2,
+        "minute": 46,
+        "second": 34
+      }
+    },
+    "task.265": {
+      "task": "Reform normal interpolation with new (and wonderful) method. Make the normal snap to targets.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 23,
+        "minute": 58,
+        "second": 53
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 7,
+        "weekday": 3,
+        "dst": true,
+        "hour": 17,
+        "minute": 30,
+        "second": 1
+      }
     }
   },
   "pend_order": [
@@ -5989,22 +6139,19 @@
     "task.152",
     "task.155",
     "task.176",
-    "task.186",
-    "task.189",
-    "task.191",
     "task.192",
     "task.200",
     "task.205",
     "task.209",
     "task.215",
-    "task.217",
     "task.238",
     "task.248",
     "task.254",
     "task.256",
     "task.261",
     "task.262",
-    "task.264"
+    "task.264",
+    "task.267"
   ],
   "pending": {
     "task.134": {
@@ -6090,48 +6237,6 @@
       },
       "task": "Implement a functional invert mode for character.",
       "type": "Feature"
-    },
-    "task.186": {
-      "creation_date": {
-        "day": 13,
-        "dst": true,
-        "hour": 17,
-        "minute": 7,
-        "month": 2,
-        "second": 40,
-        "weekday": 2,
-        "year": 2018
-      },
-      "task": "Change camera rotations depending on the platform.",
-      "type": "Feature"
-    },
-    "task.189": {
-      "creation_date": {
-        "day": 16,
-        "dst": true,
-        "hour": 3,
-        "minute": 1,
-        "month": 2,
-        "second": 15,
-        "weekday": 5,
-        "year": 2018
-      },
-      "task": "When jumping the camera follows up but stays up instead of going back to previous position.",
-      "type": "Bug"
-    },
-    "task.191": {
-      "creation_date": {
-        "day": 23,
-        "dst": true,
-        "hour": 16,
-        "minute": 48,
-        "month": 2,
-        "second": 34,
-        "weekday": 5,
-        "year": 2018
-      },
-      "task": "CameraMan flickers when character moves fast.",
-      "type": "Bug"
     },
     "task.192": {
       "creation_date": {
@@ -6259,20 +6364,6 @@
         "second": 4
       }
     },
-    "task.217": {
-      "task": "CameraMan is full of bugs, and rotation and moving mechanics are not working well. Implement all features again and clean that up (fixing platforming bugs becomes inreasingly difficult with bad camera movements, you know... dizzinezz)",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 23,
-        "minute": 40,
-        "second": 55
-      }
-    },
     "task.238": {
       "task": "When player is in the limbo between a gravity platform and a water platform, it starts behaving badly because of offset change.(or something)",
       "type": "Bug",
@@ -6369,6 +6460,20 @@
         "hour": 17,
         "minute": 2,
         "second": 19
+      }
+    },
+    "task.267": {
+      "task": "Squared length divided into another squared length won't give the ratio. Must find and fix every usage of this \"technique\"",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 7,
+        "weekday": 3,
+        "dst": true,
+        "hour": 17,
+        "minute": 30,
+        "second": 37
       }
     }
   }

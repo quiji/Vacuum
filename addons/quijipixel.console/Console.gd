@@ -23,6 +23,7 @@ func _ready():
 	add_command(".", self, "_execute", "$<name>.<property> to show content, $<name>.<property> <type:f/i/s> <new_value> to assign or $<name>.<method> <argument1> <argument2> to execute.")
 	add_command("log", self, "_activate_log", "Activate/deactivate by running log on/off")
 	add_command("reboot", self, "_reboot", "Restart current scene")
+	add_command("unpause", self, "_unpause", "Unpause game")
 	
 func _input(delta):
 	if Input.is_action_just_pressed("toggle_console"):
@@ -34,13 +35,19 @@ func _input(delta):
 
 
 func add_command(_name, obj, function, data):
-	commands[_name] = {object = obj, method = function, info = data}
+	if !commands.has(_name):
+		commands[_name] = [{object = obj, method = function, info = data}]
+	else:
+		commands[_name].push_back({object = obj, method = function, info = data})
 
 func run_command(cmd, att):
 	if !commands.has(cmd):
 		out.warn("Command 0¡ doesn't exist", [cmd])
 	else:
-		commands[cmd].object.call(commands[cmd].method, att)
+		var i = 0
+		while i < commands[cmd].size():
+			commands[cmd][i].object.call(commands[cmd][i].method, att)
+			i += 1
 
 
 ################################################
@@ -117,7 +124,7 @@ func set_visual_log(val):
 func _help(args):
 	out.info("Command list:")
 	for key in commands:
-		out.info("  - 0¡:  " + commands[key].info, [key])
+		out.info("  - 0¡:  " + commands[key][0].info, [key])
 
 var nodes = {}
 func _get_node(_att):
@@ -266,3 +273,6 @@ func _reboot(args):
 	set_physics_process(false)
 	get_tree().reload_current_scene()
 
+func _unpause(args):
+	out.info("Unpausing game...")
+	get_tree().set_pause(false)

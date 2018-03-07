@@ -17,6 +17,9 @@ const INV_NORMAL = 1
 #const SWIM_STROKE_DURATION = 0.5
 const SWIM_STROKE_DURATION = 0.6
 
+#const ON_GROUNDTHRESHOLD = 0.025
+const ON_GROUNDTHRESHOLD = 0.1
+
 enum ControlMode {ROTATION, INVERSION}
 
 
@@ -40,7 +43,7 @@ var move_speed_reducer = 0
 ######## Slope related #########
 
 var _slope_stop_min_vel = 0
-var _max_bounce = 4
+var _max_bounce = 10
 var _max_angle = 0.795398
 
 
@@ -67,6 +70,7 @@ var _open_space = null
 var _normal = Vector2(0, -1)
 var _target_normal_direction = 0
 var _target_normal = null
+var normal_t = 0
 
 ######## Misc #########
 var _facing = FACING_RIGHT
@@ -86,6 +90,7 @@ var _attempting_jump = false
 var _rolling = false
 var _step = false
 var halt_physics = false
+var _normal_update = false
 
 ######## Configuration #########
 var _control_mode = ROTATION
@@ -162,8 +167,8 @@ func get_gravity_center():
 func set_gravity_center(center):
 	if center != null:
 		
-		if _gravity_center != null:
-			_gravity_center.remove_collision_exception_with(self)
+		#if _gravity_center != null:
+		#	_gravity_center.remove_collision_exception_with(self)
 		
 		_gravity_center = center
 		var rot = global_rotation
@@ -171,14 +176,14 @@ func set_gravity_center(center):
 
 		get_parent().remove_child(self)
 		_gravity_center.add_child(self)
-		_gravity_center.add_collision_exception_with(self)
+		#_gravity_center.add_collision_exception_with(self)
 		_gravity_center.move_child(self, _gravity_center.get_tree_pos())
 		global_rotation = rot
 		global_position = pos
 		
 		entered_gravity_platform(_gravity_center)
 	elif _gravity_center != null:
-		_gravity_center.remove_collision_exception_with(self)
+		#_gravity_center.remove_collision_exception_with(self)
 		_gravity_center = null
 		#left_gravity_platform()
 
@@ -253,6 +258,16 @@ func change_center(new_center):
 func get_normal():
 	return _normal
 
+func set_normal(n):
+	_normal = n
+	_normal_update = true
+
+func get_target_normal():
+	return _target_normal
+
+func set_target_normal(tn):
+	_target_normal = tn
+
 func set_gravity_scalar(g):
 	_gravity_scalar = g
 
@@ -266,7 +281,7 @@ func is_falling():
 	return _falling
 	
 func is_on_ground():
-	return _on_ground or _loosed_ground_delta < 0.025
+	return _on_ground or _loosed_ground_delta < ON_GROUNDTHRESHOLD 
 	
 
 func is_moving():
@@ -309,6 +324,7 @@ func jump(jump_initial_velocity_scalar):
 	_falling = false
 	_rolling = false
 	_attempting_jump = true
+	_loosed_ground_delta = ON_GROUNDTHRESHOLD 
 
 func stop_in_air():
 	_prev_altitude_velocity_scalar = _altitude_velocity_scalar
@@ -359,10 +375,6 @@ func tilt(direction, tilt_to_45_time, tilt_speed):
 func stop_tilt():
 	_target_normal = null
 
-func update_normal():
-	global_rotation = (-_normal).angle() - PI/2
-
-	normal_shift_notice(_normal, $ground_raycast.get_normal())
 
 
 func add_swim_impulse(swim_impulse_scalar):
@@ -384,29 +396,62 @@ func increase_water_resistance():
 # Helper methods
 ############
 
+func start_normal_interpolation():
+	normal_t = 0
 
-func interpolate_normal_towards(inter_type, val=null, acc=0.1):
-	
-	if inter_type == TOWARDS_TANGENT:
-		_normal = _normal.linear_interpolate(Glb.VectorLib.snap_to(_normal.tangent(), Glb.VectorLib.POLY16) * _target_normal_direction, acc).normalized()
-	elif inter_type == TOWARDS_TARGET:
-		_normal = _normal.linear_interpolate(Glb.VectorLib.snap_to(_target_normal, Glb.VectorLib.POLY16), acc).normalized()
-	elif inter_type == TOWARDS_NEW_VALUE:
-		_normal = _normal.linear_interpolate(Glb.VectorLib.snap_to(val, Glb.VectorLib.POLY16), acc).normalized()
+func transform_to_local(global_vec):
+	var trans = Transform2D(-_normal.tangent(), -_normal, Vector2())
+	return trans.xform_inv(global_vec)
 
 
 ############
 # Gravity methods
 ############
 
-func verify_gravity_center_change(collision_info):
+func verify_center_change(c = null):
 	
-	if collision_info != null:
+	# Translate to original coordinates to be able to set correct position into raycaster, as the
+	# raycaster exist in the local coordinate system of the Character and not the global one
+	var direction = transform_to_local(_last_velocity).normalized() * 25
+
+	var result = {
+		changed_center = false,
+		collision_info = null,
+		raycast_info = {}
+		#$ground_raycast.cast_ray_ahead(direction, Glb.get_collision_layer_int(["Platform"]))
+	}
+
+
+	if not verify_water_center(false):
+		Console.add_log("slide_count", get_slide_count())
+		if get_slide_count() > 0 or c != null:
+			if c == null:
+				c = get_slide_collision(0)
+			var slide = verify_gravity_center_change(c)
+			if slide:
+				result.changed_center = true
+				result.collision_info = get_slide_collision(0)
+		if not result.changed_center:
+			result.changed_center = verify_gravity_center_change(result.raycast_info)
+
+	return result
+
+
+func verify_gravity_center_change(collision_info):
+
+	var valid = false
+	
+	if collision_info != null and typeof(collision_info) != TYPE_DICTIONARY:
+		valid = true
+	elif collision_info != null and not collision_info.empty():
+		valid = true
+
+	if valid:
 		var collider = collision_info.collider
 		if  collider.has_method("get_gravity_from_center") and get_parent() != collider:
 			change_center(collider)
-			return collision_info
-	return null
+			return true
+	return false
 
 
 func get_gravity_data():
@@ -414,18 +459,20 @@ func get_gravity_data():
 		return _gravity_center.get_gravity_from_center(position)
 	return {gravity = Vector2(), normal = Vector2()}
 
-func check_ground_reach(collision_info, changed_center):
+func check_ground_reach(center_verification):
 
 	# Checking for small platform collisions...
 	var on_small_platform = false
-	if changed_center == null and collision_info != null:
-		Console.add_log("Collision_normal", collision_info.normal)
-		Console.add_log("my_normal", _normal)
-		if _normal.dot(collision_info.normal) > 0.1:
+	var collided = center_verification.collision_info != null
+	var rayed = not center_verification.raycast_info.empty()
+	if not center_verification.changed_center and collided:
+		Console.add_log("Collision_normal", center_verification.collision_info.normal)
+		if _normal.dot(center_verification.collision_info.normal) > 0.1:
 			on_small_platform = true
 			Console.add_log("collided", "COLLIDED!")
-
-	if on_small_platform or (collision_info != null and (_falling or changed_center != null ) ):
+	Console.add_log("collided",collided)
+	Console.add_log("rayed",rayed)
+	if on_small_platform or ( collided and (_falling or center_verification.changed_center ) ):
 		_prev_altitude_velocity_scalar = 0
 		_altitude_velocity_scalar = 0
 		_falling = false
@@ -436,40 +483,50 @@ func check_ground_reach(collision_info, changed_center):
 		return true
 	return false
 
-func adjust_normal_towards(new_normal, gravity_center_collision_data):
+func adjust_normal_towards(new_normal, center_verification, delta):
 	var updated_normal = false
 	var _prev_normal = new_normal
 
-	if gravity_center_collision_data != null:
+	if center_verification.changed_center:
 		new_normal = get_gravity_data().normal
+		_target_normal = null
 
 	if water_arrival_normal != null:
-		interpolate_normal_towards(TOWARDS_NEW_VALUE, water_arrival_normal)
+		set_normal(Glb.Smooth.radial_interpolate(_normal, water_arrival_normal, delta / 0.0625))
+
 		if water_arrival_normal.dot(_normal) > 0.9:
 			water_arrival_normal = null
 		updated_normal = true
 	elif _target_normal != null:
-		# If _normal is close enough (less than 45 degrees) to target
-		if _target_normal.dot(_normal) > 0.5:
-			# Interpolate towards target one last time and remove target.
-			interpolate_normal_towards(TOWARDS_TARGET)
-			_target_normal = null
-			if _rolling: end_rolling()
+		
+		normal_t += delta / 12.0
+		set_normal(Glb.Smooth.directed_radial_interpolate(_normal, _target_normal, Glb.Smooth.player_roll(normal_t), _target_normal_direction))
+		var dot = _normal.dot(_target_normal)
+		if dot > 0.5:
+			if _rolling: 
+				end_rolling()
 			set_rolling(false)
-		else:
-			# If not, use tangent to move in the direction defined by target_normal
-			interpolate_normal_towards(TOWARDS_TANGENT)
-			
+
+		if dot > 0.999:
+			set_normal(_target_normal)
+			_target_normal = null
+
+
 		updated_normal = true
 	elif new_normal != Vector2():
 		# If there is new normal, and gravity center was swapped, and the angle between the new normal and the old
 		# is greater than 45 or so degrees, then new orientation of movement
 		var normal_dot = new_normal.dot(_normal)
-		if gravity_center_collision_data != null and normal_dot <= 0.7:
+		if center_verification.changed_center and normal_dot <= 0.5:
 			# New normal target
 			_target_normal = new_normal
-
-			var collision_normal = gravity_center_collision_data.normal
+			
+			var collision_normal
+			if center_verification.collision_info != null:
+				collision_normal = center_verification.collision_info.normal
+			elif not center_verification.raycast_info.empty():
+				collision_normal = center_verification.raycast_info.normal
+				
 			var move_direction = (-_prev_normal).tangent() * _facing * _invertor
 			var new_direction = (-new_normal).tangent() * _facing * _invertor
 			var distance_old_move = (collision_normal - move_direction).length_squared() + (_prev_normal - move_direction).length_squared()
@@ -497,14 +554,13 @@ func adjust_normal_towards(new_normal, gravity_center_collision_data):
 				# Simple, if negative then we are moving counter closkwise, if positive, clockwise
 				_target_normal_direction = Glb.VectorLib.vector_orientation(_normal, _target_normal)
 				
-				
-			interpolate_normal_towards(TOWARDS_TANGENT)
+			start_normal_interpolation()
 			set_rolling(true)
 			start_rolling()
 
 		else:
 			# if not, we are close enough to the new normal to go the old fashioned way
-			interpolate_normal_towards(TOWARDS_NEW_VALUE, new_normal)
+			set_normal(Glb.Smooth.radial_interpolate(_normal, new_normal, delta / 0.0625))
 			if _rolling: end_rolling()
 			set_rolling(false)
 			
@@ -512,7 +568,7 @@ func adjust_normal_towards(new_normal, gravity_center_collision_data):
 
 	if updated_normal:
 		$ground_raycast.set_normal(new_normal)
-		update_normal() 
+
 
 ############
 # Water methods
@@ -527,7 +583,6 @@ func limit_water_movement_on_edges(inner_radius, velocity):
 
 
 	if center_direction.dot(velocity) >= -0.1 and velocity.length_squared() < min_speed and normalized_dist > 0.5:
-		Console.add_log("distance_to_limit", normalized_dist)
 		return velocity.linear_interpolate(Vector2(), Glb.Smooth.water_resistance_on_edges(normalized_dist))
 	return velocity
 
@@ -535,10 +590,9 @@ func limit_water_movement_on_edges(inner_radius, velocity):
 func verify_water_center(with_center=true):
 	var water_cast_result = $water_raycast.cast_water(Glb.get_collision_layer_int(["WaterPlatform"]))
 	
-	
 	if with_center:
 		return not water_cast_result.empty() and water_cast_result.collider == _water_center
-	elif not water_cast_result.empty() and not is_on_ground(): 
+	elif not water_cast_result.empty() and not is_on_ground() and (_attempting_jump or _falling): 
 		change_center(water_cast_result.collider)
 		return true
 	elif not water_cast_result.empty():
@@ -627,22 +681,31 @@ func _physics_process(delta):
 			_water_physics(delta)
 		else:
 			if space_velocity.length_squared() > 0.01:
-				var motion = space_velocity * delta
 				_last_velocity = space_velocity
 				
-	
-				var collision_data = move_and_collide(motion)
-				if not verify_water_center(false):
-					var changed_center = verify_gravity_center_change(collision_data)
-				
-					if check_ground_reach(collision_data, changed_center):
-						adjust_normal_towards(get_gravity_data().normal, changed_center)
-			else:
-				_last_velocity = Vector2()
+
+			#var r = move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
+			var c = move_and_collide(_last_velocity * delta)
+
+			var center_verification = verify_center_change(c)
+
+			if check_ground_reach(center_verification):
+				adjust_normal_towards(_normal, center_verification, delta)
+
 
 	little_physics_process(delta)
 
+	if _normal_update:
+		# translating rotation from vector to node transform
+		global_rotation = (-_normal).tangent().angle()
+		
+		normal_shift_notice(_normal, $ground_raycast.get_normal())
+		_normal_update = false
 
+	
+	
+	
+	
 
 func _gravity_physics(delta):
 	var collision_normal = null
@@ -650,6 +713,7 @@ func _gravity_physics(delta):
 	if not _attempting_jump:
 	
 		var ground_cast_result = $ground_raycast.cast_ground(Glb.get_collision_layer_int(["Platform"]))
+		
 		
 		var gcenter_id = -1 if _gravity_center == null else _gravity_center.get_instance_id()
 		var on_small_platform = not ground_cast_result.empty() and ground_cast_result.collider_id != gcenter_id and _normal.dot(ground_cast_result.normal) > 0.1
@@ -659,6 +723,7 @@ func _gravity_physics(delta):
 		if valid_raycast or on_small_platform:
 			collision_normal = ground_cast_result.normal
 			_on_ground = true
+
 			_falling = false
 			if on_small_platform:
 				_prev_altitude_velocity_scalar = 0
@@ -689,14 +754,11 @@ func _gravity_physics(delta):
 	
 		_move_velocity_scalar = lerp(0, _target_move_velocity_scalar, Glb.Smooth.run_step(step_t))
 	
-	#_move_velocity_scalar = lerp(_move_velocity_scalar, _target_move_velocity_scalar, 0.1)
-	
-	# We use the right perpendicular to the normal because the direction is in _move_velocity_scalar
 	
 	move_velocity = (-normal).tangent() * _move_velocity_scalar
 		
 		
-	if not _on_ground and not _rolling:
+	if not is_on_ground() and not _rolling:
 		
 		_prev_altitude_velocity_scalar = _altitude_velocity_scalar
 		_altitude_velocity_scalar += _gravity_scalar * delta
@@ -707,38 +769,25 @@ func _gravity_physics(delta):
 			_falling = true
 			_attempting_jump = false
 
-
+	var center_verification = null
 	var velocity = move_velocity + altitude_velocity
 	var collision_info = null
+
 	if velocity.length_squared() > 0.01:
 		_last_velocity = velocity
-		var motion = velocity * delta
-
-		# Fixing movement to create boundaries illusion
-
-		var result = $ground_raycast.cast_movement(motion, Glb.get_collision_layer_int(["Platform"]))
-
-		var gcenter_id = -1 if _gravity_center == null else _gravity_center.get_instance_id()
-		var valid_raycast = not result.rest.empty() and result.rest.collider_id == gcenter_id
-
-		if valid_raycast and result.rest.normal.dot(_normal) < 0.7:
-			motion = motion.slide(result.rest.normal)
-		elif valid_raycast and result.motion.size() > 0:
-			if result.motion[0] > 0:
-				motion *= result.motion[0]
-			
-		collision_info = move_and_collide(motion)
 	else:
 		_last_velocity = Vector2()
 
-	var changed_center = false
-	if not verify_water_center(false):
-		changed_center = verify_gravity_center_change(collision_info)
+	move_and_slide(velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
+	
+	center_verification = verify_center_change()
 
-	if _gravity_center != null:
-		check_ground_reach(collision_info, changed_center)
-		adjust_normal_towards(normal, changed_center)
+	check_ground_reach(center_verification)
+	adjust_normal_towards(normal, center_verification, delta)
 
+
+	Console.add_log("_normal", _normal)
+	Console.add_log("_target_normal", _target_normal)
 	if not _on_ground:
 		_loosed_ground_delta += delta
 	else:
@@ -773,19 +822,22 @@ func _water_physics(delta):
 		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
 
 	
-	_last_velocity = _water_center.report_body(self, swim_velocity + swim_tilt_velocity)
-	move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
-
-	"""
-	var collision_info = move_and_collide(_last_velocity * delta)
-	var reached_ground = verify_gravity_center_change(collision_info)
-
-	if reached_ground:
-		if check_ground_reach(collision_info, reached_ground):
-			adjust_normal_towards(get_gravity_data().normal, reached_ground)
-
+	_last_velocity = _water_center.report_body(self, swim_velocity + swim_tilt_velocity) 
+	
+	Console.add_log("_last_velocity", _last_velocity)
+	Console.add_log("_normal", _normal)
+	
+	if _last_velocity.length_squared() > 0.01:
+		move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
 	else:
+		_last_velocity = Vector2()
+
 	"""
+	var center_verification = verify_center_change()
+	if check_ground_reach(center_verification):
+		adjust_normal_towards(_normal, center_verification, delta)
+	"""
+
 	_process_behavior(delta)
 
 	# percentage from total lerp
@@ -793,15 +845,8 @@ func _water_physics(delta):
 
 
 	if _target_normal != null:
-		if _normal.dot(_target_normal) > 0:
-			interpolate_normal_towards(TOWARDS_TARGET, null, 1 / percentage)
-		else:
-			if _normal.tangent().dot(_target_normal) > (-_normal.tangent()).dot(_target_normal):
-				_target_normal_direction = 1
-			else:
-				_target_normal_direction = -1
-			interpolate_normal_towards(TOWARDS_TANGENT, null, 1 / percentage)
-		update_normal()
+		set_normal(Glb.Smooth.radial_interpolate(_normal, _target_normal, 1 / percentage))
+
 
 
 	if not verify_water_center():

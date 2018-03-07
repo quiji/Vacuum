@@ -10,10 +10,10 @@ config_version=3
 
 [Project]
 
-debug_mode=false
+debug_mode=true
 start_date="9 Jan 2018"
-patch=43
-minor=110
+patch=46
+minor=112
 major=0
 
 [application]

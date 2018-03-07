@@ -15,7 +15,7 @@ func _ready():
 
 
 func inter(t):
-	return Smooth.cam_circular_small_rot(t)
+	return Smooth.player_roll(t)
 
 func inter2(t):
 	return Smooth.cam_circular_full_rot(t)

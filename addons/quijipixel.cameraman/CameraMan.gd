@@ -10,7 +10,7 @@ enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM, BLOCKED}
 #########################################################################
 export (NodePath) var actor
 export (int, "WaterBubble", "FlyingSpace", "GravityPlatform") var scene_mode
-export (bool) var debug_cameraman = false
+export (bool) var debug_cameraman = true
 #########################################################################
 
 export (float) var max_speed = 300.0
@@ -43,7 +43,6 @@ var lock_actor = {
 	locked = false,
 	objective = null
 }
-
 
 
 var gravity = {
@@ -110,7 +109,7 @@ func _ready():
 	
 	if actor != '':
 		lock_actor.locked = true
-		global_position = get_node(actor).global_position
+		#global_position = get_node(actor).global_position
 		set_actor(get_node(actor))
 
 	change_scene_mode(FLYING_SPACE)
@@ -133,7 +132,7 @@ func _ready():
 
 func set_actor(actor):
 	_actor = actor
-	attempt_lock()
+	#attempt_lock()
 
 
 	
@@ -151,6 +150,7 @@ func normal_shift(new_normal, new_target_normal):
 
 		Console.add_log("rotation_mode", rotation_mode)
 
+	return null
 	"""
 	if rotation_mode != NO_ROTATION:
 		var snapper = [Vector2(0, -1).rotated(gravity_center.rotation), Vector2(0, 1).rotated(gravity_center.rotation)]
@@ -202,45 +202,58 @@ func normal_shift(new_normal, new_target_normal):
 	return true
 
 func attempt_lock():
-	if lock_actor.target == null:
+	#if lock_actor.target == null:
+	if water_center != null:
+		lock_actor.objective = water_center
+	else:
+		lock_actor.objective = _actor
 
-		if water_center != null:
-			lock_actor.objective = water_center
-		else:
-			lock_actor.objective = _actor
+	if not rect_area.in_margins(lock_actor.objective.global_position):
+
 
 		lock_actor.locked = false
 		lock_actor.target = lock_actor.objective.global_position - global_position
 		lock_actor.t = 0
-		lock_actor.base_position = position
-		var distance = lock_actor.target.length()
+		lock_actor.target_pos = lock_actor.objective.global_position
+		lock_actor.base_position = global_position
+		lock_actor.current_pos = Vector2()
+		lock_actor.actor_movement = Vector2()
+		var distance = lock_actor.target.length_squared()
 		if distance > 0:
-			lock_actor.duration = distance / lock_actor.speed
+			lock_actor.duration = distance / (lock_actor.speed * lock_actor.speed)
 		else:
 			lock_actor.target = null
 			lock_actor.locked = true
 
+		if debug_cameraman:
+			rect_area.update()
+
+
 func reach_and_lock_actor(delta):
 	# Reach for actor
 	if lock_actor.target != null:
-		lock_actor.base_position += lock_actor.objective.get_last_velocity() * delta
+		
+		lock_actor.actor_movement = (lock_actor.objective.global_position - lock_actor.base_position) - lock_actor.target
 
 		lock_actor.t += delta / lock_actor.duration
 		if lock_actor.t < 1:
-			var y = Glb.Smooth.cam_space_mov(lock_actor.t) * lock_actor.target.y
-			var x = lock_actor.t * lock_actor.target.x
-			
-			position = lock_actor.base_position + Vector2(x, y)
+			lock_actor.current_pos = Vector2().linear_interpolate(lock_actor.target, Glb.Smooth.cam_space_mov(lock_actor.t))
+			global_position = lock_actor.actor_movement + lock_actor.base_position + lock_actor.current_pos
+			if debug_cameraman:
+				rect_area.update()
+
 		else:
-			position = lock_actor.base_position + lock_actor.target
 			lock_actor.target = null
 			global_position = lock_actor.objective.global_position
+			lock_actor.locked = true
+		if rect_area.in_margins(lock_actor.objective.global_position, rect_area.INNER_MARGIN):
+			lock_actor.target = null
 			lock_actor.locked = true
 
 
 
 func change_scene_mode(mode, data=null):
-	
+
 	if scene_mode != mode:
 		match scene_mode:
 			GRAVITY_PLATFORM:
@@ -249,18 +262,18 @@ func change_scene_mode(mode, data=null):
 			WATER_BUBBLE:
 				camera.camera_end_action(water)
 				water_center = null
-
 	scene_mode = mode
 	
 	match scene_mode:
 		FLYING_SPACE:
+			lock_actor.speed = 270
 			attempt_lock()
 		GRAVITY_PLATFORM:
 			gravity_center = data
 			lock_actor.duration = 1.0
-			lock_actor.speed = 270
+			lock_actor.speed = 40
 			attempt_lock()
-			rect_area.change_margins(40, 60, 40, 0)
+			rect_area.change_margins(40, 60, 40, 10)
 		WATER_BUBBLE:
 			lock_actor.duration = 8.0
 			lock_actor.target = null
@@ -297,18 +310,21 @@ func flying_space_logic(delta):
 
 
 func gravity_platform_logic(delta):
-	
-	if lock_actor.locked:
 
+	if lock_actor.locked:
+		"""
 		if _actor.is_looking_right() and gravity.target.x != -70:
 			gravity.target = Vector2(-70, -100)
 			camera.camera_start_action(gravity)
 		if not _actor.is_looking_right() and gravity.target.x != 70:
 			gravity.target = Vector2(70, -100)
 			camera.camera_start_action(gravity)
-	
-		if not rect_area.in_margins(_actor.global_position):
-			global_position += _actor.get_last_velocity() * delta
+		"""
+		#gravity.target = Vector2(0, -150)
+		camera.camera_start_action(gravity)
+
+	if rect_area.in_margins(_actor.global_position, rect_area.OUTER_MARGIN):
+		global_position += _actor.get_last_velocity() * delta
 
 func water_bubble_logic(delta):
 	if lock_actor.locked:
@@ -334,7 +350,7 @@ func water_bubble_logic(delta):
 
 
 func _physics_process(delta):
-
+	Console.add_log("lock_actor.locked", lock_actor.locked)
 	if _actor != null and lock_actor.locked:
 
 		match scene_mode:
@@ -346,6 +362,11 @@ func _physics_process(delta):
 				water_bubble_logic(delta)
 	elif _actor != null:
 		reach_and_lock_actor(delta)
+
+	if not rect_area.in_margins(lock_actor.objective.global_position):
+		if scene_mode != WATER_BUBBLE:
+			if lock_actor.target == null:
+				attempt_lock()
 
 
 	if target_normal != null:
