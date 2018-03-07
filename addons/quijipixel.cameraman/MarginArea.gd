@@ -5,7 +5,7 @@ enum MarginQuery {MARGIN, INNER_MARGIN, OUTER_MARGIN}
 var debug_cameraman = false
 var poly = null
 var inner_poly = null
-var margin_size = 10
+var margin_size = 5
 
 func _ready():
 	collision_layer = Glb.get_collision_layer_int(["CameraActor"])

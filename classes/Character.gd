@@ -35,6 +35,7 @@ var _target_swim_velocity_scalar = null
 var _swim_velocity_scalar = 0.0
 
 var _last_velocity = Vector2()
+var _last_velocity_normalized = Vector2()
 var swim_velocity = Vector2()
 var space_velocity = Vector2()
 
@@ -277,6 +278,13 @@ func get_gravity_scalar():
 func get_last_velocity():
 	return _last_velocity
 
+func get_last_velocity_normalized():
+	return _last_velocity_normalized
+
+func set_last_velocity(v):
+	_last_velocity = v
+	_last_velocity_normalized = v.normalized()
+
 func is_falling():
 	return _falling
 	
@@ -412,7 +420,7 @@ func verify_center_change(c = null):
 	
 	# Translate to original coordinates to be able to set correct position into raycaster, as the
 	# raycaster exist in the local coordinate system of the Character and not the global one
-	var direction = transform_to_local(_last_velocity).normalized() * 25
+	var direction = transform_to_local(get_last_velocity_normalized()) * 25
 
 	var result = {
 		changed_center = false,
@@ -606,7 +614,7 @@ var water_arrival_normal = null
 func check_for_water_arrival(global_water_pos, radius):
 	var direction = (global_water_pos - global_position).normalized()
 	
-	if direction.dot(_last_velocity.normalized()) > 0 and not _on_ground:
+	if direction.dot(get_last_velocity_normalized()) > 0 and not _on_ground:
 		water_arrival_normal = direction
 
 
@@ -681,7 +689,7 @@ func _physics_process(delta):
 			_water_physics(delta)
 		else:
 			if space_velocity.length_squared() > 0.01:
-				_last_velocity = space_velocity
+				set_last_velocity(space_velocity)
 				
 
 			#var r = move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
@@ -774,9 +782,9 @@ func _gravity_physics(delta):
 	var collision_info = null
 
 	if velocity.length_squared() > 0.01:
-		_last_velocity = velocity
+		set_last_velocity(velocity)
 	else:
-		_last_velocity = Vector2()
+		set_last_velocity(Vector2())
 
 	move_and_slide(velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
 	
@@ -822,7 +830,7 @@ func _water_physics(delta):
 		swim_tilt_velocity += swim_tilt_velocity.normalized() * resistance * delta
 
 	
-	_last_velocity = _water_center.report_body(self, swim_velocity + swim_tilt_velocity) 
+	set_last_velocity(_water_center.report_body(self, swim_velocity + swim_tilt_velocity))
 	
 	Console.add_log("_last_velocity", _last_velocity)
 	Console.add_log("_normal", _normal)
@@ -830,7 +838,7 @@ func _water_physics(delta):
 	if _last_velocity.length_squared() > 0.01:
 		move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
 	else:
-		_last_velocity = Vector2()
+		set_last_velocity(Vector2())
 
 	"""
 	var center_verification = verify_center_change()
