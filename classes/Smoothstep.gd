@@ -52,24 +52,24 @@ static func directed_radial_interpolate(a, b, t, dir):
 	var right = perp_prod(a, b) >= 0
 	var dir_right = dir > 0
 	var res
-	Console.add_log("dot", dot)
-	Console.add_log("perp_prod(a, b)", perp_prod(a, b))
-	Console.add_log("dir", dir)
+	
 	
 	if dot >= -0.5 and dir_right != right:
+
 		res = linear_interp(a, b, t)
 	
-	if dot > -0.5:
+	elif dot > -0.5:
 
+		
 		var seg1 = a.tangent() * dir
 		var seg2 = seg1.tangent() * dir
-		Console.add_log("seg1", seg1)
-		Console.add_log("seg2", seg2)
+
 		res = cross(t, cross(t, linear_interp(a, seg1, t), linear_interp(seg1, seg2, t)), linear_interp(seg2, b, t))
 
 	else:
+
 		var half = a.tangent() * dir
-		Console.add_log("half", half)
+
 		res = cross(t, linear_interp(a, half, t), linear_interp(half, b, t))
 	
 	return res.normalized()

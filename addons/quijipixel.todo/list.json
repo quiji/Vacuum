@@ -246,7 +246,9 @@
     "task.266",
     "task.265",
     "task.268",
-    "task.267"
+    "task.267",
+    "task.270",
+    "task.269"
   ],
   "completed": {
     "task.0": {
@@ -6176,6 +6178,54 @@
         "minute": 18,
         "second": 12
       }
+    },
+    "task.270": {
+      "task": "the radial interpolate functions are not working.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 1,
+        "minute": 24,
+        "second": 23
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 10,
+        "minute": 7,
+        "second": 9
+      }
+    },
+    "task.269": {
+      "task": "Very weird and annoying bug when rolling on poly platform close to triangle.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 0,
+        "minute": 30,
+        "second": 1
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 10,
+        "minute": 7,
+        "second": 11
+      }
     }
   },
   "pend_order": [
@@ -6201,8 +6251,7 @@
     "task.261",
     "task.262",
     "task.264",
-    "task.269",
-    "task.270"
+    "task.271"
   ],
   "pending": {
     "task.134": {
@@ -6513,32 +6562,18 @@
         "second": 19
       }
     },
-    "task.269": {
-      "task": "Very weird and annoying bug when rolling on poly platform close to triangle.",
-      "type": "Bug",
+    "task.271": {
+      "task": "Clean and improve the rolling code for player.",
+      "type": "Task",
       "creation_date": {
         "year": 2018,
         "month": 3,
         "day": 8,
         "weekday": 4,
         "dst": true,
-        "hour": 0,
-        "minute": 30,
-        "second": 1
-      }
-    },
-    "task.270": {
-      "task": "the radial interpolate functions are not working.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 8,
-        "weekday": 4,
-        "dst": true,
-        "hour": 1,
-        "minute": 24,
-        "second": 23
+        "hour": 10,
+        "minute": 7,
+        "second": 35
       }
     }
   }

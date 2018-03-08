@@ -493,6 +493,8 @@ func check_ground_reach(center_verification):
 		return true
 	return false
 
+
+var time = 0
 func adjust_normal_towards(new_normal, center_verification, delta):
 	var updated_normal = false
 	var _prev_normal = new_normal
@@ -511,13 +513,13 @@ func adjust_normal_towards(new_normal, center_verification, delta):
 			water_arrival_normal = null
 		updated_normal = true
 	elif _target_normal != null:
-
-		normal_t += delta / 12.0
-		Console.add_log("normal_t", normal_t, {show_coords = true})
-		Console.add_log("_target_normal_direction", _target_normal_direction)
-		Console.add_log("_start_normal", _start_normal, {show_coords = true})
+		time += delta
+		normal_t += delta / 0.5
+		Console.add_log("normal_t", normal_t)
+		Console.add_log("_start_normal", _start_normal)
 		#Console.add_log("_normal", _normal, {show_coords = true})
-		Console.add_log("_target_normal", _target_normal, {show_coords = true})
+		Console.add_log("_target_normal", _target_normal)
+		Console.add_log("time", time)
 
 		#set_normal(Glb.Smooth.directed_radial_interpolate(_start_normal, _target_normal, Glb.Smooth.player_roll(normal_t), _target_normal_direction))
 		set_normal(Glb.Smooth.directed_radial_interpolate(_start_normal, _target_normal, (normal_t), _target_normal_direction))
@@ -531,7 +533,7 @@ func adjust_normal_towards(new_normal, center_verification, delta):
 		if dot > 0.999 or normal_t >= 1:
 			set_normal(_target_normal)
 			_target_normal = null
-			Console.add_log("normal_chase", "completed")
+			time = 0
 
 		updated_normal = true
 	elif new_normal != Vector2():
