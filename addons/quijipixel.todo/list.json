@@ -244,7 +244,8 @@
     "task.189",
     "task.186",
     "task.266",
-    "task.265"
+    "task.265",
+    "task.268"
   ],
   "completed": {
     "task.0": {
@@ -6125,6 +6126,30 @@
         "hour": 17,
         "minute": 30,
         "second": 1
+      }
+    },
+    "task.268": {
+      "task": "Fix, clean, optimize and improve center of mass.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 7,
+        "weekday": 3,
+        "dst": true,
+        "hour": 18,
+        "minute": 26,
+        "second": 26
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 0,
+        "minute": 12,
+        "second": 29
       }
     }
   },

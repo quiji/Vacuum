@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tests/center of mass test.gd" type="Script" id=1]
+[ext_resource path="res://addons/quijipixel.center_of_mass/center_of_mass.gd" type="Script" id=2]
+[ext_resource path="res://addons/quijipixel.center_of_mass/icon.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[node name="center of mass test" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 62.169, -134, 344.169, -110, 396.169, -28, 346.169, 56, 222.169, 94, 232.169, 196, 158.169, 274, 34.169, 348, -61.831, 270, -105.831, 130, -165.831, 122, -332.638, 74, -354.638, -80, -262.638, -166, -184.638, -214, -14.6377, -238 )
+
+[node name="CenterOfMass" type="Polygon2D" parent="." index="1"]
+
+polygon = PoolVector2Array( -210, 17.8, -175.574, -158.2, -75.5743, -172.2, 210, -16.2, 92, 183.8, -102, 115.8 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_icon": ExtResource( 3 )
+}
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+
+position = Vector2( 70, -370 )
+texture = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 2, 2 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.8
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

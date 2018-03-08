@@ -217,9 +217,9 @@ func attempt_lock():
 		lock_actor.base_position = global_position
 		lock_actor.current_pos = Vector2()
 		lock_actor.actor_movement = Vector2()
-		var distance = lock_actor.target.length_squared()
+		var distance = lock_actor.target.length()
 		if distance > 0:
-			lock_actor.duration = distance / (lock_actor.speed * lock_actor.speed)
+			lock_actor.duration = distance / lock_actor.speed
 		else:
 			lock_actor.target = null
 			lock_actor.locked = true
