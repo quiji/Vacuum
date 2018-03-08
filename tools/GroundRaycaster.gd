@@ -3,6 +3,8 @@ extends Node2D
 
 export (Vector2) var a = Vector2() setget set_a,get_a
 export (Vector2) var b = Vector2() setget set_b,get_b
+export (Vector2) var c = Vector2() setget set_c,get_c
+
 export (Vector2) var normal = Vector2(0, -1) setget set_normal,get_normal
 export (bool) var show_lines = true
 
@@ -11,6 +13,7 @@ func _ready():
 	
 	$point_a.position = a
 	$point_b.position = b
+	$point_c.position = c
 
 
 func set_a(p):
@@ -33,6 +36,12 @@ func set_b(p):
 
 func get_b():
 	return b
+
+func set_c(p):
+	c = p
+
+func get_c():
+	return c
 
 func set_normal(n):
 	normal = n
@@ -122,4 +131,43 @@ func cast_movement(motion, collision_layer):
 	var motion_result = space_state.cast_motion(shape_query)
 		
 	return {rest = rest_result, motion = motion_result}
+
+func cast_ray_ahead(motion, collision_layer):
+
+	if Engine.editor_hint:
+		return null
+
+	var collision_layer_int = collision_layer
+	var space_rid = get_world_2d().get_space()
+	var space_state = Physics2DServer.space_get_direct_state(space_rid)
+	
+	var result
+
+
+	$vel_ray_show.set_point_position(0, $point_c.position)
+	$vel_ray_show.set_point_position(1, $point_c.position + motion)
+
+	result = space_state.intersect_ray($point_c.global_position, $point_c.global_position + motion, [get_parent()], collision_layer)
+	if not result.empty():
+		result.distance_squared = (result.position - $point_c.global_position).length_squared()
+
+	"""
+	if motion.normalized().dot(Vector2(0, 1)) > 0:
+		$vel_ray_show.set_point_position(0, position)
+		$vel_ray_show.set_point_position(1, position + motion)
+		result = space_state.intersect_ray(global_position, global_position + motion, [get_parent()], collision_layer)
+		if not result.empty():
+			result.distance_squared = (result.position - global_position).length_squared()
+	else:
+
+		$vel_ray_show.set_point_position(0, $point_c.position)
+		$vel_ray_show.set_point_position(1, $point_c.position + motion)
+	
+		result = space_state.intersect_ray($point_c.global_position, $point_c.global_position + motion, [get_parent()], collision_layer)
+		if not result.empty():
+			result.distance_squared = (result.position - $point_c.global_position).length_squared()
+	"""
+	
+	return result
+
 

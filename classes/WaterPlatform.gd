@@ -111,7 +111,7 @@ func on_body_out(body):
 		body.failed_water_arrival()
 
 func child_movement(pos):
-	var factor = pos.length_squared() / squared_radius 
+	var factor = pos.length() / radius 
 	var speedo = clamp(WATER_SWIM_WAVE_SPEED * factor, WATER_NORMAL_WAVE_SPEED, WATER_SWIM_WAVE_SPEED)
 	set_wave_speed(speedo)
 

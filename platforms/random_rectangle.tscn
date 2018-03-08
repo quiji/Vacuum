@@ -25,7 +25,7 @@ shape = SubResource( 1 )
 
 [node name="center_of_mass" type="Polygon2D" parent="." index="1"]
 
-polygon = PoolVector2Array(  )
+polygon = PoolVector2Array( -179, -12, 176, -11, 176, 14, -181, 14 )
 uv = PoolVector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
@@ -41,6 +41,5 @@ script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-field = NodePath("../collision")
 
 

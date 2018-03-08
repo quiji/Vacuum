@@ -23,6 +23,7 @@ func _ready():
 	add_command(".", self, "_execute", "$<name>.<property> to show content, $<name>.<property> <type:f/i/s> <new_value> to assign or $<name>.<method> <argument1> <argument2> to execute.")
 	add_command("log", self, "_activate_log", "Activate/deactivate by running log on/off")
 	add_command("reboot", self, "_reboot", "Restart current scene")
+	add_command("unpause", self, "_unpause", "Unpause game")
 	
 func _input(delta):
 	if Input.is_action_just_pressed("toggle_console"):
@@ -34,13 +35,19 @@ func _input(delta):
 
 
 func add_command(_name, obj, function, data):
-	commands[_name] = {object = obj, method = function, info = data}
+	if !commands.has(_name):
+		commands[_name] = [{object = obj, method = function, info = data}]
+	else:
+		commands[_name].push_back({object = obj, method = function, info = data})
 
 func run_command(cmd, att):
 	if !commands.has(cmd):
 		out.warn("Command 0¡ doesn't exist", [cmd])
 	else:
-		commands[cmd].object.call(commands[cmd].method, att)
+		var i = 0
+		while i < commands[cmd].size():
+			commands[cmd][i].object.call(commands[cmd][i].method, att)
+			i += 1
 
 
 ################################################
@@ -53,17 +60,18 @@ func la(obj, value):
 
 
 var logs = {}
-func add_log(obj, _name):
+func add_log(obj, _name, _meta=null):
 	# polymorphic variables... darn
 	if typeof(obj) == TYPE_STRING:
 		if not logs.has(obj):
-			logs[obj] = {object = null, prop = obj, value = _name, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
+			logs[obj] = {object = null, prop = obj, value = _name, meta = _meta, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
 		else:
 			logs[obj].value = _name
+			logs[obj].meta = _meta
 	else:
 		var new_name = obj.get_class() + '.' + _name
 		if not logs.has(new_name) and obj != null:
-			logs[new_name] = {object = obj, prop = _name, value = null, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
+			logs[new_name] = {object = obj, prop = _name, value = null, meta = _meta, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
 
 func count(_name, accum=1):
 	if not logs.has(_name):
@@ -93,7 +101,7 @@ func _physics_process(delta):
 				var vect = vector_node.instance()
 				vect.set_name(the_name)
 				$debug_control.add_child(vect)
-			get_node("debug_control/" + the_name).set_value(the_val, logs[the_name].color)
+			get_node("debug_control/" + the_name).set_value(the_val, logs[the_name].color, logs[the_name].meta)
 		else:
 			$debug_text.append_bbcode("[color=#" + logs[the_name].color.to_html() + "]" + the_name + "[/color]: " + str(the_val))
 			$debug_text.newline()
@@ -117,7 +125,7 @@ func set_visual_log(val):
 func _help(args):
 	out.info("Command list:")
 	for key in commands:
-		out.info("  - 0¡:  " + commands[key].info, [key])
+		out.info("  - 0¡:  " + commands[key][0].info, [key])
 
 var nodes = {}
 func _get_node(_att):
@@ -266,3 +274,6 @@ func _reboot(args):
 	set_physics_process(false)
 	get_tree().reload_current_scene()
 
+func _unpause(args):
+	out.info("Unpausing game...")
+	get_tree().set_pause(false)

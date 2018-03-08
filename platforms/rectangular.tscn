@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 64, 32 )
 
-[node name="rectangular" type="KinematicBody2D"]
+[node name="rectangular" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -24,7 +24,7 @@ shape = SubResource( 1 )
 
 [node name="center_of_mass" type="Polygon2D" parent="." index="1"]
 
-polygon = PoolVector2Array(  )
+polygon = PoolVector2Array( -55.5424, -23.5, 54.4576, -24, 54.9576, 23, -55.5424, 23.5 )
 uv = PoolVector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
@@ -40,6 +40,5 @@ script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-field = NodePath("../collision")
 
 

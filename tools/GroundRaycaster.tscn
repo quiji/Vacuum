@@ -2,12 +2,13 @@
 
 [ext_resource path="res://tools/GroundRaycaster.gd" type="Script" id=1]
 
-[node name="GroundRaycaster" type="Node2D"]
+[node name="GroundRaycaster" type="Node2D" index="0"]
 
 rotation = 4.37114e-08
 script = ExtResource( 1 )
 a = Vector2( 0, 0 )
 b = Vector2( 0, 0 )
+c = Vector2( 0, 0 )
 normal = Vector2( 0, -1 )
 show_lines = true
 
@@ -15,7 +16,9 @@ show_lines = true
 
 [node name="point_b" type="Position2D" parent="." index="1"]
 
-[node name="line_show" type="Line2D" parent="." index="2"]
+[node name="point_c" type="Position2D" parent="." index="2"]
+
+[node name="line_show" type="Line2D" parent="." index="3"]
 
 points = PoolVector2Array( 0, 0, 0, 0 )
 width = 1.0
@@ -27,7 +30,19 @@ sharp_limit = 1.0
 round_precision = 8
 _sections_unfolded = [ "Border", "Capping", "Fill" ]
 
-[node name="ray_show" type="Line2D" parent="." index="3"]
+[node name="ray_show" type="Line2D" parent="." index="4"]
+
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 4.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 182518017
+begin_cap_mode = 2
+end_cap_mode = 1
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Capping" ]
+
+[node name="vel_ray_show" type="Line2D" parent="." index="5"]
 
 points = PoolVector2Array( 0, 0, 0, 0 )
 width = 4.0
