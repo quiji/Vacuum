@@ -156,11 +156,12 @@ func reached_ground(ground_object):
 	
 	if smash_jumping:
 		smash_jumping = false
+		"""
 		if ground_object != null and ground_object.has_method("apply_impulse"):
 			var distance_squared = (position - smash_jump_start_point).length_squared()
 			var impulse = -_normal * smash_jump_impulse_scalar * distance_squared / jump_peak_height * jump_peak_height
 			#ground_object.apply_impulse(position, impulse)
-
+		"""
 	set_gravity_scalar(lowest_gravity_scalar)
 	
 	if not $sprite.is_playing("EndRoll"):

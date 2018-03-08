@@ -10,6 +10,8 @@ func _ready():
 	
 
 
+
+
 #########################################
 # helper methods
 #########################################
@@ -88,8 +90,8 @@ func is_point_between_plane_points(plane_idx, pos):
 func is_vect_between_planes(plane1, plane2, vect):
 	var pos = perp_prod(plane_normal(plane1), vect)
 	var neg = perp_prod(plane_normal(plane2), vect)
-	Console.add_log("pos", pos)
-	Console.add_log("neg", neg)
+
+
 	return pos > 0 and neg < 0
 
 func get_common_point(plane1, plane2, pos):
@@ -98,6 +100,7 @@ func get_common_point(plane1, plane2, pos):
 		return polygon[planes[plane1].p2]
 	else:
 		return polygon[planes[plane1].p1]
+
 
 
 func get_polygonal_gravity(pos):
@@ -122,6 +125,7 @@ func get_polygonal_gravity(pos):
 		gravity = -plane_normal(result)
 		__result = result
 	elif current_planes.size() == 1:
+		Console.count("weird_case")
 		__result = current_planes[0]
 		__closest = get_closest_point_to_pos(current_planes[0], pos)
 		gravity = (__closest - pos).normalized()
@@ -149,7 +153,7 @@ func get_polygonal_gravity(pos):
 		length = a + b
 		var t = a / length
 		__closest = closest
-		gravity = -Glb.Smooth.cross(t, plane_normal(plane_1), plane_normal(plane_2))
+		gravity = -Glb.Smooth.cross(t, plane_normal(plane_1), plane_normal(plane_2)).normalized()
 
 	if debug:
 		__pos = pos
@@ -159,23 +163,28 @@ func get_polygonal_gravity(pos):
 	return gravity
 
 #########################################
-# gravity method
+# Outside API method
 #########################################
 
 func get_gravity(pos):
 	pos = pos - get_position()
-	
+
 	if polygon.size() > 0:
 		return get_polygonal_gravity(pos)
 	else:
 		return -pos.normalized()
 	
-
-
+func get_poly_normals(rotation):
+	var i = 0
+	var normals = []
+	while i < planes.size():
+		normals.push_back(plane_normal(i))
+		i += 1
+	return normals
 
 #########################
 # DEBUG!
-var debug = true
+var debug = false
 
 func debug_normals(args):
 	debug = not debug

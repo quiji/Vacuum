@@ -245,7 +245,8 @@
     "task.186",
     "task.266",
     "task.265",
-    "task.268"
+    "task.268",
+    "task.267"
   ],
   "completed": {
     "task.0": {
@@ -6151,6 +6152,30 @@
         "minute": 12,
         "second": 29
       }
+    },
+    "task.267": {
+      "task": "Squared length divided into another squared length won't give the ratio. Must find and fix every usage of this \"technique\"",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 7,
+        "weekday": 3,
+        "dst": true,
+        "hour": 17,
+        "minute": 30,
+        "second": 37
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 0,
+        "minute": 18,
+        "second": 12
+      }
     }
   },
   "pend_order": [
@@ -6176,7 +6201,8 @@
     "task.261",
     "task.262",
     "task.264",
-    "task.267"
+    "task.269",
+    "task.270"
   ],
   "pending": {
     "task.134": {
@@ -6487,18 +6513,32 @@
         "second": 19
       }
     },
-    "task.267": {
-      "task": "Squared length divided into another squared length won't give the ratio. Must find and fix every usage of this \"technique\"",
-      "type": "Remainder",
+    "task.269": {
+      "task": "Very weird and annoying bug when rolling on poly platform close to triangle.",
+      "type": "Bug",
       "creation_date": {
         "year": 2018,
         "month": 3,
-        "day": 7,
-        "weekday": 3,
+        "day": 8,
+        "weekday": 4,
         "dst": true,
-        "hour": 17,
+        "hour": 0,
         "minute": 30,
-        "second": 37
+        "second": 1
+      }
+    },
+    "task.270": {
+      "task": "the radial interpolate functions are not working.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 1,
+        "minute": 24,
+        "second": 23
       }
     }
   }

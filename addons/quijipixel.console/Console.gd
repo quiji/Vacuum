@@ -60,17 +60,18 @@ func la(obj, value):
 
 
 var logs = {}
-func add_log(obj, _name):
+func add_log(obj, _name, _meta=null):
 	# polymorphic variables... darn
 	if typeof(obj) == TYPE_STRING:
 		if not logs.has(obj):
-			logs[obj] = {object = null, prop = obj, value = _name, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
+			logs[obj] = {object = null, prop = obj, value = _name, meta = _meta, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
 		else:
 			logs[obj].value = _name
+			logs[obj].meta = _meta
 	else:
 		var new_name = obj.get_class() + '.' + _name
 		if not logs.has(new_name) and obj != null:
-			logs[new_name] = {object = obj, prop = _name, value = null, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
+			logs[new_name] = {object = obj, prop = _name, value = null, meta = _meta, color = Color(rand_range(0.3, 1), rand_range(0.3, 1), rand_range(0.3, 1) )}
 
 func count(_name, accum=1):
 	if not logs.has(_name):
@@ -100,7 +101,7 @@ func _physics_process(delta):
 				var vect = vector_node.instance()
 				vect.set_name(the_name)
 				$debug_control.add_child(vect)
-			get_node("debug_control/" + the_name).set_value(the_val, logs[the_name].color)
+			get_node("debug_control/" + the_name).set_value(the_val, logs[the_name].color, logs[the_name].meta)
 		else:
 			$debug_text.append_bbcode("[color=#" + logs[the_name].color.to_html() + "]" + the_name + "[/color]: " + str(the_val))
 			$debug_text.newline()

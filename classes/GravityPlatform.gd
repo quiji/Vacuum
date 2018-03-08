@@ -11,7 +11,7 @@ func _ready():
 	var has_sprite = false
 
 	for child in get_children():
-		if child.has_method("feed_normal_field"):
+		if child.has_method("get_polygonal_gravity"):
 			center_of_mass = child
 			center_of_mass_normals = center_of_mass.get_poly_normals(rotation)
 		elif child.is_class("Sprite"):
