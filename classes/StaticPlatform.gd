@@ -1,8 +1,5 @@
 extends StaticBody2D
 
-
-export (int, "NO_ROTATION", "CIRCULAR", "FOLLOW_LINE", "FOLLOW_POLY4", "FOLLOW_CUSTOM_POLY") var camera_rotation_mode = 0 setget set_camera_rotation_mode,get_camera_rotation_mode
-
 func _ready():
 
 	var has_sprite = false
@@ -13,11 +10,9 @@ func _ready():
 
 	if not has_sprite:
 		draw_shape()
+		
 
 
-func get_gravity_from_center(pos):
-	return {gravity = Vector2(0, 1), normal = Vector2(0, -1)}
-	
 
 var shape = null
 func draw_shape():
@@ -45,7 +40,7 @@ func draw_shape():
 func _draw():
 	
 	if shape != null:
-		var col = Color(1, 0.5, 0.6)
+		var col = Color(0.5, 0.9, 0.6)
 		match shape.form:
 			"polygon":
 				draw_polygon(shape.points, [col])
@@ -55,18 +50,4 @@ func _draw():
 				var r = Rect2(shape.pos - shape.extents, shape.pos + shape.extents * 2)
 				draw_rect(r, col)
 
-###################################################################################
-# Virtual methods
 
-# This method must be overriden for platforms with different layers of visuals, so the player stays behind the important ones?? I guess?
-func get_tree_pos():
-	return 0
-
-func set_camera_rotation_mode(m):
-	camera_rotation_mode = m
-
-func get_camera_rotation_mode():
-	return Glb.CameraCrew.NO_ROTATION
-
-func get_rotation_snapper():
-	return Glb.VectorLib.POLY4

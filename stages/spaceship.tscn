@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://stages/spaceship.gd" type="Script" id=1]
 [ext_resource path="res://structures/door.tscn" type="PackedScene" id=2]
-[ext_resource path="res://classes/RoomPlatform.gd" type="Script" id=3]
+[ext_resource path="res://classes/Room.gd" type="Script" id=3]
 [ext_resource path="res://characters/character.tscn" type="PackedScene" id=4]
 [ext_resource path="res://platforms/small_platform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://classes/StaticPlatform.gd" type="Script" id=6]
 
-[node name="spaceship" type="Node2D"]
+[node name="spaceship" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -19,16 +20,8 @@ editor/display_folded = true
 position = Vector2( 69, 409 )
 target_stage = "space"
 
-[node name="room" type="StaticBody2D" parent="." index="1"]
+[node name="room" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
 script = ExtResource( 3 )
 camera_rotation_mode = 0
 
@@ -64,9 +57,20 @@ position = Vector2( 632, 32 )
 
 position = Vector2( 837, 32 )
 
-[node name="collision" type="CollisionPolygon2D" parent="room" index="8"]
+[node name="floor" type="StaticBody2D" parent="room" index="8"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="room/floor" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 2.71277, 409.382, 977.705, 409.382, 977.705, 49.3816, 1245.7, 49.3816, 1245.7, 407.382, 1245.7, 517.382, -0.264465, 511.382 )
+polygon = PoolVector2Array( 976, 28, 976, 398, -56, 398, -88, 196, -62, 10, -340, 6, -268, 480, 288, 578, 1249, 578, 1249, 20 )
 
 

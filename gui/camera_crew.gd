@@ -13,7 +13,7 @@ export (NodePath) var actor
 #export (bool) var debug_cameraman = false
 export (float) var look_distance = 100.0
 #########################################################################
-var debug_cameraman = true
+var debug_cameraman = false
 
 var scene_mode
 var tween = null
