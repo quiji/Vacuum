@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-af99c80acf1a973fa8d102e3887105c6.stex"
+path="res://.import/camera.png-e37f79be974b842b1e4c4615e2cb1376.stex"
 
 [deps]
 
-source_file="res://addons/quijipixel.cameraman/icon.png"
-source_md5="13c0b720b26f6189c09e98193fd6be28"
+source_file="res://gui/camera_crew/camera.png"
+source_md5="87c5567553536a1654e454d5a8d2a43b"
 
-dest_files=[ "res://.import/icon.png-af99c80acf1a973fa8d102e3887105c6.stex" ]
-dest_md5="1a5dcb2b548522904dfd13931eb75bcb"
+dest_files=[ "res://.import/camera.png-e37f79be974b842b1e4c4615e2cb1376.stex" ]
+dest_md5="afe2552c6c5d22f8a096e376e39257d8"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

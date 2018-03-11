@@ -9,30 +9,26 @@ enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM, BLOCKED}
 
 #########################################################################
 export (NodePath) var actor
-export (int, "WaterBubble", "FlyingSpace", "GravityPlatform") var scene_mode
+
 export (bool) var debug_cameraman = false
+export (float) var look_distance = 100.0
 #########################################################################
 
-export (float) var max_speed = 300.0
-export (float) var min_speed = 190.0
-export (float) var max_distance = 300.0
-export (float) var min_distance = 4.5
-export (float) var setup_distance = 104.5
-export (float) var look_distance = 100.0
 
+var scene_mode
 var tween = null
-var _object = null
-var _camera_setup = -1
-
 var normal = Vector2(0, -1)
 var target_normal = null
+var water_center = null
+var water_radius_limits = 0
 
+var gravity_center = null
 
-
+var rect_area = null
+var camera = null
+var _actor = null
 
 #########################################################################
-
-
 
 var lock_actor = {
 	target = null,
@@ -78,39 +74,20 @@ var line = {
 	start = null
 }
 
-var water_center = null
-var water_radius_limits = 0
-
-var gravity_center = null
-
-var rect_area = null
-var camera = null
-var _actor = null
 
 func _ready():
-	camera = Camera2D.new()
-	camera.set_script(preload("res://addons/quijipixel.cameraman/Camera.gd"))
+	camera = $camera_man
 	
-	add_child(camera)
 	Glb.set_current_camera_man(self)
 	
 	camera.add_action(gravity)
 	camera.add_action(water)
 	
-	rect_area = Area2D.new()
-	rect_area.set_script(preload("res://addons/quijipixel.cameraman/MarginArea.gd"))
-	add_child(rect_area)
-	
+	rect_area = $margin_area
 	
 	tween = Tween.new()
 	add_child(tween)
 	
-
-	
-	if actor != '':
-		lock_actor.locked = true
-		#global_position = get_node(actor).global_position
-		set_actor(get_node(actor))
 
 	change_scene_mode(FLYING_SPACE)
 
@@ -118,11 +95,11 @@ func _ready():
 	# For debug purposes
 	if debug_cameraman:
 		var spr = Sprite.new()
-		spr.texture = preload("res://addons/quijipixel.cameraman/icon.png")
+		spr.texture = preload("res://gui/camera_crew/camera.png")
 		add_child(spr)
 
 		spr = Sprite.new()
-		spr.texture = preload("res://addons/quijipixel.cameraman/icon.png")
+		spr.texture = preload("res://gui/camera_crew/camera.png")
 		spr.modulate = Color(0.9, 4.0, 3.0, 1.0)
 		camera.add_child(spr)
 		

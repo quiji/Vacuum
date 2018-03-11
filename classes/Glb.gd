@@ -2,7 +2,7 @@ extends Node
 
 const VectorLib = preload("res://classes/VectorLib.gd")
 const Smooth = preload("res://classes/Smoothstep.gd")
-const CameraMan = preload("res://addons/quijipixel.cameraman/CameraMan.gd")
+const CameraCrew = preload("res://gui/camera_crew.gd")
 
 enum ReactTypes {NO_REACTION, REACT_STEP, REACT_SWIMSTROKE, REACT_ENDSWIMSTROKE}
 

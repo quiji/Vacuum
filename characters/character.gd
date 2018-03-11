@@ -1,6 +1,5 @@
 extends "res://classes/Character.gd"
 
-const CameraMan = preload("res://addons/quijipixel.cameraman/CameraMan.gd")
 
 ######## Const Stats #########
 var slope_stop_min_velocity = 5.0
@@ -91,7 +90,7 @@ func restore_camera_look():
 	var cam = Glb.get_current_camera_man()
 	
 	if cam != null:
-		cam.look_direction(CameraMan.LOOK_CENTER)
+		cam.look_direction(Glb.CameraCrew.LOOK_CENTER)
 
 func is_looking_right():
 	return $sprite.get_flip_h()
@@ -185,7 +184,7 @@ func end_rolling():
 func entered_space(center):
 	entered_space = true
 
-	Glb.get_current_camera_man().change_scene_mode(CameraMan.BLOCKED)
+	Glb.get_current_camera_man().change_scene_mode(Glb.CameraCrew.BLOCKED)
 	
 	
 func entered_gravity_platform(center):
@@ -200,7 +199,7 @@ func entered_gravity_platform(center):
 	$roll_collision.disabled = false
 	$collision.disabled = true
 	"""
-	Glb.get_current_camera_man().change_scene_mode(CameraMan.GRAVITY_PLATFORM, get_gravity_center())
+	Glb.get_current_camera_man().change_scene_mode(Glb.CameraCrew.GRAVITY_PLATFORM, get_gravity_center())
 
 func entered_water(water_bubble):
 	$sprite.play("WaterIdle")
@@ -210,7 +209,7 @@ func entered_water(water_bubble):
 	center_direction = -position.normalized()
 	transition_pivot(0, 18)
 
-	Glb.get_current_camera_man().change_scene_mode(CameraMan.WATER_BUBBLE, get_water_center())
+	Glb.get_current_camera_man().change_scene_mode(Glb.CameraCrew.WATER_BUBBLE, get_water_center())
 
 
 
@@ -270,7 +269,7 @@ func little_physics_process(delta):
 			halt_physics = false
 			pivot_t = 0
 			if not entering_water and entered_space:
-				Glb.get_current_camera_man().change_scene_mode(CameraMan.FLYING_SPACE)
+				Glb.get_current_camera_man().change_scene_mode(Glb.CameraCrew.FLYING_SPACE)
 
 
 func slow_down():
@@ -361,7 +360,7 @@ func _gravity_behavior(delta):
 
 	if Input.is_action_just_pressed("ui_up") and is_idle():
 		$sprite.play("LookUp")
-		make_camera_look(CameraMan.LOOK_UP)
+		make_camera_look(Glb.CameraCrew.LOOK_UP)
 
 	elif Input.is_action_just_released("ui_up") and $sprite.is_looking():
 		$sprite.play("LookUp", true)
@@ -369,7 +368,7 @@ func _gravity_behavior(delta):
 
 	if Input.is_action_just_pressed("ui_down") and is_idle():
 		$sprite.play("LookDown")
-		make_camera_look(CameraMan.LOOK_DOWN)
+		make_camera_look(Glb.CameraCrew.LOOK_DOWN)
 
 	elif Input.is_action_just_released("ui_down") and $sprite.is_looking():
 		$sprite.play("LookDown", true)
