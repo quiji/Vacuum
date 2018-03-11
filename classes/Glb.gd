@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 const VectorLib = preload("res://classes/VectorLib.gd")
 const Smooth = preload("res://classes/Smoothstep.gd")
@@ -10,8 +10,10 @@ var _collision_layer_bits = {}
 var _current_camera_man = null
 var debug_mode = false
 
+
 func _ready():
 	randomize()
+	set_process(false)
 	
 	debug_mode = ProjectSettings.get_setting("Project/debug_mode")
 	
@@ -44,4 +46,71 @@ func set_current_camera_man(man):
 func get_current_camera_man():
 	return _current_camera_man
 
+func _draw():
+	draw_rect(Rect2(0, 0, 640 * 2, 360 * 2), Color(0, 0, 0), true)
+
+######### Scene loading
+var stages = {
+	space = "res://stages/space.tscn",
+	room = "res://stages/room.tscn"
+}
+
+var loader
+var wait_frames
+var time_max = 100 # msec
+
+func load_stage(stage):
+	# In the future, here we handle the areas and loading of all that stuff....
+	if stages.has(stage):
+		_load_new_scene(stages[stage])
+		
+
+
+func _load_new_scene(scene):
+	var prev = get_tree().current_scene
+	loader = ResourceLoader.load_interactive(scene)
+	if loader == null: # check for errors
+		print("Couldn't load stage")
+		return
+	set_process(true)
+	prev.queue_free()
+
+	wait_frames = 1
+
+func _process(delta):
+	if loader == null:
+		# no need to process anymore
+		set_process(false)
+		return
+
+	if wait_frames > 0: # wait for frames to let the "loading" animation to show up
+		wait_frames -= 1
+		return
+
+	var t = OS.get_ticks_msec()
+	while OS.get_ticks_msec() < t + time_max: # use "time_max" to control how much time we block this thread
+
+		# poll your loader
+		var err = loader.poll()
+
+		if err == ERR_FILE_EOF: # load finished
+			var resource = loader.get_resource()
+			loader = null
+			set_new_scene(resource)
+			break
+		elif err == OK:
+			update_progress()
+		else: # error during loading
+			print("Couldn't load stage")
+			loader = null
+			break
+
+func update_progress():
+	var progress = float(loader.get_stage()) / loader.get_stage_count()
+	# update your progress bar?
+	get_node("progress").percent_visible = progress
+
+func set_new_scene(scene_resource):
+	var current_scene = scene_resource.instance()
+	get_tree().get_root().add_child(current_scene)
 

@@ -13,18 +13,18 @@ config_version=3
 debug_mode=false
 start_date="9 Jan 2018"
 patch=53
-minor=114
+minor=116
 major=0
 
 [application]
 
 config/name="Vacuum"
-run/main_scene="res://space.tscn"
+run/main_scene="res://Vacuum.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Glb="*res://classes/Glb.gd"
+Glb="*res://classes/Glb.tscn"
 Console="*res://addons/quijipixel.console/Console.tscn"
 
 [display]

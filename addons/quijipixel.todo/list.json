@@ -255,7 +255,9 @@
     "task.273",
     "task.274",
     "task.192",
-    "task.280"
+    "task.280",
+    "task.282",
+    "task.281"
   ],
   "completed": {
     "task.0": {
@@ -6401,6 +6403,54 @@
         "minute": 7,
         "second": 13
       }
+    },
+    "task.282": {
+      "task": "Add a scene load bank into the Glb singleton.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 12,
+        "minute": 16,
+        "second": 40
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 15,
+        "minute": 13,
+        "second": 16
+      }
+    },
+    "task.281": {
+      "task": "Add a base node that loads the game and starts the whole thing.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 12,
+        "minute": 8,
+        "second": 42
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 15,
+        "minute": 13,
+        "second": 20
+      }
     }
   },
   "pend_order": [
@@ -6428,7 +6478,8 @@
     "task.275",
     "task.277",
     "task.278",
-    "task.279"
+    "task.279",
+    "task.283"
   ],
   "pending": {
     "task.134": {
@@ -6779,6 +6830,20 @@
         "hour": 11,
         "minute": 24,
         "second": 28
+      }
+    },
+    "task.283": {
+      "task": "Remember (in the future) to design a load scheme for stages in areas (for fast traversing between contigous levels).",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 13,
+        "minute": 18,
+        "second": 57
       }
     }
   }
