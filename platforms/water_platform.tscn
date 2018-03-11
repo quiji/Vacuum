@@ -112,9 +112,9 @@ void fragment() {
 
 render_priority = 0
 shader = SubResource( 5 )
-shader_param/delta = -1.49997e+06
+shader_param/delta = -1.49999e+06
 shader_param/radius = null
-shader_param/frequency = 30.0
+shader_param/frequency = 8
 shader_param/depth = 0.004
 shader_param/size_x = 0.001
 shader_param/size_y = 0.001
@@ -124,9 +124,9 @@ _sections_unfolded = [ "Resource", "shader_param" ]
 [sub_resource type="CircleShape2D" id=7]
 
 custom_solver_bias = 0.0
-radius = 121.2
+radius = 120.9
 
-[node name="water_platform" type="KinematicBody2D" index="0"]
+[node name="water_platform" type="KinematicBody2D"]
 
 material = SubResource( 1 )
 input_pickable = false
@@ -134,43 +134,37 @@ collision_layer = 2
 collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Material", "Pickable" ]
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Visibility" ]
 radius = 120
 
-[node name="collision" type="CollisionShape2D" parent="." index="0"]
+[node name="collision" type="CollisionShape2D" parent="." index="2"]
 
+visible = false
 shape = SubResource( 2 )
 
-[node name="bkg" parent="." index="1" instance=ExtResource( 2 )]
-
-_sections_unfolded = [ "Material" ]
-radius = 120
-base_color = Color( 0.10553, 0.427153, 0.710938, 0 )
-border_size = 2.0
-
-[node name="buffer" type="BackBufferCopy" parent="." index="2"]
+[node name="buffer" type="BackBufferCopy" parent="." index="3"]
 
 copy_mode = 2
 rect = Rect2( -120, -120, 240, 240 )
 
-[node name="color_shader" parent="." index="3" instance=ExtResource( 2 )]
+[node name="color_shader" parent="." index="4" instance=ExtResource( 2 )]
 
 material = SubResource( 4 )
 _sections_unfolded = [ "Material" ]
 radius = 120
 
-[node name="second_buffer" type="BackBufferCopy" parent="." index="4"]
+[node name="second_buffer" type="BackBufferCopy" parent="." index="5"]
 
 copy_mode = 2
 rect = Rect2( -120, -120, 240, 240 )
 
-[node name="water_shader" parent="." index="5" instance=ExtResource( 2 )]
+[node name="water_shader" parent="." index="6" instance=ExtResource( 2 )]
 
 material = SubResource( 6 )
 _sections_unfolded = [ "Material" ]
-radius = 122.4
+radius = 120.9
 
-[node name="tween" type="Tween" parent="." index="6"]
+[node name="tween" type="Tween" parent="." index="7"]
 
 repeat = false
 playback_process_mode = 1
@@ -179,9 +173,10 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="water_reaction_area" type="Area2D" parent="." index="7"]
+[node name="water_reaction_area" type="Area2D" parent="." index="8"]
 
 editor/display_folded = true
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

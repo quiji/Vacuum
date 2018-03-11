@@ -31,6 +31,10 @@ func get_collision_layer_int(layers):
 		layers_int += pow(2, _collision_layer_bits[layer])
 	return layers_int
 
+func get_collision_layer_id(layer):
+	return _collision_layer_bits[layer]
+
+
 func has_signal(node, signal_name):
 	return node.get_script() != null and node.get_script().has_script_signal(signal_name)
 	

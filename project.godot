@@ -10,10 +10,10 @@ config_version=3
 
 [Project]
 
-debug_mode=true
+debug_mode=false
 start_date="9 Jan 2018"
-patch=49
-minor=112
+patch=53
+minor=113
 major=0
 
 [application]
@@ -28,8 +28,9 @@ Glb="*res://classes/Glb.gd"
 
 [display]
 
-window/size/width=640
-window/size/height=360
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
 window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"

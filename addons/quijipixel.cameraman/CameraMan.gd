@@ -306,6 +306,15 @@ func look_direction(dir):
 
 	return true
 
+func zoom_in():
+	tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(0.5, 0.5), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	tween.start()
+	
+func zoom_out():
+	tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(1, 1), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	tween.start()
+
+
 func flying_space_logic(delta):
 	if lock_actor.locked:
 		global_position = _actor.global_position

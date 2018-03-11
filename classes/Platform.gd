@@ -11,7 +11,9 @@ func _ready():
 
 	if not has_sprite:
 		draw_shape()
-	
+		
+
+
 
 var shape = null
 func draw_shape():

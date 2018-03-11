@@ -62,6 +62,7 @@ func _ready():
 	old_sprite_pos = $sprite.position
 	old_shape_pos = $collision.position
 	
+	
 	$sprite.connect("react", self, "_on_animation_reaction")
 
 
@@ -173,12 +174,12 @@ func reached_ground(ground_object):
 
 func start_rolling():
 	$sprite.play("StartRoll")
-	$roll_collision.disabled = false
+	#$roll_collision.disabled = false
 	$collision.disabled = true
 
 func end_rolling():
 	$sprite.play("EndRoll")
-	$roll_collision.disabled = true
+	#$roll_collision.disabled = true
 	$collision.disabled = false
 
 func entered_space(center):

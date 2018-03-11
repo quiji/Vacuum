@@ -17,7 +17,8 @@ void fragment() {
 
 	vec4 c = textureLod(SCREEN_TEXTURE,uv,0.0);
 	float vect_len = length(local_uv);
-	float dist = vect_len / radius * 3.75;
+	//float dist = vect_len / radius * 3.75;
+	float dist = vect_len / radius * 4.75;
 
 	if (dist < 0.011) {
 		c.r += dist * 10.0;

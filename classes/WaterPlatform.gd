@@ -5,10 +5,20 @@ extends KinematicBody2D
 const WATER_RESISTANCE = 200.5
 const WATER_RESISTANCE_SQUARED = WATER_RESISTANCE * WATER_RESISTANCE
 #const WATER_RESISTANCE = 251.5
-
+"""
 const WATER_NORMAL_WAVE_SPEED = 1.8
 const WATER_SWIM_WAVE_SPEED = 15.2
 const WATER_ENTER_WAVE_SPEED = 28.2
+const WATER_FREQUENCY = 16
+const WATER_WAVE_DEPTH = 0.005
+"""
+
+const WATER_NORMAL_WAVE_SPEED = 0.9
+const WATER_SWIM_WAVE_SPEED = 7.6
+const WATER_ENTER_WAVE_SPEED = 14.1
+const WATER_FREQUENCY = 7
+const WATER_WAVE_DEPTH = 0.002
+
 const WATER_INNER_RADIUS = 16.8
 const WATER_RADIUS_LIMIT = 23.8
 
@@ -27,20 +37,28 @@ func _ready():
 	$collision.shape = $collision.shape.duplicate(true)
 	$water_reaction_area/collision.shape = $water_reaction_area/collision.shape.duplicate(true)
 
-	#var bkg  = $bkg.duplicate(DUPLICATE_USE_INSTANCING)
-	#$bkg.replace_by(bkg)
 
-	#var color_shader = $color_shader.duplicate(DUPLICATE_USE_INSTANCING)
-	#$color_shader.replace_by(color_shader)
+	var bkg = preload("res://tools/Circle.tscn").duplicate(true).instance()
+	bkg.set_name("bkg")
+	add_child(bkg)
+	move_child(bkg, 0)
+	bkg.set_radius(120)
+	bkg.set_base_color(Color(1, 1, 1, 0))
+	bkg.set_border_color(Color(1, 1, 1))
+	bkg.set_border_size(3)
 
-	#var water_shader = $water_shader.duplicate(DUPLICATE_USE_INSTANCING)
-	#$water_shader.replace_by(water_shader)
-
-
-
+	var bubble = Sprite.new()
+	bubble.set_name("bubble_texture")
+	bubble.texture = load("res://assets/shader_base/bubble_base.png")
+	bubble.modulate = Color(1, 1, 1, 0.02)
+	add_child(bubble)
+	move_child(bubble, 0)
+	
 	$water_shader.material = $water_shader.material.duplicate(true)
 	$color_shader.material = $color_shader.material.duplicate(true)
 	
+	$water_shader.material.set("shader_param/frequency", WATER_FREQUENCY)
+	$water_shader.material.set("shader_param/depth", WATER_WAVE_DEPTH)
 
 	wave_speed = WATER_NORMAL_WAVE_SPEED
 
@@ -82,14 +100,17 @@ func shrink(r):
 	$tween.start()
 
 func setup_radial_structures():
-	
-	$bkg.set_radius(radius)
+	var margin = 0.0075
+	$bkg.set_radius(radius - margin * 250)
+	$bubble_texture.scale = Vector2(radius / 60, radius / 60)
 	$color_shader.set_radius(radius)
+	
 	$collision.shape.radius = radius - WATER_INNER_RADIUS
-	$water_reaction_area/collision.shape.radius = radius * 1.01
+	$water_reaction_area/collision.shape.radius = radius * (1 + margin)
 
-	$water_shader.set_radius(radius * 1.02)
-	$water_shader.material.set("shader_params/radius", radius * 1.02)
+	#$water_shader.set_radius(radius * 1.02)
+	$water_shader.set_radius(radius * (1 + margin))
+	$water_shader.material.set("shader_params/radius", radius * (1 + margin))
 	$color_shader.material.set("shader_params/radius", radius)
 
 	

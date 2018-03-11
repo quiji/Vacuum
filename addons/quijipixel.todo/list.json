@@ -248,7 +248,13 @@
     "task.268",
     "task.267",
     "task.270",
-    "task.269"
+    "task.269",
+    "task.272",
+    "task.264",
+    "task.276",
+    "task.273",
+    "task.274",
+    "task.192"
   ],
   "completed": {
     "task.0": {
@@ -6226,6 +6232,150 @@
         "minute": 7,
         "second": 11
       }
+    },
+    "task.272": {
+      "task": "When running down a slope the player micro falls.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 17,
+        "minute": 32,
+        "second": 45
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 17,
+        "minute": 32,
+        "second": 48
+      }
+    },
+    "task.264": {
+      "task": "Remember to try circle textures instead of the circle node, and duplicating the textures to see if water platforms can coexist.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 17,
+        "minute": 2,
+        "second": 19
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 9,
+        "weekday": 5,
+        "dst": true,
+        "hour": 9,
+        "minute": 47,
+        "second": 42
+      }
+    },
+    "task.276": {
+      "task": "Pressing  right and then jumping (the full jump) uses the low jump gravity.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 9,
+        "weekday": 5,
+        "dst": true,
+        "hour": 19,
+        "minute": 38,
+        "second": 8
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 10,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 49,
+        "second": 17
+      }
+    },
+    "task.273": {
+      "task": "When jumping fom gravity platform to another withtou triggering the roll, the player stays attached to previous center.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 8,
+        "weekday": 4,
+        "dst": true,
+        "hour": 17,
+        "minute": 33,
+        "second": 25
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 10,
+        "weekday": 6,
+        "dst": true,
+        "hour": 21,
+        "minute": 9,
+        "second": 8
+      }
+    },
+    "task.274": {
+      "task": "WATER PLATFORMS CAN COEXIST! Texture experiment worked, now implement on water platform.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 9,
+        "weekday": 5,
+        "dst": true,
+        "hour": 9,
+        "minute": 48,
+        "second": 8
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 9,
+        "minute": 43,
+        "second": 46
+      }
+    },
+    "task.192": {
+      "creation_date": {
+        "day": 23,
+        "dst": true,
+        "hour": 16,
+        "minute": 56,
+        "month": 2,
+        "second": 16,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "When there are more than 1 water platform, the shader is buggy for the platforms instead of the first one instanced by the scene tree.",
+      "type": "Bug",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 9,
+        "minute": 44,
+        "second": 26
+      }
     }
   },
   "pend_order": [
@@ -6239,7 +6389,6 @@
     "task.152",
     "task.155",
     "task.176",
-    "task.192",
     "task.200",
     "task.205",
     "task.209",
@@ -6250,8 +6399,11 @@
     "task.256",
     "task.261",
     "task.262",
-    "task.264",
-    "task.271"
+    "task.271",
+    "task.275",
+    "task.277",
+    "task.278",
+    "task.279"
   ],
   "pending": {
     "task.134": {
@@ -6337,20 +6489,6 @@
       },
       "task": "Implement a functional invert mode for character.",
       "type": "Feature"
-    },
-    "task.192": {
-      "creation_date": {
-        "day": 23,
-        "dst": true,
-        "hour": 16,
-        "minute": 56,
-        "month": 2,
-        "second": 16,
-        "weekday": 5,
-        "year": 2018
-      },
-      "task": "When there are more than 1 water platform, the shader is buggy for the platforms instead of the first one instanced by the scene tree.",
-      "type": "Bug"
     },
     "task.55": {
       "creation_date": {
@@ -6548,20 +6686,6 @@
         "second": 36
       }
     },
-    "task.264": {
-      "task": "Remember to try circle textures instead of the circle node, and duplicating the textures to see if water platforms can coexist.",
-      "type": "Remainder",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 5,
-        "weekday": 1,
-        "dst": true,
-        "hour": 17,
-        "minute": 2,
-        "second": 19
-      }
-    },
     "task.271": {
       "task": "Clean and improve the rolling code for player.",
       "type": "Task",
@@ -6574,6 +6698,62 @@
         "hour": 10,
         "minute": 7,
         "second": 35
+      }
+    },
+    "task.275": {
+      "task": "Sometimes the normal is tilted and depending on the platforms collision shape, it will make the player micro jump.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 9,
+        "weekday": 5,
+        "dst": true,
+        "hour": 9,
+        "minute": 50,
+        "second": 4
+      }
+    },
+    "task.277": {
+      "task": "Water Platform has to be communicating with camera, if camera is zoomed the frequency and depth should be updated. And if the water bubble grows/shrink and the player is in the bubble, the camera box is not updated.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 10,
+        "minute": 49,
+        "second": 40
+      }
+    },
+    "task.278": {
+      "task": "Create the indoors base platform with downwards gravity.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 11,
+        "minute": 24,
+        "second": 0
+      }
+    },
+    "task.279": {
+      "task": "Implement scene switching structure, add \"doors\" that switch between nodes. ",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 11,
+        "minute": 24,
+        "second": 28
       }
     }
   }
