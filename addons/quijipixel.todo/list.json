@@ -257,7 +257,8 @@
     "task.192",
     "task.280",
     "task.282",
-    "task.281"
+    "task.281",
+    "task.278"
   ],
   "completed": {
     "task.0": {
@@ -6451,6 +6452,30 @@
         "minute": 13,
         "second": 20
       }
+    },
+    "task.278": {
+      "task": "Create the indoors base platform with downwards gravity.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 11,
+        "minute": 24,
+        "second": 0
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 17,
+        "minute": 19,
+        "second": 57
+      }
     }
   },
   "pend_order": [
@@ -6477,9 +6502,9 @@
     "task.271",
     "task.275",
     "task.277",
-    "task.278",
     "task.279",
-    "task.283"
+    "task.283",
+    "task.284"
   ],
   "pending": {
     "task.134": {
@@ -6804,20 +6829,6 @@
         "second": 40
       }
     },
-    "task.278": {
-      "task": "Create the indoors base platform with downwards gravity.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 11,
-        "weekday": 0,
-        "dst": false,
-        "hour": 11,
-        "minute": 24,
-        "second": 0
-      }
-    },
     "task.279": {
       "task": "Implement scene switching structure, add \"doors\" that switch between nodes. ",
       "type": "Task",
@@ -6844,6 +6855,20 @@
         "hour": 13,
         "minute": 18,
         "second": 57
+      }
+    },
+    "task.284": {
+      "task": "Camera Man in Camera Crew is not working. Must revisit camera code.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 17,
+        "minute": 19,
+        "second": 47
       }
     }
   }

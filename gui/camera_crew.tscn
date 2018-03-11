@@ -4,11 +4,10 @@
 [ext_resource path="res://gui/camera_crew/camera_man.gd" type="Script" id=2]
 [ext_resource path="res://gui/camera_crew/margin_area.gd" type="Script" id=3]
 
-[node name="camera_crew" type="Node2D"]
+[node name="camera_crew" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 actor = null
-debug_cameraman = false
 look_distance = 100.0
 
 [node name="camera_man" type="Camera2D" parent="." index="0"]

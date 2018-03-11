@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Vacuum.gd" type="Script" id=1]
 
-[node name="Vacuum" type="Node2D"]
+[node name="Vacuum" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 

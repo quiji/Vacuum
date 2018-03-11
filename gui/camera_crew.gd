@@ -10,10 +10,10 @@ enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM, BLOCKED}
 #########################################################################
 export (NodePath) var actor
 
-export (bool) var debug_cameraman = false
+#export (bool) var debug_cameraman = false
 export (float) var look_distance = 100.0
 #########################################################################
-
+var debug_cameraman = true
 
 var scene_mode
 var tween = null
@@ -94,6 +94,7 @@ func _ready():
 
 	# For debug purposes
 	if debug_cameraman:
+
 		var spr = Sprite.new()
 		spr.texture = preload("res://gui/camera_crew/camera.png")
 		add_child(spr)
@@ -298,7 +299,7 @@ func flying_space_logic(delta):
 
 
 func gravity_platform_logic(delta):
-
+	Console.add_log("lock_actor", lock_actor)
 	if lock_actor.locked:
 		"""
 		if _actor.is_looking_right() and gravity.target.x != -70:

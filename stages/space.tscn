@@ -15,7 +15,7 @@
 [ext_resource path="res://platforms/test_platform.tscn" type="PackedScene" id=13]
 [ext_resource path="res://platforms/water_platform.tscn" type="PackedScene" id=14]
 
-[node name="space" type="Node2D"]
+[node name="space" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
