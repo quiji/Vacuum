@@ -175,6 +175,10 @@ func reached_ground(ground_object):
 		"""
 	set_gravity_scalar(lowest_gravity_scalar)
 	
+	
+	if is_moving():
+		add_step_impulse(run_velocity)
+	
 	if not $sprite.is_playing("EndRoll"):
 		if is_moving():
 			$sprite.play("Run")

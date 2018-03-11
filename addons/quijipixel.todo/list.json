@@ -262,7 +262,8 @@
     "task.279",
     "task.285",
     "task.284",
-    "task.286"
+    "task.286",
+    "task.288"
   ],
   "completed": {
     "task.0": {
@@ -6575,6 +6576,30 @@
         "hour": 20,
         "minute": 47,
         "second": 57
+      }
+    },
+    "task.288": {
+      "task": "After falling and moving midair, running starts with midair velocity and looks weird.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 57,
+        "second": 42
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 57,
+        "second": 45
       }
     }
   },
