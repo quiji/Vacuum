@@ -109,19 +109,20 @@ var _control_mode = ROTATION
 func _ready():
 
 	var new_parent = get_parent()
-	while _open_space == null:
-		if new_parent.has_method("is_open_space"):
-			_open_space = new_parent
-		else:
-			new_parent = new_parent.get_parent()
+
+	if new_parent.has_method("is_open_space"):
+		_open_space = new_parent
+	elif new_parent.has_method("get_gravity_from_center"):
+		_gravity_center = new_parent
 
 
-	Console.add_log(self, "_falling")
-	Console.add_log(self, "_on_ground")
-	Console.add_log(self, "_rolling")
 
-	Console.add_log(self, "_gravity_center")
-	Console.add_log(self, "_water_center")
+	#Console.add_log(self, "_falling")
+	#Console.add_log(self, "_on_ground")
+	#Console.add_log(self, "_rolling")
+
+	#Console.add_log(self, "_gravity_center")
+	#Console.add_log(self, "_water_center")
 
 
 

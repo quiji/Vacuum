@@ -13,7 +13,6 @@ func add_action(action):
 	actions.push_back(action)
 
 func camera_start_action(action):
-
 	action.t = 0
 	action.on = true
 	action.start_position = action.current_position

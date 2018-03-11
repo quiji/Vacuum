@@ -254,7 +254,14 @@
     "task.276",
     "task.273",
     "task.274",
-    "task.192"
+    "task.192",
+    "task.280",
+    "task.282",
+    "task.281",
+    "task.278",
+    "task.279",
+    "task.285",
+    "task.284"
   ],
   "completed": {
     "task.0": {
@@ -6376,6 +6383,174 @@
         "minute": 44,
         "second": 26
       }
+    },
+    "task.280": {
+      "task": "Create script that generate the needed assets for visual GUI in the stages.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 11,
+        "minute": 39,
+        "second": 35
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 12,
+        "minute": 7,
+        "second": 13
+      }
+    },
+    "task.282": {
+      "task": "Add a scene load bank into the Glb singleton.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 12,
+        "minute": 16,
+        "second": 40
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 15,
+        "minute": 13,
+        "second": 16
+      }
+    },
+    "task.281": {
+      "task": "Add a base node that loads the game and starts the whole thing.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 12,
+        "minute": 8,
+        "second": 42
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 15,
+        "minute": 13,
+        "second": 20
+      }
+    },
+    "task.278": {
+      "task": "Create the indoors base platform with downwards gravity.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 11,
+        "minute": 24,
+        "second": 0
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 17,
+        "minute": 19,
+        "second": 57
+      }
+    },
+    "task.279": {
+      "task": "Implement scene switching structure, add \"doors\" that switch between nodes. ",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 11,
+        "minute": 24,
+        "second": 28
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 17,
+        "minute": 39,
+        "second": 22
+      }
+    },
+    "task.285": {
+      "task": "Add blackout transitions between stages.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 18,
+        "minute": 7,
+        "second": 39
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 18,
+        "minute": 18,
+        "second": 47
+      }
+    },
+    "task.284": {
+      "task": "Camera Man in Camera Crew is not working. Must revisit camera code.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 17,
+        "minute": 19,
+        "second": 47
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 18,
+        "minute": 35,
+        "second": 2
+      }
     }
   },
   "pend_order": [
@@ -6402,8 +6577,7 @@
     "task.271",
     "task.275",
     "task.277",
-    "task.278",
-    "task.279"
+    "task.283"
   ],
   "pending": {
     "task.134": {
@@ -6728,32 +6902,18 @@
         "second": 40
       }
     },
-    "task.278": {
-      "task": "Create the indoors base platform with downwards gravity.",
-      "type": "Task",
+    "task.283": {
+      "task": "Remember (in the future) to design a load scheme for stages in areas (for fast traversing between contigous levels).",
+      "type": "Remainder",
       "creation_date": {
         "year": 2018,
         "month": 3,
         "day": 11,
         "weekday": 0,
         "dst": false,
-        "hour": 11,
-        "minute": 24,
-        "second": 0
-      }
-    },
-    "task.279": {
-      "task": "Implement scene switching structure, add \"doors\" that switch between nodes. ",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 11,
-        "weekday": 0,
-        "dst": false,
-        "hour": 11,
-        "minute": 24,
-        "second": 28
+        "hour": 13,
+        "minute": 18,
+        "second": 57
       }
     }
   }

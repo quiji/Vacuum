@@ -4,7 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://platforms/strange_circle.tscn" type="PackedScene" id=3]
 
-[node name="center of mass test" type="Node2D"]
+[node name="center of mass test" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -46,8 +46,6 @@ one_shot = false
 autostart = true
 
 [node name="strange_circle" parent="." index="3" instance=ExtResource( 3 )]
-
-camera_rotation_mode = 0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

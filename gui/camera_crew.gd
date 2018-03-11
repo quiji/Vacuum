@@ -8,31 +8,25 @@ enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM, BLOCKED}
 
 
 #########################################################################
-export (NodePath) var actor
-export (int, "WaterBubble", "FlyingSpace", "GravityPlatform") var scene_mode
-export (bool) var debug_cameraman = false
+var look_cam_distance = 240.0
+var debug_cameraman = false
+
 #########################################################################
 
-export (float) var max_speed = 300.0
-export (float) var min_speed = 190.0
-export (float) var max_distance = 300.0
-export (float) var min_distance = 4.5
-export (float) var setup_distance = 104.5
-export (float) var look_distance = 100.0
-
+var scene_mode
 var tween = null
-var _object = null
-var _camera_setup = -1
-
 var normal = Vector2(0, -1)
 var target_normal = null
+var water_center = null
+var water_radius_limits = 0
 
+var gravity_center = null
 
-
+var rect_area = null
+var camera = null
+var _actor = null
 
 #########################################################################
-
-
 
 var lock_actor = {
 	target = null,
@@ -78,51 +72,34 @@ var line = {
 	start = null
 }
 
-var water_center = null
-var water_radius_limits = 0
-
-var gravity_center = null
-
-var rect_area = null
-var camera = null
-var _actor = null
 
 func _ready():
-	camera = Camera2D.new()
-	camera.set_script(preload("res://addons/quijipixel.cameraman/Camera.gd"))
+	camera = $camera_man
 	
-	add_child(camera)
 	Glb.set_current_camera_man(self)
 	
 	camera.add_action(gravity)
 	camera.add_action(water)
 	
-	rect_area = Area2D.new()
-	rect_area.set_script(preload("res://addons/quijipixel.cameraman/MarginArea.gd"))
-	add_child(rect_area)
-	
+	rect_area = $margin_area
 	
 	tween = Tween.new()
 	add_child(tween)
 	
-
-	
-	if actor != '':
-		lock_actor.locked = true
-		#global_position = get_node(actor).global_position
-		set_actor(get_node(actor))
+	position = _actor.position
 
 	change_scene_mode(FLYING_SPACE)
 
 
 	# For debug purposes
 	if debug_cameraman:
+
 		var spr = Sprite.new()
-		spr.texture = preload("res://addons/quijipixel.cameraman/icon.png")
+		spr.texture = preload("res://gui/camera_crew/camera.png")
 		add_child(spr)
 
 		spr = Sprite.new()
-		spr.texture = preload("res://addons/quijipixel.cameraman/icon.png")
+		spr.texture = preload("res://gui/camera_crew/camera.png")
 		spr.modulate = Color(0.9, 4.0, 3.0, 1.0)
 		camera.add_child(spr)
 		
@@ -148,7 +125,7 @@ func normal_shift(new_normal, new_target_normal):
 	if gravity_center != null:
 		rotation_mode = gravity_center.get_camera_rotation_mode()
 
-	return null
+	#return
 
 	"""
 	if rotation_mode != NO_ROTATION:
@@ -172,7 +149,7 @@ func normal_shift(new_normal, new_target_normal):
 		FOLLOW_POLY4:
 			continue
 		FOLLOW_CUSTOM_POLY:
-			continue
+			#continue
 
 			target_normal = new_normal if new_target_normal == null else new_target_normal
 
@@ -289,15 +266,14 @@ func change_scene_mode(mode, data=null):
 
 
 func look_direction(dir):
-		
 	match dir:
 		LOOK_UP:
 			tween.stop(camera, "offset")
-			tween.interpolate_property(camera, "offset", Vector2(), get_current_normal() * look_distance, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.interpolate_property(camera, "offset", Vector2(), get_current_normal() * look_cam_distance * camera.zoom.x, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
 		LOOK_DOWN:
 			tween.stop(camera, "offset")
-			tween.interpolate_property(camera, "offset", Vector2(), -get_current_normal() * look_distance, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.interpolate_property(camera, "offset", Vector2(), -get_current_normal() * look_cam_distance * 1.5 * camera.zoom.x, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
 		LOOK_CENTER:
 			tween.stop(camera, "offset")
@@ -321,17 +297,8 @@ func flying_space_logic(delta):
 
 
 func gravity_platform_logic(delta):
-
-	if lock_actor.locked:
-		"""
-		if _actor.is_looking_right() and gravity.target.x != -70:
-			gravity.target = Vector2(-70, -100)
-			camera.camera_start_action(gravity)
-		if not _actor.is_looking_right() and gravity.target.x != 70:
-			gravity.target = Vector2(70, -100)
-			camera.camera_start_action(gravity)
-		"""
-		gravity.target = Vector2(0, -150)
+	if lock_actor.locked and not gravity.on:
+		gravity.target = Vector2(0, -100)
 		camera.camera_start_action(gravity)
 
 	var inner_direction = (global_position - _actor.global_position).normalized()
