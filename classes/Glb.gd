@@ -46,10 +46,7 @@ func set_current_camera_man(man):
 func get_current_camera_man():
 	return _current_camera_man
 
-"""
-func _draw():
-	draw_rect(Rect2(0, 0, 640 * 2, 360 * 2), Color(0, 0, 0), true)
-"""
+
 
 ######### Scene loading
 var stages = {
@@ -60,22 +57,25 @@ var stages = {
 var loader
 var wait_frames
 var time_max = 100 # msec
+var current_scene = null
+var from_door = null
 
-func load_stage(stage):
+func load_stage(stage, door_id=null):
 	# In the future, here we handle the areas and loading of all that stuff....
 	if stages.has(stage):
 		print("loading: ", stages[stage])
+		from_door = door_id
 		_load_new_scene(stages[stage])
-		
 
 
 func _load_new_scene(scene):
-	var prev = get_tree().current_scene
 	loader = ResourceLoader.load_interactive(scene)
 	if loader == null: # check for errors
 		return
 	set_process(true)
-	prev.queue_free()
+	
+	if current_scene != null:
+		current_scene.queue_free()
 
 	wait_frames = 1
 
@@ -116,6 +116,9 @@ func update_progress():
 
 func set_new_scene(scene_resource):
 
-	var current_scene = scene_resource.instance()
+	current_scene = scene_resource.instance()
+	if from_door != null and current_scene.has_method("spawn_on_door"):
+		current_scene.spawn_on_door(from_door)
+	current_scene.preinstall()
 	get_tree().get_root().add_child(current_scene)
 

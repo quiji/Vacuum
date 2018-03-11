@@ -258,7 +258,9 @@
     "task.280",
     "task.282",
     "task.281",
-    "task.278"
+    "task.278",
+    "task.279",
+    "task.285"
   ],
   "completed": {
     "task.0": {
@@ -6476,6 +6478,54 @@
         "minute": 19,
         "second": 57
       }
+    },
+    "task.279": {
+      "task": "Implement scene switching structure, add \"doors\" that switch between nodes. ",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 11,
+        "minute": 24,
+        "second": 28
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 17,
+        "minute": 39,
+        "second": 22
+      }
+    },
+    "task.285": {
+      "task": "Add blackout transitions between stages.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 18,
+        "minute": 7,
+        "second": 39
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 18,
+        "minute": 18,
+        "second": 47
+      }
     }
   },
   "pend_order": [
@@ -6502,7 +6552,6 @@
     "task.271",
     "task.275",
     "task.277",
-    "task.279",
     "task.283",
     "task.284"
   ],
@@ -6827,20 +6876,6 @@
         "hour": 10,
         "minute": 49,
         "second": 40
-      }
-    },
-    "task.279": {
-      "task": "Implement scene switching structure, add \"doors\" that switch between nodes. ",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 11,
-        "weekday": 0,
-        "dst": false,
-        "hour": 11,
-        "minute": 24,
-        "second": 28
       }
     },
     "task.283": {

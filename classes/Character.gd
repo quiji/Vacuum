@@ -117,12 +117,12 @@ func _ready():
 
 
 
-	Console.add_log(self, "_falling")
-	Console.add_log(self, "_on_ground")
-	Console.add_log(self, "_rolling")
+	#Console.add_log(self, "_falling")
+	#Console.add_log(self, "_on_ground")
+	#Console.add_log(self, "_rolling")
 
-	Console.add_log(self, "_gravity_center")
-	Console.add_log(self, "_water_center")
+	#Console.add_log(self, "_gravity_center")
+	#Console.add_log(self, "_water_center")
 
 
 

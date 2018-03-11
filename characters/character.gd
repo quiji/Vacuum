@@ -35,6 +35,7 @@ var slow_mo_factor = 1
 
 ######## Control schemes #########
 var camera_rotation = 0
+var door = null
 
 ######## Backups #########
 var old_sprite_pos = null
@@ -64,6 +65,16 @@ func _ready():
 	
 	$sprite.connect("react", self, "_on_animation_reaction")
 
+
+############
+# Door Related methods
+############
+
+func on_door(d):
+	door = d
+	
+func off_door():
+	door = null
 
 ############
 # Camera Related methods
@@ -357,8 +368,10 @@ func _gravity_behavior(delta):
 		smash_jump_start_point = position
 		set_gravity_scalar(highgest_gravity_scalar * 3)
 
-
-	if Input.is_action_just_pressed("ui_up") and is_idle():
+	
+	if Input.is_action_just_pressed("ui_up") and door != null:
+		door.enter()
+	elif Input.is_action_just_pressed("ui_up") and is_idle():
 		$sprite.play("LookUp")
 		make_camera_look(Glb.CameraCrew.LOOK_UP)
 
@@ -373,7 +386,6 @@ func _gravity_behavior(delta):
 	elif Input.is_action_just_released("ui_down") and $sprite.is_looking():
 		$sprite.play("LookDown", true)
 		restore_camera_look()
-
 
 
 

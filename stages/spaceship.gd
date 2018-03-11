@@ -6,3 +6,4 @@ func _ready():
 
 	Glb.get_current_camera_man().change_scene_mode(Glb.CameraCrew.GRAVITY_PLATFORM, $room)
 	$camera_crew.zoom_in()
+

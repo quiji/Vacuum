@@ -1,16 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://stages/spaceship.gd" type="Script" id=1]
-[ext_resource path="res://classes/RoomPlatform.gd" type="Script" id=2]
-[ext_resource path="res://characters/character.tscn" type="PackedScene" id=3]
-[ext_resource path="res://platforms/small_platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://structures/door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://classes/RoomPlatform.gd" type="Script" id=3]
+[ext_resource path="res://characters/character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://platforms/small_platform.tscn" type="PackedScene" id=5]
 
-[node name="spaceship" type="Node2D"]
+[node name="spaceship" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
-[node name="room" type="StaticBody2D" parent="." index="0"]
+[node name="structures" type="Node2D" parent="." index="0"]
 
+editor/display_folded = true
+
+[node name="door" parent="structures" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 69, 409 )
+target_stage = "space"
+
+[node name="room" type="StaticBody2D" parent="." index="1"]
+
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -18,26 +29,42 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 camera_rotation_mode = 0
 
-[node name="character" parent="room" index="0" instance=ExtResource( 3 )]
+[node name="character" parent="room" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 142, 350 )
+position = Vector2( 144, 398 )
 
-[node name="small_platform" parent="room" index="1" instance=ExtResource( 4 )]
+[node name="small_platform" parent="room" index="1" instance=ExtResource( 5 )]
 
-position = Vector2( 414, 320 )
+position = Vector2( 414, 339 )
 
-[node name="small_platform2" parent="room" index="2" instance=ExtResource( 4 )]
+[node name="small_platform2" parent="room" index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 610, 270 )
+position = Vector2( 608, 297 )
 
-[node name="small_platform3" parent="room" index="3" instance=ExtResource( 4 )]
+[node name="small_platform3" parent="room" index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 810, 196 )
+position = Vector2( 791, 248 )
 
-[node name="collision" type="CollisionPolygon2D" parent="room" index="4"]
+[node name="small_platform4" parent="room" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 610, 179 )
+
+[node name="small_platform5" parent="room" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 484, 108 )
+
+[node name="small_platform6" parent="room" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 632, 32 )
+
+[node name="small_platform7" parent="room" index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 837, 32 )
+
+[node name="collision" type="CollisionPolygon2D" parent="room" index="8"]
 
 build_mode = 0
 polygon = PoolVector2Array( 2.71277, 409.382, 977.705, 409.382, 977.705, 49.3816, 1245.7, 49.3816, 1245.7, 407.382, 1245.7, 517.382, -0.264465, 511.382 )

@@ -88,6 +88,7 @@ func _ready():
 	tween = Tween.new()
 	add_child(tween)
 	
+	position = _actor.position
 
 	change_scene_mode(FLYING_SPACE)
 
