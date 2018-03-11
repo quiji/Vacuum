@@ -89,16 +89,17 @@ func set_camera_rotation_mode(m):
 	camera_rotation_mode = m
 
 func get_camera_rotation_mode():
+	return Glb.CameraCrew.FOLLOW_CUSTOM_POLY
 	#return Glb.CameraMan.CIRCULAR
 	return camera_rotation_mode
 
 func get_rotation_snapper():
 	match camera_rotation_mode:
-		Glb.CameraMan.FOLLOW_LINE:
+		Glb.CameraCrew.FOLLOW_LINE:
 			return [Vector2(0, 1).rotated(rotation), Vector2(0, -1).rotated(rotation)]
-		Glb.CameraMan.FOLLOW_POLY4:
+		Glb.CameraCrew.FOLLOW_POLY4:
 			return Glb.VectorLib.POLY4
-		Glb.CameraMan.FOLLOW_CUSTOM_POLY:
+		Glb.CameraCrew.FOLLOW_CUSTOM_POLY:
 			return center_of_mass_normals
 
 	return Glb.VectorLib.POLY4

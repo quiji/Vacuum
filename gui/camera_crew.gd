@@ -8,12 +8,10 @@ enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM, BLOCKED}
 
 
 #########################################################################
-export (NodePath) var actor
-
-#export (bool) var debug_cameraman = false
-export (float) var look_distance = 100.0
-#########################################################################
+var look_cam_distance = 240.0
 var debug_cameraman = false
+
+#########################################################################
 
 var scene_mode
 var tween = null
@@ -127,7 +125,7 @@ func normal_shift(new_normal, new_target_normal):
 	if gravity_center != null:
 		rotation_mode = gravity_center.get_camera_rotation_mode()
 
-	return null
+	#return
 
 	"""
 	if rotation_mode != NO_ROTATION:
@@ -151,7 +149,7 @@ func normal_shift(new_normal, new_target_normal):
 		FOLLOW_POLY4:
 			continue
 		FOLLOW_CUSTOM_POLY:
-			continue
+			#continue
 
 			target_normal = new_normal if new_target_normal == null else new_target_normal
 
@@ -268,15 +266,14 @@ func change_scene_mode(mode, data=null):
 
 
 func look_direction(dir):
-		
 	match dir:
 		LOOK_UP:
 			tween.stop(camera, "offset")
-			tween.interpolate_property(camera, "offset", Vector2(), get_current_normal() * look_distance, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.interpolate_property(camera, "offset", Vector2(), get_current_normal() * look_cam_distance * camera.zoom.x, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
 		LOOK_DOWN:
 			tween.stop(camera, "offset")
-			tween.interpolate_property(camera, "offset", Vector2(), -get_current_normal() * look_distance, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.interpolate_property(camera, "offset", Vector2(), -get_current_normal() * look_cam_distance * 1.5 * camera.zoom.x, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
 		LOOK_CENTER:
 			tween.stop(camera, "offset")
