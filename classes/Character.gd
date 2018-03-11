@@ -116,13 +116,9 @@ func _ready():
 		_gravity_center = new_parent
 
 
-
-	#Console.add_log(self, "_falling")
-	#Console.add_log(self, "_on_ground")
-	#Console.add_log(self, "_rolling")
-
-	#Console.add_log(self, "_gravity_center")
-	#Console.add_log(self, "_water_center")
+	Console.add_log(self, "_falling")
+	Console.add_log(self, "_on_ground")
+	Console.add_log(self, "_rolling")
 
 
 
@@ -817,6 +813,8 @@ func _gravity_physics(delta):
 		
 		_prev_altitude_velocity_scalar = _altitude_velocity_scalar
 		_altitude_velocity_scalar += _gravity_scalar * delta
+		if _altitude_velocity_scalar < -450:
+			_altitude_velocity_scalar = -450
 		altitude_velocity = gravity * -_altitude_velocity_scalar
 	
 		if _prev_altitude_velocity_scalar >= 0 and _altitude_velocity_scalar <= 0:
@@ -828,6 +826,8 @@ func _gravity_physics(delta):
 	var center_verification = null
 	var velocity = move_velocity + altitude_velocity
 	var collision_info = null
+
+	Console.add_log("velocity", velocity)
 
 	if velocity.length_squared() > 0.01:
 		set_last_velocity(velocity)
@@ -848,7 +848,7 @@ func _gravity_physics(delta):
 		_loosed_ground_delta += delta
 	else:
 		_loosed_ground_delta = 0
-		
+
 
 
 

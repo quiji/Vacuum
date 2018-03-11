@@ -70,6 +70,9 @@ func load_stage(stage, door_id=null):
 
 
 func _load_new_scene(scene):
+	$loading.show()
+	$loading/label.text = ""
+	
 	loader = ResourceLoader.load_interactive(scene)
 	if loader == null: # check for errors
 		return
@@ -112,11 +115,11 @@ func _process(delta):
 func update_progress():
 	var progress = float(loader.get_stage()) / loader.get_stage_count()
 	# update your progress bar?
-	get_node("progress").percent_visible = progress
-	$label.text = str(progress)
+	$loading/progress.percent_visible = progress * 100
+	$loading/label.text = str(progress)
 
 func set_new_scene(scene_resource):
-
+	$loading.hide()
 	current_scene = scene_resource.instance()
 	if from_door != null and current_scene.has_method("spawn_on_door"):
 		current_scene.spawn_on_door(from_door)

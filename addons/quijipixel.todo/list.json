@@ -261,7 +261,8 @@
     "task.278",
     "task.279",
     "task.285",
-    "task.284"
+    "task.284",
+    "task.286"
   ],
   "completed": {
     "task.0": {
@@ -6551,6 +6552,30 @@
         "minute": 35,
         "second": 2
       }
+    },
+    "task.286": {
+      "task": "Limit falling speed as it grows too much (if character gets stuck)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 47,
+        "second": 54
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 47,
+        "second": 57
+      }
     }
   },
   "pend_order": [
@@ -6577,7 +6602,8 @@
     "task.271",
     "task.275",
     "task.277",
-    "task.283"
+    "task.283",
+    "task.287"
   ],
   "pending": {
     "task.134": {
@@ -6914,6 +6940,20 @@
         "hour": 13,
         "minute": 18,
         "second": 57
+      }
+    },
+    "task.287": {
+      "task": "Sometimes player won't fall from small platforms.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 48,
+        "second": 8
       }
     }
   }
