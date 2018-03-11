@@ -13,6 +13,7 @@ var debug_mode = false
 
 func _ready():
 	randomize()
+
 	set_process(false)
 	
 	debug_mode = ProjectSettings.get_setting("Project/debug_mode")

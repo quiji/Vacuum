@@ -20,7 +20,7 @@ func install_components(player):
 	hud.set_name("hud")
 	add_child(hud)
 
-	$tween.interpolate_property($blackout, "color", $blackout.color, Color(1, 1, 1), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT, 0.5)
+	$tween.interpolate_property($blackout, "color", $blackout.color, Color(1, 1, 1), 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN, 0.5)
 	$tween.start()
 
 
@@ -43,7 +43,7 @@ var door_id = null
 func fade_towards(target, door):
 	target_stage = target
 	door_id = door
-	$tween.interpolate_property($blackout, "color", $blackout.color, Color("#050307"), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT, 0.5)
+	$tween.interpolate_property($blackout, "color", $blackout.color, Color("#050307"), 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN, 0.5)
 	$tween.start()
 	
 func on_tween_completed(object, key):

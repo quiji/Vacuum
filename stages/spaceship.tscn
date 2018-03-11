@@ -6,7 +6,7 @@
 [ext_resource path="res://characters/character.tscn" type="PackedScene" id=4]
 [ext_resource path="res://platforms/small_platform.tscn" type="PackedScene" id=5]
 
-[node name="spaceship" type="Node2D" index="0"]
+[node name="spaceship" type="Node2D"]
 
 script = ExtResource( 1 )
 

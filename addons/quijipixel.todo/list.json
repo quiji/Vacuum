@@ -260,7 +260,8 @@
     "task.281",
     "task.278",
     "task.279",
-    "task.285"
+    "task.285",
+    "task.284"
   ],
   "completed": {
     "task.0": {
@@ -6526,6 +6527,30 @@
         "minute": 18,
         "second": 47
       }
+    },
+    "task.284": {
+      "task": "Camera Man in Camera Crew is not working. Must revisit camera code.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 17,
+        "minute": 19,
+        "second": 47
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 18,
+        "minute": 35,
+        "second": 2
+      }
     }
   },
   "pend_order": [
@@ -6552,8 +6577,7 @@
     "task.271",
     "task.275",
     "task.277",
-    "task.283",
-    "task.284"
+    "task.283"
   ],
   "pending": {
     "task.134": {
@@ -6890,20 +6914,6 @@
         "hour": 13,
         "minute": 18,
         "second": 57
-      }
-    },
-    "task.284": {
-      "task": "Camera Man in Camera Crew is not working. Must revisit camera code.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 11,
-        "weekday": 0,
-        "dst": false,
-        "hour": 17,
-        "minute": 19,
-        "second": 47
       }
     }
   }

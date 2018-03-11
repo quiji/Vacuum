@@ -300,17 +300,8 @@ func flying_space_logic(delta):
 
 
 func gravity_platform_logic(delta):
-	Console.add_log("lock_actor", lock_actor)
-	if lock_actor.locked:
-		"""
-		if _actor.is_looking_right() and gravity.target.x != -70:
-			gravity.target = Vector2(-70, -100)
-			camera.camera_start_action(gravity)
-		if not _actor.is_looking_right() and gravity.target.x != 70:
-			gravity.target = Vector2(70, -100)
-			camera.camera_start_action(gravity)
-		"""
-		gravity.target = Vector2(0, -150)
+	if lock_actor.locked and not gravity.on:
+		gravity.target = Vector2(0, -100)
 		camera.camera_start_action(gravity)
 
 	var inner_direction = (global_position - _actor.global_position).normalized()

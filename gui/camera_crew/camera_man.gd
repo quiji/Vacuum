@@ -13,7 +13,6 @@ func add_action(action):
 	actions.push_back(action)
 
 func camera_start_action(action):
-
 	action.t = 0
 	action.on = true
 	action.start_position = action.current_position
@@ -33,7 +32,7 @@ func camera_end_action(action):
 
 func camera_do_action(action, delta):
 	if action.t < 1:
-
+		Console.add_log("working_on", action)
 		action.current_position = action.start_position.linear_interpolate(action.target, Glb.Smooth.call(action.method, action.t))
 		action.t += delta / action.duration
 	else:
