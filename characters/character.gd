@@ -4,7 +4,7 @@ extends "res://classes/Character.gd"
 ######## Const Stats #########
 var slope_stop_min_velocity = 5.0
 var run_velocity = 210 #150.0
-var midair_move_velocity = 60.0
+var midair_move_velocity = 190#60.0
 var max_x_distance_a_jump = 105.0
 var max_x_distance_b_jump = 135.0
 var jump_peak_height = 122

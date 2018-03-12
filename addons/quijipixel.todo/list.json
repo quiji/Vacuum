@@ -267,7 +267,8 @@
     "task.287",
     "task.291",
     "task.292",
-    "task.293"
+    "task.293",
+    "task.275"
   ],
   "completed": {
     "task.0": {
@@ -6701,6 +6702,30 @@
         "minute": 15,
         "second": 58
       }
+    },
+    "task.275": {
+      "task": "Sometimes the normal is tilted and depending on the platforms collision shape, it will make the player micro jump.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 9,
+        "weekday": 5,
+        "dst": true,
+        "hour": 9,
+        "minute": 50,
+        "second": 4
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 55
+      }
     }
   },
   "pend_order": [
@@ -6725,11 +6750,11 @@
     "task.261",
     "task.262",
     "task.271",
-    "task.275",
     "task.277",
     "task.283",
     "task.289",
-    "task.290"
+    "task.290",
+    "task.294"
   ],
   "pending": {
     "task.134": {
@@ -7026,20 +7051,6 @@
         "second": 35
       }
     },
-    "task.275": {
-      "task": "Sometimes the normal is tilted and depending on the platforms collision shape, it will make the player micro jump.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 9,
-        "weekday": 5,
-        "dst": true,
-        "hour": 9,
-        "minute": 50,
-        "second": 4
-      }
-    },
     "task.277": {
       "task": "Water Platform has to be communicating with camera, if camera is zoomed the frequency and depth should be updated. And if the water bubble grows/shrink and the player is in the bubble, the camera box is not updated.",
       "type": "Task",
@@ -7094,6 +7105,20 @@
         "hour": 21,
         "minute": 38,
         "second": 49
+      }
+    },
+    "task.294": {
+      "task": "In the corners of the collision of a platform, the normal flickers and makes the player flicker annoyingly.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 11,
+        "minute": 37,
+        "second": 32
       }
     }
   }

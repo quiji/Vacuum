@@ -18,7 +18,7 @@ const INV_NORMAL = 1
 const SWIM_STROKE_DURATION = 0.6
 
 #const ON_GROUNDTHRESHOLD = 0.025
-const ON_GROUNDTHRESHOLD = 0.1
+const ON_GROUNDTHRESHOLD = 0.05
 
 enum ControlMode {ROTATION, INVERSION}
 
@@ -338,6 +338,7 @@ func jump(jump_initial_velocity_scalar):
 	_rolling = false
 	_attempting_jump = true
 	jump_delta = peak_jump_time
+
 	_loosed_ground_delta = ON_GROUNDTHRESHOLD 
 
 func stop_in_air():
@@ -776,9 +777,9 @@ func _gravity_physics(delta):
 			_on_ground = true
 
 			_falling = false
-			if ground_cast_result.small_platforms.size() > 0:
-				_prev_altitude_velocity_scalar = 0
-				_altitude_velocity_scalar = 0
+			#if ground_cast_result.small_platforms.size() > 0:
+			_prev_altitude_velocity_scalar = 0
+			_altitude_velocity_scalar = 0
 
 			reached_ground(_gravity_center)
 			if not _moving:
@@ -804,21 +805,33 @@ func _gravity_physics(delta):
 		step_t = step_delta / step_duration
 	
 		_move_velocity_scalar = lerp(0, _target_move_velocity_scalar, Glb.Smooth.run_step(step_t))
-	
+
+	# this normal has the collision included, if on air it will be just the center's normal. Ideal for _tarteg_normal
+	var move_norm = normal
 	if collision_normal != null:
-		move_velocity = (-collision_normal).tangent() * _move_velocity_scalar
+		
+		# If indoors, just use the collision normal for the velocity, if not, use an average
+		if (_gravity_center != null and _gravity_center.has_method("is_room")) or  not is_on_ground():
+			move_norm = collision_normal
+			move_velocity = (-move_norm).tangent().normalized() * _move_velocity_scalar
+		else:
+			move_norm = (2 * collision_normal + normal).normalized()
+			var tangent = 5*(-move_norm).tangent()
+			if _move_velocity_scalar < 0:
+				tangent *= -1
+			move_velocity = (tangent + gravity).normalized() * abs(_move_velocity_scalar)
 		Console.add_log("coll_normal", collision_normal)
 	else:
-		Console.add_log("normal", normal)
 		move_velocity = (-normal).tangent().normalized() * _move_velocity_scalar
 		#$ground_raycast.set_normal(normal)
 		#move_velocity = (-normal).tangent() * _move_velocity_scalar
 	
-	
-	#Console.add_log("collision_normal", collision_normal)
-	#Console.add_log("move_velocity", move_velocity)
+	Console.add_log("gravity", gravity)
+	Console.add_log("move_norm.tangent", (-move_norm).tangent())
+	Console.add_log("move_velocity", move_velocity)
 		
 	if not is_on_ground() and not _rolling:
+		move_norm = normal
 		jump_delta -= delta
 
 		_prev_altitude_velocity_scalar = _altitude_velocity_scalar
@@ -855,13 +868,19 @@ func _gravity_physics(delta):
 	center_verification = verify_center_change()
 		
 	check_ground_reach(center_verification)
-	adjust_normal_towards(normal, center_verification, delta)
 
+	# If on a room and not out there, use the constant normal
+	if _gravity_center != null and _gravity_center.has_method("is_room"):
+		adjust_normal_towards(normal, center_verification, delta)
+	else:
+		adjust_normal_towards(move_norm, center_verification, delta)
+	
 
 	if not _on_ground:
 		_loosed_ground_delta += delta
 	else:
 		_loosed_ground_delta = 0
+	
 
 
 
