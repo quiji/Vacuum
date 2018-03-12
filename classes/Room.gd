@@ -13,6 +13,7 @@ func _ready():
 
 	if not has_sprite:
 		draw_shape()
+	
 
 
 func get_gravity_from_center(pos):

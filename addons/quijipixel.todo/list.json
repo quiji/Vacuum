@@ -6628,7 +6628,9 @@
     "task.275",
     "task.277",
     "task.283",
-    "task.287"
+    "task.287",
+    "task.289",
+    "task.290"
   ],
   "pending": {
     "task.134": {
@@ -6979,6 +6981,34 @@
         "hour": 20,
         "minute": 48,
         "second": 8
+      }
+    },
+    "task.289": {
+      "task": "Sometimes player jump in a direction but backfires into the opposite direction unexpectedly.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 58,
+        "second": 41
+      }
+    },
+    "task.290": {
+      "task": "Water movement is messed up when camera is rotated in a weird angle.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 21,
+        "minute": 38,
+        "second": 49
       }
     }
   }

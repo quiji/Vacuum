@@ -35,23 +35,13 @@ show_lines = false
 
 [node name="ground_raycast" parent="." index="3" instance=ExtResource( 3 )]
 
-a = Vector2( -6, 3 )
-b = Vector2( 6, 3 )
+a = Vector2( -7, 3 )
+b = Vector2( 7, 3 )
 c = Vector2( 0, -30 )
 
 [node name="collision" type="CollisionPolygon2D" parent="." index="4"]
 
 build_mode = 0
 polygon = PoolVector2Array( -6.625, -33.375, 3.625, -36.875, 9.375, -30.125, 8.625, -25.125, 12.625, -20.125, 6.625, -7.875, -8.125, -8.875, -10.375, -21.375, -7.125, -23.125 )
-
-[node name="tween" type="Tween" parent="." index="5"]
-
-repeat = false
-playback_process_mode = 0
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "playback" ]
 
 

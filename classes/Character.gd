@@ -115,11 +115,11 @@ func _ready():
 	elif new_parent.has_method("get_gravity_from_center"):
 		_gravity_center = new_parent
 
-
+	"""
 	Console.add_log(self, "_falling")
 	Console.add_log(self, "_on_ground")
 	Console.add_log(self, "_rolling")
-
+	"""
 
 
 ############
@@ -756,9 +756,13 @@ func _gravity_physics(delta):
 	
 	var ground_cast_result
 	
+	Console.add_log("pos_x", global_position.x)
+	Console.add_log("pos_y", global_position.y)
+	
 	_on_ground = false
 	if not _attempting_jump:
 		ground_cast_result = $ground_raycast.cast_ground(Glb.get_collision_layer_int(["Platform"]))
+		
 		
 		if not ground_cast_result.empty() and ground_cast_result.collider_count > 0:
 			colliders += ground_cast_result.gravity_centers
@@ -827,7 +831,6 @@ func _gravity_physics(delta):
 	var velocity = move_velocity + altitude_velocity
 	var collision_info = null
 
-	Console.add_log("velocity", velocity)
 
 	if velocity.length_squared() > 0.01:
 		set_last_velocity(velocity)
