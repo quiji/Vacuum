@@ -372,6 +372,7 @@ func stop(keep=true):
 
 func tilt(direction, tilt_to_45_time, tilt_speed):
 	_target_normal = direction
+	Console.add_log("camera_direction", direction)
 	
 	var til_speed_factor = 1
 	var normal_dot = _normal.dot(_target_normal)
@@ -597,7 +598,6 @@ func adjust_normal_towards(new_normal, center_verification, delta):
 				_target_normal_direction = Glb.VectorLib.vector_orientation(_normal, new_normal)
 				
 			start_normal_interpolation(new_normal)
-			Console.add_log("normal_chase", "started")
 			set_rolling(true)
 			start_rolling()
 
@@ -755,9 +755,6 @@ func _physics_process(delta):
 func _gravity_physics(delta):
 	
 	var ground_cast_result
-	
-	Console.add_log("pos_x", global_position.x)
-	Console.add_log("pos_y", global_position.y)
 	
 	_on_ground = false
 	if not _attempting_jump:

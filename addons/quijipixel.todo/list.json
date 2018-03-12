@@ -263,7 +263,8 @@
     "task.285",
     "task.284",
     "task.286",
-    "task.288"
+    "task.288",
+    "task.287"
   ],
   "completed": {
     "task.0": {
@@ -6601,6 +6602,30 @@
         "minute": 57,
         "second": 45
       }
+    },
+    "task.287": {
+      "task": "Sometimes player won't fall from small platforms.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 48,
+        "second": 8
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 21,
+        "minute": 41,
+        "second": 9
+      }
     }
   },
   "pend_order": [
@@ -6628,9 +6653,9 @@
     "task.275",
     "task.277",
     "task.283",
-    "task.287",
     "task.289",
-    "task.290"
+    "task.290",
+    "task.291"
   ],
   "pending": {
     "task.134": {
@@ -6969,20 +6994,6 @@
         "second": 57
       }
     },
-    "task.287": {
-      "task": "Sometimes player won't fall from small platforms.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 11,
-        "weekday": 0,
-        "dst": false,
-        "hour": 20,
-        "minute": 48,
-        "second": 8
-      }
-    },
     "task.289": {
       "task": "Sometimes player jump in a direction but backfires into the opposite direction unexpectedly.",
       "type": "Bug",
@@ -7009,6 +7020,20 @@
         "hour": 21,
         "minute": 38,
         "second": 49
+      }
+    },
+    "task.291": {
+      "task": "Cameraman moves in both directions when the player is outside of box from one direction (making the camera jump always)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 22,
+        "minute": 34,
+        "second": 28
       }
     }
   }

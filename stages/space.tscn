@@ -46,20 +46,20 @@ __meta__ = {
 
 [node name="structures" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="door" parent="structures" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( -238, 178 )
 target_stage = "spaceship"
+door_id = "test_door"
 
 [node name="playground" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="character" parent="playground" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( 612.659, -146.634 )
+position = Vector2( 484.659, -131.634 )
 
 [node name="circular" parent="playground" index="1" instance=ExtResource( 6 )]
 

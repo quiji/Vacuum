@@ -9,7 +9,7 @@ enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM, BLOCKED}
 
 #########################################################################
 var look_cam_distance = 240.0
-var debug_cameraman = false
+var debug_cameraman = true
 
 #########################################################################
 
@@ -251,7 +251,7 @@ func change_scene_mode(mode, data=null):
 			lock_actor.speed = 40
 			lock_actor.ignore_margins = false
 			attempt_lock()
-			rect_area.change_margins(40, 60, 40, 10)
+			rect_area.change_margins(40, 140, 40, 10)
 		WATER_BUBBLE:
 			lock_actor.duration = 8.0
 			lock_actor.target = null
