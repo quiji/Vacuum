@@ -820,7 +820,7 @@ func _gravity_physics(delta):
 		
 	if not is_on_ground() and not _rolling:
 		jump_delta -= delta
-		Console.add_log("jump_delta", jump_delta)
+
 		_prev_altitude_velocity_scalar = _altitude_velocity_scalar
 		_altitude_velocity_scalar += _gravity_scalar * delta
 		if _altitude_velocity_scalar < -500:

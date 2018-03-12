@@ -265,7 +265,8 @@
     "task.286",
     "task.288",
     "task.287",
-    "task.291"
+    "task.291",
+    "task.292"
   ],
   "completed": {
     "task.0": {
@@ -6650,6 +6651,30 @@
         "hour": 0,
         "minute": 18,
         "second": 19
+      }
+    },
+    "task.292": {
+      "task": "Create proximity door structure.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 1,
+        "minute": 32,
+        "second": 10
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 1,
+        "minute": 59,
+        "second": 15
       }
     }
   },

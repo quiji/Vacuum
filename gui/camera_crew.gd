@@ -125,7 +125,7 @@ func normal_shift(new_normal, new_target_normal):
 	if gravity_center != null:
 		rotation_mode = gravity_center.get_camera_rotation_mode()
 
-	#return
+	return
 
 	"""
 	if rotation_mode != NO_ROTATION:
