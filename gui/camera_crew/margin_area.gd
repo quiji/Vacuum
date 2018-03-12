@@ -5,7 +5,7 @@ enum MarginQuery {MARGIN, INNER_MARGIN, OUTER_MARGIN}
 var debug_cameraman = false
 var poly = null
 var inner_poly = null
-var margin_size = 10
+var margin_size = 40
 
 func _ready():
 	collision_layer = Glb.get_collision_layer_int(["CameraActor"])
@@ -25,29 +25,29 @@ func _ready():
 
 func change_margins(left_dist, up_dist, right_dist, down_dist):
 
-	poly.points[0].x = -left_dist
-	poly.points[0].y = -up_dist
+	poly.points[0].x = -left_dist - margin_size
+	poly.points[0].y = -up_dist - margin_size
 
-	poly.points[1].x = right_dist
-	poly.points[1].y = -up_dist
+	poly.points[1].x = right_dist + margin_size
+	poly.points[1].y = -up_dist - margin_size
 
-	poly.points[2].x = right_dist
-	poly.points[2].y = down_dist
+	poly.points[2].x = right_dist + margin_size
+	poly.points[2].y = down_dist + margin_size
 
-	poly.points[3].x = -left_dist
-	poly.points[3].y = down_dist
+	poly.points[3].x = -left_dist - margin_size
+	poly.points[3].y = down_dist + margin_size
 
-	inner_poly.points[0].x = -left_dist + margin_size
-	inner_poly.points[0].y = -up_dist + margin_size
+	inner_poly.points[0].x = -left_dist 
+	inner_poly.points[0].y = -up_dist 
 
-	inner_poly.points[1].x = right_dist - margin_size
-	inner_poly.points[1].y = -up_dist + margin_size
+	inner_poly.points[1].x = right_dist
+	inner_poly.points[1].y = -up_dist 
 
-	inner_poly.points[2].x = right_dist - margin_size
-	inner_poly.points[2].y = down_dist - margin_size
+	inner_poly.points[2].x = right_dist
+	inner_poly.points[2].y = down_dist 
 
-	inner_poly.points[3].x = -left_dist + margin_size
-	inner_poly.points[3].y = down_dist - margin_size
+	inner_poly.points[3].x = -left_dist
+	inner_poly.points[3].y = down_dist 
 
 
 
@@ -72,9 +72,6 @@ func _draw():
 			draw_line(Vector2(), get_parent().lock_actor.target - get_parent().lock_actor.current_pos, Color(0.8, 0.8, 0.8), 2)
 
 func in_x_axis(pos_x):
-	Console.add_log("pos_x", pos_x)
-	Console.add_log("from", inner_poly.points[0].x)
-	Console.add_log("to", inner_poly.points[1].x)
 	return inner_poly.points[0].x <= pos_x and pos_x <= inner_poly.points[1].x
 
 func in_y_axis(pos_y):
