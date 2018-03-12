@@ -87,6 +87,8 @@ var _invertor = FACING_RIGHT
 var _loosed_ground_delta = 0
 var step_delta = 0
 var step_duration = 0
+var peak_jump_time
+var jump_delta = 0
 
 ######## States #########
 var _on_ground = false
@@ -145,6 +147,8 @@ func check_inversion():
 	
 	return _prev_inversion != _invertor
 
+func set_peak_jump_time(time):
+	peak_jump_time = time
 
 func set_facing(direction):
 
@@ -333,6 +337,7 @@ func jump(jump_initial_velocity_scalar):
 	_falling = false
 	_rolling = false
 	_attempting_jump = true
+	jump_delta = peak_jump_time
 	_loosed_ground_delta = ON_GROUNDTHRESHOLD 
 
 func stop_in_air():
@@ -690,6 +695,9 @@ func little_physics_process(delta):
 func reached_peak_height():
 	pass
 	
+func reaching_peak():
+	pass
+	
 func reached_ground(ground_object):
 	pass
 	
@@ -811,15 +819,21 @@ func _gravity_physics(delta):
 	#Console.add_log("move_velocity", move_velocity)
 		
 	if not is_on_ground() and not _rolling:
-		
+		jump_delta -= delta
+		Console.add_log("jump_delta", jump_delta)
 		_prev_altitude_velocity_scalar = _altitude_velocity_scalar
 		_altitude_velocity_scalar += _gravity_scalar * delta
-		if _altitude_velocity_scalar < -450:
-			_altitude_velocity_scalar = -450
+		if _altitude_velocity_scalar < -500:
+			_altitude_velocity_scalar = -500
 		altitude_velocity = gravity * -_altitude_velocity_scalar
 	
+		# This is just here just for animation improvement
+		if jump_delta < 0.25 and jump_delta > 0:
+			reaching_peak()
+			jump_delta = 0
+		
+		# This, on the other hand, is very important
 		if _prev_altitude_velocity_scalar >= 0 and _altitude_velocity_scalar <= 0:
-			
 			reached_peak_height()
 			_falling = true
 			_attempting_jump = false

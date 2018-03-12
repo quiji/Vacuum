@@ -5,8 +5,8 @@ extends "res://classes/Character.gd"
 var slope_stop_min_velocity = 5.0
 var run_velocity = 210 #150.0
 var midair_move_velocity = 40.0
-var max_x_distance_a_jump = 90.0
-var max_x_distance_b_jump = 150.0
+var max_x_distance_a_jump = 105.0
+var max_x_distance_b_jump = 135.0
 var jump_peak_height = 122
 
 var smash_jump_impulse_scalar = 30.0
@@ -52,6 +52,7 @@ func _ready():
 	lowest_gravity_scalar = -2*jump_peak_height* (run_velocity*run_velocity) / (max_x_distance_a_jump*max_x_distance_a_jump)
 	highgest_gravity_scalar = lowest_gravity_scalar * 6
 	
+	set_peak_jump_time(time_to_peak_of_jump)
 	set_gravity_scalar(lowest_gravity_scalar)
 	
 	# Maybe this goes in the platform? we can play with platforms with different values
@@ -160,6 +161,8 @@ func change_sprite_direction(direction):
 
 func reached_peak_height():
 	set_gravity_scalar(fall_gravity_scalar)
+
+func reaching_peak():
 	if not $sprite.is_playing("EndRoll") and not $sprite.is_playing("StartRoll"):
 		$sprite.play("Peak")
 

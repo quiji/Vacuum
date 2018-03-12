@@ -38,6 +38,7 @@ show_lines = false
 a = Vector2( -7, 3 )
 b = Vector2( 7, 3 )
 c = Vector2( 0, -30 )
+show_lines = false
 
 [node name="collision" type="CollisionPolygon2D" parent="." index="4"]
 

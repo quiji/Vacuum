@@ -317,7 +317,7 @@ func gravity_platform_logic(delta):
 func water_bubble_logic(delta):
 	if lock_actor.locked:
 		
-		if not rect_area.in_margins(_actor.global_position):
+		if not rect_area.in_margins(_actor.global_position, rect_area.INNER_MARGIN):
 
 			var distance = water_center.get_inner_limit_radius() * 1.05
 			var direction = transform.xform_inv(_actor.global_position)
