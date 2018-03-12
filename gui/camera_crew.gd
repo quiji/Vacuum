@@ -77,7 +77,11 @@ func _ready():
 	camera = $camera_man
 	
 	Glb.set_current_camera_man(self)
-	
+
+	var prev_zoom = Glb.get_stored_data("camera_crew", "zoom")
+	if prev_zoom != null:
+		camera.zoom = prev_zoom
+
 	camera.add_action(gravity)
 	camera.add_action(water)
 	
@@ -105,13 +109,15 @@ func _ready():
 		
 		rect_area.debug_cameraman = true
 
+	connect("tree_exiting", self, "on_tree_exiting")
 
 
 func set_actor(actor):
 	_actor = actor
 	#attempt_lock()
 
-
+func on_tree_exiting():
+	Glb.set_stored_data("camera_crew", "zoom", camera.zoom)
 	
 func get_current_normal():
 	if target_normal != null:
@@ -282,14 +288,22 @@ func look_direction(dir):
 
 	return true
 
-func zoom_in():
-	tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(0.5, 0.5), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	tween.start()
-	
-func zoom_out():
-	tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(1, 1), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	tween.start()
+func is_zoomed_in():
+	return not camera.zoom == Vector2(1, 1)
 
+func zoom_in(fast_fordward=false):
+	if not fast_fordward:
+		tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(0.5, 0.5), 3.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+		tween.start()
+	else:
+		camera.zoom = Vector2(0.5, 0.5)
+	
+func zoom_out(fast_fordward=false):
+	if not fast_fordward:
+		tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(1, 1), 3.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+		tween.start()
+	else:
+		camera.zoom = Vector2(1, 1)
 
 func flying_space_logic(delta):
 	if lock_actor.locked:

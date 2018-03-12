@@ -48,5 +48,21 @@ func fade_towards(target, door):
 	
 func on_tween_completed(object, key):
 	if target_stage != null:
+		on_finished_fade_out()
 		Glb.load_stage(target_stage, door_id)
+	else:
+		on_finished_fade_in()
 
+
+
+########################################################################################
+#
+#                                 Virtual methods
+#
+########################################################################################
+
+func on_finished_fade_in():
+	pass
+	
+func on_finished_fade_out():
+	pass

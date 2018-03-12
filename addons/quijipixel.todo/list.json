@@ -266,7 +266,8 @@
     "task.288",
     "task.287",
     "task.291",
-    "task.292"
+    "task.292",
+    "task.293"
   ],
   "completed": {
     "task.0": {
@@ -6675,6 +6676,30 @@
         "hour": 1,
         "minute": 59,
         "second": 15
+      }
+    },
+    "task.293": {
+      "task": "Add data storage system to live through different scene changes.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 10,
+        "minute": 5,
+        "second": 34
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 10,
+        "minute": 15,
+        "second": 58
       }
     }
   },

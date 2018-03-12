@@ -48,8 +48,31 @@ func get_current_camera_man():
 	return _current_camera_man
 
 
+################################################################################################
+#
+#                                        Store System
+#
+################################################################################################
 
-######### Scene loading
+var stored_data = {}
+
+func set_stored_data(data_owner, data_name, data_value ):
+	if not stored_data.has(data_owner):
+		stored_data[data_owner] = {}
+
+	stored_data[data_owner][data_name] = data_value
+
+func get_stored_data(data_owner, data_name):
+	if stored_data.has(data_owner) and stored_data[data_owner].has(data_name):
+		return stored_data[data_owner][data_name]
+	return null
+
+################################################################################################
+#
+#                                        Scene loading
+#
+################################################################################################
+
 var stages = {
 	space = "res://stages/space.tscn",
 	spaceship = "res://stages/spaceship.tscn"
@@ -115,7 +138,7 @@ func _process(delta):
 func update_progress():
 	var progress = float(loader.get_stage()) / loader.get_stage_count()
 	# update your progress bar?
-	$loading/progress.percent_visible = progress * 100
+	$loading/progress.percent_visible = progress 
 	$loading/label.text = str(progress)
 
 func set_new_scene(scene_resource):
