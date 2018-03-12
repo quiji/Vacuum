@@ -5,7 +5,7 @@ enum MarginQuery {MARGIN, INNER_MARGIN, OUTER_MARGIN}
 var debug_cameraman = false
 var poly = null
 var inner_poly = null
-var margin_size = 5
+var margin_size = 10
 
 func _ready():
 	collision_layer = Glb.get_collision_layer_int(["CameraActor"])
@@ -70,6 +70,15 @@ func _draw():
 
 			draw_line(Vector2(), get_parent().lock_actor.actor_movement, Color(0.8, 0.8, 1.0), 2)
 			draw_line(Vector2(), get_parent().lock_actor.target - get_parent().lock_actor.current_pos, Color(0.8, 0.8, 0.8), 2)
+
+func in_x_axis(pos_x):
+	Console.add_log("pos_x", pos_x)
+	Console.add_log("from", inner_poly.points[0].x)
+	Console.add_log("to", inner_poly.points[1].x)
+	return inner_poly.points[0].x <= pos_x and pos_x <= inner_poly.points[1].x
+
+func in_y_axis(pos_y):
+	return inner_poly.points[0].y <= pos_y and pos_y <= inner_poly.points[3].y
 
 
 func in_margins(actor_pos, type=MARGIN):

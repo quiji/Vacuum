@@ -264,7 +264,8 @@
     "task.284",
     "task.286",
     "task.288",
-    "task.287"
+    "task.287",
+    "task.291"
   ],
   "completed": {
     "task.0": {
@@ -6626,6 +6627,30 @@
         "minute": 41,
         "second": 9
       }
+    },
+    "task.291": {
+      "task": "Cameraman moves in both directions when the player is outside of box from one direction (making the camera jump always)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 22,
+        "minute": 34,
+        "second": 28
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 0,
+        "minute": 18,
+        "second": 19
+      }
     }
   },
   "pend_order": [
@@ -6654,8 +6679,7 @@
     "task.277",
     "task.283",
     "task.289",
-    "task.290",
-    "task.291"
+    "task.290"
   ],
   "pending": {
     "task.134": {
@@ -7020,20 +7044,6 @@
         "hour": 21,
         "minute": 38,
         "second": 49
-      }
-    },
-    "task.291": {
-      "task": "Cameraman moves in both directions when the player is outside of box from one direction (making the camera jump always)",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 11,
-        "weekday": 0,
-        "dst": false,
-        "hour": 22,
-        "minute": 34,
-        "second": 28
       }
     }
   }

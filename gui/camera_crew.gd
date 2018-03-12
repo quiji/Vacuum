@@ -9,7 +9,7 @@ enum CameraSceneMode {WATER_BUBBLE, FLYING_SPACE, GRAVITY_PLATFORM, BLOCKED}
 
 #########################################################################
 var look_cam_distance = 240.0
-var debug_cameraman = true
+var debug_cameraman = false
 
 #########################################################################
 
@@ -251,7 +251,7 @@ func change_scene_mode(mode, data=null):
 			lock_actor.speed = 40
 			lock_actor.ignore_margins = false
 			attempt_lock()
-			rect_area.change_margins(40, 140, 40, 10)
+			rect_area.change_margins(50, 160, 50, 10)
 		WATER_BUBBLE:
 			lock_actor.duration = 8.0
 			lock_actor.target = null
@@ -301,10 +301,19 @@ func gravity_platform_logic(delta):
 		gravity.target = Vector2(0, -100)
 		camera.camera_start_action(gravity)
 
-	var inner_direction = (global_position - _actor.global_position).normalized()
-	if rect_area.in_margins(_actor.global_position, rect_area.OUTER_MARGIN) and inner_direction.dot(_actor.get_last_velocity_normalized()) < 0:
-		global_position += _actor.get_last_velocity() * delta
 
+	var inner_direction = (_actor.global_position - global_position)
+	var inner_direction_norm = inner_direction.normalized()
+
+	if rect_area.in_margins(_actor.global_position, rect_area.OUTER_MARGIN) and inner_direction_norm.dot(_actor.get_last_velocity_normalized()) > 0:
+		var last_vel = _actor.get_last_velocity()
+
+		if not rect_area.in_x_axis(inner_direction.x):
+			global_position.x += last_vel.x * delta
+		if not rect_area.in_y_axis(inner_direction.y):
+			global_position.y += last_vel.y * delta
+		
+		
 func water_bubble_logic(delta):
 	if lock_actor.locked:
 		
