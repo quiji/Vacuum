@@ -301,11 +301,35 @@ func _process_behavior(delta):
 
 func _gravity_behavior(delta):
 	
+	var left_just_p = Input.is_action_just_pressed("ui_left")
+	var left_p = Input.is_action_pressed("ui_left")
+	var left_just_r = Input.is_action_just_released("ui_left")
+	var right_just_p = Input.is_action_just_pressed("ui_right")
+	var right_p = Input.is_action_pressed("ui_right")
+	var right_just_r = Input.is_action_just_released("ui_right")
+	
 	if is_rolling():
 		
 		move(run_velocity * slow_mo_factor)
+	else:
+		if left_just_p or right_just_p:
+			var facing = FACING_LEFT if left_just_p else FACING_RIGHT
+			if is_on_ground():
+				$sprite.play("Run")
+				move(run_velocity * slow_mo_factor, facing)
+			else:
+				move(midair_move_velocity, facing)
+		elif (left_p or right_p) and is_on_ground():
+			var facing = FACING_LEFT if left_p else FACING_RIGHT
+			move(run_velocity * slow_mo_factor, facing)
+		elif left_just_r or right_just_r:
+			stop(not is_on_ground())
+			
+			if is_on_ground():
+				$sprite.play("Idle")
 		
-	elif Input.is_action_just_pressed("ui_left"):
+	"""
+	if Input.is_action_just_pressed("ui_left"):
 		
 		if is_on_ground():
 			$sprite.play("Run")
@@ -348,7 +372,8 @@ func _gravity_behavior(delta):
 
 	elif not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
 		stop()
-
+	"""
+	
 	if Input.is_action_just_pressed("jump") and is_on_ground():
 		
 		$sprite.play("Jump")

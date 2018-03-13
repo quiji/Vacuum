@@ -274,7 +274,8 @@
     "task.296",
     "task.215",
     "task.297",
-    "task.298"
+    "task.298",
+    "task.300"
   ],
   "completed": {
     "task.0": {
@@ -6875,6 +6876,30 @@
         "hour": 19,
         "minute": 46,
         "second": 38
+      }
+    },
+    "task.300": {
+      "task": "When switching from running right to left without releasing right it moves in the idle animation.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 19,
+        "minute": 47,
+        "second": 45
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 20,
+        "minute": 26,
+        "second": 26
       }
     }
   },
