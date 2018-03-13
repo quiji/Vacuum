@@ -176,7 +176,7 @@ func reached_ground(ground_object):
 	
 	if not $sprite.is_playing("EndRoll"):
 		if is_moving():
-			$sprite.play("Run")
+			$sprite.land_to_run()
 		elif not is_moving() and not $sprite.is_looking():
 			$sprite.play("LandToIdle")
 			$sprite.allow_interruption()

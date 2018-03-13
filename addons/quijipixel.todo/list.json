@@ -273,7 +273,8 @@
     "task.205",
     "task.296",
     "task.215",
-    "task.297"
+    "task.297",
+    "task.298"
   ],
   "completed": {
     "task.0": {
@@ -6851,6 +6852,30 @@
         "minute": 44,
         "second": 8
       }
+    },
+    "task.298": {
+      "task": "Create landing/running transition.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 18
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 19,
+        "minute": 46,
+        "second": 38
+      }
     }
   },
   "pend_order": [
@@ -6878,7 +6903,6 @@
     "task.289",
     "task.290",
     "task.294",
-    "task.298",
     "task.299"
   ],
   "pending": {
@@ -7216,20 +7240,6 @@
         "hour": 11,
         "minute": 37,
         "second": 32
-      }
-    },
-    "task.298": {
-      "task": "Create landing/running transition.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 13,
-        "weekday": 2,
-        "dst": false,
-        "hour": 11,
-        "minute": 36,
-        "second": 18
       }
     },
     "task.299": {

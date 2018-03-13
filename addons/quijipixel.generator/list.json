@@ -743,6 +743,120 @@
               "param": ""
             }
           ]
+        },
+        "LandToRun": {
+          "loop": false,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 90,
+              "time": 40,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 91,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 92,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 93,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 94,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 95,
+              "time": 60,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 96,
+              "time": 70,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 97,
+              "time": 90,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 98,
+              "time": 40,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 99,
+              "time": 50,
+              "react": 1,
+              "param": ""
+            },
+            {
+              "id": 34,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 35,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 36,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 37,
+              "time": 60,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 38,
+              "time": 70,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 39,
+              "time": 90,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 40,
+              "time": 40,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 41,
+              "time": 50,
+              "react": 1,
+              "param": ""
+            }
+          ]
         }
       },
       "target_dir": "res://characters/sprites",
