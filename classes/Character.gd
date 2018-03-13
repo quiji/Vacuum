@@ -341,6 +341,7 @@ func jump(jump_initial_velocity_scalar):
 
 	_loosed_ground_delta = ON_GROUNDTHRESHOLD 
 
+# Stops in air, might be useful
 func stop_in_air():
 	_prev_altitude_velocity_scalar = _altitude_velocity_scalar
 	_altitude_velocity_scalar = -5
@@ -836,8 +837,11 @@ func _gravity_physics(delta):
 
 		_prev_altitude_velocity_scalar = _altitude_velocity_scalar
 		_altitude_velocity_scalar += _gravity_scalar * delta
-		if _altitude_velocity_scalar < -500:
-			_altitude_velocity_scalar = -500
+		if _altitude_velocity_scalar < -700:
+			_altitude_velocity_scalar = -700
+
+		Console.add_log("_altitude_velocity_scalar",_altitude_velocity_scalar)
+
 		altitude_velocity = gravity * -_altitude_velocity_scalar
 	
 		# This is just here just for animation improvement

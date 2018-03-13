@@ -26,8 +26,6 @@ var fall_gravity_scalar = 0.0
 
 
 ######## States #########
-var smash_jumping = false
-var smash_jump_start_point
 
 
 ######## Factors #########
@@ -170,14 +168,6 @@ func reaching_peak():
 
 func reached_ground(ground_object):
 	
-	if smash_jumping:
-		smash_jumping = false
-		"""
-		if ground_object != null and ground_object.has_method("apply_impulse"):
-			var distance_squared = (position - smash_jump_start_point).length_squared()
-			var impulse = -_normal * smash_jump_impulse_scalar * distance_squared / jump_peak_height * jump_peak_height
-			#ground_object.apply_impulse(position, impulse)
-		"""
 	set_gravity_scalar(lowest_gravity_scalar)
 	
 	
@@ -369,14 +359,7 @@ func _gravity_behavior(delta):
 	elif Input.is_action_just_released("jump") and not is_falling() and not is_on_ground():
 		
 		set_gravity_scalar(highgest_gravity_scalar)
-
-
-	if Input.is_action_just_pressed("ui_down") and not is_on_ground():
-		stop_in_air()
-		smash_jumping = true
-		smash_jump_start_point = position
-		set_gravity_scalar(highgest_gravity_scalar * 3)
-
+		
 	
 	if Input.is_action_just_pressed("ui_up") and door != null:
 		door.enter()
