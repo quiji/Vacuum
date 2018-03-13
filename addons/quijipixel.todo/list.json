@@ -269,7 +269,8 @@
     "task.292",
     "task.293",
     "task.275",
-    "task.295"
+    "task.295",
+    "task.205"
   ],
   "completed": {
     "task.0": {
@@ -6751,6 +6752,30 @@
         "minute": 4,
         "second": 57
       }
+    },
+    "task.205": {
+      "task": "Add range frame creation to SpriteAnim2D editor for faster usage.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 18,
+        "minute": 30,
+        "second": 41
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 35,
+        "second": 10
+      }
     }
   },
   "pend_order": [
@@ -6765,7 +6790,6 @@
     "task.155",
     "task.176",
     "task.200",
-    "task.205",
     "task.209",
     "task.215",
     "task.238",
@@ -6934,20 +6958,6 @@
         "hour": 11,
         "minute": 0,
         "second": 44
-      }
-    },
-    "task.205": {
-      "task": "Add range frame creation to SpriteAnim2D editor for faster usage.",
-      "type": "Feature",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 18,
-        "minute": 30,
-        "second": 41
       }
     },
     "task.209": {
