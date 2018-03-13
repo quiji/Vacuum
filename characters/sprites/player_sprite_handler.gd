@@ -72,6 +72,8 @@ func on_animation_finished(anim_name):
 			play("WaterIdle")
 		"IdleLong":
 			play("Idle")
+		"LandToIdle":
+			play("Idle")
 		"LookDown":
 			if last_orientation:
 				play("Idle")

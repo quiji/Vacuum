@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://characters/sprites/player_sprite_handler.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/player.png" type="Texture" id=2]
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 0 ),
 "update": 0,
-"values": [ 51 ]
+"values": [ 51.0 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -150,6 +150,35 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=6]
 
+length = 0.31
+loop = false
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.035, 0.07, 0.11, 0.16, 0.205, 0.245, 0.28 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ 81, 82, 83, 84, 85, 86, 87, 88 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=7]
+
 length = 0.24
 loop = false
 step = 0.0166667
@@ -177,7 +206,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 
 length = 0.32
 loop = false
@@ -206,7 +235,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
 length = 0.1
 loop = true
@@ -235,7 +264,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
 length = 0.1
 loop = true
@@ -264,7 +293,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
 length = 0.49
 loop = false
@@ -279,7 +308,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.035, 0.085, 0.145, 0.21, 0.28, 0.345, 0.405, 0.455 ),
 "transitions": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "update": 0,
-"values": [ 42, 43, 44, 45, 46, 47, 48, 49, 50 ]
+"values": [ 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -293,7 +322,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
 length = 0.1
 loop = true
@@ -322,7 +351,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 
 length = 0.92
 loop = true
@@ -357,7 +386,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 
 length = 0.17
 loop = false
@@ -386,7 +415,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 
 length = 1.4
 loop = false
@@ -421,7 +450,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 
 length = 5.69
 loop = true
@@ -472,16 +501,17 @@ anims/Fall = SubResource( 2 )
 anims/Idle = SubResource( 3 )
 anims/IdleLong = SubResource( 4 )
 anims/Jump = SubResource( 5 )
-anims/LookDown = SubResource( 6 )
-anims/LookUp = SubResource( 7 )
-anims/LookingDown = SubResource( 8 )
-anims/LookingUp = SubResource( 9 )
-anims/Peak = SubResource( 10 )
-anims/Roll = SubResource( 11 )
-anims/Run = SubResource( 12 )
-anims/StartRoll = SubResource( 13 )
-anims/Swim = SubResource( 14 )
-anims/WaterIdle = SubResource( 15 )
+anims/LandToIdle = SubResource( 6 )
+anims/LookDown = SubResource( 7 )
+anims/LookUp = SubResource( 8 )
+anims/LookingDown = SubResource( 9 )
+anims/LookingUp = SubResource( 10 )
+anims/Peak = SubResource( 11 )
+anims/Roll = SubResource( 12 )
+anims/Run = SubResource( 13 )
+anims/StartRoll = SubResource( 14 )
+anims/Swim = SubResource( 15 )
+anims/WaterIdle = SubResource( 16 )
 blend_times = [  ]
 
 

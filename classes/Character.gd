@@ -776,13 +776,13 @@ func _gravity_physics(delta):
 			
 			collision_normal = ground_cast_result.normal
 			_on_ground = true
-
+			if _falling:
+				reached_ground(_gravity_center)
 			_falling = false
 			#if ground_cast_result.small_platforms.size() > 0:
 			_prev_altitude_velocity_scalar = 0
 			_altitude_velocity_scalar = 0
 
-			reached_ground(_gravity_center)
 			if not _moving:
 				_target_move_velocity_scalar = 0
 	
@@ -845,7 +845,8 @@ func _gravity_physics(delta):
 		altitude_velocity = gravity * -_altitude_velocity_scalar
 	
 		# This is just here just for animation improvement
-		if jump_delta < 0.25 and jump_delta > 0:
+		# 0.245 its the duration of the peak animation to reach the peak point
+		if jump_delta < peak_jump_time - 0.245 and jump_delta > 0:
 			reaching_peak()
 			jump_delta = 0
 		

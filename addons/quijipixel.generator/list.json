@@ -689,6 +689,60 @@
               "param": ""
             }
           ]
+        },
+        "LandToIdle": {
+          "loop": false,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 82,
+              "time": 35,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 83,
+              "time": 35,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 84,
+              "time": 40,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 85,
+              "time": 50,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 86,
+              "time": 45,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 87,
+              "time": 40,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 88,
+              "time": 35,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 89,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            }
+          ]
         }
       },
       "target_dir": "res://characters/sprites",

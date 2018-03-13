@@ -270,7 +270,10 @@
     "task.293",
     "task.275",
     "task.295",
-    "task.205"
+    "task.205",
+    "task.296",
+    "task.215",
+    "task.297"
   ],
   "completed": {
     "task.0": {
@@ -6776,6 +6779,78 @@
         "minute": 35,
         "second": 10
       }
+    },
+    "task.296": {
+      "task": "Improve peak animations.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 0
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 44,
+        "second": 38
+      }
+    },
+    "task.215": {
+      "task": "Improve small platform collisions when the player arrives from the sides, or to the floor (sort of move_and_slide).",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 22,
+        "minute": 44,
+        "second": 4
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 45,
+        "second": 32
+      }
+    },
+    "task.297": {
+      "task": "Create landing animation.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 8
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 12,
+        "minute": 44,
+        "second": 8
+      }
     }
   },
   "pend_order": [
@@ -6791,7 +6866,6 @@
     "task.176",
     "task.200",
     "task.209",
-    "task.215",
     "task.238",
     "task.248",
     "task.254",
@@ -6803,7 +6877,9 @@
     "task.283",
     "task.289",
     "task.290",
-    "task.294"
+    "task.294",
+    "task.298",
+    "task.299"
   ],
   "pending": {
     "task.134": {
@@ -6974,20 +7050,6 @@
         "second": 9
       }
     },
-    "task.215": {
-      "task": "Improve small platform collisions when the player arrives from the sides, or to the floor (sort of move_and_slide).",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 22,
-        "minute": 44,
-        "second": 4
-      }
-    },
     "task.238": {
       "task": "When player is in the limbo between a gravity platform and a water platform, it starts behaving badly because of offset change.(or something)",
       "type": "Bug",
@@ -7153,6 +7215,34 @@
         "dst": false,
         "hour": 11,
         "minute": 37,
+        "second": 32
+      }
+    },
+    "task.298": {
+      "task": "Create landing/running transition.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 18
+      }
+    },
+    "task.299": {
+      "task": "Create falling from high and rolling.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
         "second": 32
       }
     }

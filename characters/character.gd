@@ -178,7 +178,8 @@ func reached_ground(ground_object):
 		if is_moving():
 			$sprite.play("Run")
 		elif not is_moving() and not $sprite.is_looking():
-			$sprite.play("Idle")
+			$sprite.play("LandToIdle")
+			$sprite.allow_interruption()
 
 
 func start_rolling():
