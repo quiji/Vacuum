@@ -278,7 +278,9 @@
     "task.300",
     "task.301",
     "task.303",
-    "task.294"
+    "task.294",
+    "task.261",
+    "task.152"
   ],
   "completed": {
     "task.0": {
@@ -6976,6 +6978,54 @@
         "minute": 9,
         "second": 3
       }
+    },
+    "task.261": {
+      "task": "Conside doing transition animations: fall-land-idle, fall-land-run, etc...",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 12,
+        "minute": 10,
+        "second": 8
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 17,
+        "second": 40
+      }
+    },
+    "task.152": {
+      "creation_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 20,
+        "minute": 20,
+        "month": 2,
+        "second": 39,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "There is a movement bug on concave collisions. Steps reproduce: Go to polygon platform and walk up a concave slope.",
+      "type": "Bug",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 18,
+        "second": 8
+      }
     }
   },
   "pend_order": [
@@ -6986,7 +7036,6 @@
     "task.134",
     "task.135",
     "task.136",
-    "task.152",
     "task.155",
     "task.176",
     "task.200",
@@ -6995,7 +7044,6 @@
     "task.248",
     "task.254",
     "task.256",
-    "task.261",
     "task.262",
     "task.271",
     "task.277",
@@ -7047,20 +7095,6 @@
       },
       "task": "Make water balls collide with platforms and move away, also make code to avoid water entering rigid platform collision areas.",
       "type": "Feature"
-    },
-    "task.152": {
-      "creation_date": {
-        "day": 4,
-        "dst": true,
-        "hour": 20,
-        "minute": 20,
-        "month": 2,
-        "second": 39,
-        "weekday": 0,
-        "year": 2018
-      },
-      "task": "There is a movement bug on concave collisions. Steps reproduce: Go to polygon platform and walk up a concave slope.",
-      "type": "Bug"
     },
     "task.155": {
       "creation_date": {
@@ -7228,20 +7262,6 @@
         "hour": 19,
         "minute": 9,
         "second": 52
-      }
-    },
-    "task.261": {
-      "task": "Conside doing transition animations: fall-land-idle, fall-land-run, etc...",
-      "type": "Remainder",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 5,
-        "weekday": 1,
-        "dst": true,
-        "hour": 12,
-        "minute": 10,
-        "second": 8
       }
     },
     "task.262": {
