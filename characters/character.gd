@@ -327,7 +327,8 @@ func _gravity_behavior(delta):
 			
 			if is_on_ground():
 				$sprite.play("Idle")
-		
+		elif not left_p and not right_p:
+			stop()
 	"""
 	if Input.is_action_just_pressed("ui_left"):
 		

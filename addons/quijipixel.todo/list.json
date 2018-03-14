@@ -275,7 +275,8 @@
     "task.215",
     "task.297",
     "task.298",
-    "task.300"
+    "task.300",
+    "task.301"
   ],
   "completed": {
     "task.0": {
@@ -6900,6 +6901,30 @@
         "hour": 20,
         "minute": 26,
         "second": 26
+      }
+    },
+    "task.301": {
+      "task": "Improve land animations (both idle and running transitions)",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 20,
+        "minute": 30,
+        "second": 59
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 21,
+        "minute": 24,
+        "second": 20
       }
     }
   },
