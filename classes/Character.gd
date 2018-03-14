@@ -832,8 +832,8 @@ func _gravity_physics(delta):
 	var center_verification = null
 	var velocity = move_velocity + altitude_velocity
 	var collision_info = null
-
-
+	
+	
 	if velocity.length_squared() > 0.01:
 		set_last_velocity(velocity)
 	else:
