@@ -290,7 +290,9 @@ func is_falling():
 func is_on_ground():
 	return _on_ground or _loosed_ground_delta < ON_GROUNDTHRESHOLD 
 	
-
+func is_room_env():
+	return _gravity_center != null and _gravity_center.has_method("is_room")
+	
 func is_moving():
 	return _moving
 
@@ -302,6 +304,10 @@ func is_idle():
 
 func set_rolling(value):
 	_rolling = value
+	if _rolling:
+		start_rolling()
+	else:
+		end_rolling()
 
 func is_on_gravity_center():
 	return _gravity_center != null and _water_center == null
@@ -422,16 +428,25 @@ func transform_to_local(global_vec):
 # Gravity methods
 ############
 
-func verify_center_change():
+func verify_center_change(delta):
 	
 	# Translate to original coordinates to be able to set correct position into raycaster, as the
 	# raycaster exist in the local coordinate system of the Character and not the global one
 	#var direction = transform_to_local(get_last_velocity_normalized()) * 25
+	
+	
+	var direction = transform_to_local(get_last_velocity() * 10 * delta)
+	var res = $ground_raycast.cast_ray_ahead(direction, Glb.get_collision_layer_int(["Platform"]))
+	Console.add_log("res", res)
+	if not res.empty() and not is_room_env() and res.collider != _gravity_center:
+		
+		# there should be a way to mark this as a before collision center change
+		colliders.push_back(res)
+		get_tree().paused = true
 
 	var result = {
 		changed_center = false,
-		collision_info = null,
-		raycast_info = {}
+		collision_info = null
 		#$ground_raycast.cast_ray_ahead(direction, Glb.get_collision_layer_int(["Platform"]))
 	}
 
@@ -481,7 +496,6 @@ func check_ground_reach(center_verification):
 	# Checking for small platform collisions...
 
 	var collided = center_verification.collision_info != null
-	var rayed = not center_verification.raycast_info.empty()
 
 	if   collided and (_falling or center_verification.changed_center ) :
 		_prev_altitude_velocity_scalar = 0
@@ -499,8 +513,6 @@ var time = 0
 func adjust_normal_towards(new_normal, center_verification, delta):
 	var updated_normal = false
 	var _prev_normal = new_normal
-
-
 
 	if center_verification.changed_center:
 		new_normal = get_gravity_data().normal
@@ -521,9 +533,8 @@ func adjust_normal_towards(new_normal, center_verification, delta):
 
 		var dot = _normal.dot(_target_normal)
 		if dot > 0.5:
-			if _rolling: 
-				end_rolling()
-			set_rolling(false)
+			if is_rolling(): 
+				set_rolling(false)
 
 		if dot > 0.999 or normal_t >= 1:
 			set_normal(_target_normal)
@@ -542,8 +553,6 @@ func adjust_normal_towards(new_normal, center_verification, delta):
 			var collision_normal = new_normal
 			if center_verification.collision_info != null:
 				collision_normal = center_verification.collision_info.normal
-			elif not center_verification.raycast_info.empty():
-				collision_normal = center_verification.raycast_info.normal
 				
 			var move_direction = (-_prev_normal).tangent() * _facing * _invertor
 			var new_direction = (-new_normal).tangent() * _facing * _invertor
@@ -574,13 +583,11 @@ func adjust_normal_towards(new_normal, center_verification, delta):
 				
 			start_normal_interpolation(new_normal)
 			set_rolling(true)
-			start_rolling()
 
 		else:
 			# if not, we are close enough to the new normal to go the old fashioned way
 			set_normal(Glb.Smooth.radial_interpolate(_normal, new_normal, delta / 0.0625))
-			if _rolling: 
-				end_rolling()
+			if is_rolling(): 
 				set_rolling(false)
 			
 		updated_normal = true
@@ -712,7 +719,7 @@ func _physics_process(delta):
 			
 			add_collision(c)
 			
-			var center_verification = verify_center_change()
+			var center_verification = verify_center_change(delta)
 
 			check_ground_reach(center_verification)
 			if center_verification.changed_center:
@@ -738,7 +745,6 @@ func _gravity_physics(delta):
 	if not _attempting_jump:
 		ground_cast_result = $ground_raycast.cast_ground(Glb.get_collision_layer_int(["Platform"]))
 		
-		
 		if not ground_cast_result.empty() and ground_cast_result.collider_count > 0:
 			colliders += ground_cast_result.gravity_centers
 			
@@ -747,7 +753,7 @@ func _gravity_physics(delta):
 			if _falling:
 				reached_ground(_gravity_center)
 			_falling = false
-			#if ground_cast_result.small_platforms.size() > 0:
+
 			_prev_altitude_velocity_scalar = 0
 			_altitude_velocity_scalar = 0
 
@@ -834,12 +840,12 @@ func _gravity_physics(delta):
 	
 	add_slide_collisions()
 
-	center_verification = verify_center_change()
+	center_verification = verify_center_change(delta)
 		
 	check_ground_reach(center_verification)
 
 	# If on a room and not out there, use the constant normal
-	if _gravity_center != null and _gravity_center.has_method("is_room"):
+	if is_room_env():
 		adjust_normal_towards(normal, center_verification, delta)
 	else:
 		adjust_normal_towards(move_norm, center_verification, delta)
@@ -890,7 +896,7 @@ func _water_physics(delta):
 
 	"""
 	add_slide_collisions()
-	var center_verification = verify_center_change()
+	var center_verification = verify_center_change(delta)
 	if check_ground_reach(center_verification):
 		adjust_normal_towards(_normal, center_verification, delta)
 	"""

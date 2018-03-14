@@ -7051,7 +7051,8 @@
     "task.289",
     "task.290",
     "task.299",
-    "task.302"
+    "task.302",
+    "task.304"
   ],
   "pending": {
     "task.134": {
@@ -7374,6 +7375,20 @@
         "hour": 21,
         "minute": 41,
         "second": 17
+      }
+    },
+    "task.304": {
+      "task": "Remember to use the grid to create the levels. We need it to snap to make it measurable.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 10,
+        "minute": 56,
+        "second": 43
       }
     }
   }

@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 radius = 9.02559
 
-[node name="character" type="KinematicBody2D"]
+[node name="character" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 13
@@ -37,7 +37,7 @@ show_lines = false
 
 a = Vector2( -7, 3 )
 b = Vector2( 7, 3 )
-c = Vector2( 0, -30 )
+c = Vector2( 0, -35 )
 show_lines = false
 
 [node name="collision" type="CollisionPolygon2D" parent="." index="4"]
