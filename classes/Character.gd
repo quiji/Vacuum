@@ -434,9 +434,9 @@ func verify_center_change(delta):
 	#var direction = transform_to_local(get_last_velocity_normalized()) * 25
 	
 	
-	var direction = transform_to_local(get_last_velocity() * 6 * delta)
+	var direction = transform_to_local(get_last_velocity() * 5 * delta)
 	var res = $ground_raycast.cast_ray_ahead(direction, Glb.get_collision_layer_int(["Platform"]))
-	Console.add_log("res", res)
+
 	if not res.empty() and not is_room_env() and res.collider != _gravity_center:
 		# there should be a way to mark this as a before collision center change
 		colliders.push_back(res)
@@ -444,8 +444,10 @@ func verify_center_change(delta):
 
 	var result = {
 		changed_center = false,
-		collision_info = null
-		#$ground_raycast.cast_ray_ahead(direction, Glb.get_collision_layer_int(["Platform"]))
+		collision_info = null,
+		meta = {
+			is_headcast = false
+		}
 	}
 
 
@@ -453,6 +455,8 @@ func verify_center_change(delta):
 		var gcenter_change = verify_gravity_center_change()
 		if gcenter_change != null:
 			result.collision_info = gcenter_change 
+			if gcenter_change == res:
+				result.meta.is_headcast = true
 		result.changed_center = gcenter_change != null
 
 	return result
@@ -840,7 +844,12 @@ func _gravity_physics(delta):
 	add_slide_collisions()
 
 	center_verification = verify_center_change(delta)
-		
+
+	
+	if center_verification.changed_center:
+		stop_in_air()
+		Console.add_log("center_verification", center_verification)
+
 	check_ground_reach(center_verification)
 
 	# If on a room and not out there, use the constant normal
