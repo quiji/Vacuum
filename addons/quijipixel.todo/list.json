@@ -261,7 +261,26 @@
     "task.278",
     "task.279",
     "task.285",
-    "task.284"
+    "task.284",
+    "task.286",
+    "task.288",
+    "task.287",
+    "task.291",
+    "task.292",
+    "task.293",
+    "task.275",
+    "task.295",
+    "task.205",
+    "task.296",
+    "task.215",
+    "task.297",
+    "task.298",
+    "task.300",
+    "task.301",
+    "task.303",
+    "task.294",
+    "task.261",
+    "task.152"
   ],
   "completed": {
     "task.0": {
@@ -6551,6 +6570,462 @@
         "minute": 35,
         "second": 2
       }
+    },
+    "task.286": {
+      "task": "Limit falling speed as it grows too much (if character gets stuck)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 47,
+        "second": 54
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 47,
+        "second": 57
+      }
+    },
+    "task.288": {
+      "task": "After falling and moving midair, running starts with midair velocity and looks weird.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 57,
+        "second": 42
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 57,
+        "second": 45
+      }
+    },
+    "task.287": {
+      "task": "Sometimes player won't fall from small platforms.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 48,
+        "second": 8
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 21,
+        "minute": 41,
+        "second": 9
+      }
+    },
+    "task.291": {
+      "task": "Cameraman moves in both directions when the player is outside of box from one direction (making the camera jump always)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 22,
+        "minute": 34,
+        "second": 28
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 0,
+        "minute": 18,
+        "second": 19
+      }
+    },
+    "task.292": {
+      "task": "Create proximity door structure.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 1,
+        "minute": 32,
+        "second": 10
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 1,
+        "minute": 59,
+        "second": 15
+      }
+    },
+    "task.293": {
+      "task": "Add data storage system to live through different scene changes.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 10,
+        "minute": 5,
+        "second": 34
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 10,
+        "minute": 15,
+        "second": 58
+      }
+    },
+    "task.275": {
+      "task": "Sometimes the normal is tilted and depending on the platforms collision shape, it will make the player micro jump.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 9,
+        "weekday": 5,
+        "dst": true,
+        "hour": 9,
+        "minute": 50,
+        "second": 4
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 55
+      }
+    },
+    "task.295": {
+      "task": "Remove dumb stomp ability",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 9,
+        "minute": 57,
+        "second": 42
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 10,
+        "minute": 4,
+        "second": 57
+      }
+    },
+    "task.205": {
+      "task": "Add range frame creation to SpriteAnim2D editor for faster usage.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 18,
+        "minute": 30,
+        "second": 41
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 35,
+        "second": 10
+      }
+    },
+    "task.296": {
+      "task": "Improve peak animations.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 0
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 44,
+        "second": 38
+      }
+    },
+    "task.215": {
+      "task": "Improve small platform collisions when the player arrives from the sides, or to the floor (sort of move_and_slide).",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 1,
+        "weekday": 4,
+        "dst": true,
+        "hour": 22,
+        "minute": 44,
+        "second": 4
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 45,
+        "second": 32
+      }
+    },
+    "task.297": {
+      "task": "Create landing animation.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 8
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 12,
+        "minute": 44,
+        "second": 8
+      }
+    },
+    "task.298": {
+      "task": "Create landing/running transition.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 18
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 19,
+        "minute": 46,
+        "second": 38
+      }
+    },
+    "task.300": {
+      "task": "When switching from running right to left without releasing right it moves in the idle animation.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 19,
+        "minute": 47,
+        "second": 45
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 20,
+        "minute": 26,
+        "second": 26
+      }
+    },
+    "task.301": {
+      "task": "Improve land animations (both idle and running transitions)",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 20,
+        "minute": 30,
+        "second": 59
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 21,
+        "minute": 24,
+        "second": 20
+      }
+    },
+    "task.303": {
+      "task": "Center of mass crashes on certain shapes.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 1,
+        "second": 30
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 1,
+        "second": 32
+      }
+    },
+    "task.294": {
+      "task": "In the corners of the collision of a platform, the normal flickers and makes the player flicker annoyingly.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 11,
+        "minute": 37,
+        "second": 32
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 9,
+        "second": 3
+      }
+    },
+    "task.261": {
+      "task": "Conside doing transition animations: fall-land-idle, fall-land-run, etc...",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 5,
+        "weekday": 1,
+        "dst": true,
+        "hour": 12,
+        "minute": 10,
+        "second": 8
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 17,
+        "second": 40
+      }
+    },
+    "task.152": {
+      "creation_date": {
+        "day": 4,
+        "dst": true,
+        "hour": 20,
+        "minute": 20,
+        "month": 2,
+        "second": 39,
+        "weekday": 0,
+        "year": 2018
+      },
+      "task": "There is a movement bug on concave collisions. Steps reproduce: Go to polygon platform and walk up a concave slope.",
+      "type": "Bug",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 18,
+        "second": 8
+      }
     }
   },
   "pend_order": [
@@ -6561,23 +7036,22 @@
     "task.134",
     "task.135",
     "task.136",
-    "task.152",
     "task.155",
     "task.176",
     "task.200",
-    "task.205",
     "task.209",
-    "task.215",
     "task.238",
     "task.248",
     "task.254",
     "task.256",
-    "task.261",
     "task.262",
     "task.271",
-    "task.275",
     "task.277",
-    "task.283"
+    "task.283",
+    "task.289",
+    "task.290",
+    "task.299",
+    "task.302"
   ],
   "pending": {
     "task.134": {
@@ -6621,20 +7095,6 @@
       },
       "task": "Make water balls collide with platforms and move away, also make code to avoid water entering rigid platform collision areas.",
       "type": "Feature"
-    },
-    "task.152": {
-      "creation_date": {
-        "day": 4,
-        "dst": true,
-        "hour": 20,
-        "minute": 20,
-        "month": 2,
-        "second": 39,
-        "weekday": 0,
-        "year": 2018
-      },
-      "task": "There is a movement bug on concave collisions. Steps reproduce: Go to polygon platform and walk up a concave slope.",
-      "type": "Bug"
     },
     "task.155": {
       "creation_date": {
@@ -6734,20 +7194,6 @@
         "second": 44
       }
     },
-    "task.205": {
-      "task": "Add range frame creation to SpriteAnim2D editor for faster usage.",
-      "type": "Feature",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 18,
-        "minute": 30,
-        "second": 41
-      }
-    },
     "task.209": {
       "task": "Console can't find nodes that were moved.",
       "type": "Bug",
@@ -6760,20 +7206,6 @@
         "hour": 21,
         "minute": 12,
         "second": 9
-      }
-    },
-    "task.215": {
-      "task": "Improve small platform collisions when the player arrives from the sides, or to the floor (sort of move_and_slide).",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 1,
-        "weekday": 4,
-        "dst": true,
-        "hour": 22,
-        "minute": 44,
-        "second": 4
       }
     },
     "task.238": {
@@ -6832,20 +7264,6 @@
         "second": 52
       }
     },
-    "task.261": {
-      "task": "Conside doing transition animations: fall-land-idle, fall-land-run, etc...",
-      "type": "Remainder",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 5,
-        "weekday": 1,
-        "dst": true,
-        "hour": 12,
-        "minute": 10,
-        "second": 8
-      }
-    },
     "task.262": {
       "task": "Improve water reaction in borders. Get_last_velocity from bodies to react differently.",
       "type": "Task",
@@ -6874,20 +7292,6 @@
         "second": 35
       }
     },
-    "task.275": {
-      "task": "Sometimes the normal is tilted and depending on the platforms collision shape, it will make the player micro jump.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 9,
-        "weekday": 5,
-        "dst": true,
-        "hour": 9,
-        "minute": 50,
-        "second": 4
-      }
-    },
     "task.277": {
       "task": "Water Platform has to be communicating with camera, if camera is zoomed the frequency and depth should be updated. And if the water bubble grows/shrink and the player is in the bubble, the camera box is not updated.",
       "type": "Task",
@@ -6914,6 +7318,62 @@
         "hour": 13,
         "minute": 18,
         "second": 57
+      }
+    },
+    "task.289": {
+      "task": "Sometimes player jump in a direction but backfires into the opposite direction unexpectedly.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 58,
+        "second": 41
+      }
+    },
+    "task.290": {
+      "task": "Water movement is messed up when camera is rotated in a weird angle.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 21,
+        "minute": 38,
+        "second": 49
+      }
+    },
+    "task.299": {
+      "task": "Create falling from high and rolling.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 32
+      }
+    },
+    "task.302": {
+      "task": "Be on watch for the annoying jump backfire bug. If it doesn't happen ever again... then we fixed it dammit!! yeah!",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 21,
+        "minute": 41,
+        "second": 17
       }
     }
   }

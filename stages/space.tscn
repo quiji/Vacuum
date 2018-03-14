@@ -1,19 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://stages/space.gd" type="Script" id=1]
 [ext_resource path="res://tiles/space_bkg_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://structures/door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://classes/OpenSpace.gd" type="Script" id=4]
 [ext_resource path="res://characters/character.tscn" type="PackedScene" id=5]
-[ext_resource path="res://platforms/circular.tscn" type="PackedScene" id=6]
-[ext_resource path="res://platforms/square.tscn" type="PackedScene" id=7]
-[ext_resource path="res://platforms/rectangular.tscn" type="PackedScene" id=8]
-[ext_resource path="res://platforms/triangular.tscn" type="PackedScene" id=9]
-[ext_resource path="res://platforms/strange_circle.tscn" type="PackedScene" id=10]
-[ext_resource path="res://platforms/random_rectangle.tscn" type="PackedScene" id=11]
-[ext_resource path="res://platforms/polygon.tscn" type="PackedScene" id=12]
-[ext_resource path="res://platforms/test_platform.tscn" type="PackedScene" id=13]
-[ext_resource path="res://platforms/water_platform.tscn" type="PackedScene" id=14]
+[ext_resource path="res://platforms/polygon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://platforms/random_rectangle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://platforms/water_platform.tscn" type="PackedScene" id=8]
 
 [node name="space" type="Node2D" index="0"]
 
@@ -52,6 +46,7 @@ editor/display_folded = true
 
 position = Vector2( -238, 178 )
 target_stage = "spaceship"
+door_id = "test_door"
 
 [node name="playground" type="Node2D" parent="." index="2"]
 
@@ -59,114 +54,44 @@ script = ExtResource( 4 )
 
 [node name="character" parent="playground" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( 612.659, -146.634 )
+position = Vector2( 484.659, -131.634 )
 
-[node name="circular" parent="playground" index="1" instance=ExtResource( 6 )]
+[node name="polygon" parent="playground" index="1" instance=ExtResource( 6 )]
 
-position = Vector2( 55.469, 141.172 )
-_sections_unfolded = [ "Linear", "Transform" ]
+position = Vector2( -288, 400 )
 
-[node name="square" parent="playground" index="2" instance=ExtResource( 7 )]
+[node name="random_rectangle" parent="playground" index="2" instance=ExtResource( 7 )]
 
-position = Vector2( 915.968, 40.146 )
-_sections_unfolded = [ "Collision", "Linear", "Transform" ]
-camera_rotation_mode = 3
+position = Vector2( 720, 436 )
+rotation = -0.402159
 
-[node name="square5" parent="playground" index="3" instance=ExtResource( 7 )]
+[node name="random_rectangle2" parent="playground" index="3" instance=ExtResource( 7 )]
 
-position = Vector2( 1351.97, -169.854 )
-_sections_unfolded = [ "Collision", "Linear", "Transform" ]
-camera_rotation_mode = 3
+position = Vector2( 996, 220 )
+rotation = 0.826662
 
-[node name="square3" parent="playground" index="4" instance=ExtResource( 7 )]
+[node name="water_platform" parent="playground" index="4" instance=ExtResource( 8 )]
 
-position = Vector2( 395.968, 328.146 )
-_sections_unfolded = [ "Collision", "Linear", "Transform" ]
-camera_rotation_mode = 3
+position = Vector2( 1132, -64 )
+radius = 130.0
 
-[node name="square2" parent="playground" index="5" instance=ExtResource( 7 )]
+[node name="water_platform2" parent="playground" index="5" instance=ExtResource( 8 )]
 
-position = Vector2( 1276.99, -376.709 )
-rotation = -0.348661
-_sections_unfolded = [ "Angular", "Collision", "Linear" ]
-camera_rotation_mode = 3
+position = Vector2( 828, -360 )
+radius = 130.0
 
-[node name="square4" parent="playground" index="6" instance=ExtResource( 7 )]
+[node name="water_platform3" parent="playground" index="6" instance=ExtResource( 8 )]
 
-position = Vector2( -121.01, -318.709 )
-rotation = -0.709473
-_sections_unfolded = [ "Angular", "Collision", "Linear" ]
-camera_rotation_mode = 3
+position = Vector2( 392, -488 )
+radius = 130.0
 
-[node name="rectangular" parent="playground" index="7" instance=ExtResource( 8 )]
+[node name="water_platform4" parent="playground" index="7" instance=ExtResource( 8 )]
 
-position = Vector2( 228.708, 142.733 )
-_sections_unfolded = [ "Collision", "Transform" ]
-camera_rotation_mode = 2
+position = Vector2( 4, -304 )
 
-[node name="triangular" parent="playground" index="8" instance=ExtResource( 9 )]
+[node name="water_platform5" parent="playground" index="8" instance=ExtResource( 8 )]
 
-position = Vector2( 70.506, 597.521 )
-rotation = -0.740351
-camera_rotation_mode = 1
-
-[node name="strange_circle" parent="playground" index="9" instance=ExtResource( 10 )]
-
-position = Vector2( 213.436, 442.787 )
-camera_rotation_mode = 4
-
-[node name="random_rectangle" parent="playground" index="10" instance=ExtResource( 11 )]
-
-position = Vector2( 445.34, -86.64 )
-rotation = -0.000579238
-_sections_unfolded = [ "Collision", "Transform", "collision" ]
-camera_rotation_mode = 2
-
-[node name="random_rectangle3" parent="playground" index="11" instance=ExtResource( 11 )]
-
-position = Vector2( 1047.34, -78.64 )
-rotation = -0.000579238
-_sections_unfolded = [ "Collision", "Transform", "collision" ]
-camera_rotation_mode = 2
-
-[node name="random_rectangle2" parent="playground" index="12" instance=ExtResource( 11 )]
-
-position = Vector2( 583.34, 147.36 )
-rotation = -0.447811
-_sections_unfolded = [ "Collision", "Transform", "collision" ]
-camera_rotation_mode = 2
-
-[node name="polygon" parent="playground" index="13" instance=ExtResource( 12 )]
-
-position = Vector2( -214.227, 314.613 )
-rotation = 1.45034
-camera_rotation_mode = 4
-
-[node name="test" parent="playground" index="14" instance=ExtResource( 13 )]
-
-position = Vector2( 1030, 210 )
-_sections_unfolded = [ "Angular", "Collision", "Linear" ]
-camera_rotation_mode = 2
-
-[node name="test2" parent="playground" index="15" instance=ExtResource( 13 )]
-
-position = Vector2( 1012, 372 )
-rotation = -1.78391
-_sections_unfolded = [ "Angular", "Collision", "Linear" ]
-camera_rotation_mode = 2
-
-[node name="water_platform" parent="playground" index="16" instance=ExtResource( 14 )]
-
-position = Vector2( 62, -112 )
-
-[node name="water_platform2" parent="playground" index="17" instance=ExtResource( 14 )]
-
-position = Vector2( 444, -410 )
-radius = 150.0
-
-[node name="water_platform3" parent="playground" index="18" instance=ExtResource( 14 )]
-
-position = Vector2( -100, 672 )
-radius = 150.0
+position = Vector2( -732, -172 )
+radius = 180.0
 
 

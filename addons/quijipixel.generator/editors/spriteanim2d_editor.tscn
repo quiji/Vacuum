@@ -161,7 +161,6 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="spritesheet" type="VBoxContainer" parent="panel/margins/container" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -258,7 +257,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="spritesheet_size" type="Control" parent="panel/margins/container/spritesheet/sprite_container" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -814,7 +812,6 @@ _sections_unfolded = [ "Columns", "Scroll" ]
 
 [node name="animation_toolbar" type="Container" parent="panel/margins/container" index="6"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -832,7 +829,6 @@ size_flags_vertical = 1
 
 [node name="frame_form" type="Container" parent="panel/margins/container/animation_toolbar" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1147,6 +1143,79 @@ text = "Cancel"
 flat = false
 align = 1
 
+[node name="offset_anim_no" type="Label" parent="panel/margins/container/animation_toolbar/frame_form" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 223.0
+margin_top = 25.0
+margin_right = 326.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Offset by:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="offset_by" type="SpinBox" parent="panel/margins/container/animation_toolbar/frame_form" index="11"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 225.0
+margin_top = 46.0
+margin_right = 299.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = -100.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+prefix = ""
+suffix = ""
+
+[node name="offset_button" type="Button" parent="panel/margins/container/animation_toolbar/frame_form" index="12"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_top = 79.0
+margin_right = 315.0
+margin_bottom = 99.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Offset Anim"
+flat = false
+align = 1
+
 [node name="play_button" type="Button" parent="panel/margins/container" index="7"]
 
 anchor_left = 0.0
@@ -1449,6 +1518,8 @@ _sections_unfolded = [ "Playback Options" ]
 [connection signal="pressed" from="panel/margins/container/animation_toolbar/frame_form/edit_buttons/remove_frame_button" to="." method="_on_remove_frame_button_pressed"]
 
 [connection signal="pressed" from="panel/margins/container/animation_toolbar/frame_form/edit_buttons/cancel_frame_button" to="." method="_on_cancel_frame_button_pressed"]
+
+[connection signal="pressed" from="panel/margins/container/animation_toolbar/frame_form/offset_button" to="." method="_on_offset_button_pressed"]
 
 [connection signal="pressed" from="panel/margins/container/play_button" to="." method="_on_play_button_pressed"]
 

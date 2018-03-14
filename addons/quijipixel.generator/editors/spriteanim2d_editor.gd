@@ -31,6 +31,7 @@ onready var frame_form_id = $panel/margins/container/animation_toolbar/frame_for
 onready var frame_form_time = $panel/margins/container/animation_toolbar/frame_form/time
 onready var frame_form_react = $panel/margins/container/animation_toolbar/frame_form/react
 onready var frame_form_param = $panel/margins/container/animation_toolbar/frame_form/param
+onready var frame_form_offset = $panel/margins/container/animation_toolbar/frame_form/offset_by
 
 onready var play_button = $panel/margins/container/play_button
 onready var loop_button = $panel/margins/container/anim_options/loop_button
@@ -202,8 +203,10 @@ func _on_new_anim_name_text_entered(new_text):
 
 var selected_anim = null
 var selected_idx = null
+var selected_anim_index = null
 func _on_list_item_selected(index):
-
+	selected_anim_index = index
+	
 	var j = 0
 	var children = frame_list.get_children()
 	while j < frame_list.get_child_count():
@@ -434,3 +437,15 @@ func _on_attach_script_edit_text_changed(new_text):
 		script_exist_label.text = "OK!"
 	else:
 		script_exist_label.text = "NO!"
+
+
+func _on_offset_button_pressed():
+	debug.show()
+	debug.text = selected_anim + " moving " + str(frame_form_offset.value) + " frames."
+	var i = 0
+	while i < gen.animations[selected_anim].frames.size():
+		gen.animations[selected_anim].frames[i].id += frame_form_offset.value
+		i += 1
+	create_preview_animation(selected_anim)
+	_on_list_item_selected(selected_anim_index)
+

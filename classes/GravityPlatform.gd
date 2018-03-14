@@ -14,7 +14,6 @@ func _ready():
 		if child.has_method("get_polygonal_gravity"):
 			center_of_mass = child
 			center_of_mass_normals = center_of_mass.get_poly_normals(rotation)
-			center_of_mass.hide()
 		elif child.is_class("Sprite"):
 			has_sprite = true
 

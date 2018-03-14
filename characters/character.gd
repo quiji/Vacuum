@@ -3,11 +3,11 @@ extends "res://classes/Character.gd"
 
 ######## Const Stats #########
 var slope_stop_min_velocity = 5.0
-var run_velocity = 150.0
-var midair_move_velocity = 40.0
-var max_x_distance_a_jump = 50.0
-var max_x_distance_b_jump = 80.0
-var jump_peak_height = 95.5
+var run_velocity = 210 #150.0
+var midair_move_velocity = 190#60.0
+var max_x_distance_a_jump = 105.0
+var max_x_distance_b_jump = 135.0
+var jump_peak_height = 122
 
 var smash_jump_impulse_scalar = 30.0
 var swim_impulse_scalar = 190.5
@@ -26,8 +26,6 @@ var fall_gravity_scalar = 0.0
 
 
 ######## States #########
-var smash_jumping = false
-var smash_jump_start_point
 
 
 ######## Factors #########
@@ -52,6 +50,7 @@ func _ready():
 	lowest_gravity_scalar = -2*jump_peak_height* (run_velocity*run_velocity) / (max_x_distance_a_jump*max_x_distance_a_jump)
 	highgest_gravity_scalar = lowest_gravity_scalar * 6
 	
+	set_peak_jump_time(time_to_peak_of_jump)
 	set_gravity_scalar(lowest_gravity_scalar)
 	
 	# Maybe this goes in the platform? we can play with platforms with different values
@@ -160,26 +159,27 @@ func change_sprite_direction(direction):
 
 func reached_peak_height():
 	set_gravity_scalar(fall_gravity_scalar)
+	if not $sprite.is_playing("Peak"):
+		$sprite.play("Peak")
+
+func reaching_peak():
 	if not $sprite.is_playing("EndRoll") and not $sprite.is_playing("StartRoll"):
 		$sprite.play("Peak")
 
 func reached_ground(ground_object):
 	
-	if smash_jumping:
-		smash_jumping = false
-		"""
-		if ground_object != null and ground_object.has_method("apply_impulse"):
-			var distance_squared = (position - smash_jump_start_point).length_squared()
-			var impulse = -_normal * smash_jump_impulse_scalar * distance_squared / jump_peak_height * jump_peak_height
-			#ground_object.apply_impulse(position, impulse)
-		"""
 	set_gravity_scalar(lowest_gravity_scalar)
+	
+	
+	if is_moving():
+		add_step_impulse(run_velocity)
 	
 	if not $sprite.is_playing("EndRoll"):
 		if is_moving():
-			$sprite.play("Run")
+			$sprite.land_to_run()
 		elif not is_moving() and not $sprite.is_looking():
-			$sprite.play("Idle")
+			$sprite.play("LandToIdle")
+			$sprite.allow_interruption()
 
 
 func start_rolling():
@@ -301,73 +301,45 @@ func _process_behavior(delta):
 
 func _gravity_behavior(delta):
 	
+	var left_just_p = Input.is_action_just_pressed("ui_left")
+	var left_p = Input.is_action_pressed("ui_left")
+	var left_just_r = Input.is_action_just_released("ui_left")
+	var right_just_p = Input.is_action_just_pressed("ui_right")
+	var right_p = Input.is_action_pressed("ui_right")
+	var right_just_r = Input.is_action_just_released("ui_right")
+	
 	if is_rolling():
 		
 		move(run_velocity * slow_mo_factor)
-		
-	elif Input.is_action_just_pressed("ui_left"):
-		
-		if is_on_ground():
-			$sprite.play("Run")
-			move(run_velocity * slow_mo_factor, FACING_LEFT)
-		else:
-			move(midair_move_velocity, FACING_LEFT)
-
-	elif  Input.is_action_pressed("ui_left") and is_on_ground():
-		
-		move(run_velocity * slow_mo_factor, FACING_LEFT)
-		
-		
-	elif Input.is_action_just_released("ui_left"):
-		
-		stop(not is_on_ground())
-		
-		if is_on_ground():
-			$sprite.play("Idle")
+	else:
+		if left_just_p or right_just_p:
+			var facing = FACING_LEFT if left_just_p else FACING_RIGHT
+			if is_on_ground():
+				$sprite.play("Run")
+				move(run_velocity * slow_mo_factor, facing)
+			else:
+				move(midair_move_velocity, facing)
+		elif (left_p or right_p) and is_on_ground():
+			var facing = FACING_LEFT if left_p else FACING_RIGHT
+			move(run_velocity * slow_mo_factor, facing)
+		elif left_just_r or right_just_r:
+			stop(not is_on_ground())
 			
-	elif Input.is_action_just_pressed("ui_right"):
-		
-
-		if is_on_ground():
-			$sprite.play("Run")
-			move(run_velocity * slow_mo_factor, FACING_RIGHT)
-		else:
-			move(midair_move_velocity, FACING_RIGHT)
-			
-	elif  Input.is_action_pressed("ui_right") and is_on_ground():
-		
-		move(run_velocity * slow_mo_factor, FACING_RIGHT)
-		
-	elif Input.is_action_just_released("ui_right"):
-
-		stop(not is_on_ground())
-
-		if is_on_ground():
-			$sprite.play("Idle")
-
-
-	elif not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
-		stop()
-
+			if is_on_ground():
+				$sprite.play("Idle")
+		elif not left_p and not right_p:
+			stop()
+	
 	if Input.is_action_just_pressed("jump") and is_on_ground():
 		
 		$sprite.play("Jump")
 
-		
 		set_gravity_scalar(lowest_gravity_scalar)
 		jump(jump_initial_velocity_scalar)
 		
 	elif Input.is_action_just_released("jump") and not is_falling() and not is_on_ground():
-		
 		set_gravity_scalar(highgest_gravity_scalar)
-
-
-	if Input.is_action_just_pressed("ui_down") and not is_on_ground():
-		stop_in_air()
-		smash_jumping = true
-		smash_jump_start_point = position
-		set_gravity_scalar(highgest_gravity_scalar * 3)
-
+		
 	
 	if Input.is_action_just_pressed("ui_up") and door != null:
 		door.enter()

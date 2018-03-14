@@ -77,7 +77,11 @@ func _ready():
 	camera = $camera_man
 	
 	Glb.set_current_camera_man(self)
-	
+
+	var prev_zoom = Glb.get_stored_data("camera_crew", "zoom")
+	if prev_zoom != null:
+		camera.zoom = prev_zoom
+
 	camera.add_action(gravity)
 	camera.add_action(water)
 	
@@ -105,13 +109,15 @@ func _ready():
 		
 		rect_area.debug_cameraman = true
 
+	connect("tree_exiting", self, "on_tree_exiting")
 
 
 func set_actor(actor):
 	_actor = actor
 	#attempt_lock()
 
-
+func on_tree_exiting():
+	Glb.set_stored_data("camera_crew", "zoom", camera.zoom)
 	
 func get_current_normal():
 	if target_normal != null:
@@ -125,7 +131,7 @@ func normal_shift(new_normal, new_target_normal):
 	if gravity_center != null:
 		rotation_mode = gravity_center.get_camera_rotation_mode()
 
-	#return
+	return
 
 	"""
 	if rotation_mode != NO_ROTATION:
@@ -251,7 +257,7 @@ func change_scene_mode(mode, data=null):
 			lock_actor.speed = 40
 			lock_actor.ignore_margins = false
 			attempt_lock()
-			rect_area.change_margins(40, 60, 40, 10)
+			rect_area.change_margins(50, 160, 50, 10)
 		WATER_BUBBLE:
 			lock_actor.duration = 8.0
 			lock_actor.target = null
@@ -282,14 +288,22 @@ func look_direction(dir):
 
 	return true
 
-func zoom_in():
-	tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(0.5, 0.5), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	tween.start()
-	
-func zoom_out():
-	tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(1, 1), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	tween.start()
+func is_zoomed_in():
+	return not camera.zoom == Vector2(1, 1)
 
+func zoom_in(fast_fordward=false):
+	if not fast_fordward:
+		tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(0.5, 0.5), 3.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+		tween.start()
+	else:
+		camera.zoom = Vector2(0.5, 0.5)
+	
+func zoom_out(fast_fordward=false):
+	if not fast_fordward:
+		tween.interpolate_property(camera, "zoom", camera.zoom, Vector2(1, 1), 3.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+		tween.start()
+	else:
+		camera.zoom = Vector2(1, 1)
 
 func flying_space_logic(delta):
 	if lock_actor.locked:
@@ -301,14 +315,23 @@ func gravity_platform_logic(delta):
 		gravity.target = Vector2(0, -100)
 		camera.camera_start_action(gravity)
 
-	var inner_direction = (global_position - _actor.global_position).normalized()
-	if rect_area.in_margins(_actor.global_position, rect_area.OUTER_MARGIN) and inner_direction.dot(_actor.get_last_velocity_normalized()) < 0:
-		global_position += _actor.get_last_velocity() * delta
 
+	var inner_direction = (_actor.global_position - global_position)
+	var inner_direction_norm = inner_direction.normalized()
+
+	if rect_area.in_margins(_actor.global_position, rect_area.OUTER_MARGIN) and inner_direction_norm.dot(_actor.get_last_velocity_normalized()) > 0:
+		var last_vel = _actor.get_last_velocity()
+
+		if not rect_area.in_x_axis(inner_direction.x):
+			global_position.x += last_vel.x * delta
+		if not rect_area.in_y_axis(inner_direction.y):
+			global_position.y += last_vel.y * delta
+		
+		
 func water_bubble_logic(delta):
 	if lock_actor.locked:
 		
-		if not rect_area.in_margins(_actor.global_position):
+		if not rect_area.in_margins(_actor.global_position, rect_area.INNER_MARGIN):
 
 			var distance = water_center.get_inner_limit_radius() * 1.05
 			var direction = transform.xform_inv(_actor.global_position)

@@ -13,7 +13,10 @@ func _ready():
 
 	if not has_sprite:
 		draw_shape()
+	
 
+func is_room():
+	return true
 
 func get_gravity_from_center(pos):
 	return {gravity = Vector2(0, 1), normal = Vector2(0, -1)}

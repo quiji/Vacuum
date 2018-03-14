@@ -72,12 +72,15 @@ func on_animation_finished(anim_name):
 			play("WaterIdle")
 		"IdleLong":
 			play("Idle")
+		"LandToIdle":
+			play("Idle")
 		"LookDown":
 			if last_orientation:
 				play("Idle")
 			else:
 				play("LookingDown")
-
+		"LandToRun":
+			play("Run")
 		"LookUp":
 			if last_orientation:
 				play("Idle")
@@ -89,4 +92,10 @@ func on_timeout():
 
 func is_looking():
 	return is_playing("LookUp") or is_playing("LookDown") or is_playing("LookingUp") or is_playing("LookingDown")
+
+func land_to_run():
+	if not is_playing("LandToRun"):
+		play("LandToRun")
+
+
 

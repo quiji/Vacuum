@@ -12,6 +12,7 @@ var debug_mode = false
 
 
 func _ready():
+	$loading.hide()
 	randomize()
 
 	set_process(false)
@@ -48,8 +49,31 @@ func get_current_camera_man():
 	return _current_camera_man
 
 
+################################################################################################
+#
+#                                        Store System
+#
+################################################################################################
 
-######### Scene loading
+var stored_data = {}
+
+func set_stored_data(data_owner, data_name, data_value ):
+	if not stored_data.has(data_owner):
+		stored_data[data_owner] = {}
+
+	stored_data[data_owner][data_name] = data_value
+
+func get_stored_data(data_owner, data_name):
+	if stored_data.has(data_owner) and stored_data[data_owner].has(data_name):
+		return stored_data[data_owner][data_name]
+	return null
+
+################################################################################################
+#
+#                                        Scene loading
+#
+################################################################################################
+
 var stages = {
 	space = "res://stages/space.tscn",
 	spaceship = "res://stages/spaceship.tscn"
@@ -70,6 +94,9 @@ func load_stage(stage, door_id=null):
 
 
 func _load_new_scene(scene):
+	$loading.show()
+	$loading/label.text = ""
+	
 	loader = ResourceLoader.load_interactive(scene)
 	if loader == null: # check for errors
 		return
@@ -112,11 +139,11 @@ func _process(delta):
 func update_progress():
 	var progress = float(loader.get_stage()) / loader.get_stage_count()
 	# update your progress bar?
-	get_node("progress").percent_visible = progress
-	$label.text = str(progress)
+	$loading/progress.percent_visible = progress 
+	$loading/label.text = str(progress)
 
 func set_new_scene(scene_resource):
-
+	$loading.hide()
 	current_scene = scene_resource.instance()
 	if from_door != null and current_scene.has_method("spawn_on_door"):
 		current_scene.spawn_on_door(from_door)

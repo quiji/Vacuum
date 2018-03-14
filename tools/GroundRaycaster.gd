@@ -85,7 +85,14 @@ func cast_ground(collision_layer):
 
 	var result =  space_state.get_rest_info(shape_query)
 	if not result.empty():
-		var colls = space_state.intersect_point(result.point - 2 * result.normal, 10, [get_parent()], collision_layer_int)
+		var colls = space_state.intersect_point(result.point - 5 * result.normal, 10, [get_parent()], collision_layer_int)
+
+		if colls.size() == 0:
+			colls = space_state.intersect_point($point_a.global_position - 5 * result.normal, 10, [get_parent()], collision_layer_int)
+
+		if colls.size() == 0:
+			colls = space_state.intersect_point($point_b.global_position - 5 * result.normal, 10, [get_parent()], collision_layer_int)
+
 		var i = 0
 		result.collider_count = 0
 		result.gravity_centers = []

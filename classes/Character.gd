@@ -18,7 +18,7 @@ const INV_NORMAL = 1
 const SWIM_STROKE_DURATION = 0.6
 
 #const ON_GROUNDTHRESHOLD = 0.025
-const ON_GROUNDTHRESHOLD = 0.1
+const ON_GROUNDTHRESHOLD = 0.05
 
 enum ControlMode {ROTATION, INVERSION}
 
@@ -87,6 +87,8 @@ var _invertor = FACING_RIGHT
 var _loosed_ground_delta = 0
 var step_delta = 0
 var step_duration = 0
+var peak_jump_time
+var jump_delta = 0
 
 ######## States #########
 var _on_ground = false
@@ -116,16 +118,6 @@ func _ready():
 		_gravity_center = new_parent
 
 
-
-	#Console.add_log(self, "_falling")
-	#Console.add_log(self, "_on_ground")
-	#Console.add_log(self, "_rolling")
-
-	#Console.add_log(self, "_gravity_center")
-	#Console.add_log(self, "_water_center")
-
-
-
 ############
 # Accesors methods
 ############
@@ -149,6 +141,8 @@ func check_inversion():
 	
 	return _prev_inversion != _invertor
 
+func set_peak_jump_time(time):
+	peak_jump_time = time
 
 func set_facing(direction):
 
@@ -337,8 +331,11 @@ func jump(jump_initial_velocity_scalar):
 	_falling = false
 	_rolling = false
 	_attempting_jump = true
+	jump_delta = peak_jump_time
+
 	_loosed_ground_delta = ON_GROUNDTHRESHOLD 
 
+# Stops in air, might be useful
 func stop_in_air():
 	_prev_altitude_velocity_scalar = _altitude_velocity_scalar
 	_altitude_velocity_scalar = -5
@@ -361,8 +358,9 @@ func move(velocity, new_facing=null):
 
 func add_step_impulse(step_velocity):
 	step_delta = step_duration
-	_target_move_velocity_scalar= step_velocity
-	#_target_move_velocity_scalar = step_velocity * _facing * _invertor
+
+	#_target_move_velocity_scalar= step_velocity
+	_target_move_velocity_scalar = step_velocity * _facing * _invertor
 
 func stop(keep=true):
 	if not keep:
@@ -428,7 +426,7 @@ func verify_center_change():
 	
 	# Translate to original coordinates to be able to set correct position into raycaster, as the
 	# raycaster exist in the local coordinate system of the Character and not the global one
-	var direction = transform_to_local(get_last_velocity_normalized()) * 25
+	#var direction = transform_to_local(get_last_velocity_normalized()) * 25
 
 	var result = {
 		changed_center = false,
@@ -443,19 +441,6 @@ func verify_center_change():
 		if gcenter_change != null:
 			result.collision_info = gcenter_change 
 		result.changed_center = gcenter_change != null
-		"""
-		Console.add_log("slide_count", get_slide_count())
-		if get_slide_count() > 0 or c != null:
-			if c == null:
-				c = get_slide_collision(0)
-				Console.count("slide_collision")
-			var slide = verify_gravity_center_change(c)
-			if slide:
-				result.changed_center = true
-				result.collision_info = c
-		if not result.changed_center:
-			result.changed_center = verify_gravity_center_change(result.raycast_info)
-		"""
 
 	return result
 
@@ -494,17 +479,11 @@ func add_slide_collisions():
 func check_ground_reach(center_verification):
 
 	# Checking for small platform collisions...
-	var on_small_platform = false
+
 	var collided = center_verification.collision_info != null
 	var rayed = not center_verification.raycast_info.empty()
-	#if not center_verification.changed_center and collided:
-	#	Console.add_log("Collision_normal", center_verification.collision_info.normal)
-	#	if _normal.dot(center_verification.collision_info.normal) > 0.1:
-	#		on_small_platform = true
-	#		Console.add_log("collided", "COLLIDED!")
-	#Console.add_log("collided",collided)
-	#Console.add_log("rayed",rayed)
-	if on_small_platform or ( collided and (_falling or center_verification.changed_center ) ):
+
+	if   collided and (_falling or center_verification.changed_center ) :
 		_prev_altitude_velocity_scalar = 0
 		_altitude_velocity_scalar = 0
 		_falling = false
@@ -537,15 +516,8 @@ func adjust_normal_towards(new_normal, center_verification, delta):
 	elif _target_normal != null:
 		time += delta
 		normal_t += delta / 0.65
-		
-		#Console.add_log("normal_t", normal_t)
-		#Console.add_log("_start_normal", _start_normal)
-		#Console.add_log("_normal", _normal, {show_coords = true})
-		#Console.add_log("_target_normal", _target_normal)
-		#Console.add_log("time", time)
 
-		#set_normal(Glb.Smooth.directed_radial_interpolate(_start_normal, _target_normal, Glb.Smooth.player_roll(normal_t), _target_normal_direction))
-		set_normal(Glb.Smooth.directed_radial_interpolate(_start_normal, _target_normal, (normal_t), _target_normal_direction))
+		set_normal(Glb.Smooth.directed_radial_interpolate(_start_normal, _target_normal, normal_t, _target_normal_direction))
 
 		var dot = _normal.dot(_target_normal)
 		if dot > 0.5:
@@ -601,7 +573,6 @@ func adjust_normal_towards(new_normal, center_verification, delta):
 				_target_normal_direction = Glb.VectorLib.vector_orientation(_normal, new_normal)
 				
 			start_normal_interpolation(new_normal)
-			Console.add_log("normal_chase", "started")
 			set_rolling(true)
 			start_rolling()
 
@@ -694,6 +665,9 @@ func little_physics_process(delta):
 func reached_peak_height():
 	pass
 	
+func reaching_peak():
+	pass
+	
 func reached_ground(ground_object):
 	pass
 	
@@ -764,18 +738,19 @@ func _gravity_physics(delta):
 	if not _attempting_jump:
 		ground_cast_result = $ground_raycast.cast_ground(Glb.get_collision_layer_int(["Platform"]))
 		
+		
 		if not ground_cast_result.empty() and ground_cast_result.collider_count > 0:
 			colliders += ground_cast_result.gravity_centers
 			
 			collision_normal = ground_cast_result.normal
 			_on_ground = true
-
+			if _falling:
+				reached_ground(_gravity_center)
 			_falling = false
-			if ground_cast_result.small_platforms.size() > 0:
-				_prev_altitude_velocity_scalar = 0
-				_altitude_velocity_scalar = 0
+			#if ground_cast_result.small_platforms.size() > 0:
+			_prev_altitude_velocity_scalar = 0
+			_altitude_velocity_scalar = 0
 
-			reached_ground(_gravity_center)
 			if not _moving:
 				_target_move_velocity_scalar = 0
 	
@@ -799,28 +774,48 @@ func _gravity_physics(delta):
 		step_t = step_delta / step_duration
 	
 		_move_velocity_scalar = lerp(0, _target_move_velocity_scalar, Glb.Smooth.run_step(step_t))
-	
+
+	# this normal has the collision included, if on air it will be just the center's normal. Ideal for _tarteg_normal
+	var move_norm = normal
 	if collision_normal != null:
-		move_velocity = (-collision_normal).tangent() * _move_velocity_scalar
-		Console.add_log("coll_normal", collision_normal)
+		
+		# If indoors, just use the collision normal for the velocity, if not, use an average
+		if (_gravity_center != null and _gravity_center.has_method("is_room")) or  not is_on_ground():
+			move_norm = collision_normal
+			move_velocity = (-move_norm).tangent().normalized() * _move_velocity_scalar
+		else:
+
+			move_norm = normal
+			# We tilt the tangent a little bit towards the gravity to avoid the player from microfalling thanks to move_and_slide
+			var tangent = 4*(-move_norm).tangent()
+			if _move_velocity_scalar < 0:
+				tangent *= -1
+			move_velocity = (tangent + gravity).normalized() * abs(_move_velocity_scalar)
+
 	else:
-		Console.add_log("normal", normal)
 		move_velocity = (-normal).tangent().normalized() * _move_velocity_scalar
-		#$ground_raycast.set_normal(normal)
-		#move_velocity = (-normal).tangent() * _move_velocity_scalar
 	
+
 	
-	#Console.add_log("collision_normal", collision_normal)
-	#Console.add_log("move_velocity", move_velocity)
-		
 	if not is_on_ground() and not _rolling:
-		
+		move_norm = normal
+		jump_delta -= delta
+
 		_prev_altitude_velocity_scalar = _altitude_velocity_scalar
 		_altitude_velocity_scalar += _gravity_scalar * delta
+		if _altitude_velocity_scalar < -700:
+			_altitude_velocity_scalar = -700
+
 		altitude_velocity = gravity * -_altitude_velocity_scalar
 	
+		# This is just here just for animation improvement
+		# 0.245 its the duration of the peak animation to reach the peak point
+		if jump_delta < peak_jump_time - 0.245 and jump_delta > 0:
+			reaching_peak()
+			jump_delta = 0
+		
+		# This, on the other hand, is very important
 		if _prev_altitude_velocity_scalar >= 0 and _altitude_velocity_scalar <= 0:
-			
 			reached_peak_height()
 			_falling = true
 			_attempting_jump = false
@@ -828,6 +823,7 @@ func _gravity_physics(delta):
 	var center_verification = null
 	var velocity = move_velocity + altitude_velocity
 	var collision_info = null
+
 
 	if velocity.length_squared() > 0.01:
 		set_last_velocity(velocity)
@@ -841,14 +837,20 @@ func _gravity_physics(delta):
 	center_verification = verify_center_change()
 		
 	check_ground_reach(center_verification)
-	adjust_normal_towards(normal, center_verification, delta)
 
+	# If on a room and not out there, use the constant normal
+	if _gravity_center != null and _gravity_center.has_method("is_room"):
+		adjust_normal_towards(normal, center_verification, delta)
+	else:
+		adjust_normal_towards(move_norm, center_verification, delta)
+	
 
 	if not _on_ground:
 		_loosed_ground_delta += delta
 	else:
 		_loosed_ground_delta = 0
-		
+	
+
 
 
 

@@ -4,7 +4,7 @@
 [ext_resource path="res://addons/quijipixel.center_of_mass/center_of_mass.gd" type="Script" id=2]
 [ext_resource path="res://addons/quijipixel.center_of_mass/icon.png" type="Texture" id=3]
 
-[node name="polygon" type="KinematicBody2D"]
+[node name="polygon" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -16,11 +16,11 @@ camera_rotation_mode = 0
 [node name="collision" type="CollisionPolygon2D" parent="." index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -16.5586, -130.916, 84.8627, -176.452, 239.064, -158.859, 215.261, -50.1932, 261.832, 33.6346, 174.9, 152.649, 52.7805, 106.078, -60.0248, 131.951, -180.074, 83.3103, -140, 21.6, -131.434, -36.7393, -185.249, -105.043, -122.119, -173.348 )
+polygon = PoolVector2Array( -3.99222, -224.836, 229.008, -219.836, 290.743, -225.879, 341.743, -214.879, 388.743, -197.879, 435, -182, 481, -162, 577, -122, 709, -62, 703, 50, 575, 101.528, 585, 147.528, 545, 151.528, 555, 193.528, 517, 195.528, 497, 255.528, 447, 253.528, 459, 117.528, 421, 121.528, 377, 124, 319, 142, 253, 168, 217, 176, 149, 174, 79, 154, -60.0248, 131.951, -141.992, 120.31, -180.074, 83.3103, -214.992, 27.3098, -213.992, -55.6902, -196.992, -112.69, -122.119, -173.348 )
 
 [node name="center_of_mass" type="Polygon2D" parent="." index="1"]
 
-polygon = PoolVector2Array( -66, -87.4, 110, -62.4, 109, 53.6, -54, 52.6 )
+polygon = PoolVector2Array( -157, -100.472, -19, -190.472, 295, -206, 695, -52, 689, 41.5276, 567, 85.5276, 345, 121.528, 177, 137.528, -119, 97.5276, -173, 31.5276 )
 uv = PoolVector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
@@ -36,6 +36,5 @@ script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-field = NodePath("../collision")
 
 

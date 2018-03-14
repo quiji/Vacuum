@@ -28,10 +28,13 @@ static func perp_prod(stationary, moving):
 
 # Debug vars!!
 var current_planes = null
+var valid_planes = null
 var __gravity = Vector2()
 var __pos = Vector2()
 var __result = -1
 var __closest = Vector2()
+var __plane2_dot = Vector2()
+var __plane1_dot = Vector2()
 
 # Precalculated planes for fast normal generation
 var planes = []
@@ -101,7 +104,30 @@ func get_common_point(plane1, plane2, pos):
 	else:
 		return polygon[planes[plane1].p1]
 
+func find_common_planes(planes_indexes, pos):
+	var closest = null
+	var length = null
+	var plane_1 = null
+	var plane_2 = null
+	var j = 0
+	while j < planes_indexes.size():
+		var p = get_closest_point_to_pos(planes_indexes[j], pos)
+		var l = (pos - p).length_squared()
+		if closest == null or l <= length:
+			if plane_1 == null or l < length:
+				plane_1 = planes_indexes[j]
+				__plane1_dot = p
+			elif l == length:
+				plane_2 = planes_indexes[j]
+				j = planes_indexes.size()
+				__plane2_dot = p
+			closest = p
+			length = l
+		j += 1
+	return {p1 = plane_1, p2 = plane_2, clst = closest}
 
+#func calc_concave_planes(concave_list, pos):
+	
 
 func get_polygonal_gravity(pos):
 
@@ -109,51 +135,47 @@ func get_polygonal_gravity(pos):
 	var gravity = -pos_normal
 
 	current_planes = []
+	valid_planes = []
 	var i = 0
-	
-	var result = null
-	
-	while i < planes.size() and result == null:
+
+	while i < planes.size():
 		if dist_to_plane(i, pos) > 0:
 			if is_point_between_plane_points(i, pos):
-				result = i
+				valid_planes.push_back(i)
 			else:
 				current_planes.push_back(i)
 		i += 1
-
-	if result != null:
-		gravity = -plane_normal(result)
-		__result = result
+		
+	if valid_planes.size() == 1:
+		#Console.add_log("mode", "direct")
+		gravity = -plane_normal(valid_planes[0])
+		__result = valid_planes[0]
+		"""
+		elif valid_planes.size() > 1:
+			Console.add_log("mode", "multiple_concave")
+			gravity = (-pos).normalized()
+		"""
 	elif current_planes.size() == 1:
-		Console.count("weird_case")
+		#Console.add_log("mode", "weird_case")
 		__result = current_planes[0]
 		__closest = get_closest_point_to_pos(current_planes[0], pos)
 		gravity = (__closest - pos).normalized()
 	else:
-		var closest = null
-		var length = null
-		var plane_1 = null
-		var plane_2 = null
-		var j = 0
-		while j < current_planes.size():
-			var p = get_closest_point_to_pos(current_planes[j], pos)
-			var l = (pos - p).length_squared()
-			if closest == null or l <= length:
-				if plane_1 == null:
-					plane_1 = current_planes[j]
-				elif l == length:
-					plane_2 = current_planes[j]
-					j = current_planes.size()
-				closest = p
-				length = l
+		#Console.add_log("mode", "multiple_convex")
 
-			j += 1
-		var a = (pos_in_plane(plane_1, pos) - closest).length()
-		var b = (pos_in_plane(plane_2, pos) - closest).length()
-		length = a + b
-		var t = a / length
-		__closest = closest
-		gravity = -Glb.Smooth.cross(t, plane_normal(plane_1), plane_normal(plane_2)).normalized()
+		var result = find_common_planes(current_planes, pos)
+		if result.p2 != null:
+			var a = (pos_in_plane(result.p1, pos) - result.clst).length()
+			var b = (pos_in_plane(result.p2, pos) - result.clst).length()
+			var length = a + b
+			var t = a / length
+			__closest = result.clst
+			gravity = -Glb.Smooth.cross(t, plane_normal(result.p1), plane_normal(result.p2)).normalized()
+		else:
+			#Console.add_log("mode", "super_weird_convex_case")
+			__result = result.p1
+			__closest = result.clst
+			gravity = (__closest - pos).normalized()
 
 	if debug:
 		__pos = pos
@@ -168,7 +190,7 @@ func get_polygonal_gravity(pos):
 
 func get_gravity(pos):
 	pos = pos - get_position()
-
+	
 	if polygon.size() > 0:
 		return get_polygonal_gravity(pos)
 	else:
@@ -192,6 +214,7 @@ func debug_normals(args):
 
 func _draw():
 	
+
 	if debug and polygon.size() > 0 :
 	
 		var i = 0
@@ -212,6 +235,18 @@ func _draw():
 				draw_circle(pos_in_plane(j, __pos), 10, Color(0.2, 1.0, 0.2))
 	
 				i += 1
+		if valid_planes != null:
+			i = 0
+			while i < valid_planes.size():
+				var j = valid_planes[i]
+				var middle = ((polygon[planes[j].p1] + polygon[planes[j].p2]) / 2)
+				var start = middle 
+				draw_line(start, start + planes[j].n * 40, Color(0, 0, 1.0), 4)
+				draw_circle(pos_in_plane(j, __pos), 10, Color(0.2, 1.0, 0.2))
+	
+				i += 1
+
+
 				
 		if __result > -1:
 			var middle = ((polygon[planes[__result].p1] + polygon[planes[__result].p2]) / 2)
@@ -221,6 +256,12 @@ func _draw():
 				
 	
 		draw_circle(__closest, 10, Color(0, 0, 0))
+		draw_circle(__plane2_dot, 10, Color(0, 0, 0.5))
+		draw_circle(__plane1_dot, 10, Color(0, 0.5, 0))
+	
+		draw_circle(-__pos.normalized() * 100, 10, Color(0, 0, 0.5))
+		draw_circle(-__pos.tangent().normalized() * 100, 10, Color(0, 0, 0.5))
+		draw_circle(__pos.tangent().normalized() * 100, 10, Color(0, 0, 0.5))
 	
 		draw_line(__pos, __pos + __gravity * 200, Color(0, 0, 0), 4)
 
