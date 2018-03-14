@@ -117,7 +117,6 @@ func _ready():
 	elif new_parent.has_method("get_gravity_from_center"):
 		_gravity_center = new_parent
 
-
 ############
 # Accesors methods
 ############
@@ -435,14 +434,13 @@ func verify_center_change(delta):
 	#var direction = transform_to_local(get_last_velocity_normalized()) * 25
 	
 	
-	var direction = transform_to_local(get_last_velocity() * 10 * delta)
+	var direction = transform_to_local(get_last_velocity() * 6 * delta)
 	var res = $ground_raycast.cast_ray_ahead(direction, Glb.get_collision_layer_int(["Platform"]))
 	Console.add_log("res", res)
 	if not res.empty() and not is_room_env() and res.collider != _gravity_center:
-		
 		# there should be a way to mark this as a before collision center change
 		colliders.push_back(res)
-		get_tree().paused = true
+
 
 	var result = {
 		changed_center = false,
@@ -703,6 +701,7 @@ func left_water():
 
 
 func _physics_process(delta):
+		
 	colliders.clear()
 	if not halt_physics:
 		if is_on_gravity_center():

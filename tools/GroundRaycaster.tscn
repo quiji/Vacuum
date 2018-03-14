@@ -42,16 +42,11 @@ sharp_limit = 2.0
 round_precision = 8
 _sections_unfolded = [ "Capping" ]
 
-[node name="vel_ray_show" type="Line2D" parent="." index="5"]
+[node name="head_ray" type="RayCast2D" parent="." index="5"]
 
-points = PoolVector2Array( 0, 0, 0, 0 )
-width = 4.0
-default_color = Color( 0.4, 0.5, 1, 1 )
-texture_mode = 182518017
-begin_cap_mode = 2
-end_cap_mode = 1
-sharp_limit = 2.0
-round_precision = 8
-_sections_unfolded = [ "Capping" ]
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 0 )
+collision_mask = 1
 
 

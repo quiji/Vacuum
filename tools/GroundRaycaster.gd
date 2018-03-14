@@ -15,6 +15,7 @@ func _ready():
 	$point_b.position = b
 	$point_c.position = c
 
+	$head_ray.add_exception(get_parent())
 
 func set_a(p):
 	a = p
@@ -175,32 +176,22 @@ func cast_ray_ahead(motion, collision_layer):
 	var space_rid = get_world_2d().get_space()
 	var space_state = Physics2DServer.space_get_direct_state(space_rid)
 	
-	var result
+	var result = {}
+
+	$head_ray.position = $point_c.position
+	$head_ray.cast_to = motion
+	$head_ray.force_raycast_update()
 
 
-	$vel_ray_show.set_point_position(0, $point_c.position)
-	$vel_ray_show.set_point_position(1, $point_c.position + motion)
+	if $head_ray.is_colliding():
+		result = {
+			collider = $head_ray.get_collider(),
+			normal =  $head_ray.get_collision_normal(),
+			point = $head_ray.get_collision_point(),
+			is_headcast = true
+		}
 
-	result = space_state.intersect_ray($point_c.global_position, $point_c.global_position + motion, [get_parent()], collision_layer)
-	if not result.empty():
-		result.distance_squared = (result.position - $point_c.global_position).length_squared()
 
-	"""
-	if motion.normalized().dot(Vector2(0, 1)) > 0:
-		$vel_ray_show.set_point_position(0, position)
-		$vel_ray_show.set_point_position(1, position + motion)
-		result = space_state.intersect_ray(global_position, global_position + motion, [get_parent()], collision_layer)
-		if not result.empty():
-			result.distance_squared = (result.position - global_position).length_squared()
-	else:
-
-		$vel_ray_show.set_point_position(0, $point_c.position)
-		$vel_ray_show.set_point_position(1, $point_c.position + motion)
-	
-		result = space_state.intersect_ray($point_c.global_position, $point_c.global_position + motion, [get_parent()], collision_layer)
-		if not result.empty():
-			result.distance_squared = (result.position - $point_c.global_position).length_squared()
-	"""
 	
 	return result
 
