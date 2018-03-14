@@ -276,7 +276,9 @@
     "task.297",
     "task.298",
     "task.300",
-    "task.301"
+    "task.301",
+    "task.303",
+    "task.294"
   ],
   "completed": {
     "task.0": {
@@ -6926,6 +6928,54 @@
         "minute": 24,
         "second": 20
       }
+    },
+    "task.303": {
+      "task": "Center of mass crashes on certain shapes.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 1,
+        "second": 30
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 1,
+        "second": 32
+      }
+    },
+    "task.294": {
+      "task": "In the corners of the collision of a platform, the normal flickers and makes the player flicker annoyingly.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 12,
+        "weekday": 1,
+        "dst": false,
+        "hour": 11,
+        "minute": 37,
+        "second": 32
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 1,
+        "minute": 9,
+        "second": 3
+      }
     }
   },
   "pend_order": [
@@ -6952,8 +7002,8 @@
     "task.283",
     "task.289",
     "task.290",
-    "task.294",
-    "task.299"
+    "task.299",
+    "task.302"
   ],
   "pending": {
     "task.134": {
@@ -7278,20 +7328,6 @@
         "second": 49
       }
     },
-    "task.294": {
-      "task": "In the corners of the collision of a platform, the normal flickers and makes the player flicker annoyingly.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 12,
-        "weekday": 1,
-        "dst": false,
-        "hour": 11,
-        "minute": 37,
-        "second": 32
-      }
-    },
     "task.299": {
       "task": "Create falling from high and rolling.",
       "type": "Task",
@@ -7304,6 +7340,20 @@
         "hour": 11,
         "minute": 36,
         "second": 32
+      }
+    },
+    "task.302": {
+      "task": "Be on watch for the annoying jump backfire bug. If it doesn't happen ever again... then we fixed it dammit!! yeah!",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 21,
+        "minute": 41,
+        "second": 17
       }
     }
   }

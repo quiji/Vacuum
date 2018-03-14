@@ -329,62 +329,15 @@ func _gravity_behavior(delta):
 				$sprite.play("Idle")
 		elif not left_p and not right_p:
 			stop()
-	"""
-	if Input.is_action_just_pressed("ui_left"):
-		
-		if is_on_ground():
-			$sprite.play("Run")
-			move(run_velocity * slow_mo_factor, FACING_LEFT)
-		else:
-			move(midair_move_velocity, FACING_LEFT)
-
-	elif  Input.is_action_pressed("ui_left") and is_on_ground():
-		
-		move(run_velocity * slow_mo_factor, FACING_LEFT)
-		
-		
-	elif Input.is_action_just_released("ui_left"):
-		
-		stop(not is_on_ground())
-		
-		if is_on_ground():
-			$sprite.play("Idle")
-			
-	elif Input.is_action_just_pressed("ui_right"):
-		
-
-		if is_on_ground():
-			$sprite.play("Run")
-			move(run_velocity * slow_mo_factor, FACING_RIGHT)
-		else:
-			move(midair_move_velocity, FACING_RIGHT)
-			
-	elif  Input.is_action_pressed("ui_right") and is_on_ground():
-		
-		move(run_velocity * slow_mo_factor, FACING_RIGHT)
-		
-	elif Input.is_action_just_released("ui_right"):
-
-		stop(not is_on_ground())
-
-		if is_on_ground():
-			$sprite.play("Idle")
-
-
-	elif not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
-		stop()
-	"""
 	
 	if Input.is_action_just_pressed("jump") and is_on_ground():
 		
 		$sprite.play("Jump")
 
-		
 		set_gravity_scalar(lowest_gravity_scalar)
 		jump(jump_initial_velocity_scalar)
 		
 	elif Input.is_action_just_released("jump") and not is_falling() and not is_on_ground():
-		
 		set_gravity_scalar(highgest_gravity_scalar)
 		
 	

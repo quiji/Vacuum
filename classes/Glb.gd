@@ -12,6 +12,7 @@ var debug_mode = false
 
 
 func _ready():
+	$loading.hide()
 	randomize()
 
 	set_process(false)

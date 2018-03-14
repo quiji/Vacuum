@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tests/center of mass test.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://platforms/strange_circle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/quijipixel.center_of_mass/center_of_mass.gd" type="Script" id=3]
+[ext_resource path="res://addons/quijipixel.center_of_mass/icon.png" type="Texture" id=4]
+[ext_resource path="res://platforms/strange_circle.tscn" type="PackedScene" id=5]
 
 [node name="center of mass test" type="Node2D" index="0"]
 
@@ -41,11 +43,34 @@ editor_draw_drag_margin = false
 [node name="Timer" type="Timer" parent="." index="2"]
 
 process_mode = 1
-wait_time = 0.4
+wait_time = 2.0
 one_shot = false
 autostart = true
 
-[node name="strange_circle" parent="." index="3" instance=ExtResource( 3 )]
+[node name="test" type="Node2D" parent="." index="3"]
+
+[node name="center" type="Polygon2D" parent="test" index="0"]
+
+polygon = PoolVector2Array( -102, -146, -8, -156, 36, -154, 96, -148, 148, -58, 148, 62, 118, 120, 78, 146, -4, 146, -136, 84, -172, 0, -184, -72, -158, -128 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 )
+}
+
+[node name="strange_circle" parent="." index="4" instance=ExtResource( 5 )]
+
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

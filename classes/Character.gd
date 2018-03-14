@@ -117,12 +117,6 @@ func _ready():
 	elif new_parent.has_method("get_gravity_from_center"):
 		_gravity_center = new_parent
 
-	"""
-	Console.add_log(self, "_falling")
-	Console.add_log(self, "_on_ground")
-	Console.add_log(self, "_rolling")
-	"""
-
 
 ############
 # Accesors methods
@@ -364,8 +358,9 @@ func move(velocity, new_facing=null):
 
 func add_step_impulse(step_velocity):
 	step_delta = step_duration
-	_target_move_velocity_scalar= step_velocity
-	#_target_move_velocity_scalar = step_velocity * _facing * _invertor
+
+	#_target_move_velocity_scalar= step_velocity
+	_target_move_velocity_scalar = step_velocity * _facing * _invertor
 
 func stop(keep=true):
 	if not keep:
@@ -379,7 +374,6 @@ func stop(keep=true):
 
 func tilt(direction, tilt_to_45_time, tilt_speed):
 	_target_normal = direction
-	Console.add_log("camera_direction", direction)
 	
 	var til_speed_factor = 1
 	var normal_dot = _normal.dot(_target_normal)
@@ -432,7 +426,7 @@ func verify_center_change():
 	
 	# Translate to original coordinates to be able to set correct position into raycaster, as the
 	# raycaster exist in the local coordinate system of the Character and not the global one
-	var direction = transform_to_local(get_last_velocity_normalized()) * 25
+	#var direction = transform_to_local(get_last_velocity_normalized()) * 25
 
 	var result = {
 		changed_center = false,
@@ -447,19 +441,6 @@ func verify_center_change():
 		if gcenter_change != null:
 			result.collision_info = gcenter_change 
 		result.changed_center = gcenter_change != null
-		"""
-		Console.add_log("slide_count", get_slide_count())
-		if get_slide_count() > 0 or c != null:
-			if c == null:
-				c = get_slide_collision(0)
-				Console.count("slide_collision")
-			var slide = verify_gravity_center_change(c)
-			if slide:
-				result.changed_center = true
-				result.collision_info = c
-		if not result.changed_center:
-			result.changed_center = verify_gravity_center_change(result.raycast_info)
-		"""
 
 	return result
 
@@ -498,17 +479,11 @@ func add_slide_collisions():
 func check_ground_reach(center_verification):
 
 	# Checking for small platform collisions...
-	var on_small_platform = false
+
 	var collided = center_verification.collision_info != null
 	var rayed = not center_verification.raycast_info.empty()
-	#if not center_verification.changed_center and collided:
-	#	Console.add_log("Collision_normal", center_verification.collision_info.normal)
-	#	if _normal.dot(center_verification.collision_info.normal) > 0.1:
-	#		on_small_platform = true
-	#		Console.add_log("collided", "COLLIDED!")
-	#Console.add_log("collided",collided)
-	#Console.add_log("rayed",rayed)
-	if on_small_platform or ( collided and (_falling or center_verification.changed_center ) ):
+
+	if   collided and (_falling or center_verification.changed_center ) :
 		_prev_altitude_velocity_scalar = 0
 		_altitude_velocity_scalar = 0
 		_falling = false
@@ -541,15 +516,8 @@ func adjust_normal_towards(new_normal, center_verification, delta):
 	elif _target_normal != null:
 		time += delta
 		normal_t += delta / 0.65
-		
-		#Console.add_log("normal_t", normal_t)
-		#Console.add_log("_start_normal", _start_normal)
-		#Console.add_log("_normal", _normal, {show_coords = true})
-		#Console.add_log("_target_normal", _target_normal)
-		#Console.add_log("time", time)
 
-		#set_normal(Glb.Smooth.directed_radial_interpolate(_start_normal, _target_normal, Glb.Smooth.player_roll(normal_t), _target_normal_direction))
-		set_normal(Glb.Smooth.directed_radial_interpolate(_start_normal, _target_normal, (normal_t), _target_normal_direction))
+		set_normal(Glb.Smooth.directed_radial_interpolate(_start_normal, _target_normal, normal_t, _target_normal_direction))
 
 		var dot = _normal.dot(_target_normal)
 		if dot > 0.5:
@@ -816,21 +784,19 @@ func _gravity_physics(delta):
 			move_norm = collision_normal
 			move_velocity = (-move_norm).tangent().normalized() * _move_velocity_scalar
 		else:
-			move_norm = (2 * collision_normal + normal).normalized()
-			var tangent = 5*(-move_norm).tangent()
+
+			move_norm = normal
+			# We tilt the tangent a little bit towards the gravity to avoid the player from microfalling thanks to move_and_slide
+			var tangent = 4*(-move_norm).tangent()
 			if _move_velocity_scalar < 0:
 				tangent *= -1
 			move_velocity = (tangent + gravity).normalized() * abs(_move_velocity_scalar)
-		Console.add_log("coll_normal", collision_normal)
+
 	else:
 		move_velocity = (-normal).tangent().normalized() * _move_velocity_scalar
-		#$ground_raycast.set_normal(normal)
-		#move_velocity = (-normal).tangent() * _move_velocity_scalar
 	
-	Console.add_log("gravity", gravity)
-	Console.add_log("move_norm.tangent", (-move_norm).tangent())
-	Console.add_log("move_velocity", move_velocity)
-		
+
+	
 	if not is_on_ground() and not _rolling:
 		move_norm = normal
 		jump_delta -= delta
@@ -839,8 +805,6 @@ func _gravity_physics(delta):
 		_altitude_velocity_scalar += _gravity_scalar * delta
 		if _altitude_velocity_scalar < -700:
 			_altitude_velocity_scalar = -700
-
-		Console.add_log("_altitude_velocity_scalar",_altitude_velocity_scalar)
 
 		altitude_velocity = gravity * -_altitude_velocity_scalar
 	
