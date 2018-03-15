@@ -341,12 +341,6 @@ func jump(jump_initial_velocity_scalar):
 
 	_loosed_ground_delta = ON_GROUNDTHRESHOLD 
 
-# Stops in air, might be useful
-func stop_in_air():
-	_prev_altitude_velocity_scalar = _altitude_velocity_scalar
-	_altitude_velocity_scalar = -5
-	_attempting_jump = false
-
 
 
 func move(velocity, new_facing=null):
@@ -433,10 +427,8 @@ func verify_center_change(delta):
 	# Translate to original coordinates to be able to set correct position into raycaster, as the
 	# raycaster exist in the local coordinate system of the Character and not the global one
 	#var direction = transform_to_local(get_last_velocity_normalized()) * 25
-	
-	
-	#var direction = transform_to_local(get_last_velocity() * 2 * delta)
-	var direction = transform_to_local(get_last_velocity() * 3 * delta)
+
+	var direction = transform_to_local(get_last_velocity() * 4 * delta)
 	var res = {}
 	
 	if not is_rolling():
@@ -838,6 +830,7 @@ func _gravity_physics(delta):
 	
 	############################################################################################################
 
+	# Softening roll for gravity center change, using own gravity clossiness
 	if mid_air_delta != null:
 		velocity = Vector2()
 		mid_air_delta -= delta
@@ -848,6 +841,8 @@ func _gravity_physics(delta):
 		jump_delta = 0
 		if mid_air_delta <= 0:
 			mid_air_delta = null
+		else:
+			velocity = gravity * 810 * mid_air_delta
 	############################################################################################################
 
 	
@@ -867,8 +862,9 @@ func _gravity_physics(delta):
 	Console.add_log("velocity", velocity)
 	Console.add_log("_altitude_velocity_scalar", _altitude_velocity_scalar)
 	Console.add_log("_move_velocity_scalar", _move_velocity_scalar)
+	# If about to roll, avoid head collision and stop all movement and change gravity center.
 	if center_verification.changed_center and center_verification.is_headcast:
-		#stop_in_air()
+
 		_altitude_velocity_scalar = 0
 		_target_move_velocity_scalar = 0
 		_move_velocity_scalar = 0

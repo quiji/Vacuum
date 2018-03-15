@@ -281,7 +281,12 @@
     "task.294",
     "task.261",
     "task.152",
-    "task.306"
+    "task.306",
+    "task.136",
+    "task.238",
+    "task.248",
+    "task.254",
+    "task.305"
   ],
   "completed": {
     "task.0": {
@@ -7051,6 +7056,126 @@
         "minute": 57,
         "second": 56
       }
+    },
+    "task.136": {
+      "creation_date": {
+        "day": 2,
+        "dst": true,
+        "hour": 17,
+        "minute": 40,
+        "month": 2,
+        "second": 35,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Make water balls collide with platforms and move away, also make code to avoid water entering rigid platform collision areas.",
+      "type": "Feature",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 45,
+        "second": 44
+      }
+    },
+    "task.238": {
+      "task": "When player is in the limbo between a gravity platform and a water platform, it starts behaving badly because of offset change.(or something)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 8,
+        "second": 13
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 46,
+        "second": 0
+      }
+    },
+    "task.248": {
+      "task": "Sometimes when arriving from water platform to a gravity one, the character enters the body and then rotates looking annoyingly wrong.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 57,
+        "second": 3
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 46,
+        "second": 10
+      }
+    },
+    "task.254": {
+      "task": "Implement arriving to a gravity center inside of a water platform.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 8,
+        "second": 24
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 46,
+        "second": 52
+      }
+    },
+    "task.305": {
+      "task": "Implement bouncing free rolling when arriving by head.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 12,
+        "minute": 31,
+        "second": 15
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 47,
+        "second": 21
+      }
     }
   },
   "pend_order": [
@@ -7060,14 +7185,10 @@
     "task.85",
     "task.134",
     "task.135",
-    "task.136",
     "task.155",
     "task.176",
     "task.200",
     "task.209",
-    "task.238",
-    "task.248",
-    "task.254",
     "task.256",
     "task.262",
     "task.271",
@@ -7078,7 +7199,6 @@
     "task.299",
     "task.302",
     "task.304",
-    "task.305",
     "task.307",
     "task.308"
   ],
@@ -7109,20 +7229,6 @@
         "year": 2018
       },
       "task": "Make water ball platform fussionate and grow in size.",
-      "type": "Feature"
-    },
-    "task.136": {
-      "creation_date": {
-        "day": 2,
-        "dst": true,
-        "hour": 17,
-        "minute": 40,
-        "month": 2,
-        "second": 35,
-        "weekday": 5,
-        "year": 2018
-      },
-      "task": "Make water balls collide with platforms and move away, also make code to avoid water entering rigid platform collision areas.",
       "type": "Feature"
     },
     "task.155": {
@@ -7235,48 +7341,6 @@
         "hour": 21,
         "minute": 12,
         "second": 9
-      }
-    },
-    "task.238": {
-      "task": "When player is in the limbo between a gravity platform and a water platform, it starts behaving badly because of offset change.(or something)",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 3,
-        "weekday": 6,
-        "dst": true,
-        "hour": 17,
-        "minute": 8,
-        "second": 13
-      }
-    },
-    "task.248": {
-      "task": "Sometimes when arriving from water platform to a gravity one, the character enters the body and then rotates looking annoyingly wrong.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 11,
-        "minute": 57,
-        "second": 3
-      }
-    },
-    "task.254": {
-      "task": "Implement arriving to a gravity center inside of a water platform.",
-      "type": "Feature",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 13,
-        "minute": 8,
-        "second": 24
       }
     },
     "task.256": {
@@ -7417,20 +7481,6 @@
         "hour": 10,
         "minute": 56,
         "second": 43
-      }
-    },
-    "task.305": {
-      "task": "Implement bouncing free rolling when arriving by head.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 14,
-        "weekday": 3,
-        "dst": false,
-        "hour": 12,
-        "minute": 31,
-        "second": 15
       }
     },
     "task.307": {
