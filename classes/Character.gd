@@ -89,6 +89,7 @@ var step_delta = 0
 var step_duration = 0
 var peak_jump_time
 var jump_delta = 0
+var mid_air_delta = null
 
 ######## States #########
 var _on_ground = false
@@ -434,8 +435,12 @@ func verify_center_change(delta):
 	#var direction = transform_to_local(get_last_velocity_normalized()) * 25
 	
 	
-	var direction = transform_to_local(get_last_velocity() * 5 * delta)
-	var res = $ground_raycast.cast_ray_ahead(direction, Glb.get_collision_layer_int(["Platform"]))
+	#var direction = transform_to_local(get_last_velocity() * 2 * delta)
+	var direction = transform_to_local(get_last_velocity() * 3 * delta)
+	var res = {}
+	
+	if not is_rolling():
+		res = $ground_raycast.cast_ray_ahead(direction, Glb.get_collision_layer_int(["Platform"]))
 
 	if not res.empty() and not is_room_env() and res.collider != _gravity_center:
 		# there should be a way to mark this as a before collision center change
@@ -445,9 +450,7 @@ func verify_center_change(delta):
 	var result = {
 		changed_center = false,
 		collision_info = null,
-		meta = {
-			is_headcast = false
-		}
+		is_headcast = false
 	}
 
 
@@ -456,7 +459,7 @@ func verify_center_change(delta):
 		if gcenter_change != null:
 			result.collision_info = gcenter_change 
 			if gcenter_change == res:
-				result.meta.is_headcast = true
+				result.is_headcast = true
 		result.changed_center = gcenter_change != null
 
 	return result
@@ -833,6 +836,20 @@ func _gravity_physics(delta):
 	var velocity = move_velocity + altitude_velocity
 	var collision_info = null
 	
+	############################################################################################################
+
+	if mid_air_delta != null:
+		velocity = Vector2()
+		mid_air_delta -= delta
+		#_altitude_velocity_scalar = 0
+		#_target_move_velocity_scalar = 0
+		#_move_velocity_scalar = 0
+		#step_delta = 0
+		#jump_delta = 0
+		if mid_air_delta <= 0:
+			mid_air_delta = null
+	############################################################################################################
+
 	
 	if velocity.length_squared() > 0.01:
 		set_last_velocity(velocity)
@@ -845,10 +862,28 @@ func _gravity_physics(delta):
 
 	center_verification = verify_center_change(delta)
 
+	############################################################################################################
+
+	Console.add_log("velocity", velocity)
+	Console.add_log("_altitude_velocity_scalar", _altitude_velocity_scalar)
+	Console.add_log("_move_velocity_scalar", _move_velocity_scalar)
+	if center_verification.changed_center and center_verification.is_headcast:
+		#stop_in_air()
+		_altitude_velocity_scalar = 0
+		_target_move_velocity_scalar = 0
+		_move_velocity_scalar = 0
+		step_delta = 0
+		jump_delta = 0
+		mid_air_delta = 0.3
+		if not is_on_ground():
+			_falling = true
+			_attempting_jump = false
 	
 	if center_verification.changed_center:
-		stop_in_air()
 		Console.add_log("center_verification", center_verification)
+	Console.add_log("center_verification.changed_center", center_verification.changed_center)
+
+	############################################################################################################
 
 	check_ground_reach(center_verification)
 

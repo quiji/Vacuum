@@ -309,8 +309,8 @@ func _gravity_behavior(delta):
 	var right_just_r = Input.is_action_just_released("ui_right")
 	
 	if is_rolling():
-		
-		move(run_velocity * slow_mo_factor)
+		pass
+		#move(run_velocity * slow_mo_factor)
 	else:
 		if left_just_p or right_just_p:
 			var facing = FACING_LEFT if left_just_p else FACING_RIGHT

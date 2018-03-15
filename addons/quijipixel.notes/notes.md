@@ -11,6 +11,9 @@ naci a las 12 del medio dia del 24 del 1 de 1984
 - 480x270 (Based on Hyper Light Drifter's res)
 - 640x360 
 - 1280x720
+Pixel Perfect Scaling thread:
+https://github.com/godotengine/godot/issues/6506
+
 
 > Art!!
 
