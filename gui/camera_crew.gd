@@ -271,15 +271,15 @@ func change_scene_mode(mode, data=null):
 			attempt_lock()
 
 
-func look_direction(dir):
+func look_direction(dir, normal=Vector2(0, -1)):
 	match dir:
 		LOOK_UP:
 			tween.stop(camera, "offset")
-			tween.interpolate_property(camera, "offset", Vector2(), get_current_normal() * look_cam_distance * camera.zoom.x, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.interpolate_property(camera, "offset", Vector2(), normal * look_cam_distance * camera.zoom.x, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
 		LOOK_DOWN:
 			tween.stop(camera, "offset")
-			tween.interpolate_property(camera, "offset", Vector2(), -get_current_normal() * look_cam_distance * 1.5 * camera.zoom.x, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+			tween.interpolate_property(camera, "offset", Vector2(), -normal * look_cam_distance * 1.05 * camera.zoom.x, 2.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 			tween.start()
 		LOOK_CENTER:
 			tween.stop(camera, "offset")

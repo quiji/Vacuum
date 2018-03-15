@@ -280,7 +280,8 @@
     "task.303",
     "task.294",
     "task.261",
-    "task.152"
+    "task.152",
+    "task.306"
   ],
   "completed": {
     "task.0": {
@@ -7025,6 +7026,30 @@
         "hour": 1,
         "minute": 18,
         "second": 8
+      }
+    },
+    "task.306": {
+      "task": "When the normal is not Vector2(0, -1), the look feature doesn't looks \"up\"",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 7,
+        "minute": 52,
+        "second": 35
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 7,
+        "minute": 57,
+        "second": 56
       }
     }
   },
