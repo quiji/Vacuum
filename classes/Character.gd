@@ -220,7 +220,7 @@ func set_water_center(center):
 
 
 func set_open_space_center(center):
-	space_velocity = _last_velocity
+	space_velocity = _last_velocity * 1.8
 	if center != null:
 
 		var pos = global_position
@@ -228,6 +228,7 @@ func set_open_space_center(center):
 		center.add_child(self)
 		center.move_child(self, center.get_tree_pos())
 		global_position = pos
+
 		entered_space(center)
 
 		
@@ -505,6 +506,43 @@ func check_ground_reach(center_verification):
 		return true
 	return false
 
+func control_velocity_for_head_arrival(vel, gravity, delta):
+	# Softening roll for gravity center change, using own gravity clossiness
+	if mid_air_delta != null:
+		mid_air_delta -= delta
+		
+		#This is to avoid player from moving character when rolling, an execute strange movements when finishing
+		_altitude_velocity_scalar = 0
+		_target_move_velocity_scalar = 0
+		_move_velocity_scalar = 0
+		step_delta = 0
+		jump_delta = 0
+		
+		if mid_air_delta <= 0:
+			mid_air_delta = null
+			vel = Vector2()
+		else:
+			vel = gravity * 810 * mid_air_delta
+	return vel
+
+func verify_head_arrival(center_verification):
+	# If about to roll, avoid head collision and stop all movement and change gravity center.
+	if center_verification.changed_center and center_verification.is_headcast:
+
+		_altitude_velocity_scalar = 0
+		_target_move_velocity_scalar = 0
+		_move_velocity_scalar = 0
+		step_delta = 0
+		jump_delta = 0
+		mid_air_delta = 0.3
+		if not is_on_ground():
+			_falling = true
+			_attempting_jump = false
+		set_last_velocity(Vector2())
+		
+	if center_verification.changed_center:
+		Console.add_log("center_verification", center_verification)
+	Console.add_log("center_verification.changed_center", center_verification.changed_center)
 
 var time = 0
 func adjust_normal_towards(new_normal, center_verification, delta):
@@ -713,12 +751,13 @@ func _physics_process(delta):
 				
 
 			#var r = move_and_slide(_last_velocity, _normal, _slope_stop_min_vel, _max_bounce, _max_angle)
-			var c = move_and_collide(_last_velocity * delta)
+			var c = move_and_collide(space_velocity * delta)
 			
 			add_collision(c)
 			
 			var center_verification = verify_center_change(delta)
-
+			
+			verify_head_arrival(center_verification)
 			check_ground_reach(center_verification)
 			if center_verification.changed_center:
 				adjust_normal_towards(_normal, center_verification, delta)
@@ -825,25 +864,8 @@ func _gravity_physics(delta):
 			_attempting_jump = false
 
 	var center_verification = null
-	var velocity = move_velocity + altitude_velocity
+	var velocity = control_velocity_for_head_arrival(move_velocity + altitude_velocity, gravity, delta)
 	var collision_info = null
-	
-	############################################################################################################
-
-	# Softening roll for gravity center change, using own gravity clossiness
-	if mid_air_delta != null:
-		velocity = Vector2()
-		mid_air_delta -= delta
-		_altitude_velocity_scalar = 0
-		_target_move_velocity_scalar = 0
-		_move_velocity_scalar = 0
-		step_delta = 0
-		jump_delta = 0
-		if mid_air_delta <= 0:
-			mid_air_delta = null
-		else:
-			velocity = gravity * 810 * mid_air_delta
-	############################################################################################################
 
 	
 	if velocity.length_squared() > 0.01:
@@ -857,30 +879,7 @@ func _gravity_physics(delta):
 
 	center_verification = verify_center_change(delta)
 
-	############################################################################################################
-
-	Console.add_log("velocity", velocity)
-	Console.add_log("_altitude_velocity_scalar", _altitude_velocity_scalar)
-	Console.add_log("_move_velocity_scalar", _move_velocity_scalar)
-	# If about to roll, avoid head collision and stop all movement and change gravity center.
-	if center_verification.changed_center and center_verification.is_headcast:
-
-		_altitude_velocity_scalar = 0
-		_target_move_velocity_scalar = 0
-		_move_velocity_scalar = 0
-		step_delta = 0
-		jump_delta = 0
-		mid_air_delta = 0.3
-		if not is_on_ground():
-			_falling = true
-			_attempting_jump = false
-	
-	if center_verification.changed_center:
-		Console.add_log("center_verification", center_verification)
-	Console.add_log("center_verification.changed_center", center_verification.changed_center)
-
-	############################################################################################################
-
+	verify_head_arrival(center_verification)
 	check_ground_reach(center_verification)
 
 	# If on a room and not out there, use the constant normal
@@ -948,7 +947,7 @@ func _water_physics(delta):
 
 	if _target_normal != null:
 		set_normal(Glb.Smooth.radial_interpolate(_normal, _target_normal, 1 / percentage))
-
+		$ground_raycast.set_normal(get_normal())
 
 
 	if not verify_water_center():

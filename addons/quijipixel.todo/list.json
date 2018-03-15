@@ -286,7 +286,8 @@
     "task.238",
     "task.248",
     "task.254",
-    "task.305"
+    "task.305",
+    "task.308"
   ],
   "completed": {
     "task.0": {
@@ -7176,6 +7177,30 @@
         "minute": 47,
         "second": 21
       }
+    },
+    "task.308": {
+      "task": "Clean and improve the roll gravity switch code, then implement on space center.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 8,
+        "minute": 7,
+        "second": 41
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 15,
+        "minute": 17,
+        "second": 45
+      }
     }
   },
   "pend_order": [
@@ -7200,7 +7225,8 @@
     "task.302",
     "task.304",
     "task.307",
-    "task.308"
+    "task.309",
+    "task.310"
   ],
   "pending": {
     "task.134": {
@@ -7497,8 +7523,22 @@
         "second": 45
       }
     },
-    "task.308": {
-      "task": "Clean and improve the roll gravity switch code, then implement on space center.",
+    "task.309": {
+      "task": "After rolling, animation doesn't transition to idle or running.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 15,
+        "minute": 11,
+        "second": 20
+      }
+    },
+    "task.310": {
+      "task": "Clean and implement rolling animations and transitions to idle and running.",
       "type": "Task",
       "creation_date": {
         "year": 2018,
@@ -7506,9 +7546,9 @@
         "day": 15,
         "weekday": 4,
         "dst": false,
-        "hour": 8,
-        "minute": 7,
-        "second": 41
+        "hour": 15,
+        "minute": 18,
+        "second": 8
       }
     }
   }
