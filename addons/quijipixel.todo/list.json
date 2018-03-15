@@ -7078,7 +7078,9 @@
     "task.299",
     "task.302",
     "task.304",
-    "task.305"
+    "task.305",
+    "task.307",
+    "task.308"
   ],
   "pending": {
     "task.134": {
@@ -7429,6 +7431,34 @@
         "hour": 12,
         "minute": 31,
         "second": 15
+      }
+    },
+    "task.307": {
+      "task": "Remember to use the Step reaction concept for the land-roll animation.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 8,
+        "minute": 3,
+        "second": 45
+      }
+    },
+    "task.308": {
+      "task": "Clean and improve the roll gravity switch code, then implement on space center.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 8,
+        "minute": 7,
+        "second": 41
       }
     }
   }

@@ -841,11 +841,11 @@ func _gravity_physics(delta):
 	if mid_air_delta != null:
 		velocity = Vector2()
 		mid_air_delta -= delta
-		#_altitude_velocity_scalar = 0
-		#_target_move_velocity_scalar = 0
-		#_move_velocity_scalar = 0
-		#step_delta = 0
-		#jump_delta = 0
+		_altitude_velocity_scalar = 0
+		_target_move_velocity_scalar = 0
+		_move_velocity_scalar = 0
+		step_delta = 0
+		jump_delta = 0
 		if mid_air_delta <= 0:
 			mid_air_delta = null
 	############################################################################################################
