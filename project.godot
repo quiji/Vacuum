@@ -13,7 +13,7 @@ config_version=3
 debug_mode=false
 start_date="9 Jan 2018"
 patch=66
-minor=132
+minor=133
 major=0
 
 [application]

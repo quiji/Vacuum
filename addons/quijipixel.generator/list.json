@@ -857,6 +857,156 @@
               "param": ""
             }
           ]
+        },
+        "LandToRoll": {
+          "loop": false,
+          "ping_pong": false,
+          "frames": [
+            {
+              "id": 100,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 101,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 102,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 103,
+              "time": 30,
+              "react": 1,
+              "param": ""
+            },
+            {
+              "id": 104,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 105,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 106,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 107,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 108,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 109,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 110,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 111,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 112,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 113,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 114,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 115,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 116,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 117,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 118,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 119,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 120,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 121,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 122,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            },
+            {
+              "id": 123,
+              "time": 30,
+              "react": 0,
+              "param": ""
+            }
+          ]
         }
       },
       "target_dir": "res://characters/sprites",
