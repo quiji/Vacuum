@@ -178,6 +178,7 @@ func reached_ground(ground_object, hard_land):
 	if not $sprite.is_playing("EndRoll"):
 		if hard_land:
 			$sprite.land_to_roll()
+			move(200)
 		elif is_moving():
 			$sprite.land_to_run()
 		elif not is_moving() and not $sprite.is_looking():
@@ -304,6 +305,9 @@ func _process_behavior(delta):
 
 func _gravity_behavior(delta):
 	
+	if $sprite.is_landing_to_roll():
+		return
+	
 	var left_just_p = Input.is_action_just_pressed("ui_left")
 	var left_p = Input.is_action_pressed("ui_left")
 	var left_just_r = Input.is_action_just_released("ui_left")
@@ -330,7 +334,7 @@ func _gravity_behavior(delta):
 			
 			if is_on_ground():
 				$sprite.play("Idle")
-		elif not left_p and not right_p and not $sprite.is_landing_to_roll():
+		elif not left_p and not right_p:
 			stop()
 	
 	if Input.is_action_just_pressed("jump") and is_on_ground():

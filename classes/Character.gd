@@ -19,6 +19,7 @@ const SWIM_STROKE_DURATION = 0.6
 
 #const ON_GROUNDTHRESHOLD = 0.025
 const ON_GROUNDTHRESHOLD = 0.05
+const FALL_MAX_VELOCITY = -650
 
 enum ControlMode {ROTATION, INVERSION}
 
@@ -498,7 +499,7 @@ func check_ground_reach(center_verification):
 
 	if collided and (_falling or center_verification.changed_center ) :
 		var hard_land = false
-		if _altitude_velocity_scalar == -700:
+		if _altitude_velocity_scalar == FALL_MAX_VELOCITY:
 			hard_land = true
 		_altitude_velocity_scalar = 0
 		_prev_altitude_velocity_scalar = 0
@@ -792,7 +793,7 @@ func _gravity_physics(delta):
 			collision_normal = ground_cast_result.normal
 			_on_ground = true
 			if _falling:
-				reached_ground(_gravity_center, _altitude_velocity_scalar == -700)
+				reached_ground(_gravity_center, _altitude_velocity_scalar == FALL_MAX_VELOCITY)
 			_falling = false
 
 			_prev_altitude_velocity_scalar = 0
@@ -860,8 +861,8 @@ func _gravity_physics(delta):
 
 		_prev_altitude_velocity_scalar = _altitude_velocity_scalar
 		_altitude_velocity_scalar += _gravity_scalar * delta
-		if _altitude_velocity_scalar < -700:
-			_altitude_velocity_scalar = -700
+		if _altitude_velocity_scalar < FALL_MAX_VELOCITY:
+			_altitude_velocity_scalar = FALL_MAX_VELOCITY
 
 		altitude_velocity = gravity * -_altitude_velocity_scalar
 	

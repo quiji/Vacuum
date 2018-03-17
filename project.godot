@@ -13,7 +13,7 @@ config_version=3
 debug_mode=false
 start_date="9 Jan 2018"
 patch=66
-minor=133
+minor=134
 major=0
 
 [application]
@@ -26,7 +26,6 @@ config/icon="res://icon.png"
 
 Resolution="*res://classes/Resolution.gd"
 Glb="*res://classes/Glb.tscn"
-Console="*res://addons/quijipixel.console/Console.tscn"
 
 [display]
 
@@ -70,8 +69,6 @@ texture={
 
 jump=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
  ]
-toggle_console=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777244,"unicode":0,"echo":false,"script":null)
- ]
 
 [layer_names]
 
@@ -89,4 +86,5 @@ common/physics_fps=70
 
 quality/intended_usage/framebuffer_allocation=0
 quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0.131804, 0.103607, 0.136719, 1 )
 environment/default_environment="res://default_env.tres"

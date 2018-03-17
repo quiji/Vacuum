@@ -86,8 +86,16 @@ func on_animation_finished(anim_name):
 				play("Idle")
 			else:
 				play("LookingUp")
+		"EndRoll":
+			if get_parent().is_moving():
+				play("Run")
+			else:
+				play("Idle")
 		"LandToRoll":
-			play("Idle")
+			if get_parent().is_moving():
+				play("Run")
+			else:
+				play("Idle")
 
 func on_timeout():
 	play("IdleLong")
