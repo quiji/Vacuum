@@ -363,6 +363,7 @@ func add_step_impulse(step_velocity):
 	#_target_move_velocity_scalar= step_velocity
 	_target_move_velocity_scalar = step_velocity * _facing * _invertor
 
+
 func stop(keep=true):
 	if not keep:
 		_target_move_velocity_scalar = 0
@@ -495,12 +496,15 @@ func check_ground_reach(center_verification):
 
 	var collided = center_verification.collision_info != null
 
-	if   collided and (_falling or center_verification.changed_center ) :
-		_prev_altitude_velocity_scalar = 0
+	if collided and (_falling or center_verification.changed_center ) :
+		var hard_land = false
+		if _altitude_velocity_scalar == -700:
+			hard_land = true
 		_altitude_velocity_scalar = 0
+		_prev_altitude_velocity_scalar = 0
 		_falling = false
 		_attempting_jump = false
-		reached_ground(_gravity_center)
+		reached_ground(_gravity_center, hard_land)
 		if not _moving:
 			_target_move_velocity_scalar = 0
 		return true
@@ -788,7 +792,7 @@ func _gravity_physics(delta):
 			collision_normal = ground_cast_result.normal
 			_on_ground = true
 			if _falling:
-				reached_ground(_gravity_center)
+				reached_ground(_gravity_center, _altitude_velocity_scalar == -700)
 			_falling = false
 
 			_prev_altitude_velocity_scalar = 0
@@ -809,14 +813,24 @@ func _gravity_physics(delta):
 	var altitude_velocity = Vector2()
 	var environment_velocity = Vector2()
 
+	"""
 	if step_delta > 0:
 		step_delta -= delta
 	
 	var step_t = 0
 	if step_duration > 0:
 		step_t = step_delta / step_duration
-	
 		_move_velocity_scalar = lerp(0, _target_move_velocity_scalar, Glb.Smooth.run_step(step_t))
+	"""
+	if step_delta > 0:
+		step_delta -= delta
+
+	var step_t = 0
+	step_t = step_delta / step_duration
+	_move_velocity_scalar = lerp(0, _target_move_velocity_scalar, Glb.Smooth.run_step(step_t))
+
+	Console.add_log("step_delta", step_delta)
+	Console.add_log("_target_move_velocity_scalar", _target_move_velocity_scalar)
 
 	# this normal has the collision included, if on air it will be just the center's normal. Ideal for _tarteg_normal
 	var move_norm = normal
@@ -872,6 +886,8 @@ func _gravity_physics(delta):
 		set_last_velocity(velocity)
 	else:
 		set_last_velocity(Vector2())
+
+
 
 	move_and_slide(velocity, normal, _slope_stop_min_vel, _max_bounce, _max_angle)
 	

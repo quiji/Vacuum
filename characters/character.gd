@@ -56,7 +56,8 @@ func _ready():
 	# Maybe this goes in the platform? we can play with platforms with different values
 	set_slope_stop_min_vel(slope_stop_min_velocity)
 
-	set_step_duration(0.46)
+	#set_step_duration(0.46)
+	set_step_duration(0.46 / 2)
 
 	old_sprite_pos = $sprite.position
 	old_shape_pos = $collision.position
@@ -166,7 +167,7 @@ func reaching_peak():
 	if not $sprite.is_playing("EndRoll") and not $sprite.is_playing("StartRoll"):
 		$sprite.play("Peak")
 
-func reached_ground(ground_object):
+func reached_ground(ground_object, hard_land):
 	
 	set_gravity_scalar(lowest_gravity_scalar)
 	
@@ -175,7 +176,9 @@ func reached_ground(ground_object):
 		add_step_impulse(run_velocity)
 	
 	if not $sprite.is_playing("EndRoll"):
-		if is_moving():
+		if hard_land:
+			$sprite.land_to_roll()
+		elif is_moving():
 			$sprite.land_to_run()
 		elif not is_moving() and not $sprite.is_looking():
 			$sprite.play("LandToIdle")
@@ -327,7 +330,7 @@ func _gravity_behavior(delta):
 			
 			if is_on_ground():
 				$sprite.play("Idle")
-		elif not left_p and not right_p:
+		elif not left_p and not right_p and not $sprite.is_landing_to_roll():
 			stop()
 	
 	if Input.is_action_just_pressed("jump") and is_on_ground():

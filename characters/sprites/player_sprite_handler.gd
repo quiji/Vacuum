@@ -86,6 +86,8 @@ func on_animation_finished(anim_name):
 				play("Idle")
 			else:
 				play("LookingUp")
+		"LandToRoll":
+			play("Idle")
 
 func on_timeout():
 	play("IdleLong")
@@ -97,5 +99,11 @@ func land_to_run():
 	if not is_playing("LandToRun"):
 		play("LandToRun")
 
+
+func land_to_roll():
+	play("LandToRoll")
+
+func is_landing_to_roll():
+	return is_playing("LandToRoll")
 
 

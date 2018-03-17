@@ -7251,7 +7251,8 @@
     "task.304",
     "task.307",
     "task.309",
-    "task.310"
+    "task.310",
+    "task.312"
   ],
   "pending": {
     "task.134": {
@@ -7574,6 +7575,20 @@
         "hour": 15,
         "minute": 18,
         "second": 8
+      }
+    },
+    "task.312": {
+      "task": "Implement a cleaner way to handle movement. Remember to keep in mind step mechanics, jump movement, forced movement and future dash movement.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 17,
+        "weekday": 6,
+        "dst": false,
+        "hour": 15,
+        "minute": 24,
+        "second": 10
       }
     }
   }

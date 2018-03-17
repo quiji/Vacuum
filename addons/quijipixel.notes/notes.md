@@ -26,6 +26,9 @@ https://www.youtube.com/watch?v=2IfLmc9ZHt8
 Cuphead's Graphic Analisys:
 https://www.youtube.com/watch?v=o6rpEjyoOHw
 
+Some pixel art advice:
+https://cyangmou.deviantart.com/art/Top-5-Basic-Tips-for-Pixel-Art-457660938
+
 > Ideas from other places!!
 
 Check all this design stuff from Hollow Knight!
