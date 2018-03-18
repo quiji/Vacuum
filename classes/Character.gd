@@ -429,13 +429,12 @@ func verify_center_change(delta):
 	
 	# Translate to original coordinates to be able to set correct position into raycaster, as the
 	# raycaster exist in the local coordinate system of the Character and not the global one
-	#var direction = transform_to_local(get_last_velocity_normalized()) * 25
 
-	var direction = transform_to_local(get_last_velocity() * 4 * delta)
+	var direction = transform_to_local(get_last_velocity() * 8 * delta)
 	var res = {}
 	
 	if not is_rolling():
-		res = $ground_raycast.cast_ray_ahead(direction, Glb.get_collision_layer_int(["Platform"]))
+		res = $ground_raycast.cast_ray_ahead(direction)
 
 	if not res.empty() and not is_room_env() and res.collider != _gravity_center:
 		# there should be a way to mark this as a before collision center change

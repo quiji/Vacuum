@@ -290,7 +290,9 @@
     "task.308",
     "task.311",
     "task.299",
-    "task.289"
+    "task.289",
+    "task.314",
+    "task.315"
   ],
   "completed": {
     "task.0": {
@@ -7275,6 +7277,54 @@
         "hour": 21,
         "minute": 22,
         "second": 1
+      }
+    },
+    "task.314": {
+      "task": "Land to roll is unnecesary and feels weird... remove it.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 18,
+        "weekday": 0,
+        "dst": false,
+        "hour": 17,
+        "minute": 57,
+        "second": 44
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 18,
+        "weekday": 0,
+        "dst": false,
+        "hour": 19,
+        "minute": 56,
+        "second": 56
+      }
+    },
+    "task.315": {
+      "task": "Add more ray casts to ground raycaster to check for head gravity center swaps.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 18,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 33,
+        "second": 21
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 18,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 43,
+        "second": 12
       }
     }
   },

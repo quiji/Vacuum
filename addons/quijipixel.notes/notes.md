@@ -14,6 +14,9 @@ naci a las 12 del medio dia del 24 del 1 de 1984
 Pixel Perfect Scaling thread:
 https://github.com/godotengine/godot/issues/6506
 
+> Some time management tips
+https://www.youtube.com/watch?v=6BzCDVR-tr8
+
 > Characters!!
 How to create characters!
 https://www.youtube.com/watch?v=4mgK2hL33Vw

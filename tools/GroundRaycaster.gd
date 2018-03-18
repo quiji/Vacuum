@@ -167,21 +167,16 @@ func cast_movement(motion, collision_layer):
 		
 	return {rest = rest_result, motion = motion_result}
 
-func cast_ray_ahead(motion, collision_layer):
+func cast_ray_ahead(motion):
 
 	if Engine.editor_hint:
 		return null
-
-	var collision_layer_int = collision_layer
-	var space_rid = get_world_2d().get_space()
-	var space_state = Physics2DServer.space_get_direct_state(space_rid)
 	
 	var result = {}
 
 	$head_ray.position = $point_c.position
 	$head_ray.cast_to = motion
 	$head_ray.force_raycast_update()
-
 
 	if $head_ray.is_colliding():
 		result = {
@@ -190,9 +185,32 @@ func cast_ray_ahead(motion, collision_layer):
 			point = $head_ray.get_collision_point(),
 			is_headcast = true
 		}
+		return result
+
+	$head_ray.cast_to = motion.rotated(PI / 4)
+	$head_ray.force_raycast_update()
+
+	if $head_ray.is_colliding():
+		result = {
+			collider = $head_ray.get_collider(),
+			normal =  $head_ray.get_collision_normal(),
+			point = $head_ray.get_collision_point(),
+			is_headcast = true
+		}
+		return result
+
+	$head_ray.cast_to = motion.rotated(-PI / 4)
+	$head_ray.force_raycast_update()
+
+	if $head_ray.is_colliding():
+		result = {
+			collider = $head_ray.get_collider(),
+			normal =  $head_ray.get_collision_normal(),
+			point = $head_ray.get_collision_point(),
+			is_headcast = true
+		}
+		return result
 
 
-	
 	return result
-
 
