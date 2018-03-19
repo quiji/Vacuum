@@ -12,8 +12,8 @@ config_version=3
 
 debug_mode=false
 start_date="9 Jan 2018"
-patch=63
-minor=128
+patch=67
+minor=136
 major=0
 
 [application]
@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Resolution="*res://classes/Resolution.gd"
 Glb="*res://classes/Glb.tscn"
 
 [display]
@@ -85,4 +86,5 @@ common/physics_fps=70
 
 quality/intended_usage/framebuffer_allocation=0
 quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0.131804, 0.103607, 0.136719, 1 )
 environment/default_environment="res://default_env.tres"

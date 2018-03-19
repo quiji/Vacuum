@@ -24,6 +24,7 @@ func _ready():
 	add_command("log", self, "_activate_log", "Activate/deactivate by running log on/off")
 	add_command("reboot", self, "_reboot", "Restart current scene")
 	add_command("unpause", self, "_unpause", "Unpause game")
+	add_command("force_fps", self, "_force_fps", "Force game to target fps")
 	
 func _input(delta):
 	if Input.is_action_just_pressed("toggle_console"):
@@ -268,6 +269,14 @@ func _activate_log(args):
 	else:
 		set_visual_log(false)
 		out.info("Finished logging.")
+
+func _force_fps(args):
+	if args.size() != 1:
+		out.warn("The parameters of the command are not as expected, use the 0¡ command for assistance.", ["help"])
+	else:
+		Engine.target_fps = int(args[0])
+		out.info("Forcing to 0¡...", [args[0]])
+
 
 func _reboot(args):
 	out.info("Rebooting scene...")

@@ -280,7 +280,19 @@
     "task.303",
     "task.294",
     "task.261",
-    "task.152"
+    "task.152",
+    "task.306",
+    "task.136",
+    "task.238",
+    "task.248",
+    "task.254",
+    "task.305",
+    "task.308",
+    "task.311",
+    "task.299",
+    "task.289",
+    "task.314",
+    "task.315"
   ],
   "completed": {
     "task.0": {
@@ -7026,6 +7038,294 @@
         "minute": 18,
         "second": 8
       }
+    },
+    "task.306": {
+      "task": "When the normal is not Vector2(0, -1), the look feature doesn't looks \"up\"",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 7,
+        "minute": 52,
+        "second": 35
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 7,
+        "minute": 57,
+        "second": 56
+      }
+    },
+    "task.136": {
+      "creation_date": {
+        "day": 2,
+        "dst": true,
+        "hour": 17,
+        "minute": 40,
+        "month": 2,
+        "second": 35,
+        "weekday": 5,
+        "year": 2018
+      },
+      "task": "Make water balls collide with platforms and move away, also make code to avoid water entering rigid platform collision areas.",
+      "type": "Feature",
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 45,
+        "second": 44
+      }
+    },
+    "task.238": {
+      "task": "When player is in the limbo between a gravity platform and a water platform, it starts behaving badly because of offset change.(or something)",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 3,
+        "weekday": 6,
+        "dst": true,
+        "hour": 17,
+        "minute": 8,
+        "second": 13
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 46,
+        "second": 0
+      }
+    },
+    "task.248": {
+      "task": "Sometimes when arriving from water platform to a gravity one, the character enters the body and then rotates looking annoyingly wrong.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 11,
+        "minute": 57,
+        "second": 3
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 46,
+        "second": 10
+      }
+    },
+    "task.254": {
+      "task": "Implement arriving to a gravity center inside of a water platform.",
+      "type": "Feature",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 4,
+        "weekday": 0,
+        "dst": true,
+        "hour": 13,
+        "minute": 8,
+        "second": 24
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 46,
+        "second": 52
+      }
+    },
+    "task.305": {
+      "task": "Implement bouncing free rolling when arriving by head.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 12,
+        "minute": 31,
+        "second": 15
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 14,
+        "minute": 47,
+        "second": 21
+      }
+    },
+    "task.308": {
+      "task": "Clean and improve the roll gravity switch code, then implement on space center.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 8,
+        "minute": 7,
+        "second": 41
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 15,
+        "minute": 17,
+        "second": 45
+      }
+    },
+    "task.311": {
+      "task": "Create land to roll animation.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 21,
+        "minute": 44,
+        "second": 53
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 21,
+        "minute": 44,
+        "second": 56
+      }
+    },
+    "task.299": {
+      "task": "Create falling from high and rolling.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 11,
+        "minute": 36,
+        "second": 32
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 17,
+        "weekday": 6,
+        "dst": false,
+        "hour": 16,
+        "minute": 3,
+        "second": 51
+      }
+    },
+    "task.289": {
+      "task": "Sometimes player jump in a direction but backfires into the opposite direction unexpectedly.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 11,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 58,
+        "second": 41
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 17,
+        "weekday": 6,
+        "dst": false,
+        "hour": 21,
+        "minute": 22,
+        "second": 1
+      }
+    },
+    "task.314": {
+      "task": "Land to roll is unnecesary and feels weird... remove it.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 18,
+        "weekday": 0,
+        "dst": false,
+        "hour": 17,
+        "minute": 57,
+        "second": 44
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 18,
+        "weekday": 0,
+        "dst": false,
+        "hour": 19,
+        "minute": 56,
+        "second": 56
+      }
+    },
+    "task.315": {
+      "task": "Add more ray casts to ground raycaster to check for head gravity center swaps.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 18,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 33,
+        "second": 21
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 18,
+        "weekday": 0,
+        "dst": false,
+        "hour": 20,
+        "minute": 43,
+        "second": 12
+      }
     }
   },
   "pend_order": [
@@ -7035,23 +7335,23 @@
     "task.85",
     "task.134",
     "task.135",
-    "task.136",
     "task.155",
     "task.176",
     "task.200",
     "task.209",
-    "task.238",
-    "task.248",
-    "task.254",
     "task.256",
     "task.262",
     "task.271",
     "task.277",
     "task.283",
-    "task.289",
     "task.290",
-    "task.299",
-    "task.302"
+    "task.302",
+    "task.304",
+    "task.307",
+    "task.309",
+    "task.310",
+    "task.312",
+    "task.313"
   ],
   "pending": {
     "task.134": {
@@ -7080,20 +7380,6 @@
         "year": 2018
       },
       "task": "Make water ball platform fussionate and grow in size.",
-      "type": "Feature"
-    },
-    "task.136": {
-      "creation_date": {
-        "day": 2,
-        "dst": true,
-        "hour": 17,
-        "minute": 40,
-        "month": 2,
-        "second": 35,
-        "weekday": 5,
-        "year": 2018
-      },
-      "task": "Make water balls collide with platforms and move away, also make code to avoid water entering rigid platform collision areas.",
       "type": "Feature"
     },
     "task.155": {
@@ -7208,48 +7494,6 @@
         "second": 9
       }
     },
-    "task.238": {
-      "task": "When player is in the limbo between a gravity platform and a water platform, it starts behaving badly because of offset change.(or something)",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 3,
-        "weekday": 6,
-        "dst": true,
-        "hour": 17,
-        "minute": 8,
-        "second": 13
-      }
-    },
-    "task.248": {
-      "task": "Sometimes when arriving from water platform to a gravity one, the character enters the body and then rotates looking annoyingly wrong.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 11,
-        "minute": 57,
-        "second": 3
-      }
-    },
-    "task.254": {
-      "task": "Implement arriving to a gravity center inside of a water platform.",
-      "type": "Feature",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 4,
-        "weekday": 0,
-        "dst": true,
-        "hour": 13,
-        "minute": 8,
-        "second": 24
-      }
-    },
     "task.256": {
       "task": "Test/implement dynamic lightning",
       "type": "Remainder",
@@ -7320,20 +7564,6 @@
         "second": 57
       }
     },
-    "task.289": {
-      "task": "Sometimes player jump in a direction but backfires into the opposite direction unexpectedly.",
-      "type": "Bug",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 11,
-        "weekday": 0,
-        "dst": false,
-        "hour": 20,
-        "minute": 58,
-        "second": 41
-      }
-    },
     "task.290": {
       "task": "Water movement is messed up when camera is rotated in a weird angle.",
       "type": "Bug",
@@ -7348,20 +7578,6 @@
         "second": 49
       }
     },
-    "task.299": {
-      "task": "Create falling from high and rolling.",
-      "type": "Task",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 13,
-        "weekday": 2,
-        "dst": false,
-        "hour": 11,
-        "minute": 36,
-        "second": 32
-      }
-    },
     "task.302": {
       "task": "Be on watch for the annoying jump backfire bug. If it doesn't happen ever again... then we fixed it dammit!! yeah!",
       "type": "Remainder",
@@ -7374,6 +7590,90 @@
         "hour": 21,
         "minute": 41,
         "second": 17
+      }
+    },
+    "task.304": {
+      "task": "Remember to use the grid to create the levels. We need it to snap to make it measurable.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 14,
+        "weekday": 3,
+        "dst": false,
+        "hour": 10,
+        "minute": 56,
+        "second": 43
+      }
+    },
+    "task.307": {
+      "task": "Remember to use the Step reaction concept for the land-roll animation.",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 8,
+        "minute": 3,
+        "second": 45
+      }
+    },
+    "task.309": {
+      "task": "After rolling, animation doesn't transition to idle or running.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 15,
+        "minute": 11,
+        "second": 20
+      }
+    },
+    "task.310": {
+      "task": "Clean and implement rolling animations and transitions to idle and running.",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 15,
+        "weekday": 4,
+        "dst": false,
+        "hour": 15,
+        "minute": 18,
+        "second": 8
+      }
+    },
+    "task.312": {
+      "task": "Implement a cleaner way to handle movement. Remember to keep in mind step mechanics, jump movement, forced movement and future dash movement.",
+      "type": "Refactor",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 17,
+        "weekday": 6,
+        "dst": false,
+        "hour": 15,
+        "minute": 24,
+        "second": 10
+      }
+    },
+    "task.313": {
+      "task": "After landtoroll finishes, even if the player is not moving the character starts the run animation.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 17,
+        "weekday": 6,
+        "dst": false,
+        "hour": 16,
+        "minute": 1,
+        "second": 58
       }
     }
   }

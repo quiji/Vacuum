@@ -11,6 +11,15 @@ naci a las 12 del medio dia del 24 del 1 de 1984
 - 480x270 (Based on Hyper Light Drifter's res)
 - 640x360 
 - 1280x720
+Pixel Perfect Scaling thread:
+https://github.com/godotengine/godot/issues/6506
+
+> Some time management tips
+https://www.youtube.com/watch?v=6BzCDVR-tr8
+
+> Characters!!
+How to create characters!
+https://www.youtube.com/watch?v=4mgK2hL33Vw
 
 > Art!!
 
@@ -19,6 +28,9 @@ https://www.youtube.com/watch?v=2IfLmc9ZHt8
 
 Cuphead's Graphic Analisys:
 https://www.youtube.com/watch?v=o6rpEjyoOHw
+
+Some pixel art advice:
+https://cyangmou.deviantart.com/art/Top-5-Basic-Tips-for-Pixel-Art-457660938
 
 > Ideas from other places!!
 
