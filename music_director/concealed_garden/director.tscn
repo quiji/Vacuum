@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://music_director/concealed_garden/director.gd" type="Script" id=1]
+[ext_resource path="res://music_director/concealed_garden/intro_A.ogg" type="AudioStream" id=2]
+[ext_resource path="res://music_director/concealed_garden/intro_B.ogg" type="AudioStream" id=3]
+[ext_resource path="res://music_director/concealed_garden/intro_C.ogg" type="AudioStream" id=4]
+[ext_resource path="res://music_director/concealed_garden/theme.ogg" type="AudioStream" id=5]
+
+[node name="concealed_garden" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="intro A" type="AudioStreamPlayer" parent="." index="0"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Music"
+
+[node name="intro B" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Music"
+
+[node name="intro C" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Music"
+
+[node name="theme" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Music"
+
+

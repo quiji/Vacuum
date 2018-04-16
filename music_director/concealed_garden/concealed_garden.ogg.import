@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/concealed_garden.ogg-2e215e284570452efe51198ae265ce69.oggstr"
+
+[deps]
+
+source_file="res://music_director/concealed_garden/concealed_garden.ogg"
+source_md5="66ef59a31f86b57a91b46c8d2a5c29e8"
+
+dest_files=[ "res://.import/concealed_garden.ogg-2e215e284570452efe51198ae265ce69.oggstr" ]
+dest_md5="fa8e1e794e65a79c08b17e73bb455527"
+
+[params]
+
+loop=true
+loop_offset=0

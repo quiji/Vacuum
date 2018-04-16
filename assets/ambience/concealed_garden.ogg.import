@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/concealed_garden.ogg-d06fea34b3ad9ed4542262ac63cdbf2a.oggstr"
+
+[deps]
+
+source_file="res://assets/ambience/concealed_garden.ogg"
+source_md5="e2c9071382cb5fc2458345caa5bceda5"
+
+dest_files=[ "res://.import/concealed_garden.ogg-d06fea34b3ad9ed4542262ac63cdbf2a.oggstr" ]
+dest_md5="b5f18d1cc2da37382a2a4827fd057858"
+
+[params]
+
+loop=false
+loop_offset=0

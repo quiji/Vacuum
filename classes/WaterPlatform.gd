@@ -106,6 +106,7 @@ func setup_radial_structures():
 	
 	$collision.shape.radius = radius - WATER_INNER_RADIUS
 	$water_reaction_area/collision.shape.radius = radius * (1 + margin)
+	
 
 	#$water_shader.set_radius(radius * 1.02)
 	$water_shader.set_radius(radius * (1 + margin))
@@ -124,11 +125,15 @@ func on_body_in(body):
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
 	if body.has_method("set_water_center"):
 		body.check_for_water_arrival(global_position, radius)
+	Glb.music_water_bus()
+
 
 func on_body_out(body):
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
 	if body.has_method("set_water_center"):
 		body.failed_water_arrival()
+
+	Glb.music_restore_bus()
 
 func child_movement(pos):
 	var factor = pos.length() / radius 

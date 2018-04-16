@@ -9,10 +9,10 @@
 custom_solver_bias = 0.0
 radius = 9.02559
 
-[node name="character" type="KinematicBody2D" index="0"]
+[node name="character" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 13
+collision_layer = 29
 collision_mask = 5
 collision/safe_margin = 0.08
 script = ExtResource( 1 )

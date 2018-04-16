@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Wind-SoundBible.com-950807958.wav-88bbcc50b0929b6e04aded47d5f3da53.sample"
+
+[deps]
+
+source_file="res://_asset_design/ReaperSound/SpaceAmbience/Wind-SoundBible.com-950807958.wav"
+source_md5="62cd839af582fda78e95f9932dd81306"
+
+dest_files=[ "res://.import/Wind-SoundBible.com-950807958.wav-88bbcc50b0929b6e04aded47d5f3da53.sample" ]
+dest_md5="598fe3e06293a4cb59cb85fad178583d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

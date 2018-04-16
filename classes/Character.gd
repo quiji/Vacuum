@@ -90,7 +90,11 @@ var step_delta = 0
 var step_duration = 0
 var peak_jump_time
 var jump_delta = 0
+
+# Variables to control mid air roll when shifting gravity center
 var mid_air_delta = null
+var mid_air_roll_distance = 0
+
 
 ######## States #########
 var _on_ground = false
@@ -444,7 +448,8 @@ func verify_center_change(delta):
 	var result = {
 		changed_center = false,
 		collision_info = null,
-		is_headcast = false
+		is_headcast = false,
+		head_info = res
 	}
 
 
@@ -526,7 +531,7 @@ func control_velocity_for_head_arrival(vel, gravity, delta):
 			mid_air_delta = null
 			vel = Vector2()
 		else:
-			vel = gravity * 810 * mid_air_delta
+			vel = gravity * 1300 * mid_air_roll_distance * mid_air_delta
 	return vel
 
 func verify_head_arrival(center_verification):
@@ -538,7 +543,12 @@ func verify_head_arrival(center_verification):
 		_move_velocity_scalar = 0
 		step_delta = 0
 		jump_delta = 0
+		
+		var coll_direction = center_verification.head_info.point - global_position
 		mid_air_delta = 0.3
+		mid_air_roll_distance = (coll_direction.length() - 30) / 50
+		Console.add_log("mid_air_roll_distance", mid_air_roll_distance)
+		
 		if not is_on_ground():
 			_falling = true
 			_attempting_jump = false

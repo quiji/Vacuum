@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SpaceAmbience.ogg-c3fe78184931793093b5d2c7e68a1272.oggstr"
+
+[deps]
+
+source_file="res://_asset_design/ReaperSound/SpaceAmbience/SpaceAmbience.ogg"
+source_md5="9f276598869814d5ae51e97a30ac0ac6"
+
+dest_files=[ "res://.import/SpaceAmbience.ogg-c3fe78184931793093b5d2c7e68a1272.oggstr" ]
+dest_md5="768c129e2d98fb5fb64d400861101b2d"
+
+[params]
+
+loop=true
+loop_offset=0

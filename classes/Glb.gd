@@ -4,6 +4,12 @@ const VectorLib = preload("res://classes/VectorLib.gd")
 const Smooth = preload("res://classes/Smoothstep.gd")
 const CameraCrew = preload("res://gui/camera_crew.gd")
 
+
+####### MUSICS #########
+const ConcealedGarden = preload("res://music_director/concealed_garden/director.tscn")
+
+enum MusicCompositions {CONCEALED_GARDEN}
+
 enum ReactTypes {NO_REACTION, REACT_STEP, REACT_SWIMSTROKE, REACT_ENDSWIMSTROKE}
 
 var _collision_layer_bits = {}
@@ -150,3 +156,47 @@ func set_new_scene(scene_resource):
 	current_scene.preinstall()
 	get_tree().get_root().add_child(current_scene)
 
+################################################################################################
+#
+#                                        Music Directors
+#
+################################################################################################
+
+var current_music = null
+var current_composition = null
+func start_music(composition):
+	if current_composition == composition:
+		return 
+
+	match composition:
+		CONCEALED_GARDEN:
+
+			current_music = ConcealedGarden.instance()
+			add_child(current_music)
+			current_music.start()
+			current_composition = composition
+			
+			
+
+func music():
+	return current_music
+
+var prev_bus = null
+const MUSIC_BUS = 4
+func music_outter_bus():
+	AudioServer.set_bus_send(MUSIC_BUS, "Outdoors")
+	prev_bus = 0
+	
+func music_inner_bus():
+	AudioServer.set_bus_send(MUSIC_BUS, "Indoors")
+	prev_bus = 1
+
+func music_restore_bus():
+	if prev_bus == 0:
+		music_outter_bus()
+	else:
+		music_inner_bus()
+
+func music_water_bus():
+	AudioServer.set_bus_send(MUSIC_BUS, "WaterBubble")
+	

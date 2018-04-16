@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SpaceAmbience.wav-3cab49e13702fac85e28318b746a2cc4.sample"
+
+[deps]
+
+source_file="res://assets/ambience/SpaceAmbience.wav"
+source_md5="34d6864d6732c43250f135396347e30a"
+
+dest_files=[ "res://.import/SpaceAmbience.wav-3cab49e13702fac85e28318b746a2cc4.sample" ]
+dest_md5="992653955e52af406cb54080a33aa7ce"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

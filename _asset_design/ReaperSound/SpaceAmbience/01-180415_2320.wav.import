@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/01-180415_2320.wav-edbfeaa10a9c32cff5dbf4523d039956.sample"
+
+[deps]
+
+source_file="res://_asset_design/ReaperSound/SpaceAmbience/01-180415_2320.wav"
+source_md5="c3080a36602a8dfb701b7a552ac0ac10"
+
+dest_files=[ "res://.import/01-180415_2320.wav-edbfeaa10a9c32cff5dbf4523d039956.sample" ]
+dest_md5="dc70274918781e5887d3e79d3102b5a7"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

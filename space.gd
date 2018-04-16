@@ -10,3 +10,4 @@ func _ready():
 
 	#$camera_man.zoom_in()
 	install_components($playground/character)
+

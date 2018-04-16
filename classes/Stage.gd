@@ -1,5 +1,9 @@
 extends Node2D
 
+enum SceneTypes {OUTER_SPACE, IN_SHIP}
+
+var scene_type
+
 var black_background_color = Color("#211a22")
 
 var camera_crew = null
@@ -7,7 +11,9 @@ var hud = null
 
 var door_to_spawn = null
 
-func install_components(player):
+func install_components(scene_ty, player):
+	scene_type = scene_ty
+	
 	if door_to_spawn != null:
 		var doors = get_tree().get_nodes_in_group("doors")
 		for door in doors:
@@ -22,10 +28,14 @@ func install_components(player):
 	hud.set_name("hud")
 	add_child(hud)
 
-	$tween.interpolate_property($blackout, "color", $blackout.color, Color(1, 1, 1), 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN, 0.5)
+	$tween.interpolate_property($blackout, "color", $blackout.color, Color(1, 1, 1), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT, 0.5)
 	$tween.start()
 
-
+	if scene_type == OUTER_SPACE:
+		Glb.music_outter_bus()
+	else:
+		Glb.music_inner_bus()
+		
 func spawn_on_door(door_id):
 	door_to_spawn = door_id
 
@@ -45,7 +55,7 @@ var door_id = null
 func fade_towards(target, door):
 	target_stage = target
 	door_id = door
-	$tween.interpolate_property($blackout, "color", $blackout.color, black_background_color, 1.0, Tween.TRANS_CUBIC, Tween.EASE_IN, 0.5)
+	$tween.interpolate_property($blackout, "color", $blackout.color, black_background_color, 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT, 0.5)
 	$tween.start()
 	
 func on_tween_completed(object, key):

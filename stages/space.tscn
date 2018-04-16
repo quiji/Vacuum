@@ -8,7 +8,7 @@
 [ext_resource path="res://platforms/random_rectangle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://platforms/water_platform.tscn" type="PackedScene" id=7]
 
-[node name="space" type="Node2D" index="0"]
+[node name="space" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -24,6 +24,7 @@ door_id = "test_door"
 
 [node name="playground" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="character" parent="playground" index="0" instance=ExtResource( 4 )]
