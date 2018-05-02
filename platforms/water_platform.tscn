@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://classes/WaterPlatform.gd" type="Script" id=1]
 [ext_resource path="res://tools/Circle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/ambience/WaterAmbience.wav" type="AudioStream" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -191,5 +192,21 @@ _sections_unfolded = [ "Collision" ]
 [node name="collision" type="CollisionShape2D" parent="water_reaction_area" index="0"]
 
 shape = SubResource( 7 )
+
+[node name="water_ambience" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Ambience"
+
+[node name="water_ambience2" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Ambience"
 
 

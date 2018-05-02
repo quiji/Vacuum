@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/195509__cubicapocalypse__underwater-loop1.wav-bdfb39bc11104bb35a5d933675c07f10.sample"
+
+[deps]
+
+source_file="res://_asset_design/AudacitySound/WaterAmbience/195509__cubicapocalypse__underwater-loop1.wav"
+source_md5="297ac3f41973e0af453d850810f89383"
+
+dest_files=[ "res://.import/195509__cubicapocalypse__underwater-loop1.wav-bdfb39bc11104bb35a5d933675c07f10.sample" ]
+dest_md5="a6ace098a41e556d319fbd3fc1a83b93"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

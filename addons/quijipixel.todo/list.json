@@ -292,7 +292,14 @@
     "task.299",
     "task.289",
     "task.314",
-    "task.315"
+    "task.315",
+    "task.302",
+    "task.316",
+    "task.322",
+    "task.321",
+    "task.320",
+    "task.319",
+    "task.313"
   ],
   "completed": {
     "task.0": {
@@ -7326,6 +7333,174 @@
         "minute": 43,
         "second": 12
       }
+    },
+    "task.302": {
+      "task": "Be on watch for the annoying jump backfire bug. If it doesn't happen ever again... then we fixed it dammit!! yeah!",
+      "type": "Remainder",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 13,
+        "weekday": 2,
+        "dst": false,
+        "hour": 21,
+        "minute": 41,
+        "second": 17
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 12,
+        "minute": 12,
+        "second": 53
+      }
+    },
+    "task.316": {
+      "task": "Ambience Audio has noise at beginning/end :(",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 16,
+        "minute": 55,
+        "second": 43
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 47,
+        "second": 24
+      }
+    },
+    "task.322": {
+      "task": "Implement outdoors/indoors buses",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 47,
+        "second": 57
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 48,
+        "second": 0
+      }
+    },
+    "task.321": {
+      "task": "Implement water bus",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 47,
+        "second": 47
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 48,
+        "second": 1
+      }
+    },
+    "task.320": {
+      "task": "Implement triggers",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 47,
+        "second": 41
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 48,
+        "second": 2
+      }
+    },
+    "task.319": {
+      "task": "Implement director",
+      "type": "Task",
+      "creation_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 47,
+        "second": 35
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 48,
+        "second": 3
+      }
+    },
+    "task.313": {
+      "task": "After landtoroll finishes, even if the player is not moving the character starts the run animation.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 3,
+        "day": 17,
+        "weekday": 6,
+        "dst": false,
+        "hour": 16,
+        "minute": 1,
+        "second": 58
+      },
+      "completion_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 21,
+        "minute": 53,
+        "second": 1
+      }
     }
   },
   "pend_order": [
@@ -7345,13 +7520,13 @@
     "task.277",
     "task.283",
     "task.290",
-    "task.302",
     "task.304",
     "task.307",
     "task.309",
     "task.310",
     "task.312",
-    "task.313"
+    "task.317",
+    "task.318"
   ],
   "pending": {
     "task.134": {
@@ -7578,20 +7753,6 @@
         "second": 49
       }
     },
-    "task.302": {
-      "task": "Be on watch for the annoying jump backfire bug. If it doesn't happen ever again... then we fixed it dammit!! yeah!",
-      "type": "Remainder",
-      "creation_date": {
-        "year": 2018,
-        "month": 3,
-        "day": 13,
-        "weekday": 2,
-        "dst": false,
-        "hour": 21,
-        "minute": 41,
-        "second": 17
-      }
-    },
     "task.304": {
       "task": "Remember to use the grid to create the levels. We need it to snap to make it measurable.",
       "type": "Remainder",
@@ -7662,17 +7823,31 @@
         "second": 10
       }
     },
-    "task.313": {
-      "task": "After landtoroll finishes, even if the player is not moving the character starts the run animation.",
+    "task.317": {
+      "task": "If player jumps and shifts direction at the same time, when whe falls whe moves and running animations doesn't run.",
       "type": "Bug",
       "creation_date": {
         "year": 2018,
-        "month": 3,
-        "day": 17,
-        "weekday": 6,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
         "dst": false,
-        "hour": 16,
-        "minute": 1,
+        "hour": 17,
+        "minute": 44,
+        "second": 44
+      }
+    },
+    "task.318": {
+      "task": "Bus change is abrupt and makes noise sometimes.",
+      "type": "Bug",
+      "creation_date": {
+        "year": 2018,
+        "month": 4,
+        "day": 16,
+        "weekday": 1,
+        "dst": false,
+        "hour": 17,
+        "minute": 44,
         "second": 58
       }
     }

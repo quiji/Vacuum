@@ -7,10 +7,10 @@ path="res://.import/intro_C.ogg-c402fb6fcbbe942d8526be12f76011aa.oggstr"
 [deps]
 
 source_file="res://music_director/concealed_garden/intro_C.ogg"
-source_md5="e7dd182c2cfecc50575a62d6b4976c05"
+source_md5="a6f1321f4e0d07269a95f5007ab38ea9"
 
 dest_files=[ "res://.import/intro_C.ogg-c402fb6fcbbe942d8526be12f76011aa.oggstr" ]
-dest_md5="8338f14fbddbb880752d50565d3c9c40"
+dest_md5="033653468ffa03f54cf6581a1a56d639"
 
 [params]
 

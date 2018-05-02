@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WaterAmbience.wav-d58deeb9b031d8dc95f1f62001ff6bf3.sample"
+
+[deps]
+
+source_file="res://assets/ambience/WaterAmbience.wav"
+source_md5="f52e01a4dfa64ca1bbd652cfffac9cfa"
+
+dest_files=[ "res://.import/WaterAmbience.wav-d58deeb9b031d8dc95f1f62001ff6bf3.sample" ]
+dest_md5="b007775962aa561e5ff3f3e5eb35ee0d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=true
+compress/mode=0

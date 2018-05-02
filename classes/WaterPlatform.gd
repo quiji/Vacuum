@@ -64,6 +64,11 @@ func _ready():
 	$water_reaction_area.connect("body_entered", self, "on_body_in")
 	$water_reaction_area.connect("body_exited", self, "on_body_out")
 
+	$water_ambience.volume_db = -80
+	$water_ambience2.volume_db = -80
+	$tween.connect("tween_completed", self, "on_tween_completed")
+	
+	
 	setup_radial_structures()
 
 func set_radius(r):
@@ -121,19 +126,38 @@ func get_water_resistance_scalar():
 func get_water_resistance_squared_scalar():
 	return -WATER_RESISTANCE_SQUARED
 
+func entering_water(body):
+	Glb.music_water_bus()
+
+	$water_ambience.play()
+	$water_ambience2.play(0.8)
+	$tween.interpolate_property($water_ambience, "volume_db", $water_ambience.volume_db, -15, 0.15, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$tween.interpolate_property($water_ambience2, "volume_db", $water_ambience.volume_db, -15, 0.15, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$tween.start()
+
+func leaving_water(body):
+
+	Glb.music_restore_bus()
+	#$tween.interpolate_property($water_ambience, "volume_db", 0, -80, 0.15, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$tween.interpolate_property($water_ambience, "volume_db", -15, -80, 0.15, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$tween.interpolate_property($water_ambience2, "volume_db", -15, -80, 0.15, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$tween.start()
+
+
 func on_body_in(body):
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
 	if body.has_method("set_water_center"):
 		body.check_for_water_arrival(global_position, radius)
-	Glb.music_water_bus()
-
 
 func on_body_out(body):
 	set_wave_speed(WATER_ENTER_WAVE_SPEED)
 	if body.has_method("set_water_center"):
 		body.failed_water_arrival()
 
-	Glb.music_restore_bus()
+
+func on_tween_completed(obj, prop):
+	if obj == $water_ambience and $water_ambience.volume_db == -80:
+		$water_ambience.stop()
 
 func child_movement(pos):
 	var factor = pos.length() / radius 

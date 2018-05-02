@@ -66,6 +66,10 @@ func react(action):
 #  "Personal" implementations
 ####################
 
+var parent_is_moving = false
+func set_is_moving(moving):
+	parent_is_moving = moving
+
 func on_animation_finished(anim_name):
 	match anim_name:
 		"Swim":
@@ -92,7 +96,8 @@ func on_animation_finished(anim_name):
 			else:
 				play("Idle")
 		"LandToRoll":
-			if get_parent().is_moving():
+			#if get_parent().is_moving():
+			if parent_is_moving:
 				play("Run")
 			else:
 				play("Idle")

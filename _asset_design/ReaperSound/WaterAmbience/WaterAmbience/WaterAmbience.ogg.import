@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/WaterAmbience.ogg-e71884d5b907a14189755250c64b00ed.oggstr"
+
+[deps]
+
+source_file="res://_asset_design/ReaperSound/WaterAmbience/WaterAmbience/WaterAmbience.ogg"
+source_md5="8b95bae15ea612e1b84f042a19f44820"
+
+dest_files=[ "res://.import/WaterAmbience.ogg-e71884d5b907a14189755250c64b00ed.oggstr" ]
+dest_md5="4b5bb6188b0cbb3e27613138102c6a44"
+
+[params]
+
+loop=true
+loop_offset=0

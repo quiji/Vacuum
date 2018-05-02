@@ -217,9 +217,12 @@ func set_water_center(center):
 			swim_velocity = -position.normalized() * vel
 
 	
+		_water_center.entering_water(self)
+
 		entered_water(_water_center)
 	elif _water_center != null:
 
+		_water_center.leaving_water(self)
 		_water_center = null
 		left_water()
 

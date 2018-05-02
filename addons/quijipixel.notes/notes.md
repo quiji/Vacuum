@@ -21,6 +21,9 @@ https://www.youtube.com/watch?v=6BzCDVR-tr8
 How to create characters!
 https://www.youtube.com/watch?v=4mgK2hL33Vw
 
+> Shaders!!
+https://github.com/Guaranapps/godot3-shaders-samples
+
 > Art!!
 
 Hollow Knight's Graphic Aesthetics Analisys: 
@@ -42,6 +45,15 @@ http://mossbag69.blogspot.com/2018/02/hollow-knight-cut-content.html
 https://www.youtube.com/watch?v=pdvCO97jOQk
 
 > Music Notes
+
+Concealed Garden: 
+  - Add dynamics to all classical air instruments (fades)
+  - Review volumes (maybe a little more bones and tubas on background)
+  - Add more punch to return to theme (maybe a harp swing or something and heavy percussion)
+  - Make themes repetition variation (instead of playing theme twice, second time make a concluding theme)
+Castle in the sky:
+  - Make bridge longer, or remove it
+  - Create B section
 
 Modes ordered from brightest to darkest:
 - Lydian (3 suns)

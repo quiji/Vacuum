@@ -305,8 +305,6 @@ func _process_behavior(delta):
 
 func _gravity_behavior(delta):
 	
-	if $sprite.is_landing_to_roll():
-		return
 	
 	var left_just_p = Input.is_action_just_pressed("ui_left")
 	var left_p = Input.is_action_pressed("ui_left")
@@ -314,6 +312,11 @@ func _gravity_behavior(delta):
 	var right_just_p = Input.is_action_just_pressed("ui_right")
 	var right_p = Input.is_action_pressed("ui_right")
 	var right_just_r = Input.is_action_just_released("ui_right")
+	
+	if $sprite.is_landing_to_roll():
+		$sprite.set_is_moving(left_p or right_p)
+		return
+
 	
 	if is_rolling():
 		pass
