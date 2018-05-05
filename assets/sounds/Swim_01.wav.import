@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Swim_01.wav-c1fc9ae14d3a4f509d2d93d0e248fe3c.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Swim_01.wav"
+source_md5="17e37fc4ae9324ee9334936c27c3efef"
+
+dest_files=[ "res://.import/Swim_01.wav-c1fc9ae14d3a4f509d2d93d0e248fe3c.sample" ]
+dest_md5="e55b0a28b96d6685cf2f0fe7aca7109d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

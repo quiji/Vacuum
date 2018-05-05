@@ -18,7 +18,7 @@ func trigger_music_section(body):
 	
 	match trigger_type:
 		PLAY:
-			Glb.music().start()
+			Mus.music().start()
 		SECTION:
 			Console.add_log("music_section", trigger_section)
-			Glb.music().go_to_section(trigger_section)
+			Mus.music().go_to_section(trigger_section)

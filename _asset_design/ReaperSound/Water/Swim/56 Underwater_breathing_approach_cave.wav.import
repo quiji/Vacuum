@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/56 Underwater_breathing_approach_cave.wav-cb1ae1c705dda5b54f3e606f6f7251f0.sample"
+
+[deps]
+
+source_file="res://_asset_design/ReaperSound/Water/Swim/56 Underwater_breathing_approach_cave.wav"
+source_md5="850b13b9d06321ff62b7ce469446d307"
+
+dest_files=[ "res://.import/56 Underwater_breathing_approach_cave.wav-cb1ae1c705dda5b54f3e606f6f7251f0.sample" ]
+dest_md5="269e9e82a932fb465b015f0a42526c53"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

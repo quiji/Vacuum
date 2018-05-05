@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Theme.ogg-e1c2c5c62e6234ade7b9ea54ac939ff5.oggstr"
+
+[deps]
+
+source_file="res://music_director/castle_in_space/Theme.ogg"
+source_md5="0c679521e026d59a49ebc252a7e4b20d"
+
+dest_files=[ "res://.import/Theme.ogg-e1c2c5c62e6234ade7b9ea54ac939ff5.oggstr" ]
+dest_md5="7fb26ab3f6d8eb251b2ddeafed1201f1"
+
+[params]
+
+loop=true
+loop_offset=0

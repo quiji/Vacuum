@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/58 Dive in cave MS.wav-e049cb2c0e1526624f3cc6841d137a1c.sample"
+
+[deps]
+
+source_file="res://_asset_design/ReaperSound/Water/DiveIn/58 Dive in cave MS.wav"
+source_md5="ecc55580f6c7785f334605ab49f8df90"
+
+dest_files=[ "res://.import/58 Dive in cave MS.wav-e049cb2c0e1526624f3cc6841d137a1c.sample" ]
+dest_md5="c3af81c66c5cf95cf9124cce35edbe53"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sound_manager/water_bubble_sounds.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/DiveIn.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/ambience/WaterAmbience.wav" type="AudioStream" id=3]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+
+audio_stream = ExtResource( 2 )
+random_pitch = 1.1
+
+[node name="water_bubble_sounds" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="dive_in" type="AudioStreamPlayer2D" parent="." index="0"]
+
+stream = SubResource( 1 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Outdoors"
+area_mask = 0
+
+[node name="water_ambience" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Ambience"
+
+[node name="water_ambience2" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = false
+mix_target = 0
+bus = "Ambience"
+
+[node name="tween" type="Tween" parent="." index="3"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+

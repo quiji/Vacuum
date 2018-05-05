@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DiveIn.wav-f4eb36965c524c0515331c663364829a.sample"
+
+[deps]
+
+source_file="res://assets/sounds/DiveIn.wav"
+source_md5="edc925612b17a9dde9b91e22d46f505f"
+
+dest_files=[ "res://.import/DiveIn.wav-f4eb36965c524c0515331c663364829a.sample" ]
+dest_md5="fd58bbae83f1a0a4d21a5f1559c2bea9"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

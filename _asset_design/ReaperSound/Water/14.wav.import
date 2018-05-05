@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/14.wav-c138aef79a88be5554d6691931ea539b.sample"
+
+[deps]
+
+source_file="res://_asset_design/ReaperSound/Water/14.wav"
+source_md5="de9901d98bf67e3f6c8181fe202a4295"
+
+dest_files=[ "res://.import/14.wav-c138aef79a88be5554d6691931ea539b.sample" ]
+dest_md5="1102f360f8a042d0fb75145871aab51a"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

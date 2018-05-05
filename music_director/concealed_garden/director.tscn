@@ -6,9 +6,10 @@
 [ext_resource path="res://music_director/concealed_garden/intro_C.ogg" type="AudioStream" id=4]
 [ext_resource path="res://music_director/concealed_garden/theme.ogg" type="AudioStream" id=5]
 
-[node name="concealed_garden" type="Node" index="0"]
+[node name="concealed_garden" type="Node"]
 
 script = ExtResource( 1 )
+play_now = false
 
 [node name="intro A" type="AudioStreamPlayer" parent="." index="0"]
 

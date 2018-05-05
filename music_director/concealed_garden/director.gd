@@ -1,4 +1,5 @@
-extends Node
+extends "res://classes/MusicalDirector.gd"
+
 
 var next_section = null
 var current_section = null
@@ -25,3 +26,13 @@ func play_next_section():
 
 func finished_section():
 	play_next_section()
+
+func play_theme():
+	$"intro A".play()
+	current_section = "intro A"
+
+
+func stop_theme():
+	get_node(current_section).stop()
+	
+

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://characters/character.gd" type="Script" id=1]
 [ext_resource path="res://characters/sprites/gen_player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tools/GroundRaycaster.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sound_manager/player_sounds.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -44,5 +45,7 @@ show_lines = false
 
 build_mode = 0
 polygon = PoolVector2Array( -6.625, -33.375, 3.625, -36.875, 9.375, -30.125, 8.625, -25.125, 12.625, -20.125, 6.625, -7.875, -8.125, -8.875, -10.375, -21.375, -7.125, -23.125 )
+
+[node name="sounds" parent="." index="5" instance=ExtResource( 4 )]
 
 

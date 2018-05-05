@@ -408,6 +408,7 @@ func _water_behavior(delta):
 
 	if Input.is_action_just_pressed("jump"):
 		$sprite.play("Swim")
+		$sounds.swim()
 	elif Input.is_action_just_released("jump"):
 		increase_water_resistance()
 

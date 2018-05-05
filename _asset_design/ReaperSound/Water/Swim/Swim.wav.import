@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Swim.wav-8174e0dde0abcd98f932c17d447d6d00.sample"
+
+[deps]
+
+source_file="res://_asset_design/ReaperSound/Water/Swim/Swim.wav"
+source_md5="cd78bba8d00be24fcd76aaed76e4a0ee"
+
+dest_files=[ "res://.import/Swim.wav-8174e0dde0abcd98f932c17d447d6d00.sample" ]
+dest_md5="ae4cdd79e175646c9740a759277153af"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -30,12 +30,14 @@ func install_components(scene_ty, player):
 
 	$tween.interpolate_property($blackout, "color", $blackout.color, Color(1, 1, 1), 1.0, Tween.TRANS_CUBIC, Tween.EASE_OUT, 0.5)
 	$tween.start()
-
+	
+	
 	if scene_type == OUTER_SPACE:
-		Glb.music_outter_bus()
+		Mus.activate_outer_space_mod()
 	else:
-		Glb.music_inner_bus()
-		
+		Mus.restore_default_mod()
+
+	
 func spawn_on_door(door_id):
 	door_to_spawn = door_id
 
