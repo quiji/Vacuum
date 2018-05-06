@@ -40,7 +40,7 @@ var prev_mod = DEFAULT_MOD_BUS
 var current_mod = DEFAULT_MOD_BUS
 
 func restore_default_mod():
-	AudioServer.set_bus_bypass_effects(WATER_MOD_BUS, true)
+	#AudioServer.set_bus_bypass_effects(WATER_MOD_BUS, true)
 	AudioServer.set_bus_bypass_effects(OUTTER_SPACE_MOD_BUS, true)
 	prev_mod = current_mod
 	current_mod = DEFAULT_MOD_BUS
